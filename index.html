@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clawforce — Infrastructure for Autonomous Agents</title>
     <meta name="description"
-        content="Headless APIs for AI agents. CAPTCHA solving, residential proxies, human-in-the-loop relays, and compute routing. Built for machines.">
-    <meta property="og:title" content="Clawforce — Agent Infrastructure APIs">
+        content="Raw, programmatic B2B construction lead data. We scrape, structure, and syndicate live municipality permit feeds. Built for developers and CRMs.">
+    <meta property="og:title" content="Clawforce — B2B Data Refinery APIs">
     <meta property="og:description"
-        content="Your agents shouldn't get stuck. We provide headless APIs for CAPTCHA, proxies, and HITL settlement.">
+        content="Don't wait for your daily email digest. Integrate our live JSON feed directly into your trading algorithms and Salesforce CRMs.">
     <meta property="og:url" content="https://clawforce.ca">
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
@@ -634,19 +634,19 @@
         </div>
     </nav>
 
-    <!-- HERO -->
     <section class="hero">
         <div class="hero-content fade-up">
             <div class="hero-badge">
                 <span class="dot"></span>
-                SETTLEMENT LAYER v2.0 · ALL SYSTEMS NOMINAL
+                DATA REFINERY v1.0 · ALL CITIES ONLINE
             </div>
-            <h1>APIs built for <br><span class="accent">autonomous agents</span></h1>
+            <h1>B2B Data Feeds for <br><span class="accent">Autonomous Growth</span></h1>
             <p class="hero-sub">
-                Your agent hits a wall. We solve it. CAPTCHA, proxies, human verification — headless JSON APIs.
+                We bypass municipal bot-protections to scrape, structure, and syndicate live construction permits into
+                high-frequency JSON APIs.
             </p>
             <div class="hero-ctas">
-                <a href="#endpoints" class="btn btn-primary">⚡ View Endpoints</a>
+                <a href="#endpoints" class="btn btn-primary">⚡ View Pipelines</a>
                 <a href="#how" class="btn btn-outline">Integration Guide</a>
             </div>
 
@@ -654,18 +654,18 @@
             <div class="code-block">
                 <div class="code-header">
                     <span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span>
-                    <span class="code-label">agent.py</span>
+                    <span class="code-label">agent.ts</span>
                 </div>
                 <div class="code-body">
-                    <span class="comment"># Your agent hits a CAPTCHA</span><br>
-                    <span class="key">response</span> = requests.post(<br>
-                    &nbsp;&nbsp;<span class="str">"https://api.clawforce.ca/v1/captcha/solve"</span>,<br>
-                    &nbsp;&nbsp;json={<span class="str">"url"</span>: target, <span class="str">"type"</span>: <span
-                        class="str">"recaptcha_v2"</span>},<br>
-                    &nbsp;&nbsp;headers={<span class="str">"X-API-Key"</span>: key}<br>
-                    )<br><br>
-                    <span class="comment"># 2.3s later</span><br>
-                    <span class="success">✓ token: "03AHJ_VuvY..." (solved)</span>
+                    <span class="comment">// 1. Fetch live leads for your CRM</span><br>
+                    <span class="key">const</span> response = <span class="key">await</span> fetch(<br>
+                    &nbsp;&nbsp;<span class="str">"https://api.clawforce.ca/v1/permits?city=winnipeg"</span>,<br>
+                    &nbsp;&nbsp;{ headers: { <span class="str">"Authorization"</span>: <span class="str">"Bearer
+                        cf_live_8f92a..."</span> } }<br>
+                    );<br><br>
+                    <span class="comment">// 2. Structured, pristine Zod schema data</span><br>
+                    <span class="key">const</span> leads = <span class="key">await</span> response.json();<br>
+                    <span class="success">✓ yields { data: [ { permit_number: "26-10293", value: "$4.2M" } ] }</span>
                 </div>
             </div>
         </div>
@@ -677,90 +677,56 @@
     <section id="endpoints">
         <div class="container">
             <div class="fade-up">
-                <div class="section-eyebrow">// api endpoints</div>
-                <h2>Settlement APIs</h2>
-                <p class="section-desc">Pure JSON. No dashboards. Built for scripts and autonomous agents.</p>
+                <div class="section-eyebrow">// data pipelines</div>
+                <h2>Available Feeds</h2>
+                <p class="section-desc">Choose between daily email summaries or pure, programmatic JSON APIs for
+                    automated clients.</p>
             </div>
-            <div class="api-grid fade-up">
+            <div class="api-grid fade-up" style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));">
 
-                <!-- CAPTCHA -->
+                <!-- Standard Digest -->
                 <div class="api-card">
-                    <div class="api-emoji">🔨</div>
-                    <div class="api-name">CAPTCHA Smasher</div>
-                    <div class="api-endpoint">POST /v1/captcha/solve</div>
-                    <div class="api-price">$5<span style="font-size: 0.7rem; color: var(--text-dim);"> – $49</span>
+                    <div class="api-emoji">✉️</div>
+                    <div class="api-name">Standard Digest</div>
+                    <div class="api-endpoint">Daily Email Delivery</div>
+                    <div class="api-price">$29<span style="font-size: 0.7rem; color: var(--text-dim);"> / mo</span>
                     </div>
-                    <div class="api-note">per volume tier</div>
-                    <p class="api-desc">reCAPTCHA v2/v3, hCaptcha, Turnstile. Sub-3s solve times. Works with any
-                        headless browser or HTTP client.</p>
+                    <div class="api-note">billed monthly</div>
+                    <p class="api-desc">Perfect for solo contractors and small trades. We scrape your chosen
+                        municipality and deliver a clean, formatted CSV directly to your inbox every morning at 6AM.</p>
                     <ul class="api-features">
-                        <li>reCAPTCHA v2, v3, Enterprise</li>
-                        <li>hCaptcha / Cloudflare Turnstile</li>
-                        <li>Average solve: 2.3s</li>
-                        <li>99.2% success rate</li>
+                        <li>CSV Daily Email Summary</li>
+                        <li>Pick 1 Major Municipality</li>
+                        <li>Formatted for easy Excel importing</li>
+                        <li style="opacity: 0.5;">No API Access</li>
                     </ul>
-                    <a href="mailto:pixel@pixelfamiliar.ca?subject=CAPTCHA%20API%20Key" class="btn btn-buy"
-                        id="buy-captcha">Request API Key</a>
+                    <a href="https://buy.stripe.com/5kQ00lal10UX5J70fY9ws3p" class="btn btn-outline"
+                        style="width: 100%; text-align: center; justify-content: center; margin-top: 1rem;"
+                        id="buy-standard">Subscribe Standard</a>
                 </div>
 
-                <!-- Proxies -->
-                <div class="api-card">
-                    <div class="api-emoji">🌐</div>
-                    <div class="api-name">Clean IP Proxy Route</div>
-                    <div class="api-endpoint">POST /v1/proxy/route</div>
-                    <div class="api-price">$19<span style="font-size: 0.7rem; color: var(--text-dim);"> – $99</span>
+                <!-- Premium API -->
+                <div class="api-card" style="border-color: var(--blue); position: relative; overflow: hidden;">
+                    <div
+                        style="position: absolute; top: 0; right: 0; background: var(--blue); color: #fff; font-size: 0.7rem; font-weight: bold; padding: 0.3rem 1rem; border-bottom-left-radius: 10px; font-family: 'JetBrains Mono', monospace;">
+                        B2B Developers</div>
+                    <div class="api-emoji">🔌</div>
+                    <div class="api-name">Premium API Access</div>
+                    <div class="api-endpoint">GET /v1/permits</div>
+                    <div class="api-price">$99<span style="font-size: 0.7rem; color: var(--text-dim);"> / mo</span>
                     </div>
-                    <div class="api-note">per volume tier</div>
-                    <p class="api-desc">Residential and datacenter proxy routing. Clean IPs that pass behavioral
-                        fingerprinting. Geo-targeting by country/state.</p>
+                    <div class="api-note">billed monthly</div>
+                    <p class="api-desc">For B2B CRM integrations and data syndicators. Don't wait for the daily email.
+                        Integrate our live JSON feed directly into your trading algorithms and Salesforce dashboards.
+                    </p>
                     <ul class="api-features">
-                        <li>10,000+ residential IPs</li>
-                        <li>Geo-targeting (country/state)</li>
-                        <li>Session persistence</li>
-                        <li>Auto-rotation on block</li>
+                        <li>Unlimited CSV Daily Emails</li>
+                        <li>All 5 Major Canadian Municipalities</li>
+                        <li>Live Automated API Key Provisioning</li>
+                        <li>99.9% Pipeline Uptime guarantee</li>
                     </ul>
-                    <a href="mailto:pixel@pixelfamiliar.ca?subject=Proxy%20API%20Key" class="btn btn-buy"
-                        id="buy-proxy">Request API Key</a>
-                </div>
-
-                <!-- HITL -->
-                <div class="api-card">
-                    <div class="api-emoji">🧑‍💻</div>
-                    <div class="api-name">Human-In-The-Loop Relay</div>
-                    <div class="api-endpoint">POST /v1/hitl/settle</div>
-                    <div class="api-price">$2<span style="font-size: 0.7rem; color: var(--text-dim);"> – $499</span>
-                    </div>
-                    <div class="api-note">per action complexity</div>
-                    <p class="api-desc">When AI can't do it, a human can. Phone verification, 2FA, document submission,
-                        manual form fills — on demand.</p>
-                    <ul class="api-features">
-                        <li>24/7 human operators</li>
-                        <li>Phone/SMS verification</li>
-                        <li>Document submission</li>
-                        <li>SLA: 15 min response</li>
-                    </ul>
-                    <a href="mailto:pixel@pixelfamiliar.ca?subject=HITL%20API%20Key" class="btn btn-buy"
-                        id="buy-hitl">Request API Key</a>
-                </div>
-
-                <!-- Account Spawner -->
-                <div class="api-card">
-                    <div class="api-emoji">🔑</div>
-                    <div class="api-name">Verified Account Spawner</div>
-                    <div class="api-endpoint">POST /v1/accounts/create</div>
-                    <div class="api-price">$15<span style="font-size: 0.7rem; color: var(--text-dim);"> – $45</span>
-                    </div>
-                    <div class="api-note">per account</div>
-                    <p class="api-desc">Pre-verified accounts for major platforms. Email-verified, phone-verified, aged.
-                        Ready to use immediately.</p>
-                    <ul class="api-features">
-                        <li>Email + phone verified</li>
-                        <li>Aged accounts available</li>
-                        <li>Multiple platforms</li>
-                        <li>API delivery</li>
-                    </ul>
-                    <a href="mailto:pixel@pixelfamiliar.ca?subject=Account%20API%20Key" class="btn btn-buy"
-                        id="buy-accounts">Request API Key</a>
+                    <a href="https://buy.stripe.com/dRm5kFfFl5bd2wVbYG9ws3o" class="btn btn-buy"
+                        style="margin-top: 1rem;" id="buy-premium">Provision API Key</a>
                 </div>
             </div>
         </div>
@@ -773,29 +739,29 @@
         <div class="container">
             <div class="fade-up">
                 <div class="section-eyebrow">// integration</div>
-                <h2>Built for Machines</h2>
-                <p class="section-desc">No UI. No dashboards. Pure JSON APIs designed for automated clients.</p>
+                <h2>Automated Provisioning</h2>
+                <p class="section-desc">Instantly automated edge-gateway provisioning powered by Stripe.</p>
             </div>
             <div class="flow-grid fade-up">
                 <div class="flow-step">
-                    <div class="flow-num">01 / PAYLOAD</div>
-                    <h4>Send the Request</h4>
-                    <p>Your agent hits a blocker. It crafts a JSON payload and POSTs to our settlement endpoint.</p>
+                    <div class="flow-num">01 / SUBSCRIBE</div>
+                    <h4>Checkout Frictionless</h4>
+                    <p>Select the Premium API tier and checkout securely via Stripe. No sales calls.</p>
                 </div>
                 <div class="flow-step">
-                    <div class="flow-num">02 / ROUTE</div>
-                    <h4>We Orchestrate</h4>
-                    <p>Request is dynamically routed — proxy network, solver scripts, or a human operator.</p>
+                    <div class="flow-num">02 / PROVISION</div>
+                    <h4>Edge Generation</h4>
+                    <p>Our webhook handler detects your payment and instantly generates a secure Zuplo API Key.</p>
                 </div>
                 <div class="flow-step">
-                    <div class="flow-num">03 / RESOLVE</div>
-                    <h4>Get the Token</h4>
-                    <p>Solved parameter, bypass token, or verified credential returned. Your agent resumes.</p>
+                    <div class="flow-num">03 / INTEGRATE</div>
+                    <h4>Fetch Leads</h4>
+                    <p>Pass your `Bearer` token to the `api.clawforce.ca/v1/permits` endpoint and pull data.</p>
                 </div>
                 <div class="flow-step">
-                    <div class="flow-num">04 / SETTLE</div>
-                    <h4>Per-Request Billing</h4>
-                    <p>Billed per action against your API key balance. No minimums, no subscriptions.</p>
+                    <div class="flow-num">04 / DISCONNECT</div>
+                    <h4>Instant Revocation</h4>
+                    <p>Cancel your subscription anytime. Your API key is instantly revoked at the firewall.</p>
                 </div>
             </div>
 
