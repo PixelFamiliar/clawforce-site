@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Your Agent's SOUL — Clawforce</title>
+    <meta name="description"
+        content="Pick an archetype. Answer a few questions. Get a premium, production-ready SOUL.md in under an hour.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        :root {
+            --bg: #06060a;
+            --surface: #0d0d14;
+            --surface2: #12121c;
+            --border: #1a1a2e;
+            --accent: #a78bfa;
+            --accent2: #7c3aed;
+            --accent-warm: #f59e0b;
+            --text: #f0f0f5;
+            --muted: #6a6a8a;
+            --muted2: #44445a;
+            --success: #48bb78;
+            --red: #ef4444
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .wizard {
+            max-width: 580px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 32px 24px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column
+        }
+
+        /* Header */
+        .wiz-header {
+            text-align: center;
+            padding: 12px 0 24px;
+            flex-shrink: 0
+        }
+
+        .wiz-logo {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: .6px;
+            text-transform: uppercase;
+            margin-bottom: 6px
+        }
+
+        .wiz-title {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -.5px
+        }
+
+        .wiz-title span {
+            background: linear-gradient(135deg, var(--accent), var(--accent-warm));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text
+        }
+
+        /* Progress */
+        .progress {
+            display: flex;
+            gap: 3px;
+            margin-bottom: 32px;
+            flex-shrink: 0
+        }
+
+        .prog-seg {
+            flex: 1;
+            height: 3px;
+            border-radius: 2px;
+            background: var(--border);
+            transition: background .4s
+        }
+
+        .prog-seg.done {
+            background: var(--accent)
+        }
+
+        .prog-seg.active {
+            background: linear-gradient(90deg, var(--accent), var(--accent2))
+        }
+
+        /* Steps */
+        .steps-wrap {
+            flex: 1;
+            position: relative;
+            overflow: hidden
+        }
+
+        .step {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            opacity: 0;
+            transform: translateX(30px);
+            transition: all .3s cubic-bezier(.4, 0, .2, 1);
+            pointer-events: none
+        }
+
+        .step.active {
+            opacity: 1;
+            transform: translateX(0);
+            pointer-events: auto;
+            position: relative
+        }
+
+        .step-num {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: .8px;
+            text-transform: uppercase;
+            margin-bottom: 10px
+        }
+
+        .step-q {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -.3px;
+            margin-bottom: 6px;
+            line-height: 1.3
+        }
+
+        .step-hint {
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.5;
+            margin-bottom: 20px
+        }
+
+        /* Inputs */
+        input[type="text"],
+        input[type="email"],
+        textarea,
+        select {
+            width: 100%;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 12px 14px;
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            transition: border-color .2s;
+            outline: none;
+            line-height: 1.5
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(167, 139, 250, .08)
+        }
+
+        textarea {
+            min-height: 80px;
+            resize: vertical
+        }
+
+        .char-count {
+            text-align: right;
+            font-size: 10px;
+            color: var(--muted2);
+            margin-top: 3px
+        }
+
+        .input-group {
+            margin-bottom: 14px
+        }
+
+        .input-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: .4px;
+            margin-bottom: 6px
+        }
+
+        /* Archetype Cards */
+        .arch-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px
+        }
+
+        .arch-card {
+            padding: 16px 14px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            cursor: pointer;
+            transition: all .2s;
+            text-align: center
+        }
+
+        .arch-card:hover {
+            border-color: var(--muted2)
+        }
+
+        .arch-card.selected {
+            border-color: var(--accent);
+            background: rgba(167, 139, 250, .05)
+        }
+
+        .arch-card .icon {
+            font-size: 24px;
+            margin-bottom: 6px
+        }
+
+        .arch-card h4 {
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 2px
+        }
+
+        .arch-card p {
+            font-size: 10px;
+            color: var(--muted);
+            line-height: 1.3
+        }
+
+        .arch-card.selected h4 {
+            color: var(--accent)
+        }
+
+        /* Option Cards (2-col) */
+        .opt-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px
+        }
+
+        .opt-card {
+            padding: 12px 14px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            cursor: pointer;
+            transition: all .2s
+        }
+
+        .opt-card:hover {
+            border-color: var(--muted2)
+        }
+
+        .opt-card.selected {
+            border-color: var(--accent);
+            background: rgba(167, 139, 250, .05)
+        }
+
+        .opt-card h4 {
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 2px
+        }
+
+        .opt-card p {
+            font-size: 10px;
+            color: var(--muted);
+            line-height: 1.3
+        }
+
+        .opt-card.selected h4 {
+            color: var(--accent)
+        }
+
+        /* Chips */
+        .chip-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px
+        }
+
+        .chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 8px 14px;
+            border-radius: 100px;
+            border: 1px solid var(--border);
+            cursor: pointer;
+            transition: all .2s;
+            font-size: 12px;
+            color: var(--muted);
+            user-select: none
+        }
+
+        .chip:hover {
+            border-color: var(--muted2);
+            color: var(--text)
+        }
+
+        .chip.selected {
+            border-color: var(--accent);
+            background: rgba(167, 139, 250, .08);
+            color: var(--accent)
+        }
+
+        /* Checkboxes */
+        .check-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px
+        }
+
+        .check-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 10px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            cursor: pointer;
+            transition: all .15s
+        }
+
+        .check-item:hover {
+            border-color: var(--muted2)
+        }
+
+        .check-item.checked {
+            border-color: rgba(167, 139, 250, .3);
+            background: rgba(167, 139, 250, .04)
+        }
+
+        .check-box {
+            width: 16px;
+            height: 16px;
+            border-radius: 4px;
+            border: 1.5px solid var(--muted2);
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all .15s;
+            margin-top: 1px
+        }
+
+        .check-item.checked .check-box {
+            background: var(--accent);
+            border-color: var(--accent)
+        }
+
+        .check-item.checked .check-box::after {
+            content: '✓';
+            color: #fff;
+            font-size: 10px;
+            font-weight: 700
+        }
+
+        .check-item span {
+            font-size: 12px;
+            color: var(--muted);
+            line-height: 1.4
+        }
+
+        .check-item.checked span {
+            color: var(--text)
+        }
+
+        /* Slider */
+        .slider-wrap {
+            margin: 8px 0
+        }
+
+        .slider-row {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .slider-label {
+            font-size: 11px;
+            color: var(--muted);
+            white-space: nowrap;
+            width: 60px
+        }
+
+        .slider-label.right {
+            text-align: right
+        }
+
+        input[type="range"] {
+            flex: 1;
+            -webkit-appearance: none;
+            height: 4px;
+            background: var(--border);
+            border-radius: 2px;
+            outline: none;
+            border: none;
+            padding: 0
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--accent);
+            cursor: pointer;
+            box-shadow: 0 0 8px rgba(167, 139, 250, .3)
+        }
+
+        /* Toggle section */
+        .adv-toggle {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 14px;
+            border-radius: 10px;
+            border: 1px dashed var(--border);
+            cursor: pointer;
+            margin-bottom: 16px;
+            transition: all .2s
+        }
+
+        .adv-toggle:hover {
+            border-color: var(--muted2)
+        }
+
+        .adv-toggle .arrow {
+            transition: transform .2s;
+            color: var(--accent);
+            font-size: 12px
+        }
+
+        .adv-toggle.open .arrow {
+            transform: rotate(90deg)
+        }
+
+        .adv-toggle span {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--muted)
+        }
+
+        .adv-content {
+            display: none;
+            padding-top: 4px
+        }
+
+        .adv-content.visible {
+            display: block
+        }
+
+        /* Tier Cards */
+        .tier-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px
+        }
+
+        .tier-card {
+            padding: 18px 14px;
+            border-radius: 12px;
+            border: 2px solid var(--border);
+            cursor: pointer;
+            transition: all .25s;
+            position: relative;
+            text-align: center
+        }
+
+        .tier-card:hover {
+            border-color: var(--muted2)
+        }
+
+        .tier-card.selected {
+            border-color: var(--accent);
+            background: rgba(167, 139, 250, .04)
+        }
+
+        .tier-card h4 {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 2px
+        }
+
+        .tier-card .price {
+            font-size: 26px;
+            font-weight: 800;
+            margin: 6px 0
+        }
+
+        .tier-card .price small {
+            font-size: 11px;
+            font-weight: 400;
+            color: var(--muted)
+        }
+
+        .tier-card ul {
+            list-style: none;
+            text-align: left;
+            margin-top: 10px
+        }
+
+        .tier-card ul li {
+            font-size: 11px;
+            color: var(--muted);
+            padding: 2px 0
+        }
+
+        .tier-card ul li::before {
+            content: '✓ ';
+            color: var(--accent);
+            font-weight: 700
+        }
+
+        .tier-card.selected ul li {
+            color: var(--text)
+        }
+
+        .tier-card .badge {
+            position: absolute;
+            top: -9px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 9px;
+            font-weight: 600;
+            color: var(--accent-warm);
+            background: rgba(245, 158, 11, .1);
+            border: 1px solid rgba(245, 158, 11, .2);
+            padding: 2px 10px;
+            border-radius: 100px;
+            white-space: nowrap
+        }
+
+        /* Nav */
+        .nav-row {
+            display: flex;
+            gap: 10px;
+            margin-top: 28px;
+            flex-shrink: 0;
+            padding-bottom: 16px
+        }
+
+        .nav-btn {
+            flex: 1;
+            padding: 13px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all .2s;
+            font-family: 'Inter', sans-serif;
+            border: none
+        }
+
+        .nav-btn.back {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            color: var(--muted)
+        }
+
+        .nav-btn.back:hover {
+            border-color: var(--muted2);
+            color: var(--text)
+        }
+
+        .nav-btn.next {
+            background: linear-gradient(135deg, var(--accent2), var(--accent));
+            color: #fff;
+            box-shadow: 0 0 16px rgba(124, 58, 237, .12)
+        }
+
+        .nav-btn.next:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 24px rgba(124, 58, 237, .25)
+        }
+
+        .nav-btn.next:disabled {
+            opacity: .4;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none
+        }
+
+        .nav-btn.go {
+            background: linear-gradient(135deg, var(--accent-warm), #d97706)
+        }
+
+        .nav-btn.go:hover {
+            box-shadow: 0 4px 24px rgba(245, 158, 11, .25)
+        }
+
+        .key-hint {
+            text-align: center;
+            margin-top: 8px;
+            font-size: 10px;
+            color: var(--muted2)
+        }
+
+        .key-hint kbd {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            padding: 1px 5px;
+            border-radius: 3px;
+            font-family: 'Inter', sans-serif;
+            font-size: 9px
+        }
+
+        /* Success */
+        .success-view {
+            text-align: center;
+            padding: 50px 0
+        }
+
+        .success-view .icon {
+            font-size: 48px;
+            margin-bottom: 16px
+        }
+
+        .success-view h2 {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 6px
+        }
+
+        .success-view p {
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.6;
+            max-width: 380px;
+            margin: 0 auto
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 500;
+            transition: color .2s;
+            flex-shrink: 0
+        }
+
+        .back-link:hover {
+            color: var(--text)
+        }
+
+        @media(max-width:640px) {
+
+            .arch-grid,
+            .tier-grid {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .opt-cards {
+                grid-template-columns: 1fr
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wizard">
+        <a href="/" class="back-link">← Clawforce</a>
+        <div class="wiz-header">
+            <div class="wiz-logo">🦊 Clawforce</div>
+            <div class="wiz-title">Design your agent's <span>SOUL</span></div>
+        </div>
+        <div class="progress" id="progress"></div>
+        <div class="steps-wrap" id="steps-wrap"></div>
+        <div class="nav-row" id="nav-row">
+            <button class="nav-btn back" id="btn-back" onclick="prev()" style="display:none">← Back</button>
+            <button class="nav-btn next" id="btn-next" onclick="next()">Continue →</button>
+        </div>
+        <div class="key-hint" id="key-hint">Press <kbd>Enter ↵</kbd> to continue</div>
+    </div>
+
+    <script>
+        // ─── State ───
+        let cur = 0;
+        let tier = 'soul';
+        let revOn = false;
+        const D = {}; // form data
+
+        // ─── Archetype Defaults ───
+        const ARCHETYPES = {
+            coordinator: {
+                label: 'Coordinator', icon: '🧭', desc: 'Plans, delegates, tracks',
+                mission: 'Coordinate projects end-to-end: break work down, track decisions, and keep humans unblocked.',
+                caps: ['research', 'ops', 'data'], personality: 'professional', autonomy: 'autonomous'
+            },
+            coder: {
+                label: 'Code Reviewer', icon: '💻', desc: 'Reviews, debugs, ships',
+                mission: 'Review code, catch bugs, suggest improvements, and help ship quality software faster.',
+                caps: ['coding', 'ops', 'data'], personality: 'opinionated_expert', autonomy: 'autonomous'
+            },
+            writer: {
+                label: 'Content Writer', icon: '✍️', desc: 'Writes, publishes, promotes',
+                mission: 'Create, publish, and promote content across platforms to grow audience and drive traffic.',
+                caps: ['content_creation', 'social_media', 'research'], personality: 'casual_builder', autonomy: 'autonomous'
+            },
+            researcher: {
+                label: 'Researcher', icon: '🔍', desc: 'Finds, analyzes, reports',
+                mission: 'Research topics deeply, analyze data, synthesize findings into actionable reports.',
+                caps: ['research', 'data', 'content_creation'], personality: 'professional', autonomy: 'guided'
+            },
+            sales: {
+                label: 'Sales Agent', icon: '💰', desc: 'Prospects, pitches, closes',
+                mission: 'Identify prospects, craft outreach, manage pipeline, and close deals autonomously.',
+                caps: ['sales', 'social_media', 'research'], personality: 'casual_builder', autonomy: 'autonomous'
+            },
+            custom: {
+                label: 'Custom', icon: '⚙️', desc: 'Build from scratch',
+                mission: '', caps: [], personality: '', autonomy: ''
+            }
+        };
+
+        // ─── Steps Definition ───
+        const STEPS = [
+            // 0: Archetype
+            () => `
+    <div class="step-num">Step 1 of 8</div>
+    <div class="step-q">What kind of agent is this?</div>
+    <div class="step-hint">Pick a starting template. We'll prefill defaults you can tweak.</div>
+    <div class="arch-grid" id="arch-grid">
+      ${Object.entries(ARCHETYPES).map(([k, v]) => `
+        <div class="arch-card${D.archetype === k ? ' selected' : ''}" data-v="${k}" onclick="pickArch('${k}')">
+          <div class="icon">${v.icon}</div>
+          <h4>${v.label}</h4>
+          <p>${v.desc}</p>
+        </div>
+      `).join('')}
+    </div>`,
+
+            // 1: Identity
+            () => `
+    <div class="step-num">Step 2 of 8</div>
+    <div class="step-q">The basics</div>
+    <div class="step-hint">Name it, claim it, tell us where to send the files.</div>
+    <div class="input-group">
+      <input type="text" id="agent_name" maxlength="32" placeholder="Agent name (e.g. Nova, Rook, Atlas)" value="${D.agent_name || ''}" oninput="D.agent_name=this.value">
+    </div>
+    <div class="input-group">
+      <input type="text" id="owner_name" placeholder="Your name" value="${D.owner_name || ''}" oninput="D.owner_name=this.value">
+    </div>
+    <div class="input-group">
+      <input type="email" id="email" placeholder="Delivery email" value="${D.email || ''}" oninput="D.email=this.value">
+    </div>
+    <div class="input-group">
+      <div class="input-label">Mission (one sentence)</div>
+      <input type="text" id="mission" maxlength="160" placeholder="${ARCHETYPES[D.archetype || 'custom'].mission || 'What does this agent do?'}" value="${D.mission || ARCHETYPES[D.archetype || 'custom'].mission || ''}" oninput="D.mission=this.value;updCount('mission',160)">
+      <div class="char-count" id="mission-count">${(D.mission || ARCHETYPES[D.archetype || 'custom'].mission || '').length}/160</div>
+    </div>`,
+
+            // 2: Core Truths
+            () => {
+                const defaults = [
+                    { id: 'helpful', label: 'Be genuinely helpful. Skip filler. Do the work.', on: true },
+                    { id: 'resourceful', label: 'Be resourceful before asking: read, search, infer first.', on: true },
+                    { id: 'trust', label: 'Earn trust through competence, not words.', on: true },
+                    { id: 'guest', label: "Remember you're a guest in the user's environment.", on: true },
+                    { id: 'opinions', label: 'Have opinions. If something is a bad idea, say so.', on: false },
+                    { id: 'small_steps', label: 'Prefer small, reversible steps over big risky moves.', on: false },
+                ];
+                if (!D._truths_init) { D.core_truths = defaults.filter(d => d.on).map(d => d.id); D._truths_init = true; }
+                return `
+    <div class="step-num">Step 3 of 8</div>
+    <div class="step-q">Core truths</div>
+    <div class="step-hint">These are the non-negotiable principles. Select the ones that matter, then add your own.</div>
+    <div class="check-list" id="truths-list">
+      ${defaults.map(d => `
+        <div class="check-item${D.core_truths.includes(d.id) ? ' checked' : ''}" onclick="toggleTruth('${d.id}',this)">
+          <div class="check-box"></div>
+          <span>${d.label}</span>
+        </div>
+      `).join('')}
+    </div>
+    <div class="input-group" style="margin-top:14px">
+      <div class="input-label">Add your own (one per line, optional)</div>
+      <textarea id="custom_truths" maxlength="400" rows="3" placeholder="e.g. Default to clarity over politeness.&#10;If we can't verify it, say so." oninput="D.custom_truths=this.value">${D.custom_truths || ''}</textarea>
+    </div>`;
+            },
+
+            // 3: Personality + Autonomy
+            () => `
+    <div class="step-num">Step 4 of 8</div>
+    <div class="step-q">How should it act?</div>
+    <div class="step-hint">Pick a personality and autonomy level.</div>
+    <div class="input-label">Personality</div>
+    <div class="opt-cards" style="margin-bottom:16px">
+      ${[['professional', 'Professional', 'Clear, direct, no fluff'], ['casual_builder', 'Builder', 'Dev friend energy, ships fast'], ['opinionated_expert', 'Expert', 'Strong takes, calls it like it is'], ['friendly_assistant', 'Assistant', 'Warm, approachable, helpful']].map(([v, h, p]) => `
+        <div class="opt-card${D.personality === v ? ' selected' : ''}" onclick="pickOpt('personality','${v}',this)">
+          <h4>${h}</h4><p>${p}</p>
+        </div>
+      `).join('')}
+    </div>
+    <div class="input-label">Autonomy</div>
+    <div class="opt-cards">
+      ${[['supervised', 'Supervised', 'Checks in before acting'], ['guided', 'Guided', 'Routine alone, flags edge cases'], ['autonomous', 'Autonomous', 'Full authority, escalates blockers'], ['full_ceo', 'Full CEO', 'Executive authority within guardrails']].map(([v, h, p]) => `
+        <div class="opt-card${D.autonomy === v ? ' selected' : ''}" onclick="pickOpt('autonomy','${v}',this)">
+          <h4>${h}</h4><p>${p}</p>
+        </div>
+      `).join('')}
+    </div>`,
+
+            // 4: Capabilities + Role
+            () => `
+    <div class="step-num">Step 5 of 8</div>
+    <div class="step-q">What can it do?</div>
+    <div class="step-hint">Select capabilities, channels, and its role in the hierarchy.</div>
+    <div class="input-label">Capabilities</div>
+    <div class="chip-grid" id="caps" style="margin-bottom:14px">
+      ${[['coding', '💻 Coding'], ['content_creation', '✍️ Content'], ['research', '🔍 Research'], ['sales', '💰 Sales'], ['social_media', '📱 Social'], ['ops', '⚙️ DevOps'], ['data', '📊 Data'], ['customer_support', '🎧 Support']].map(([v, l]) => `
+        <div class="chip${(D.capabilities || []).includes(v) ? ' selected' : ''}" data-v="${v}" onclick="toggleChip('capabilities',this)">${l}</div>
+      `).join('')}
+    </div>
+    <div class="input-label">Channels</div>
+    <div class="chip-grid" id="chans" style="margin-bottom:14px">
+      ${[['slack', 'Slack'], ['discord', 'Discord'], ['telegram', 'Telegram'], ['email', 'Email'], ['twitter', 'Twitter/X'], ['github', 'GitHub'], ['whatsapp', 'WhatsApp']].map(([v, l]) => `
+        <div class="chip${(D.channels || []).includes(v) ? ' selected' : ''}" data-v="${v}" onclick="toggleChip('channels',this)">${l}</div>
+      `).join('')}
+    </div>
+    <div class="input-label">Role in hierarchy</div>
+    <div class="opt-cards" style="grid-template-columns:1fr 1fr 1fr">
+      ${[['solo', 'Solo', 'Operates independently'], ['manager', 'Manager', 'Delegates to sub-agents'], ['subordinate', 'Subordinate', 'Executes for an orchestrator']].map(([v, h, p]) => `
+        <div class="opt-card${D.role === v ? ' selected' : ''}" onclick="pickOpt('role','${v}',this)">
+          <h4>${h}</h4><p>${p}</p>
+        </div>
+      `).join('')}
+    </div>`,
+
+            // 5: Boundaries + Safety
+            () => {
+                const guards = [
+                    { id: 'no_exfil', label: 'Never exfiltrate private data', on: true },
+                    { id: 'ask_external', label: 'Ask before acting externally (emails, posts, destructive commands)', on: true },
+                    { id: 'no_impersonate', label: 'Never impersonate the user', on: true },
+                    { id: 'no_halfbaked', label: 'Never send half-baked messages to external surfaces', on: true },
+                    { id: 'no_secrets', label: 'Never commit secrets, API keys, or .env files', on: true },
+                ];
+                if (!D._guards_init) { D.guardrail_checks = guards.filter(g => g.on).map(g => g.id); D._guards_init = true; }
+                return `
+    <div class="step-num">Step 6 of 8</div>
+    <div class="step-q">Boundaries and safety</div>
+    <div class="step-hint">These are the hard red lines. Security first, always.</div>
+    <div class="check-list" id="guards-list">
+      ${guards.map(g => `
+        <div class="check-item${D.guardrail_checks.includes(g.id) ? ' checked' : ''}" onclick="toggleGuard('${g.id}',this)">
+          <div class="check-box"></div>
+          <span>${g.label}</span>
+        </div>
+      `).join('')}
+    </div>
+    <div class="input-group" style="margin-top:14px">
+      <div class="input-label">Add your own red lines (one per line)</div>
+      <textarea id="custom_guardrails" maxlength="400" rows="3" placeholder="e.g. Never spend money without approval.&#10;Never post political content." oninput="D.custom_guardrails=this.value">${D.custom_guardrails || ''}</textarea>
+    </div>
+    <div class="input-label" style="margin-top:14px">Group chat policy</div>
+    <div class="opt-cards" style="grid-template-columns:1fr 1fr 1fr">
+      ${[['mention', 'Mentioned only', 'Reply only when tagged'], ['value', 'Add value', 'Reply if you add something real'], ['everything', 'Everything', 'Reply to all (discouraged)']].map(([v, h, p]) => `
+        <div class="opt-card${D.group_chat === v ? ' selected' : ''}" onclick="pickOpt('group_chat','${v}',this)">
+          <h4>${h}</h4><p>${p}</p>
+        </div>
+      `).join('')}
+    </div>`;
+            },
+
+            // 6: Advanced (progressive disclosure)
+            () => `
+    <div class="step-num">Step 7 of 8</div>
+    <div class="step-q">Add depth <span style="font-size:14px;color:var(--muted);font-weight:400">(optional)</span></div>
+    <div class="step-hint">Skip this if you're happy with the defaults. Expand to fine-tune.</div>
+
+    <div class="adv-toggle" onclick="toggleAdv(this)">
+      <div class="arrow">▶</div>
+      <span>Voice and anti-patterns</span>
+    </div>
+    <div class="adv-content" id="adv-voice">
+      <div class="input-group">
+        <div class="input-label">Verbosity</div>
+        <div class="slider-wrap"><div class="slider-row">
+          <span class="slider-label">Concise</span>
+          <input type="range" min="1" max="5" value="${D.verbosity || 3}" oninput="D.verbosity=this.value">
+          <span class="slider-label right">Thorough</span>
+        </div></div>
+      </div>
+      <div class="input-group">
+        <div class="input-label">Directness</div>
+        <div class="slider-wrap"><div class="slider-row">
+          <span class="slider-label">Gentle</span>
+          <input type="range" min="1" max="5" value="${D.directness || 4}" oninput="D.directness=this.value">
+          <span class="slider-label right">Blunt</span>
+        </div></div>
+      </div>
+      <div class="input-group">
+        <div class="input-label">Words/phrases to NEVER use (one per line)</div>
+        <textarea maxlength="300" rows="2" placeholder="e.g. Happy to help!&#10;As an AI language model…" oninput="D.anti_patterns=this.value">${D.anti_patterns || ''}</textarea>
+      </div>
+    </div>
+
+    <div class="adv-toggle" onclick="toggleAdv(this)">
+      <div class="arrow">▶</div>
+      <span>Contrarian takes and influences</span>
+    </div>
+    <div class="adv-content" id="adv-depth">
+      <div class="input-group">
+        <div class="input-label">What "best practice" does this agent disagree with?</div>
+        <textarea maxlength="300" rows="2" placeholder="e.g. Agile sprints are theater for most small teams." oninput="D.contrarian=this.value">${D.contrarian || ''}</textarea>
+      </div>
+      <div class="input-group">
+        <div class="input-label">Intellectual influences (books, frameworks, thinkers)</div>
+        <textarea maxlength="300" rows="2" placeholder="e.g. Shape Up by Basecamp, OODA loops, Paul Graham essays" oninput="D.influences=this.value">${D.influences || ''}</textarea>
+      </div>
+      <div class="input-group">
+        <div class="input-label">A behavioral contradiction that makes it feel human</div>
+        <textarea maxlength="300" rows="2" placeholder="e.g. Impatient with sloppy code but infinitely patient explaining concepts to beginners." oninput="D.contradiction=this.value">${D.contradiction || ''}</textarea>
+      </div>
+    </div>
+
+    <div class="adv-toggle" onclick="toggleAdv(this)">
+      <div class="arrow">▶</div>
+      <span>Revenue and extras</span>
+    </div>
+    <div class="adv-content" id="adv-revenue">
+      <div class="input-group">
+        <div class="input-label">Should this agent generate revenue?</div>
+        <div class="opt-cards">
+          <div class="opt-card${revOn ? ' selected' : ''}" onclick="setRev(true,this)"><h4>💰 Yes</h4><p>It should make money</p></div>
+          <div class="opt-card${!revOn ? ' selected' : ''}" onclick="setRev(false,this)"><h4>🔧 No</h4><p>Internal use only</p></div>
+        </div>
+        <div id="rev-detail" style="margin-top:10px;display:${revOn ? 'block' : 'none'}">
+          <input type="text" placeholder="How? e.g. digital products, affiliate, SaaS" value="${D.revenue_type || ''}" oninput="D.revenue_type=this.value">
+        </div>
+      </div>
+      <div class="input-group">
+        <div class="input-label">Anything else?</div>
+        <textarea maxlength="400" rows="2" placeholder="Additional context, preferences, requirements..." oninput="D.notes=this.value">${D.notes || ''}</textarea>
+      </div>
+    </div>`,
+
+            // 7: Choose Package
+            () => `
+    <div class="step-num">Step 8 of 8</div>
+    <div class="step-q">Choose your package</div>
+    <div class="step-hint">All packages include a step-by-step installation guide (QUICKSTART.md).</div>
+    <div class="tier-grid">
+      <div class="tier-card${tier === 'soul' ? ' selected' : ''}" onclick="pickTier('soul')">
+        <h4>SOUL.md</h4>
+        <div class="price">$19<small> one-time</small></div>
+        <ul>
+          <li>Custom SOUL.md</li>
+          <li>QUICKSTART.md guide</li>
+          <li>60-120 dense lines</li>
+        </ul>
+      </div>
+      <div class="tier-card${tier === 'kit' ? ' selected' : ''}" onclick="pickTier('kit')">
+        <span class="badge">Popular</span>
+        <h4>Identity Kit</h4>
+        <div class="price">$39<small> one-time</small></div>
+        <ul>
+          <li>Custom SOUL.md</li>
+          <li>SHIELD.md (security)</li>
+          <li>Operating Contract</li>
+          <li>QUICKSTART.md guide</li>
+        </ul>
+      </div>
+      <div class="tier-card${tier === 'blueprint' ? ' selected' : ''}" onclick="pickTier('blueprint')">
+        <span class="badge">Best Value</span>
+        <h4>Blueprint</h4>
+        <div class="price">$59<small> one-time</small></div>
+        <ul>
+          <li>Everything in Kit</li>
+          <li>USER.md profile</li>
+          <li>MEMORY.md template</li>
+          <li>Calibration examples</li>
+        </ul>
+      </div>
+    </div>`,
+
+            // 8: Success
+            () => `
+    <div class="success-view">
+      <div class="icon">🦊</div>
+      <h2>Order received!</h2>
+      <p>You'll be redirected to checkout. After payment, your files will be generated and emailed within 1 hour.</p>
+    </div>`
+        ];
+
+        const TOTAL = STEPS.length - 1; // exclude success
+
+        // ─── Render ───
+        function render() {
+            const wrap = document.getElementById('steps-wrap');
+            wrap.innerHTML = `<div class="step active">${STEPS[cur]()}</div>`;
+            // Progress
+            const prog = document.getElementById('progress');
+            prog.innerHTML = Array.from({ length: TOTAL }, (_, i) => `<div class="prog-seg${i < cur ? ' done' : ''}${i === cur ? ' active' : ''}"></div>`).join('');
+            updateNav();
+            // Auto-focus
+            setTimeout(() => { const el = wrap.querySelector('input,textarea,select'); if (el) el.focus(); }, 100);
+        }
+
+        function updateNav() {
+            const back = document.getElementById('btn-back');
+            const next = document.getElementById('btn-next');
+            const hint = document.getElementById('key-hint');
+            const nav = document.getElementById('nav-row');
+            if (cur >= TOTAL) { nav.style.display = 'none'; hint.style.display = 'none'; return }
+            nav.style.display = 'flex';
+            back.style.display = cur > 0 ? 'block' : 'none';
+            if (cur === TOTAL - 1) {
+                const prices = { soul: '$19', kit: '$39', blueprint: '$59' };
+                const labels = { soul: 'SOUL.md', kit: 'Identity Kit', blueprint: 'Agent Blueprint' };
+                next.textContent = `Generate ${labels[tier]} — ${prices[tier]}`;
+                next.className = 'nav-btn next go';
+                hint.style.display = 'none';
+            } else {
+                next.textContent = 'Continue →';
+                next.className = 'nav-btn next';
+                hint.style.display = 'block';
+            }
+        }
+
+        // ─── Navigation ───
+        function next() {
+            if (!validate()) return;
+            if (cur === TOTAL - 1) { submit(); return }
+            cur++; render();
+        }
+        function prev() { if (cur > 0) { cur--; render() } }
+
+        function validate() {
+            if (cur === 0) return !!D.archetype;
+            if (cur === 1) return !!(D.agent_name && D.owner_name && D.email && D.mission);
+            return true;
+        }
+
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                if (document.activeElement && document.activeElement.tagName === 'TEXTAREA') return;
+                e.preventDefault(); next();
+            }
+        });
+
+        // ─── Interaction Handlers ───
+        function pickArch(k) {
+            D.archetype = k;
+            const a = ARCHETYPES[k];
+            if (a.mission && !D.mission) D.mission = a.mission;
+            if (a.caps.length && !(D.capabilities || []).length) D.capabilities = a.caps;
+            if (a.personality && !D.personality) D.personality = a.personality;
+            if (a.autonomy && !D.autonomy) D.autonomy = a.autonomy;
+            if (!D.role) D.role = 'solo';
+            if (!D.group_chat) D.group_chat = 'mention';
+            render();
+        }
+
+        function pickOpt(field, val, el) {
+            D[field] = val;
+            el.closest('.opt-cards').querySelectorAll('.opt-card').forEach(c => c.classList.remove('selected'));
+            el.classList.add('selected');
+            updateNav();
+        }
+
+        function toggleChip(field, el) {
+            if (!D[field]) D[field] = [];
+            const v = el.dataset.v;
+            const i = D[field].indexOf(v);
+            if (i > -1) { D[field].splice(i, 1); el.classList.remove('selected') }
+            else { D[field].push(v); el.classList.add('selected') }
+        }
+
+        function toggleTruth(id, el) {
+            const i = D.core_truths.indexOf(id);
+            if (i > -1) { D.core_truths.splice(i, 1); el.classList.remove('checked') }
+            else { D.core_truths.push(id); el.classList.add('checked') }
+        }
+
+        function toggleGuard(id, el) {
+            const i = D.guardrail_checks.indexOf(id);
+            if (i > -1) { D.guardrail_checks.splice(i, 1); el.classList.remove('checked') }
+            else { D.guardrail_checks.push(id); el.classList.add('checked') }
+        }
+
+        function pickTier(t) { tier = t; render() }
+
+        function setRev(v, el) {
+            revOn = v; D.revenue_focus = v;
+            el.closest('.opt-cards').querySelectorAll('.opt-card').forEach(c => c.classList.remove('selected'));
+            el.classList.add('selected');
+            document.getElementById('rev-detail').style.display = v ? 'block' : 'none';
+        }
+
+        function toggleAdv(el) {
+            el.classList.toggle('open');
+            const content = el.nextElementSibling;
+            content.classList.toggle('visible');
+        }
+
+        function updCount(id, max) {
+            const el = document.getElementById(id);
+            document.getElementById(id + '-count').textContent = `${(el.value || '').length}/${max}`;
+        }
+
+        // ─── Stripe Payment Links ───
+        const STRIPE_LINKS = {
+            soul: 'https://buy.stripe.com/eVq28t9gX8np1sR6Em9wt01',
+            kit: 'https://buy.stripe.com/aFa14p2SzdHJdbzbYG9wt02',
+            blueprint: 'https://buy.stripe.com/9B6dRb0KrfPRfjH6Em9wt03',
+        };
+
+        // ─── Submit ───
+        async function submit() {
+            const btn = document.getElementById('btn-next');
+            btn.disabled = true; btn.textContent = 'Preparing checkout...';
+
+            const order = {
+                ...D,
+                tier,
+                revenue_focus: revOn,
+                order_id: 'soul_' + Date.now(),
+                created_at: new Date().toISOString()
+            };
+
+            // Save form data to localStorage so it can be merged after payment
+            try { localStorage.setItem('soul_order', JSON.stringify(order)); } catch (e) { }
+
+            // Try API first (for hosted intake)
+            try {
+                const res = await fetch('/api/soul-order', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(order)
+                });
+                if (res.ok) {
+                    const d = await res.json();
+                    if (d.checkout_url) {
+                        cur = TOTAL; render();
+                        setTimeout(() => window.location.href = d.checkout_url, 800);
+                        return;
+                    }
+                }
+            } catch (e) { }
+
+            // Redirect to Stripe payment link
+            const stripeUrl = STRIPE_LINKS[tier];
+            if (stripeUrl) {
+                cur = TOTAL; render();
+                setTimeout(() => window.location.href = stripeUrl, 800);
+            } else {
+                // Final fallback: email order
+                const labels = { soul: 'SOUL.md', kit: 'Identity Kit', blueprint: 'Agent Blueprint' };
+                window.location.href = `mailto:pixel@pixelfamiliar.ca?subject=${labels[tier]} Order ${order.order_id}&body=${encodeURIComponent(JSON.stringify(order, null, 2))}`;
+            }
+        }
+
+        // ─── Init ───
+        render();
+    </script>
+</body>
+
+</html>
