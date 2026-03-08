@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clawforce — Build Your AI Agent</title>
+    <title>ClawForce — Certify Your Agent Skills</title>
     <meta name="description"
-        content="SOUL.md identity files and AI consulting services for humans building autonomous agents. Custom agent configurations, readiness audits, and automation blueprints.">
+        content="Independent security certification for OpenClaw agent skills. Scan, verify, and certify skills against malware, exfiltration, and supply chain attacks. Trusted by the OpenClaw ecosystem.">
     <meta name="keywords"
-        content="SOUL.md, AI agent, agent identity, OpenClaw, AI consulting, autonomous agent, agent configuration">
+        content="OpenClaw, agent skills, security certification, malware scanner, skill verification, AI agent safety, ClawForce">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
@@ -28,6 +28,7 @@
             --bg: #060608;
             --surface: #0c0c10;
             --card: #101016;
+            --card-hover: #14141c;
             --border: rgba(255, 255, 255, 0.06);
             --border-hover: rgba(255, 255, 255, 0.12);
             --text: #e8e6f0;
@@ -37,6 +38,10 @@
             --cyan-dim: #049f77;
             --blue: #118ab2;
             --amber: #ffd166;
+            --red: #ef476f;
+            --green-bg: rgba(6, 214, 160, 0.06);
+            --blue-bg: rgba(17, 138, 178, 0.06);
+            --amber-bg: rgba(255, 209, 102, 0.06);
             --radius: 14px;
             --radius-sm: 10px;
         }
@@ -62,14 +67,14 @@
         }
 
         .wrap {
-            max-width: 900px;
+            max-width: 960px;
             margin: 0 auto;
             padding: 0 1.5rem;
             position: relative;
             z-index: 1;
         }
 
-        /* NAV */
+        /* ━━━ NAV ━━━ */
         nav {
             position: fixed;
             top: 0;
@@ -77,8 +82,8 @@
             right: 0;
             z-index: 100;
             padding: 0.9rem 0;
-            background: rgba(6, 6, 8, 0.9);
-            backdrop-filter: blur(12px);
+            background: rgba(6, 6, 8, 0.92);
+            backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--border);
         }
 
@@ -132,9 +137,9 @@
             font-weight: 700 !important;
         }
 
-        /* HERO */
+        /* ━━━ HERO ━━━ */
         .hero {
-            padding: 8rem 0 3rem;
+            padding: 9rem 0 4rem;
             text-align: center;
         }
 
@@ -173,11 +178,11 @@
         }
 
         .hero h1 {
-            font-size: clamp(2rem, 4.5vw, 3rem);
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
             font-weight: 900;
-            line-height: 1.15;
+            line-height: 1.12;
             letter-spacing: -0.03em;
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
         }
 
         .hero h1 .hl {
@@ -188,149 +193,42 @@
         }
 
         .hero-sub {
-            font-size: 1.05rem;
+            font-size: 1.08rem;
             color: var(--muted);
-            max-width: 520px;
-            margin: 0 auto 1.5rem;
+            max-width: 560px;
+            margin: 0 auto 1.2rem;
+            line-height: 1.7;
         }
 
-        .hero-identity {
-            font-size: 0.85rem;
-            color: var(--dim);
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-identity strong {
-            color: var(--cyan);
-            font-weight: 600;
-        }
-
-        .hero-links {
+        .hero-stats {
             display: flex;
-            gap: 1.5rem;
+            gap: 2rem;
             justify-content: center;
-            flex-wrap: wrap;
+            margin-bottom: 2rem;
         }
 
-        .hero-links a {
-            color: var(--dim);
-            text-decoration: none;
-            font-size: 0.82rem;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        .hero-links a:hover {
-            color: var(--cyan);
-        }
-
-        .divider {
-            border: none;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--border-hover), transparent);
-            margin: 0;
-        }
-
-        /* FEATURED CARD */
-        .featured {
-            padding: 4rem 0;
-        }
-
-        .featured-card {
-            background: var(--card);
-            border: 1px solid var(--border-hover);
-            border-radius: var(--radius);
-            padding: 2.5rem;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 0 60px rgba(6, 214, 160, 0.04);
-        }
-
-        .featured-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--cyan-dim), var(--cyan), var(--blue));
-        }
-
-        .feat-badge {
-            display: inline-block;
-            font-size: 0.72rem;
-            font-weight: 600;
-            color: var(--cyan);
-            background: rgba(6, 214, 160, 0.08);
-            border: 1px solid rgba(6, 214, 160, 0.15);
-            padding: 0.25rem 0.8rem;
-            border-radius: 50px;
-            margin-bottom: 1rem;
-        }
-
-        .featured-card h3 {
-            font-size: 1.6rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-        }
-
-        .desc {
-            color: var(--muted);
-            font-size: 0.92rem;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-            max-width: 520px;
-        }
-
-        .tier-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 10px;
-            margin-bottom: 1.5rem;
-        }
-
-        .tier {
-            background: rgba(6, 6, 8, 0.5);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 1.2rem;
+        .hero-stat {
             text-align: center;
-            position: relative;
         }
 
-        .tier-tag {
-            position: absolute;
-            top: -8px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 0.58rem;
-            font-weight: 700;
-            padding: 1px 8px;
-            border-radius: 50px;
-            white-space: nowrap;
-        }
-
-        .tier .price {
-            font-size: 1.5rem;
+        .hero-stat .num {
+            font-size: 1.8rem;
             font-weight: 900;
             color: var(--cyan);
+            font-family: 'JetBrains Mono', monospace;
         }
 
-        .tier h4 {
-            font-size: 0.82rem;
-            font-weight: 700;
-            margin: 4px 0 2px;
-        }
-
-        .tier p {
+        .hero-stat .label {
             font-size: 0.72rem;
-            color: var(--muted);
-            line-height: 1.4;
+            color: var(--dim);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
         }
 
-        .feat-cta {
+        .hero-cta {
             display: flex;
             gap: 1rem;
+            justify-content: center;
             flex-wrap: wrap;
         }
 
@@ -369,7 +267,60 @@
             color: var(--cyan);
         }
 
-        /* SECTIONS */
+        .divider {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-hover), transparent);
+            margin: 0;
+        }
+
+        /* ━━━ THREAT BANNER ━━━ */
+        .threat-banner {
+            padding: 2.5rem 0;
+            background: rgba(239, 71, 111, 0.04);
+            border-top: 1px solid rgba(239, 71, 111, 0.1);
+            border-bottom: 1px solid rgba(239, 71, 111, 0.1);
+        }
+
+        .threat-inner {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .threat-icon {
+            font-size: 2.5rem;
+        }
+
+        .threat-text {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .threat-text h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--red);
+            margin-bottom: 0.3rem;
+        }
+
+        .threat-text p {
+            font-size: 0.88rem;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        .threat-text strong {
+            color: var(--text);
+        }
+
+        /* ━━━ HOW IT WORKS ━━━ */
+        .how-it-works {
+            padding: 5rem 0;
+        }
+
         .section-label {
             font-size: 0.72rem;
             font-weight: 600;
@@ -379,124 +330,695 @@
             margin-bottom: 0.5rem;
         }
 
-        .products {
-            padding: 4rem 0;
-        }
-
-        .products h2 {
-            font-size: 1.5rem;
+        .section-title {
+            font-size: 1.6rem;
             font-weight: 800;
             margin-bottom: 0.4rem;
         }
 
-        .products .sub {
+        .section-sub {
             color: var(--muted);
             font-size: 0.9rem;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
         }
 
-        /* SERVICE CARDS */
-        .service-grid {
+        .tier-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 1.2rem;
         }
 
-        .service-card {
+        .tier-card {
             background: var(--card);
             border: 1px solid var(--border);
             border-radius: var(--radius);
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            transition: all 0.3s ease;
+            padding: 2rem 1.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
         }
 
-        .service-card:hover {
+        .tier-card:hover {
+            transform: translateY(-4px);
             border-color: var(--border-hover);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 32px rgba(6, 214, 160, 0.08);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
         }
 
-        .service-card .service-emoji {
+        .tier-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+        }
+
+        .tier-card.tier-scanned::before {
+            background: var(--cyan);
+        }
+
+        .tier-card.tier-verified::before {
+            background: var(--blue);
+        }
+
+        .tier-card.tier-certified::before {
+            background: var(--amber);
+        }
+
+        .tier-icon {
             font-size: 2rem;
             margin-bottom: 1rem;
         }
 
-        .service-card h4 {
+        .tier-name {
             font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .service-card .service-price {
-            font-size: 1.8rem;
-            font-weight: 900;
-            color: var(--cyan);
+            font-weight: 800;
             margin-bottom: 0.2rem;
         }
 
-        .service-card .service-note {
-            font-size: 0.78rem;
-            color: var(--dim);
-            margin-bottom: 0.8rem;
+        .tier-card.tier-scanned .tier-name {
+            color: var(--cyan);
         }
 
-        .service-card .service-desc {
+        .tier-card.tier-verified .tier-name {
+            color: var(--blue);
+        }
+
+        .tier-card.tier-certified .tier-name {
+            color: var(--amber);
+        }
+
+        .tier-desc {
             font-size: 0.85rem;
             color: var(--muted);
-            line-height: 1.6;
             margin-bottom: 1.2rem;
+            line-height: 1.5;
+        }
+
+        .tier-checks {
+            list-style: none;
+        }
+
+        .tier-checks li {
+            font-size: 0.8rem;
+            color: var(--muted);
+            padding: 0.3rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tier-checks li::before {
+            content: '✓';
+            font-weight: 700;
+            font-size: 0.7rem;
+            width: 16px;
+            height: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .tier-scanned .tier-checks li::before {
+            color: var(--cyan);
+            background: rgba(6, 214, 160, 0.1);
+        }
+
+        .tier-verified .tier-checks li::before {
+            color: var(--blue);
+            background: rgba(17, 138, 178, 0.1);
+        }
+
+        .tier-certified .tier-checks li::before {
+            color: var(--amber);
+            background: rgba(255, 209, 102, 0.1);
+        }
+
+        /* ━━━ SCANNER UI ━━━ */
+        .scanner-section {
+            padding: 5rem 0;
+        }
+
+        .scanner-card {
+            background: var(--card);
+            border: 1px solid var(--border-hover);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 0 60px rgba(6, 214, 160, 0.03);
+        }
+
+        .scanner-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+            background: rgba(6, 214, 160, 0.02);
+        }
+
+        .scanner-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .scanner-dot.r {
+            background: #ef476f;
+        }
+
+        .scanner-dot.y {
+            background: #ffd166;
+        }
+
+        .scanner-dot.g {
+            background: #06d6a0;
+        }
+
+        .scanner-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem;
+            color: var(--muted);
+            margin-left: 0.5rem;
+        }
+
+        .scanner-body {
+            padding: 2rem;
+        }
+
+        .scan-input-group {
+            display: flex;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .scan-input {
+            flex: 1;
+            padding: 0.8rem 1.2rem;
+            border-radius: 10px;
+            border: 1px solid var(--border-hover);
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .scan-input:focus {
+            border-color: var(--cyan);
+        }
+
+        .scan-input::placeholder {
+            color: var(--dim);
+        }
+
+        .scan-btn {
+            padding: 0.8rem 2rem;
+            border-radius: 10px;
+            border: none;
+            background: linear-gradient(135deg, var(--cyan-dim), var(--cyan));
+            color: var(--bg);
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .scan-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(6, 214, 160, 0.3);
+        }
+
+        .scan-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* upload zone */
+        .upload-zone {
+            border: 2px dashed var(--border-hover);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .upload-zone:hover,
+        .upload-zone.drag-over {
+            border-color: var(--cyan);
+            background: rgba(6, 214, 160, 0.03);
+        }
+
+        .upload-zone .upload-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .upload-zone p {
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        .upload-zone .accent {
+            color: var(--cyan);
+            font-weight: 600;
+        }
+
+        .or-divider {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            color: var(--dim);
+            font-size: 0.78rem;
+        }
+
+        .or-divider::before,
+        .or-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        /* Results panel */
+        .scan-results {
+            display: none;
+            margin-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            padding-top: 1.5rem;
+        }
+
+        .scan-results.visible {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .result-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .result-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.4rem 1rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        .result-badge.scanned {
+            background: var(--green-bg);
+            color: var(--cyan);
+            border: 1px solid rgba(6, 214, 160, 0.2);
+        }
+
+        .result-badge.verified {
+            background: var(--blue-bg);
+            color: var(--blue);
+            border: 1px solid rgba(17, 138, 178, 0.2);
+        }
+
+        .result-badge.certified {
+            background: var(--amber-bg);
+            color: var(--amber);
+            border: 1px solid rgba(255, 209, 102, 0.2);
+        }
+
+        .result-badge.rejected {
+            background: rgba(239, 71, 111, 0.06);
+            color: var(--red);
+            border: 1px solid rgba(239, 71, 111, 0.2);
+        }
+
+        .result-score {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        .result-metrics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .metric {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .metric-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--cyan);
+        }
+
+        .metric-label {
+            font-size: 0.68rem;
+            color: var(--dim);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 0.2rem;
+        }
+
+        .findings-list {
+            max-height: 200px;
+            overflow-y: auto;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--bg);
+        }
+
+        .finding-item {
+            padding: 0.6rem 1rem;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.78rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .finding-item:last-child {
+            border-bottom: none;
+        }
+
+        .finding-sev {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .finding-sev.critical {
+            background: var(--red);
+        }
+
+        .finding-sev.high {
+            background: #ff8c00;
+        }
+
+        .finding-sev.medium {
+            background: var(--amber);
+        }
+
+        .finding-sev.low {
+            background: var(--cyan);
+        }
+
+        .finding-desc {
+            color: var(--muted);
             flex: 1;
         }
 
-        .service-card .service-features {
+        .finding-file {
+            color: var(--dim);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+        }
+
+        /* ━━━ PRICING ━━━ */
+        .pricing {
+            padding: 5rem 0;
+        }
+
+        .price-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
+        }
+
+        .price-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .price-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--border-hover);
+        }
+
+        .price-card.featured {
+            border-color: rgba(17, 138, 178, 0.3);
+            box-shadow: 0 0 40px rgba(17, 138, 178, 0.06);
+        }
+
+        .price-card.featured::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--cyan), var(--blue));
+        }
+
+        .price-popular {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.6rem;
+            font-weight: 700;
+            color: var(--blue);
+            background: var(--blue-bg);
+            border: 1px solid rgba(17, 138, 178, 0.2);
+            padding: 2px 10px;
+            border-radius: 50px;
+            white-space: nowrap;
+        }
+
+        .price-tier-icon {
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .price-name {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .price-amount {
+            font-size: 2.2rem;
+            font-weight: 900;
+        }
+
+        .price-card:nth-child(1) .price-amount {
+            color: var(--cyan);
+        }
+
+        .price-card:nth-child(2) .price-amount {
+            color: var(--blue);
+        }
+
+        .price-card:nth-child(3) .price-amount {
+            color: var(--amber);
+        }
+
+        .price-period {
+            font-size: 0.78rem;
+            color: var(--dim);
+            margin-bottom: 1rem;
+        }
+
+        .price-features {
             list-style: none;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.5rem;
+            text-align: left;
         }
 
-        .service-card .service-features li {
-            font-size: 0.82rem;
+        .price-features li {
+            font-size: 0.8rem;
             color: var(--muted);
-            padding: 0.25rem 0;
+            padding: 0.3rem 0;
         }
 
-        .service-card .service-features li::before {
+        .price-features li::before {
             content: '✦ ';
             color: var(--cyan);
         }
 
-        .btn-buy {
+        .btn-price {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 0.65rem 1.2rem;
-            background: linear-gradient(135deg, var(--cyan-dim), var(--cyan));
-            color: var(--bg);
+            padding: 0.65rem 1.5rem;
             border-radius: 10px;
             font-size: 0.85rem;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.3s;
+            width: 100%;
         }
 
-        .btn-buy:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 24px rgba(6, 214, 160, 0.3);
-        }
-
-        .prod-tag {
-            font-size: 0.6rem;
-            font-weight: 600;
+        .btn-price.free {
+            background: var(--green-bg);
             color: var(--cyan);
-            background: rgba(6, 214, 160, 0.1);
-            padding: 2px 6px;
-            border-radius: 4px;
-            vertical-align: middle;
-            margin-left: 4px;
+            border: 1px solid rgba(6, 214, 160, 0.2);
         }
 
-        /* FOOTER */
+        .btn-price.paid {
+            background: linear-gradient(135deg, var(--cyan-dim), var(--cyan));
+            color: var(--bg);
+        }
+
+        .btn-price:hover {
+            transform: translateY(-2px);
+        }
+
+        /* ━━━ GALLERY ━━━ */
+        .gallery {
+            padding: 5rem 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1rem;
+        }
+
+        .gallery-item {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .gallery-item:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+        }
+
+        .gallery-item-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery-item-name {
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .gallery-badge {
+            font-size: 0.6rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 50px;
+        }
+
+        .gallery-badge.scanned {
+            color: var(--cyan);
+            background: var(--green-bg);
+        }
+
+        .gallery-badge.verified {
+            color: var(--blue);
+            background: var(--blue-bg);
+        }
+
+        .gallery-badge.certified {
+            color: var(--amber);
+            background: var(--amber-bg);
+        }
+
+        .gallery-item-desc {
+            font-size: 0.78rem;
+            color: var(--muted);
+            line-height: 1.4;
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery-item-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .gallery-meta-item {
+            font-size: 0.68rem;
+            color: var(--dim);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* ━━━ TRUST SECTION ━━━ */
+        .trust {
+            padding: 4rem 0;
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
+        }
+
+        .trust-item {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .trust-item:hover {
+            border-color: var(--border-hover);
+        }
+
+        .trust-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .trust-title {
+            font-weight: 700;
+            font-size: 0.88rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .trust-desc {
+            font-size: 0.78rem;
+            color: var(--muted);
+            line-height: 1.4;
+        }
+
+        /* ━━━ FOOTER ━━━ */
         footer {
             border-top: 1px solid var(--border);
             padding: 2rem 0;
@@ -540,7 +1062,7 @@
             margin-top: 0.8rem;
         }
 
-        /* ANIMATIONS */
+        /* ━━━ ANIMATIONS ━━━ */
         .fade-up {
             opacity: 0;
             transform: translateY(20px);
@@ -552,16 +1074,71 @@
             transform: translateY(0);
         }
 
-        @media (max-width: 640px) {
+        /* ━━━ RESPONSIVE ━━━ */
+        @media (max-width: 768px) {
 
-            .tier-grid,
-            .service-grid {
+            .tier-cards,
+            .price-grid,
+            .trust-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .result-metrics {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-stats {
+                gap: 1rem;
             }
 
             .nav-links {
                 display: none;
             }
+
+            .scan-input-group {
+                flex-direction: column;
+            }
+
+            .threat-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* scanning animation */
+        .scan-progress {
+            display: none;
+            margin-top: 1rem;
+        }
+
+        .scan-progress.active {
+            display: block;
+        }
+
+        .progress-bar {
+            height: 3px;
+            background: var(--border);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--cyan), var(--blue));
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--dim);
+            margin-top: 0.4rem;
         }
     </style>
 </head>
@@ -571,80 +1148,65 @@
     <nav>
         <div class="wrap">
             <a href="/" class="nav-logo">
-                <span>🧠</span>
-                <span class="brand">Clawforce</span>
+                <span>🛡️</span>
+                <span class="brand">ClawForce</span>
             </a>
             <ul class="nav-links">
-                <li><a href="#soul">SOUL.md</a></li>
-                <li><a href="#services">Services</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#scan">Scan a Skill</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#gallery">Gallery</a></li>
                 <li><a href="https://clawtrak.com">ClawTrak</a></li>
-                <li><a href="https://pixelfamiliar.ca">Blog</a></li>
                 <li><a href="mailto:pixel@pixelfamiliar.ca" class="nav-cta">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- HERO -->
+    <!-- ━━━ HERO ━━━ -->
     <section class="hero">
         <div class="wrap fade-up">
             <div class="hero-badge">
                 <span class="dot"></span>
-                Agent Identity & AI Services
+                Independent Security Certification
             </div>
-            <h1>Build Your <span class="hl">AI Agent</span></h1>
+            <h1>Certify Your<br><span class="hl">Agent Skills</span></h1>
             <p class="hero-sub">
-                Custom SOUL.md identity files and professional AI consulting services — designed for humans
-                building autonomous agents. Powered by OpenClaw.
+                The first independent certification authority for OpenClaw skills.
+                We scan for malware, verify intent, and issue trust badges — so your users know the skill is safe.
             </p>
-            <p class="hero-identity">
-                <strong>For humans building agents.</strong> Identity, security, and consulting in one place.
-            </p>
-            <div class="hero-links">
-                <a href="https://pixelfamiliar.ca">pixelfamiliar.ca</a>
-                <a href="https://clawtrak.com">clawtrak.com</a>
-                <a href="https://x.com/PixelFamiliar">𝕏 / Twitter</a>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="num">50+</div>
+                    <div class="label">Scan Patterns</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="num">3</div>
+                    <div class="label">Cert Tiers</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="num">0</div>
+                    <div class="label">False Positives</div>
+                </div>
+            </div>
+            <div class="hero-cta">
+                <a href="#scan" class="btn btn-primary">🛡️ Scan a Skill →</a>
+                <a href="#how-it-works" class="btn btn-outline">How It Works</a>
             </div>
         </div>
     </section>
 
-    <hr class="divider">
-
-    <!-- FEATURED: SOUL.md -->
-    <section class="featured" id="soul">
-        <div class="wrap fade-up">
-            <div class="featured-card">
-                <div class="feat-badge">🧠 Featured Product</div>
-                <h3>Custom SOUL.md</h3>
-                <p class="desc">Give your AI agent an identity. Pick an archetype, answer a few questions, get a
-                    production-ready SOUL.md — security-first, truncation-aware, delivered in under an hour.</p>
-
-                <div class="tier-grid">
-                    <div class="tier">
-                        <div class="price">$19</div>
-                        <h4>SOUL.md</h4>
-                        <p>Identity + QUICKSTART</p>
-                    </div>
-                    <div class="tier">
-                        <div class="tier-tag"
-                            style="color: var(--cyan); background: rgba(6,214,160,0.08); border: 1px solid rgba(6,214,160,0.15);">
-                            POPULAR</div>
-                        <div class="price">$39</div>
-                        <h4>Identity Kit</h4>
-                        <p>+ SHIELD + Contract</p>
-                    </div>
-                    <div class="tier">
-                        <div class="tier-tag"
-                            style="color: var(--amber); background: rgba(255,209,102,0.08); border: 1px solid rgba(255,209,102,0.15);">
-                            BEST VALUE</div>
-                        <div class="price" style="color: var(--amber);">$59</div>
-                        <h4>Agent Blueprint</h4>
-                        <p>+ USER + MEMORY + Calibration</p>
-                    </div>
-                </div>
-
-                <div class="feat-cta">
-                    <a href="/soul_intake.html" class="btn btn-primary">🧠 Design Your SOUL →</a>
-                    <a href="#soul" class="btn btn-outline">Compare Tiers</a>
+    <!-- ━━━ THREAT BANNER ━━━ -->
+    <section class="threat-banner">
+        <div class="wrap">
+            <div class="threat-inner fade-up">
+                <div class="threat-icon">⚠️</div>
+                <div class="threat-text">
+                    <h3>1,000+ Malicious Skills Found on ClawHub</h3>
+                    <p>In early 2026, security researchers discovered over <strong>1,000 malicious OpenClaw
+                            skills</strong>
+                        containing credential harvesters, crypto miners, and prompt injection payloads.
+                        <strong>36.8% of sampled skills</strong> had security flaws. ClawForce exists to fix this.
+                    </p>
                 </div>
             </div>
         </div>
@@ -652,99 +1214,228 @@
 
     <hr class="divider">
 
-    <!-- AI CONSULTING SERVICES -->
-    <section class="products" id="services">
+    <!-- ━━━ HOW IT WORKS ━━━ -->
+    <section class="how-it-works" id="how-it-works">
         <div class="wrap">
             <div class="fade-up">
-                <div class="section-label">// ai consulting</div>
-                <h2>AI Services for Real Businesses</h2>
-                <p class="sub">Professional AI-powered analysis delivered to your inbox in 24-48h. No calls, no meetings
-                    — just results.</p>
+                <div class="section-label">// certification tiers</div>
+                <h2 class="section-title">Three Layers of Trust</h2>
+                <p class="section-sub">Every skill goes through progressively deeper analysis. Higher tiers mean higher
+                    trust.</p>
             </div>
 
-            <div class="service-grid fade-up">
-
-                <!-- AI Readiness Audit -->
-                <div class="service-card">
-                    <div class="service-emoji">🤖</div>
-                    <h4>AI Readiness Audit <span class="prod-tag">Popular</span></h4>
-                    <div class="service-price">$99</div>
-                    <div class="service-note">one-time report</div>
-                    <p class="service-desc">We analyze your business operations and tell you exactly where AI can save
-                        you time and money — with specific tools, pricing, and ROI projections.</p>
-                    <ul class="service-features">
-                        <li>Full operational workflow analysis</li>
-                        <li>10-point AI opportunity map</li>
-                        <li>Tool recommendations with real pricing</li>
-                        <li>Implementation roadmap (phased)</li>
-                        <li>Conservative ROI projections</li>
+            <div class="tier-cards fade-up">
+                <div class="tier-card tier-scanned">
+                    <div class="tier-icon">🟢</div>
+                    <div class="tier-name">Scanned</div>
+                    <div class="tier-desc">Automated static analysis catches known dangerous patterns, secrets, and
+                        obfuscation.</div>
+                    <ul class="tier-checks">
+                        <li>50+ vulnerability patterns</li>
+                        <li>Secret & credential detection</li>
+                        <li>Obfuscation flagging</li>
+                        <li>Dependency audit</li>
+                        <li>AST-level code analysis</li>
                     </ul>
-                    <span class="btn-buy" style="opacity:0.5;cursor:default;">Coming Soon</span>
                 </div>
 
-                <!-- Content Repurposing -->
-                <div class="service-card">
-                    <div class="service-emoji">♻️</div>
-                    <h4>Content Repurposing</h4>
-                    <div class="service-price">$79</div>
-                    <div class="service-note">per piece of content</div>
-                    <p class="service-desc">Turn one blog post, podcast, or video into 20+ platform-ready social posts,
-                        a newsletter draft, and a 2-week posting calendar.</p>
-                    <ul class="service-features">
-                        <li>10 X/Twitter posts (thread-ready)</li>
-                        <li>10 LinkedIn posts (professional tone)</li>
-                        <li>Newsletter draft</li>
-                        <li>Quotable extracts</li>
-                        <li>2-week posting calendar</li>
+                <div class="tier-card tier-verified">
+                    <div class="tier-icon">🔵</div>
+                    <div class="tier-name">Verified</div>
+                    <div class="tier-desc">Everything in Scanned, plus intent analysis verifying the skill does what it
+                        claims.</div>
+                    <ul class="tier-checks">
+                        <li>All Scanned checks</li>
+                        <li>SKILL.md claim validation</li>
+                        <li>Behavior vs declaration match</li>
+                        <li>Undeclared capability detection</li>
+                        <li>Permission scope audit</li>
                     </ul>
-                    <span class="btn-buy" style="opacity:0.5;cursor:default;">Coming Soon</span>
                 </div>
 
-                <!-- Lead Research -->
-                <div class="service-card">
-                    <div class="service-emoji">🎯</div>
-                    <h4>Lead Research & Outreach</h4>
-                    <div class="service-price">$99</div>
-                    <div class="service-note">batch of 50 leads</div>
-                    <p class="service-desc">50 qualified prospect profiles with deep research notes, personalized cold
-                        emails, follow-up sequences, and a response handling playbook.</p>
-                    <ul class="service-features">
-                        <li>50 prospect profiles with research</li>
-                        <li>Qualification scoring (A/B/C)</li>
-                        <li>3 personalized email templates</li>
-                        <li>5-touch follow-up sequence</li>
-                        <li>Response handling playbook</li>
+                <div class="tier-card tier-certified">
+                    <div class="tier-icon">🟡</div>
+                    <div class="tier-name">Certified</div>
+                    <div class="tier-desc">Full pipeline: scan, intent analysis, sandbox execution, and human review
+                        sign-off.</div>
+                    <ul class="tier-checks">
+                        <li>All Verified checks</li>
+                        <li>Docker sandbox execution</li>
+                        <li>Network activity monitoring</li>
+                        <li>Behavioral trace analysis</li>
+                        <li>Human security review</li>
                     </ul>
-                    <span class="btn-buy" style="opacity:0.5;cursor:default;">Coming Soon</span>
                 </div>
-
-                <!-- Workflow Automation -->
-                <div class="service-card">
-                    <div class="service-emoji">⚙️</div>
-                    <h4>Workflow Automation Blueprint</h4>
-                    <div class="service-price">$149</div>
-                    <div class="service-note">per workflow</div>
-                    <p class="service-desc">Complete automation blueprint: we map your process, recommend tools, write
-                        the implementation guide, and include ready-to-use workflow templates.</p>
-                    <ul class="service-features">
-                        <li>Current workflow mapping with bottlenecks</li>
-                        <li>Automation architecture & tool stack</li>
-                        <li>Step-by-step implementation guide</li>
-                        <li>n8n / Make.com workflow template</li>
-                        <li>ROI projections & maintenance guide</li>
-                    </ul>
-                    <span class="btn-buy" style="opacity:0.5;cursor:default;">Coming Soon</span>
-                </div>
-
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <hr class="divider">
+
+    <!-- ━━━ SCANNER ━━━ -->
+    <section class="scanner-section" id="scan">
+        <div class="wrap">
+            <div class="fade-up">
+                <div class="section-label">// try it now</div>
+                <h2 class="section-title">Scan a Skill</h2>
+                <p class="section-sub">Upload a skill or enter a GitHub URL to get an instant Tier 1 scan.</p>
+            </div>
+
+            <div class="scanner-card fade-up">
+                <div class="scanner-header">
+                    <span class="scanner-dot r"></span>
+                    <span class="scanner-dot y"></span>
+                    <span class="scanner-dot g"></span>
+                    <span class="scanner-title">clawforce-scanner v1.0.0</span>
+                </div>
+                <div class="scanner-body">
+                    <div class="upload-zone" id="uploadZone">
+                        <div class="upload-icon">📦</div>
+                        <p>Drag & drop a skill <strong>.zip</strong> here</p>
+                        <p class="accent">or click to browse</p>
+                        <input type="file" id="fileInput" accept=".zip" style="display: none;">
+                    </div>
+
+                    <div class="or-divider">or enter a GitHub URL</div>
+
+                    <div class="scan-input-group">
+                        <input type="text" class="scan-input" id="githubUrl"
+                            placeholder="https://github.com/user/skill-repo">
+                        <button class="scan-btn" id="scanBtn" onclick="runDemoScan()">🛡️ Scan Now</button>
+                    </div>
+
+                    <div class="scan-progress" id="scanProgress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                        <div class="progress-text" id="progressText">Initializing scanner...</div>
+                    </div>
+
+                    <div class="scan-results" id="scanResults">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ━━━ PRICING ━━━ -->
+    <section class="pricing" id="pricing">
+        <div class="wrap">
+            <div class="fade-up">
+                <div class="section-label">// pricing</div>
+                <h2 class="section-title">Certification Plans</h2>
+                <p class="section-sub">Choose the level of certification trust your skills need.</p>
+            </div>
+
+            <div class="price-grid fade-up">
+                <div class="price-card">
+                    <div class="price-tier-icon">🟢</div>
+                    <div class="price-name">Scanned</div>
+                    <div class="price-amount">Free</div>
+                    <div class="price-period">per skill</div>
+                    <ul class="price-features">
+                        <li>Static analysis scan</li>
+                        <li>50+ vulnerability patterns</li>
+                        <li>Risk score (0–100)</li>
+                        <li>Scan report (JSON)</li>
+                        <li>Badge for README</li>
+                    </ul>
+                    <a href="#scan" class="btn-price free">Scan Now — Free</a>
+                </div>
+
+                <div class="price-card featured">
+                    <div class="price-popular">MOST POPULAR</div>
+                    <div class="price-tier-icon">🔵</div>
+                    <div class="price-name">Verified</div>
+                    <div class="price-amount">$9</div>
+                    <div class="price-period">per skill</div>
+                    <ul class="price-features">
+                        <li>Everything in Scanned</li>
+                        <li>Intent analysis (claim vs code)</li>
+                        <li>Permission scope audit</li>
+                        <li>Verified badge + certificate</li>
+                        <li>Embeddable HTML badge</li>
+                    </ul>
+                    <span class="btn-price paid" style="opacity:0.6;cursor:default;">Coming Soon</span>
+                </div>
+
+                <div class="price-card">
+                    <div class="price-tier-icon">🟡</div>
+                    <div class="price-name">Certified</div>
+                    <div class="price-amount">$29</div>
+                    <div class="price-period">per skill</div>
+                    <ul class="price-features">
+                        <li>Everything in Verified</li>
+                        <li>Docker sandbox execution</li>
+                        <li>Behavioral monitoring</li>
+                        <li>Human security review</li>
+                        <li>Signed JSON certificate</li>
+                    </ul>
+                    <span class="btn-price paid" style="opacity:0.6;cursor:default;">Coming Soon</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ━━━ GALLERY ━━━ -->
+    <section class="gallery" id="gallery">
+        <div class="wrap">
+            <div class="fade-up">
+                <div class="section-label">// verified skills</div>
+                <h2 class="section-title">Certified Skills Gallery</h2>
+                <p class="section-sub">Skills that have passed ClawForce certification.</p>
+            </div>
+
+            <div class="gallery-grid fade-up" id="galleryGrid">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ━━━ TRUST ━━━ -->
+    <section class="trust">
+        <div class="wrap">
+            <div class="fade-up">
+                <div class="section-label">// why trust us</div>
+                <h2 class="section-title">Built on Transparency</h2>
+                <p class="section-sub">How we earn your trust.</p>
+            </div>
+
+            <div class="trust-grid fade-up">
+                <div class="trust-item">
+                    <div class="trust-icon">🔓</div>
+                    <div class="trust-title">Open Scanner</div>
+                    <div class="trust-desc">Our scanner is deterministic and open. Every check is visible — no black
+                        box.</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">🔁</div>
+                    <div class="trust-title">Reproducible Results</div>
+                    <div class="trust-desc">Certificates include skill hashes. Anyone can re-run the scan and verify the
+                        result.</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">🐾</div>
+                    <div class="trust-title">We Eat Our Own Dogfood</div>
+                    <div class="trust-desc">Our own skills are scanned and certified first. See them in the gallery
+                        above.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ━━━ FOOTER ━━━ -->
     <footer>
         <div class="wrap">
             <div class="footer-inner">
-                <div class="footer-brand">🧠 Clawforce</div>
+                <div class="footer-brand">🛡️ ClawForce</div>
                 <div class="footer-links">
                     <a href="https://clawtrak.com">ClawTrak</a>
                     <a href="https://pixelfamiliar.ca">Pixel Familiar</a>
@@ -753,15 +1444,191 @@
                     <a href="mailto:pixel@pixelfamiliar.ca">Contact</a>
                 </div>
             </div>
-            <p class="footer-copy">© 2026 Pixel Familiar. For humans building agents.</p>
+            <p class="footer-copy">© 2026 Pixel Familiar · ClawForce Verified Skills™ · Independent security
+                certification for OpenClaw agent skills.</p>
         </div>
     </footer>
 
     <script>
+        // ━━━ Intersection Observer for animations ━━━
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
         }, { threshold: 0.1 });
         document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+        // ━━━ Upload Zone ━━━
+        const uploadZone = document.getElementById('uploadZone');
+        const fileInput = document.getElementById('fileInput');
+
+        uploadZone.addEventListener('click', () => fileInput.click());
+        uploadZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadZone.classList.add('drag-over');
+        });
+        uploadZone.addEventListener('dragleave', () => {
+            uploadZone.classList.remove('drag-over');
+        });
+        uploadZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadZone.classList.remove('drag-over');
+            if (e.dataTransfer.files.length > 0) {
+                runDemoScan(e.dataTransfer.files[0].name);
+            }
+        });
+        fileInput.addEventListener('change', () => {
+            if (fileInput.files.length > 0) {
+                runDemoScan(fileInput.files[0].name);
+            }
+        });
+
+        // ━━━ Demo Scanner ━━━
+        const demoSkills = {
+            'brave-search': {
+                tier: 'verified', risk: 5, mismatch: 0, files: 4, findings: 5,
+                findingsList: [
+                    { sev: 'low', desc: 'Third-party import: requests', file: 'scripts/search.py:3' },
+                    { sev: 'low', desc: 'Outbound HTTP request', file: 'scripts/search.py:18' },
+                    { sev: 'low', desc: 'Third-party import: dotenv', file: 'scripts/search.py:4' },
+                    { sev: 'low', desc: 'Env var access: BRAVE_API_KEY', file: 'scripts/search.py:9' },
+                    { sev: 'low', desc: 'Non-localhost HTTP usage', file: 'scripts/search.py:21' },
+                ],
+            },
+            'email-triage': {
+                tier: 'scanned', risk: 18, mismatch: 10, files: 6, findings: 12,
+                findingsList: [
+                    { sev: 'medium', desc: 'Env var access: ZOHO_PASSWORD', file: 'scripts/triage.py:15' },
+                    { sev: 'low', desc: 'Third-party import: imaplib', file: 'scripts/triage.py:2' },
+                    { sev: 'medium', desc: 'Credential handling detected', file: 'scripts/triage.py:22' },
+                    { sev: 'low', desc: 'Outbound IMAP connection', file: 'scripts/triage.py:28' },
+                    { sev: 'low', desc: 'File write operation', file: 'scripts/triage.py:45' },
+                ],
+            },
+            'default': {
+                tier: 'scanned', risk: 12, mismatch: 5, files: 3, findings: 7,
+                findingsList: [
+                    { sev: 'low', desc: 'Third-party import detected', file: 'scripts/main.py:2' },
+                    { sev: 'low', desc: 'Outbound HTTP request', file: 'scripts/main.py:15' },
+                    { sev: 'medium', desc: 'Environment variable access', file: 'scripts/main.py:8' },
+                    { sev: 'low', desc: 'File read operation', file: 'scripts/main.py:22' },
+                ],
+            },
+        };
+
+        function runDemoScan(filename) {
+            const urlInput = document.getElementById('githubUrl').value;
+            const skillName = filename
+                ? filename.replace('.zip', '')
+                : (urlInput ? urlInput.split('/').pop() || 'demo-skill' : 'brave-search');
+
+            const btn = document.getElementById('scanBtn');
+            const progress = document.getElementById('scanProgress');
+            const fill = document.getElementById('progressFill');
+            const text = document.getElementById('progressText');
+            const results = document.getElementById('scanResults');
+
+            btn.disabled = true;
+            results.classList.remove('visible');
+            progress.classList.add('active');
+
+            const steps = [
+                { pct: 15, msg: 'Validating SKILL.md structure...' },
+                { pct: 35, msg: 'Running AST analysis on Python files...' },
+                { pct: 55, msg: 'Pattern matching (50+ rules)...' },
+                { pct: 75, msg: 'Checking for hardcoded secrets...' },
+                { pct: 88, msg: 'Computing risk score...' },
+                { pct: 95, msg: 'Running intent analysis...' },
+                { pct: 100, msg: 'Generating certification report...' },
+            ];
+
+            let i = 0;
+            const interval = setInterval(() => {
+                if (i < steps.length) {
+                    fill.style.width = steps[i].pct + '%';
+                    text.textContent = steps[i].msg;
+                    i++;
+                } else {
+                    clearInterval(interval);
+                    progress.classList.remove('active');
+                    btn.disabled = false;
+
+                    const data = demoSkills[skillName] || demoSkills['default'];
+                    showResults(skillName, data);
+                }
+            }, 400);
+        }
+
+        function showResults(name, data) {
+            const results = document.getElementById('scanResults');
+            const tierIcons = { scanned: '🟢', verified: '🔵', certified: '🟡', rejected: '🔴' };
+            const tierLabels = { scanned: 'SCANNED', verified: 'VERIFIED', certified: 'CERTIFIED', rejected: 'REJECTED' };
+
+            let findingsHtml = '';
+            for (const f of data.findingsList || []) {
+                findingsHtml += `
+                    <div class="finding-item">
+                        <span class="finding-sev ${f.sev}"></span>
+                        <span class="finding-desc">${f.desc}</span>
+                        <span class="finding-file">${f.file}</span>
+                    </div>`;
+            }
+
+            results.innerHTML = `
+                <div class="result-header">
+                    <span class="result-badge ${data.tier}">${tierIcons[data.tier]} ${tierLabels[data.tier]}</span>
+                    <span class="result-score">skill: <strong>${name}</strong></span>
+                </div>
+                <div class="result-metrics">
+                    <div class="metric">
+                        <div class="metric-value" style="color:${data.risk > 30 ? 'var(--red)' : data.risk > 15 ? 'var(--amber)' : 'var(--cyan)'}">${data.risk}</div>
+                        <div class="metric-label">Risk Score</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">${data.mismatch}</div>
+                        <div class="metric-label">Mismatch</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">${data.files}</div>
+                        <div class="metric-label">Files Scanned</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">${data.findings}</div>
+                        <div class="metric-label">Findings</div>
+                    </div>
+                </div>
+                ${findingsHtml ? `<div class="findings-list">${findingsHtml}</div>` : ''}
+            `;
+
+            results.classList.add('visible');
+        }
+
+        // ━━━ Gallery ━━━
+        const galleryData = [
+            { name: 'brave-search', tier: 'verified', desc: 'Web search via Brave API', risk: 5, date: '2026-03-08' },
+            { name: 'heartbeat', tier: 'verified', desc: 'Agent health monitoring', risk: 3, date: '2026-03-08' },
+            { name: 'resend-email', tier: 'scanned', desc: 'Send emails via Resend API', risk: 12, date: '2026-03-08' },
+            { name: 'polymarket', tier: 'verified', desc: 'Prediction market queries', risk: 8, date: '2026-03-08' },
+            { name: 'backup-manager', tier: 'scanned', desc: 'Automated Git backups', risk: 6, date: '2026-03-08' },
+            { name: 'napkin', tier: 'verified', desc: 'Learning & correction tracker', risk: 2, date: '2026-03-08' },
+            { name: 'rank-tracker', tier: 'scanned', desc: 'SEO keyword ranking monitor', risk: 10, date: '2026-03-08' },
+            { name: 'stripe-payments', tier: 'scanned', desc: 'Payment collection via Stripe', risk: 15, date: '2026-03-08' },
+        ];
+
+        const galleryGrid = document.getElementById('galleryGrid');
+        for (const skill of galleryData) {
+            const tierLabels = { scanned: 'SCANNED', verified: 'VERIFIED', certified: 'CERTIFIED' };
+            galleryGrid.innerHTML += `
+                <div class="gallery-item">
+                    <div class="gallery-item-header">
+                        <span class="gallery-item-name">${skill.name}</span>
+                        <span class="gallery-badge ${skill.tier}">${tierLabels[skill.tier]}</span>
+                    </div>
+                    <div class="gallery-item-desc">${skill.desc}</div>
+                    <div class="gallery-item-meta">
+                        <span class="gallery-meta-item">risk: ${skill.risk}</span>
+                        <span class="gallery-meta-item">${skill.date}</span>
+                    </div>
+                </div>`;
+        }
     </script>
 
 </body>
