@@ -4,17 +4,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ClawForce — Certify Your Agent Skills</title>
+    <title>ClawForce — Independent Security Certification for Agent Skills</title>
     <meta name="description"
-        content="Independent security certification for OpenClaw agent skills. Scan, verify, and certify skills against malware, exfiltration, and supply chain attacks. Trusted by the OpenClaw ecosystem.">
+        content="The first independent certification authority for OpenClaw agent skills. Three-tier verification: static analysis, intent validation, and sandbox execution. Scan for free.">
     <meta name="keywords"
-        content="OpenClaw, agent skills, security certification, malware scanner, skill verification, AI agent safety, ClawForce">
+        content="OpenClaw, agent skills, security certification, malware scanner, skill verification, AI agent safety, ClawForce, supply chain security">
+    <link rel="canonical" href="https://clawforce.ca/">
+    <!-- Open Graph -->
+    <meta property="og:title" content="ClawForce — Certify Your Agent Skills">
+    <meta property="og:description"
+        content="Independent security certification for OpenClaw agent skills. Scan, verify, and certify against malware and supply chain attacks.">
+    <meta property="og:url" content="https://clawforce.ca/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ClawForce">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@PixelFamiliar">
+    <meta name="twitter:title" content="ClawForce — Certify Your Agent Skills">
+    <meta name="twitter:description"
+        content="Three-tier security certification for OpenClaw skills. Free Tier 1 scans with 50+ vulnerability patterns.">
+    <meta name="robots" content="index, follow">
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
+    <!-- JSON-LD: Organization -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "ClawForce",
+        "alternateName": "ClawForce Verified Skills™",
+        "url": "https://clawforce.ca",
+        "description": "Independent security certification authority for OpenClaw agent skills",
+        "foundingDate": "2026",
+        "parentOrganization": {
+            "@type": "Organization",
+            "name": "Pixel Familiar",
+            "url": "https://pixelfamiliar.ca"
+        },
+        "sameAs": [
+            "https://x.com/PixelFamiliar",
+            "https://github.com/PixelFamiliar",
+            "https://foxprotocol.substack.com"
+        ],
+        "contactPoint": [{
+            "@type": "ContactPoint",
+            "contactType": "security",
+            "email": "security@clawforce.ca"
+        }, {
+            "@type": "ContactPoint",
+            "contactType": "customer support",
+            "email": "pixel@pixelfamiliar.ca"
+        }]
+    }
+    </script>
+    <!-- JSON-LD: SoftwareApplication -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "ClawForce Skill Scanner",
+        "applicationCategory": "SecurityApplication",
+        "operatingSystem": "All",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "description": "Free Tier 1 static analysis scan"
+        },
+        "description": "Three-tier security certification pipeline: static analysis, intent verification, and sandbox execution for OpenClaw agent skills."
+    }
+    </script>
     <style>
         *,
         *::before,
@@ -1156,8 +1218,9 @@
                 <li><a href="#scan">Scan a Skill</a></li>
                 <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#trust">Trust Center</a></li>
                 <li><a href="https://clawtrak.com">ClawTrak</a></li>
-                <li><a href="mailto:pixel@pixelfamiliar.ca" class="nav-cta">Contact</a></li>
+                <li><a href="mailto:security@clawforce.ca" class="nav-cta">Security</a></li>
             </ul>
         </div>
     </nav>
@@ -1399,34 +1462,112 @@
 
     <hr class="divider">
 
-    <!-- ━━━ TRUST ━━━ -->
-    <section class="trust">
+    <!-- ━━━ TRUST CENTER ━━━ -->
+    <section class="trust" id="trust">
         <div class="wrap">
             <div class="fade-up">
-                <div class="section-label">// why trust us</div>
-                <h2 class="section-title">Built on Transparency</h2>
-                <p class="section-sub">How we earn your trust.</p>
+                <div class="section-label">// trust center</div>
+                <h2 class="section-title">Security & Transparency</h2>
+                <p class="section-sub">We disclose our threat model, our limits, and how we operate — because real trust
+                    is earned through specifics, not badges.</p>
             </div>
 
             <div class="trust-grid fade-up">
                 <div class="trust-item">
                     <div class="trust-icon">🔓</div>
-                    <div class="trust-title">Open Scanner</div>
-                    <div class="trust-desc">Our scanner is deterministic and open. Every check is visible — no black
-                        box.</div>
+                    <div class="trust-title">Open, Deterministic Scanner</div>
+                    <div class="trust-desc">50+ pattern rules, AST analysis, and intent comparison — every check is
+                        visible and auditable. No black box, no opaque ML scoring.</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">🔐</div>
+                    <div class="trust-title">Hash-Pinned Certificates</div>
+                    <div class="trust-desc">Every certification is tied to the exact SHA-256 hash of the skill bundle.
+                        Update one file and the badge invalidates — no silent swaps.</div>
                 </div>
                 <div class="trust-item">
                     <div class="trust-icon">🔁</div>
                     <div class="trust-title">Reproducible Results</div>
-                    <div class="trust-desc">Certificates include skill hashes. Anyone can re-run the scan and verify the
-                        result.</div>
+                    <div class="trust-desc">Certificates include scanner version, timestamp, and commit hash. Anyone can
+                        re-run the exact same scan and independently verify.</div>
                 </div>
                 <div class="trust-item">
                     <div class="trust-icon">🐾</div>
-                    <div class="trust-title">We Eat Our Own Dogfood</div>
-                    <div class="trust-desc">Our own skills are scanned and certified first. See them in the gallery
-                        above.</div>
+                    <div class="trust-title">We Scan Ourselves First</div>
+                    <div class="trust-desc">Every skill we publish is certified through our own pipeline before release.
+                        Check the gallery — our skills are listed with full reports.</div>
                 </div>
+                <div class="trust-item">
+                    <div class="trust-icon">⚡</div>
+                    <div class="trust-title">Revocation API</div>
+                    <div class="trust-desc">If a zero-day is discovered post-certification, we revoke instantly.
+                        Platforms can query our CRL endpoint to check real-time badge status.</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">📋</div>
+                    <div class="trust-title">Skill Manifest Standard</div>
+                    <div class="trust-desc">We require skills to declare permissions in a
+                        <code>skill-manifest.json</code> — network egress, file paths, shell access — before
+                        certification.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ━━━ THREAT MODEL ━━━ -->
+    <section class="trust" id="threat-model">
+        <div class="wrap">
+            <div class="fade-up">
+                <div class="section-label">// threat model</div>
+                <h2 class="section-title">What We Defend Against</h2>
+                <p class="section-sub">We're specific about what our certification catches — and what it doesn't.</p>
+            </div>
+
+            <div class="trust-grid fade-up">
+                <div class="trust-item">
+                    <div class="trust-icon">🛡️</div>
+                    <div class="trust-title">What We Catch</div>
+                    <div class="trust-desc">Hardcoded secrets, obfuscated payloads, undeclared network egress,
+                        credential harvesting, base64 exfiltration, crypto miners, privilege escalation, and
+                        SKILL.md/code intent mismatches.</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">⚠️</div>
+                    <div class="trust-title">Known Limitations</div>
+                    <div class="trust-desc">Certification is a point-in-time assessment. We cannot guarantee future
+                        safety if upstream dependencies are later compromised, or if novel zero-day techniques emerge.
+                    </div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">📬</div>
+                    <div class="trust-title">Security Reporting</div>
+                    <div class="trust-desc">Found a vulnerability in a certified skill? Email <a
+                            href="mailto:security@clawforce.ca"
+                            style="color:var(--cyan);text-decoration:none;">security@clawforce.ca</a> with reproduction
+                        steps. We respond within 48 hours and coordinate responsible disclosure.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ━━━ LEGAL ━━━ -->
+    <section class="trust" id="legal">
+        <div class="wrap">
+            <div class="fade-up">
+                <div class="section-label">// legal & disclosure</div>
+                <h2 class="section-title">Certification Scope</h2>
+                <p class="section-sub" style="max-width:680px;">ClawForce certification is a <strong
+                        style="color:var(--text);">point-in-time security assessment</strong> using commercially
+                    reasonable practices. It is not a guarantee of absolute security. Certified skills may later be
+                    affected by novel vulnerabilities, supply chain compromises, or runtime environment changes.
+                    Certification applies only to the exact version (SHA-256 hash) evaluated. Users assume all risk for
+                    deployment decisions. See our full <a href="mailto:pixel@pixelfamiliar.ca"
+                        style="color:var(--cyan);text-decoration:none;">Terms of Service</a> for details.</p>
             </div>
         </div>
     </section>
@@ -1437,6 +1578,10 @@
             <div class="footer-inner">
                 <div class="footer-brand">🛡️ ClawForce</div>
                 <div class="footer-links">
+                    <a href="#trust">Trust Center</a>
+                    <a href="#threat-model">Threat Model</a>
+                    <a href="mailto:security@clawforce.ca">Security Disclosure</a>
+                    <a href="#legal">Legal</a>
                     <a href="https://clawtrak.com">ClawTrak</a>
                     <a href="https://pixelfamiliar.ca">Pixel Familiar</a>
                     <a href="https://x.com/PixelFamiliar">𝕏</a>
@@ -1445,7 +1590,10 @@
                 </div>
             </div>
             <p class="footer-copy">© 2026 Pixel Familiar · ClawForce Verified Skills™ · Independent security
-                certification for OpenClaw agent skills.</p>
+                certification for OpenClaw agent skills.<br>
+                <span style="font-size:0.62rem;color:var(--dim);margin-top:4px;display:inline-block;">Operated by Pixel
+                    Familiar · pixel@pixelfamiliar.ca · Transport: HTTPS enforced · Last updated: March 2026</span>
+            </p>
         </div>
     </footer>
 
