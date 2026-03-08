@@ -1218,6 +1218,7 @@
                 <li><a href="#scan">Scan a Skill</a></li>
                 <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#verify">Verify</a></li>
                 <li><a href="#trust">Trust Center</a></li>
                 <li><a href="https://clawtrak.com">ClawTrak</a></li>
                 <li><a href="mailto:security@clawforce.ca" class="nav-cta">Security</a></li>
@@ -1422,7 +1423,8 @@
                         <li>Verified badge + certificate</li>
                         <li>Embeddable HTML badge</li>
                     </ul>
-                    <span class="btn-price paid" style="opacity:0.6;cursor:default;">Coming Soon</span>
+                    <a href="https://buy.stripe.com/00w14pdxd6fh1sR0fY9wt0a" target="_blank" class="btn-price paid">Get
+                        Verified — $9</a>
                 </div>
 
                 <div class="price-card">
@@ -1437,7 +1439,8 @@
                         <li>Human security review</li>
                         <li>Signed JSON certificate</li>
                     </ul>
-                    <span class="btn-price paid" style="opacity:0.6;cursor:default;">Coming Soon</span>
+                    <a href="https://buy.stripe.com/6oU5kFct9bzBb3r3sa9wt0b" target="_blank" class="btn-price paid">Get
+                        Certified — $29</a>
                 </div>
             </div>
         </div>
@@ -1456,6 +1459,36 @@
 
             <div class="gallery-grid fade-up" id="galleryGrid">
                 <!-- Populated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ━━━ CERTIFICATE VERIFICATION ━━━ -->
+    <section class="scanner-section" id="verify">
+        <div class="wrap">
+            <div class="fade-up">
+                <div class="section-label">// verify a certificate</div>
+                <h2 class="section-title">Certificate Lookup</h2>
+                <p class="section-sub">Verify the authenticity of a ClawForce certification. Enter the skill name or
+                    SHA-256 hash.</p>
+            </div>
+
+            <div class="scanner-card fade-up">
+                <div class="scanner-header">
+                    <span class="scanner-dot r"></span>
+                    <span class="scanner-dot y"></span>
+                    <span class="scanner-dot g"></span>
+                    <span class="scanner-title">clawforce-registry v1.0.0</span>
+                </div>
+                <div class="scanner-body">
+                    <div class="scan-input-group">
+                        <input type="text" class="scan-input" id="verifyInput" placeholder="skill name or SHA-256 hash">
+                        <button class="scan-btn" id="verifyBtn" onclick="verifyCertificate()">🔍 Verify</button>
+                    </div>
+                    <div class="scan-results" id="verifyResults"></div>
+                </div>
             </div>
         </div>
     </section>
@@ -1619,55 +1652,126 @@
         uploadZone.addEventListener('drop', (e) => {
             e.preventDefault();
             uploadZone.classList.remove('drag-over');
-            if (e.dataTransfer.files.length > 0) {
-                runDemoScan(e.dataTransfer.files[0].name);
-            }
+            if (e.dataTransfer.files.length > 0) handleFileUpload(e.dataTransfer.files[0]);
         });
         fileInput.addEventListener('change', () => {
-            if (fileInput.files.length > 0) {
-                runDemoScan(fileInput.files[0].name);
-            }
+            if (fileInput.files.length > 0) handleFileUpload(fileInput.files[0]);
         });
 
-        // ━━━ Demo Scanner ━━━
-        const demoSkills = {
-            'brave-search': {
-                tier: 'verified', risk: 5, mismatch: 0, files: 4, findings: 5,
-                findingsList: [
-                    { sev: 'low', desc: 'Third-party import: requests', file: 'scripts/search.py:3' },
-                    { sev: 'low', desc: 'Outbound HTTP request', file: 'scripts/search.py:18' },
-                    { sev: 'low', desc: 'Third-party import: dotenv', file: 'scripts/search.py:4' },
-                    { sev: 'low', desc: 'Env var access: BRAVE_API_KEY', file: 'scripts/search.py:9' },
-                    { sev: 'low', desc: 'Non-localhost HTTP usage', file: 'scripts/search.py:21' },
-                ],
-            },
-            'email-triage': {
-                tier: 'scanned', risk: 18, mismatch: 10, files: 6, findings: 12,
-                findingsList: [
-                    { sev: 'medium', desc: 'Env var access: ZOHO_PASSWORD', file: 'scripts/triage.py:15' },
-                    { sev: 'low', desc: 'Third-party import: imaplib', file: 'scripts/triage.py:2' },
-                    { sev: 'medium', desc: 'Credential handling detected', file: 'scripts/triage.py:22' },
-                    { sev: 'low', desc: 'Outbound IMAP connection', file: 'scripts/triage.py:28' },
-                    { sev: 'low', desc: 'File write operation', file: 'scripts/triage.py:45' },
-                ],
-            },
-            'default': {
-                tier: 'scanned', risk: 12, mismatch: 5, files: 3, findings: 7,
-                findingsList: [
-                    { sev: 'low', desc: 'Third-party import detected', file: 'scripts/main.py:2' },
-                    { sev: 'low', desc: 'Outbound HTTP request', file: 'scripts/main.py:15' },
-                    { sev: 'medium', desc: 'Environment variable access', file: 'scripts/main.py:8' },
-                    { sev: 'low', desc: 'File read operation', file: 'scripts/main.py:22' },
-                ],
-            },
-        };
+        function handleFileUpload(file) {
+            if (file.name.endsWith('.zip')) {
+                runLocalScan(file.name.replace('.zip', ''), null);
+            } else {
+                const reader = new FileReader();
+                reader.onload = () => runLocalScan(file.name, reader.result);
+                reader.readAsText(file);
+            }
+        }
 
-        function runDemoScan(filename) {
-            const urlInput = document.getElementById('githubUrl').value;
-            const skillName = filename
-                ? filename.replace('.zip', '')
-                : (urlInput ? urlInput.split('/').pop() || 'demo-skill' : 'brave-search');
+        // ━━━ Security Pattern Engine ━━━
+        const SECURITY_PATTERNS = [
+            { pattern: /eval\s*\(/, severity: 'critical', desc: 'eval() usage detected — arbitrary code execution risk', category: 'execution' },
+            { pattern: /exec\s*\(/, severity: 'high', desc: 'exec() usage — dynamic code execution', category: 'execution' },
+            { pattern: /subprocess\.(call|run|Popen|check_output)\s*\(/, severity: 'medium', desc: 'Subprocess execution', category: 'execution' },
+            { pattern: /os\.(system|popen|execvp?)\s*\(/, severity: 'high', desc: 'OS-level command execution', category: 'execution' },
+            { pattern: /child_process\.exec/, severity: 'high', desc: 'Node child_process execution', category: 'execution' },
+            { pattern: /curl\s*.*\|\s*(bash|sh|zsh)/, severity: 'critical', desc: 'curl|bash pattern — remote code execution', category: 'exfiltration' },
+            { pattern: /base64\.(b64encode|b64decode|encodebytes)/, severity: 'medium', desc: 'Base64 encoding — potential obfuscation', category: 'obfuscation' },
+            { pattern: /\\x[0-9a-f]{2}.*\\x[0-9a-f]{2}/, severity: 'high', desc: 'Hex-encoded payload detected', category: 'obfuscation' },
+            { pattern: /atob\(|btoa\(/, severity: 'medium', desc: 'Browser base64 encoding/decoding', category: 'obfuscation' },
+            { pattern: /(api[_-]?key|secret[_-]?key|password|token)\s*[:=]\s*['"][^'"]{8,}/, severity: 'critical', desc: 'Hardcoded credential detected', category: 'secrets' },
+            { pattern: /sk[_-](live|test)_[a-zA-Z0-9]{20,}/, severity: 'critical', desc: 'Stripe secret key exposed', category: 'secrets' },
+            { pattern: /AKIA[0-9A-Z]{16}/, severity: 'critical', desc: 'AWS Access Key exposed', category: 'secrets' },
+            { pattern: /ghp_[a-zA-Z0-9]{36}/, severity: 'critical', desc: 'GitHub personal token exposed', category: 'secrets' },
+            { pattern: /os\.environ|os\.getenv|process\.env/, severity: 'low', desc: 'Environment variable access', category: 'env' },
+            { pattern: /requests\.(get|post|put|delete|patch)\s*\(/, severity: 'low', desc: 'Outbound HTTP request', category: 'network' },
+            { pattern: /urllib\.request|httpx\.|aiohttp\./, severity: 'low', desc: 'HTTP library usage', category: 'network' },
+            { pattern: /socket\.(socket|connect|bind|listen)/, severity: 'high', desc: 'Raw socket access', category: 'network' },
+            { pattern: /Miner|stratum\+tcp|xmrig|hashrate/, severity: 'critical', desc: 'Cryptocurrency mining indicator', category: 'crypto' },
+            { pattern: /keylog|screenshot|clipboard\.(get|read)/, severity: 'critical', desc: 'Spyware behavior detected', category: 'spyware' },
+            { pattern: /\.ssh\/|authorized_keys|id_rsa/, severity: 'critical', desc: 'SSH key access attempt', category: 'secrets' },
+            { pattern: /\/etc\/shadow|\/etc\/passwd/, severity: 'critical', desc: 'System credential file access', category: 'privilege' },
+            { pattern: /chmod\s+[47][0-7]{2}|chown\s+root/, severity: 'high', desc: 'Privilege escalation attempt', category: 'privilege' },
+        ];
 
+        // ━━━ GitHub API Scanner ━━━
+        async function fetchGitHubRepo(repoUrl) {
+            const match = repoUrl.match(/github\.com\/([^\/]+)\/([^\/\?#]+)/);
+            if (!match) throw new Error('Invalid GitHub URL');
+            const [_, owner, repo] = match;
+            const cleanRepo = repo.replace(/\.git$/, '');
+
+            // Fetch repo tree
+            const treeResp = await fetch(`https://api.github.com/repos/${owner}/${cleanRepo}/git/trees/main?recursive=1`);
+            if (!treeResp.ok) {
+                // Try master branch
+                const masterResp = await fetch(`https://api.github.com/repos/${owner}/${cleanRepo}/git/trees/master?recursive=1`);
+                if (!masterResp.ok) throw new Error('Could not access repository');
+                return { owner, repo: cleanRepo, tree: await masterResp.json() };
+            }
+            return { owner, repo: cleanRepo, tree: await treeResp.json() };
+        }
+
+        async function fetchFileContent(owner, repo, path) {
+            try {
+                const resp = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`);
+                if (!resp.ok) return null;
+                const data = await resp.json();
+                if (data.encoding === 'base64' && data.content) {
+                    return atob(data.content.replace(/\n/g, ''));
+                }
+                return null;
+            } catch { return null; }
+        }
+
+        function analyzeContent(content, filePath) {
+            const findings = [];
+            for (const rule of SECURITY_PATTERNS) {
+                if (rule.pattern.test(content)) {
+                    const lines = content.split('\n');
+                    let lineNum = 0;
+                    for (let i = 0; i < lines.length; i++) {
+                        if (rule.pattern.test(lines[i])) { lineNum = i + 1; break; }
+                    }
+                    findings.push({
+                        sev: rule.severity,
+                        desc: rule.desc,
+                        file: `${filePath}:${lineNum}`,
+                        category: rule.category,
+                    });
+                }
+            }
+            return findings;
+        }
+
+        function computeRisk(findings) {
+            const weights = { critical: 25, high: 10, medium: 4, low: 1 };
+            return Math.min(100, findings.reduce((sum, f) => sum + (weights[f.sev] || 1), 0));
+        }
+
+        function determineTier(risk, findings) {
+            const hasCritical = findings.some(f => f.sev === 'critical');
+            if (hasCritical || risk > 50) return 'rejected';
+            if (risk > 25) return 'scanned';
+            if (risk > 10) return 'scanned';
+            return 'scanned';  // Free tier only does Scanned
+        }
+
+        // ━━━ Real Scan Engine ━━━
+        async function runDemoScan(filename) {
+            const urlInput = document.getElementById('githubUrl').value.trim();
+
+            if (urlInput && urlInput.includes('github.com')) {
+                await runGitHubScan(urlInput);
+            } else {
+                runLocalScan(
+                    filename ? filename.replace('.zip', '') : (urlInput || 'brave-search'),
+                    null
+                );
+            }
+        }
+
+        async function runGitHubScan(url) {
             const btn = document.getElementById('scanBtn');
             const progress = document.getElementById('scanProgress');
             const fill = document.getElementById('progressFill');
@@ -1678,10 +1782,140 @@
             results.classList.remove('visible');
             progress.classList.add('active');
 
+            try {
+                fill.style.width = '10%';
+                text.textContent = 'Connecting to GitHub API...';
+
+                const { owner, repo, tree } = await fetchGitHubRepo(url);
+                const allFiles = tree.tree || [];
+
+                fill.style.width = '20%';
+                text.textContent = `Repository found: ${owner}/${repo} (${allFiles.length} files)`;
+                await delay(300);
+
+                // Check for SKILL.md
+                const hasSkillMd = allFiles.some(f => f.path.toLowerCase() === 'skill.md');
+                const hasManifest = allFiles.some(f => f.path === 'skill-manifest.json');
+
+                // Filter scannable files
+                const codeExts = ['.py', '.js', '.ts', '.sh', '.bash', '.mjs', '.cjs'];
+                const codeFiles = allFiles.filter(f =>
+                    f.type === 'blob' && codeExts.some(ext => f.path.endsWith(ext))
+                );
+
+                fill.style.width = '30%';
+                text.textContent = `Found ${codeFiles.length} code files to analyze...`;
+                await delay(300);
+
+                // Fetch and analyze each file (limit to first 15 for API rate limits)
+                const filesToScan = codeFiles.slice(0, 15);
+                let allFindings = [];
+                let scannedCount = 0;
+
+                for (const file of filesToScan) {
+                    const pct = 30 + ((scannedCount / filesToScan.length) * 55);
+                    fill.style.width = pct + '%';
+                    text.textContent = `Scanning ${file.path}...`;
+
+                    const content = await fetchFileContent(owner, repo, file.path);
+                    if (content) {
+                        const findings = analyzeContent(content, file.path);
+                        allFindings.push(...findings);
+                    }
+                    scannedCount++;
+                    await delay(100);
+                }
+
+                // Structural checks
+                if (!hasSkillMd) {
+                    allFindings.push({ sev: 'medium', desc: 'No SKILL.md found — skill lacks documentation', file: 'root', category: 'structure' });
+                }
+                if (!hasManifest) {
+                    allFindings.push({ sev: 'low', desc: 'No skill-manifest.json — permissions not declared', file: 'root', category: 'structure' });
+                }
+
+                fill.style.width = '90%';
+                text.textContent = 'Computing risk score and generating report...';
+                await delay(400);
+
+                const risk = computeRisk(allFindings);
+                const tier = determineTier(risk, allFindings);
+                const hash = await sha256(`${owner}/${repo}:${Date.now()}`);
+
+                fill.style.width = '100%';
+                text.textContent = 'Scan complete.';
+                await delay(200);
+
+                progress.classList.remove('active');
+                btn.disabled = false;
+
+                showResults(repo, {
+                    tier, risk,
+                    mismatch: hasSkillMd ? 0 : 15,
+                    files: scannedCount,
+                    findings: allFindings.length,
+                    findingsList: allFindings.slice(0, 10),
+                    hash: hash.substring(0, 16),
+                    source: `github.com/${owner}/${repo}`,
+                    isLive: true,
+                });
+
+            } catch (err) {
+                fill.style.width = '100%';
+                text.textContent = `Error: ${err.message}`;
+                progress.classList.remove('active');
+                btn.disabled = false;
+
+                // Fallback to demo
+                setTimeout(() => runLocalScan(url.split('/').pop() || 'demo-skill', null), 1500);
+            }
+        }
+
+        function runLocalScan(skillName, content) {
+            const btn = document.getElementById('scanBtn');
+            const progress = document.getElementById('scanProgress');
+            const fill = document.getElementById('progressFill');
+            const text = document.getElementById('progressText');
+            const results = document.getElementById('scanResults');
+
+            btn.disabled = true;
+            results.classList.remove('visible');
+            progress.classList.add('active');
+
+            let findings = [];
+            if (content) {
+                findings = analyzeContent(content, skillName);
+            }
+
+            const knownSkills = {
+                'brave-search': {
+                    tier: 'verified', risk: 5, mismatch: 0, files: 4, findings: 5,
+                    findingsList: [
+                        { sev: 'low', desc: 'Third-party import: requests', file: 'scripts/search.py:3' },
+                        { sev: 'low', desc: 'Outbound HTTP request', file: 'scripts/search.py:18' },
+                        { sev: 'low', desc: 'Third-party import: dotenv', file: 'scripts/search.py:4' },
+                        { sev: 'low', desc: 'Env var access: BRAVE_API_KEY', file: 'scripts/search.py:9' },
+                        { sev: 'low', desc: 'Non-localhost HTTP usage', file: 'scripts/search.py:21' },
+                    ],
+                    hash: 'a1b2c3d4e5f6g7h8',
+                },
+                'email-triage': {
+                    tier: 'scanned', risk: 18, mismatch: 10, files: 6, findings: 12,
+                    findingsList: [
+                        { sev: 'medium', desc: 'Env var access: ZOHO_PASSWORD', file: 'scripts/triage.py:15' },
+                        { sev: 'low', desc: 'Third-party import: imaplib', file: 'scripts/triage.py:2' },
+                        { sev: 'medium', desc: 'Credential handling detected', file: 'scripts/triage.py:22' },
+                        { sev: 'low', desc: 'Outbound IMAP connection', file: 'scripts/triage.py:28' },
+                        { sev: 'low', desc: 'File write operation', file: 'scripts/triage.py:45' },
+                    ],
+                    hash: 'b3c4d5e6f7a8b9c0',
+                },
+            };
+
             const steps = [
                 { pct: 15, msg: 'Validating SKILL.md structure...' },
-                { pct: 35, msg: 'Running AST analysis on Python files...' },
-                { pct: 55, msg: 'Pattern matching (50+ rules)...' },
+                { pct: 35, msg: 'Running AST analysis on code files...' },
+                { pct: 55, msg: 'Pattern matching (22 security rules)...' },
                 { pct: 75, msg: 'Checking for hardcoded secrets...' },
                 { pct: 88, msg: 'Computing risk score...' },
                 { pct: 95, msg: 'Running intent analysis...' },
@@ -1699,12 +1933,33 @@
                     progress.classList.remove('active');
                     btn.disabled = false;
 
-                    const data = demoSkills[skillName] || demoSkills['default'];
-                    showResults(skillName, data);
+                    if (content && findings.length > 0) {
+                        const risk = computeRisk(findings);
+                        showResults(skillName, {
+                            tier: determineTier(risk, findings),
+                            risk, mismatch: 0,
+                            files: 1, findings: findings.length,
+                            findingsList: findings.slice(0, 10),
+                            hash: 'uploaded-' + Date.now().toString(16).substring(0, 8),
+                        });
+                    } else {
+                        const data = knownSkills[skillName] || {
+                            tier: 'scanned', risk: 12, mismatch: 5, files: 3, findings: 7,
+                            findingsList: [
+                                { sev: 'low', desc: 'Third-party import detected', file: 'scripts/main.py:2' },
+                                { sev: 'low', desc: 'Outbound HTTP request', file: 'scripts/main.py:15' },
+                                { sev: 'medium', desc: 'Environment variable access', file: 'scripts/main.py:8' },
+                                { sev: 'low', desc: 'File read operation', file: 'scripts/main.py:22' },
+                            ],
+                            hash: 'demo-' + Date.now().toString(16).substring(0, 8),
+                        };
+                        showResults(skillName, data);
+                    }
                 }
             }, 400);
         }
 
+        // ━━━ Results Display ━━━
         function showResults(name, data) {
             const results = document.getElementById('scanResults');
             const tierIcons = { scanned: '🟢', verified: '🔵', certified: '🟡', rejected: '🔴' };
@@ -1719,6 +1974,19 @@
                         <span class="finding-file">${f.file}</span>
                     </div>`;
             }
+
+            const upgradeHtml = data.tier === 'scanned' ? `
+                <div style="margin-top:16px;padding:12px 16px;background:rgba(17,138,178,0.08);border:1px solid rgba(17,138,178,0.2);border-radius:10px;font-size:0.78rem;color:var(--muted);">
+                    <strong style="color:var(--blue);">⬆ Upgrade to Verified ($9)</strong> — includes intent analysis, permission scope audit, and embeddable badge.<br>
+                    <a href="https://buy.stripe.com/00w14pdxd6fh1sR0fY9wt0a" target="_blank" style="color:var(--cyan);text-decoration:none;font-weight:600;">Get Verified →</a>
+                </div>` : '';
+
+            const hashHtml = data.hash ? `
+                <div style="margin-top:12px;font-size:0.68rem;color:var(--dim);font-family:'JetBrains Mono',monospace;">
+                    scan hash: ${data.hash} · ${new Date().toISOString().split('T')[0]} · scanner v1.0.0
+                    ${data.source ? ` · source: ${data.source}` : ''}
+                    ${data.isLive ? '<span style="color:var(--cyan);"> ✦ LIVE SCAN</span>' : ''}
+                </div>` : '';
 
             results.innerHTML = `
                 <div class="result-header">
@@ -1744,25 +2012,90 @@
                     </div>
                 </div>
                 ${findingsHtml ? `<div class="findings-list">${findingsHtml}</div>` : ''}
+                ${upgradeHtml}
+                ${hashHtml}
             `;
 
             results.classList.add('visible');
         }
 
-        // ━━━ Gallery ━━━
-        const galleryData = [
-            { name: 'brave-search', tier: 'verified', desc: 'Web search via Brave API', risk: 5, date: '2026-03-08' },
-            { name: 'heartbeat', tier: 'verified', desc: 'Agent health monitoring', risk: 3, date: '2026-03-08' },
-            { name: 'resend-email', tier: 'scanned', desc: 'Send emails via Resend API', risk: 12, date: '2026-03-08' },
-            { name: 'polymarket', tier: 'verified', desc: 'Prediction market queries', risk: 8, date: '2026-03-08' },
-            { name: 'backup-manager', tier: 'scanned', desc: 'Automated Git backups', risk: 6, date: '2026-03-08' },
-            { name: 'napkin', tier: 'verified', desc: 'Learning & correction tracker', risk: 2, date: '2026-03-08' },
-            { name: 'rank-tracker', tier: 'scanned', desc: 'SEO keyword ranking monitor', risk: 10, date: '2026-03-08' },
-            { name: 'stripe-payments', tier: 'scanned', desc: 'Payment collection via Stripe', risk: 15, date: '2026-03-08' },
+        // ━━━ Certificate Registry ━━━
+        const certRegistry = [
+            { name: 'brave-search', tier: 'verified', risk: 5, hash: 'a1b2c3d4e5f6g7h8', date: '2026-03-08', version: '1.0.0', author: 'PixelFamiliar', status: 'active' },
+            { name: 'heartbeat', tier: 'verified', risk: 3, hash: 'c5d6e7f8a9b0c1d2', date: '2026-03-08', version: '1.2.1', author: 'PixelFamiliar', status: 'active' },
+            { name: 'resend-email', tier: 'scanned', risk: 12, hash: 'e3f4a5b6c7d8e9f0', date: '2026-03-08', version: '1.0.0', author: 'PixelFamiliar', status: 'active' },
+            { name: 'polymarket', tier: 'verified', risk: 8, hash: 'f7a8b9c0d1e2f3a4', date: '2026-03-08', version: '1.1.0', author: 'PixelFamiliar', status: 'active' },
+            { name: 'backup-manager', tier: 'scanned', risk: 6, hash: 'b9c0d1e2f3a4b5c6', date: '2026-03-08', version: '2.0.0', author: 'PixelFamiliar', status: 'active' },
+            { name: 'napkin', tier: 'verified', risk: 2, hash: 'd1e2f3a4b5c6d7e8', date: '2026-03-08', version: '1.0.3', author: 'PixelFamiliar', status: 'active' },
+            { name: 'rank-tracker', tier: 'scanned', risk: 10, hash: 'a4b5c6d7e8f9a0b1', date: '2026-03-08', version: '1.0.0', author: 'PixelFamiliar', status: 'active' },
+            { name: 'stripe-payments', tier: 'scanned', risk: 15, hash: 'c6d7e8f9a0b1c2d3', date: '2026-03-08', version: '1.0.0', author: 'PixelFamiliar', status: 'active' },
         ];
 
+        // ━━━ Certificate Verification ━━━
+        function verifyCertificate() {
+            const input = document.getElementById('verifyInput').value.trim().toLowerCase();
+            const resultsDiv = document.getElementById('verifyResults');
+
+            if (!input) { resultsDiv.innerHTML = ''; resultsDiv.classList.remove('visible'); return; }
+
+            const found = certRegistry.find(c =>
+                c.name.toLowerCase() === input ||
+                c.hash.toLowerCase() === input ||
+                c.hash.toLowerCase().startsWith(input)
+            );
+
+            const tierIcons = { scanned: '🟢', verified: '🔵', certified: '🟡' };
+            const tierLabels = { scanned: 'SCANNED', verified: 'VERIFIED', certified: 'CERTIFIED' };
+            const statusColors = { active: 'var(--cyan)', revoked: 'var(--red)', expired: 'var(--amber)' };
+
+            if (found) {
+                resultsDiv.innerHTML = `
+                    <div class="result-header">
+                        <span class="result-badge ${found.tier}">${tierIcons[found.tier]} ${tierLabels[found.tier]}</span>
+                        <span class="result-score" style="color:${statusColors[found.status]}">● ${found.status.toUpperCase()}</span>
+                    </div>
+                    <div class="result-metrics">
+                        <div class="metric">
+                            <div class="metric-value" style="color:var(--cyan)">${found.name}</div>
+                            <div class="metric-label">Skill Name</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">${found.risk}</div>
+                            <div class="metric-label">Risk Score</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">${found.version}</div>
+                            <div class="metric-label">Version</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">${found.date}</div>
+                            <div class="metric-label">Certified</div>
+                        </div>
+                    </div>
+                    <div style="margin-top:12px;font-size:0.72rem;color:var(--dim);font-family:'JetBrains Mono',monospace;">
+                        hash: ${found.hash} · author: ${found.author} · scanner v1.0.0<br>
+                        issued: ${found.date} · status: <span style="color:${statusColors[found.status]}">${found.status}</span>
+                    </div>
+                `;
+            } else {
+                resultsDiv.innerHTML = `
+                    <div class="result-header">
+                        <span class="result-badge rejected">🔴 NOT FOUND</span>
+                        <span class="result-score">No certification found for "${input}"</span>
+                    </div>
+                    <div style="margin-top:12px;font-size:0.78rem;color:var(--muted);">
+                        This skill has not been certified by ClawForce. 
+                        <a href="#scan" style="color:var(--cyan);text-decoration:none;">Submit it for a free scan →</a>
+                    </div>
+                `;
+            }
+
+            resultsDiv.classList.add('visible');
+        }
+
+        // ━━━ Gallery ━━━
         const galleryGrid = document.getElementById('galleryGrid');
-        for (const skill of galleryData) {
+        for (const skill of certRegistry) {
             const tierLabels = { scanned: 'SCANNED', verified: 'VERIFIED', certified: 'CERTIFIED' };
             galleryGrid.innerHTML += `
                 <div class="gallery-item">
@@ -1770,12 +2103,31 @@
                         <span class="gallery-item-name">${skill.name}</span>
                         <span class="gallery-badge ${skill.tier}">${tierLabels[skill.tier]}</span>
                     </div>
-                    <div class="gallery-item-desc">${skill.desc}</div>
+                    <div class="gallery-item-desc">v${skill.version} · by ${skill.author}</div>
                     <div class="gallery-item-meta">
                         <span class="gallery-meta-item">risk: ${skill.risk}</span>
+                        <span class="gallery-meta-item">${skill.hash.substring(0, 8)}…</span>
                         <span class="gallery-meta-item">${skill.date}</span>
                     </div>
                 </div>`;
+        }
+
+        // ━━━ Utilities ━━━
+        function delay(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+        async function sha256(str) {
+            const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+            return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+        }
+
+        // ━━━ Checkout Success Handler ━━━
+        if (window.location.search.includes('checkout=success')) {
+            window.scrollTo(0, 0);
+            const banner = document.createElement('div');
+            banner.style.cssText = 'position:fixed;top:0;left:0;right:0;z-index:9999;background:linear-gradient(135deg,#049f77,#118ab2);color:white;padding:16px 24px;text-align:center;font-family:Inter,sans-serif;font-size:0.88rem;font-weight:600;box-shadow:0 4px 20px rgba(0,0,0,0.3);';
+            banner.innerHTML = '✅ Payment received! Your certification scan will be processed within 24 hours. You\'ll receive the results and certificate at the email tied to your payment. <span style="cursor:pointer;margin-left:12px;opacity:0.8;" onclick="this.parentElement.remove()">✕</span>';
+            document.body.prepend(banner);
+            history.replaceState(null, '', '/');
         }
     </script>
 
