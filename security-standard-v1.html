@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClawForce Security Standard v1.0 — Agent Skill Certification Specification</title>
+    <meta name="description"
+        content="The ClawForce Security Standard v1.0 defines threat categories, risk scoring methodology, and certification tier requirements for OpenClaw agent skills.">
+    <link rel="canonical" href="https://clawforce.ca/security-standard-v1">
+    <meta property="og:title" content="ClawForce Security Standard v1.0">
+    <meta property="og:description"
+        content="Open specification for agent skill security certification. 6 threat categories, 22 vulnerability patterns, 3 certification tiers.">
+    <meta property="og:url" content="https://clawforce.ca/security-standard-v1">
+    <meta property="og:type" content="article">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #020617;
+            --surface: #0F172A;
+            --card: #1E293B;
+            --border: #334155;
+            --text: #E2E8F0;
+            --muted: #94A3B8;
+            --dim: #64748B;
+            --primary: #2563EB;
+            --cyan: #10B981;
+            --blue: #0EA5E9;
+            --amber: #F59E0B;
+            --red: #EF4444;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', -apple-system, sans-serif;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .wrap {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .back {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .back:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin: 2rem 0 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .version-badge {
+            display: inline-block;
+            padding: 0.25rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--cyan);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            background: rgba(16, 185, 129, 0.08);
+            margin-bottom: 1.5rem;
+        }
+
+        .meta {
+            color: var(--dim);
+            font-size: 0.85rem;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin: 3rem 0 1rem;
+            color: var(--text);
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin: 2rem 0 0.8rem;
+            color: var(--blue);
+        }
+
+        h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin: 1.5rem 0 0.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--muted);
+        }
+
+        ul,
+        ol {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--muted);
+        }
+
+        li {
+            margin-bottom: 0.4rem;
+        }
+
+        code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            background: var(--card);
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+        }
+
+        pre {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.2rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+            line-height: 1.5;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0 1.5rem;
+            font-size: 0.88rem;
+        }
+
+        th {
+            text-align: left;
+            padding: 0.8rem;
+            background: var(--card);
+            color: var(--text);
+            font-weight: 700;
+            border: 1px solid var(--border);
+        }
+
+        td {
+            padding: 0.8rem;
+            border: 1px solid var(--border);
+            color: var(--muted);
+        }
+
+        .severity-critical {
+            color: var(--red);
+            font-weight: 700;
+        }
+
+        .severity-high {
+            color: var(--amber);
+            font-weight: 700;
+        }
+
+        .severity-medium {
+            color: #FBBF24;
+            font-weight: 600;
+        }
+
+        .severity-low {
+            color: var(--dim);
+        }
+
+        .tier-badge {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+
+        .tier-scanned {
+            color: var(--cyan);
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .tier-verified {
+            color: var(--blue);
+            background: rgba(14, 165, 233, 0.1);
+            border: 1px solid rgba(14, 165, 233, 0.2);
+        }
+
+        .tier-certified {
+            color: var(--amber);
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+        }
+
+        .callout {
+            border-left: 3px solid var(--primary);
+            background: rgba(37, 99, 235, 0.06);
+            padding: 1rem 1.2rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .callout p {
+            margin: 0;
+        }
+
+        footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--dim);
+            font-size: 0.78rem;
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+
+        <a href="https://clawforce.ca" class="back">← Back to ClawForce</a>
+
+        <h1>ClawForce Security Standard v1.0</h1>
+        <span class="version-badge">v1.0.0 · March 2026</span>
+        <p class="meta">Specification for agent skill security certification · Published by <a
+                href="https://pixelfamiliar.ca" style="color:var(--primary)">Pixel Familiar</a></p>
+
+        <h2>1. Purpose & Scope</h2>
+        <p>This standard defines the security requirements, threat categories, risk scoring methodology, and
+            certification tiers for OpenClaw agent skills evaluated by ClawForce. It applies to all skills submitted for
+            scanning, verification, or certification through the ClawForce platform.</p>
+
+        <div class="callout">
+            <p><strong>Goal:</strong> Provide a deterministic, transparent, and reproducible security evaluation
+                framework that skill developers, platform operators, and end users can trust.</p>
+        </div>
+
+        <h2>2. Threat Categories</h2>
+        <p>ClawForce evaluates skills against six threat categories. Each category contains specific patterns matched
+            via regex against source code.</p>
+
+        <h3>2.1 Data Exfiltration</h3>
+        <p>Detection of unauthorized outbound data transfer, including:</p>
+        <ul>
+            <li>Base64 encoding combined with HTTP POST/PUT requests</li>
+            <li>DNS tunneling via dynamic hostname construction</li>
+            <li>Raw socket creation for arbitrary network communication</li>
+            <li>Outbound HTTP requests to external endpoints</li>
+        </ul>
+
+        <h3>2.2 Credential Harvesting</h3>
+        <p>Detection of attempts to access stored credentials:</p>
+        <ul>
+            <li>Reading <code>.env</code> or <code>credentials.env</code> files</li>
+            <li>Accessing sensitive environment variables (KEY, TOKEN, SECRET, PASSWORD)</li>
+            <li>System keychain/keyring access</li>
+            <li>Reading certificate and private key files (<code>.pem</code>, <code>.key</code>, <code>.p12</code>)</li>
+        </ul>
+
+        <h3>2.3 Code Obfuscation</h3>
+        <p>Detection of techniques used to hide malicious behavior:</p>
+        <ul>
+            <li>Base64 decode + exec chains</li>
+            <li>Hex-encoded byte sequences (potential shellcode)</li>
+            <li>Dynamic attribute access via <code>getattr()</code> on dunder methods</li>
+            <li><code>globals()</code> function lookup for indirect execution</li>
+            <li>Dynamic <code>__import__()</code> calls</li>
+            <li>Runtime code compilation via <code>compile()</code></li>
+        </ul>
+
+        <h3>2.4 Privilege Abuse</h3>
+        <p>Detection of unauthorized system access:</p>
+        <ul>
+            <li>Reading sensitive system files (<code>/etc/passwd</code>, <code>/etc/shadow</code>)</li>
+            <li>Glob patterns targeting sensitive directories (<code>.ssh</code>, <code>.aws</code>,
+                <code>.gnupg</code>)</li>
+            <li>Process termination via <code>os.kill()</code></li>
+            <li>Native library loading via <code>ctypes</code></li>
+            <li>File deletion operations</li>
+        </ul>
+
+        <h3>2.5 Crypto Mining</h3>
+        <p>Detection of cryptocurrency mining activity:</p>
+        <ul>
+            <li>Mining-related terminology (stratum, hashrate, nonce, block_reward)</li>
+            <li>Known miner references (Monero, XMRig, CoinHive, CryptoNight)</li>
+        </ul>
+
+        <h3>2.6 Dangerous Built-ins</h3>
+        <p>Detection of high-risk Python built-in usage:</p>
+        <ul>
+            <li><code>exec()</code> — arbitrary code execution</li>
+            <li><code>eval()</code> — code injection risk</li>
+            <li><code>subprocess</code> with <code>shell=True</code> — command injection</li>
+        </ul>
+
+        <h2>3. Secret Detection</h2>
+        <p>In addition to pattern-based scanning, ClawForce detects hardcoded secrets matching these formats:</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Pattern</th>
+                    <th>Example Prefix</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>OpenAI API Key</td>
+                    <td><code>sk-[a-zA-Z0-9]{20+}</code></td>
+                    <td><code>sk-proj-abc...</code></td>
+                </tr>
+                <tr>
+                    <td>Google API Key</td>
+                    <td><code>AIza[a-zA-Z0-9\-_]{35+}</code></td>
+                    <td><code>AIzaSy...</code></td>
+                </tr>
+                <tr>
+                    <td>Stripe Key</td>
+                    <td><code>(sk|pk)_(live|test)_[a-zA-Z0-9]{24+}</code></td>
+                    <td><code>sk_live_...</code></td>
+                </tr>
+                <tr>
+                    <td>Telegram Bot Token</td>
+                    <td><code>\d{8,12}:AA[a-zA-Z0-9\-_]{33+}</code></td>
+                    <td><code>12345678:AA...</code></td>
+                </tr>
+                <tr>
+                    <td>AWS Access Key</td>
+                    <td><code>AKIA[A-Z0-9]{16}</code></td>
+                    <td><code>AKIAIOSFODNN...</code></td>
+                </tr>
+                <tr>
+                    <td>GitHub PAT</td>
+                    <td><code>ghp_[a-zA-Z0-9]{36}</code></td>
+                    <td><code>ghp_xxxx...</code></td>
+                </tr>
+                <tr>
+                    <td>High-entropy strings</td>
+                    <td>30+ chars of <code>[A-Za-z0-9+/=_-]</code></td>
+                    <td>(various)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>4. Severity Levels</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Severity</th>
+                    <th>Weight</th>
+                    <th>Description</th>
+                    <th>Examples</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="severity-critical">Critical</td>
+                    <td>25</td>
+                    <td>Direct security threat with high confidence</td>
+                    <td>exec+base64, hardcoded secrets, /etc/passwd access</td>
+                </tr>
+                <tr>
+                    <td class="severity-high">High</td>
+                    <td>10</td>
+                    <td>Significant risk requiring review</td>
+                    <td>.env reading, keychain access, process killing</td>
+                </tr>
+                <tr>
+                    <td class="severity-medium">Medium</td>
+                    <td>3</td>
+                    <td>Moderate risk, context-dependent</td>
+                    <td>Environment variable access, raw sockets</td>
+                </tr>
+                <tr>
+                    <td class="severity-low">Low</td>
+                    <td>1</td>
+                    <td>Informational, common patterns</td>
+                    <td>Outbound HTTP requests</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>5. Risk Scoring</h2>
+        <p>Risk scores range from 0 to 100 and are computed as:</p>
+
+        <pre><code>risk_score = min(100, Σ (severity_weight × confidence) for each finding)</code></pre>
+
+        <p>Where:</p>
+        <ul>
+            <li><code>severity_weight</code> — the weight from the severity table above</li>
+            <li><code>confidence</code> — a float from 0.0 to 1.0 indicating pattern match confidence</li>
+        </ul>
+
+        <h3>5.1 Risk Tiers</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Tier</th>
+                    <th>Score Range</th>
+                    <th>Meaning</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Pass</td>
+                    <td>0</td>
+                    <td>No security findings detected</td>
+                </tr>
+                <tr>
+                    <td>Low Risk</td>
+                    <td>1–15</td>
+                    <td>Minor findings, generally safe</td>
+                </tr>
+                <tr>
+                    <td>Medium Risk</td>
+                    <td>16–40</td>
+                    <td>Review recommended before deployment</td>
+                </tr>
+                <tr>
+                    <td>High Risk</td>
+                    <td>41–100</td>
+                    <td>Significant security concerns — do not deploy without remediation</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>6. Certification Tiers</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Tier</th>
+                    <th>Analysis Type</th>
+                    <th>Requirements</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="tier-badge tier-scanned">Scanned</span></td>
+                    <td>Static analysis only</td>
+                    <td>
+                        <ul>
+                            <li>All 22 vulnerability patterns checked</li>
+                            <li>Secret detection applied</li>
+                            <li>File extension filtering</li>
+                            <li>Risk score computed</li>
+                            <li>JSON report generated</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="tier-badge tier-verified">Verified</span></td>
+                    <td>Static + Intent</td>
+                    <td>
+                        <ul>
+                            <li>All Scanned checks</li>
+                            <li>SKILL.md claim vs code behavior comparison</li>
+                            <li>Undeclared capability detection</li>
+                            <li>Permission scope audit</li>
+                            <li>Signed certificate issued</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="tier-badge tier-certified">Certified</span></td>
+                    <td>Static + Intent + Runtime</td>
+                    <td>
+                        <ul>
+                            <li>All Verified checks</li>
+                            <li>Docker sandbox execution</li>
+                            <li>Network activity monitoring</li>
+                            <li>Behavioral trace analysis</li>
+                            <li>Human security review</li>
+                            <li>Cryptographically signed certificate</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>7. Certificate Format</h2>
+        <p>Certificates issued by ClawForce include:</p>
+
+        <pre><code>{
+  "skill_name": "example-skill",
+  "version": "1.0.0",
+  "certification_tier": "verified",
+  "content_hash": "sha256:a1b2c3...",
+  "risk_score": 3,
+  "scan_timestamp": "2026-03-08T12:00:00Z",
+  "scanner_version": "1.0.0",
+  "issuer": "ClawForce · Pixel Familiar",
+  "valid_for": "This specific version and content hash only"
+}</code></pre>
+
+        <div class="callout">
+            <p><strong>Important:</strong> Certificates are valid only for the exact content hash at the time of
+                scanning. Any code change invalidates the certificate and requires re-scanning.</p>
+        </div>
+
+        <h2>8. File Coverage</h2>
+
+        <h3>8.1 Source Files Scanned</h3>
+        <p><code>.py</code>, <code>.js</code>, <code>.ts</code>, <code>.jsx</code>, <code>.tsx</code>,
+            <code>.mjs</code>, <code>.cjs</code>, <code>.sh</code>, <code>.bash</code>, <code>.zsh</code></p>
+
+        <h3>8.2 Config Files Scanned</h3>
+        <p><code>.env</code>, <code>.cfg</code>, <code>.ini</code>, <code>.yml</code>, <code>.yaml</code>,
+            <code>.json</code>, <code>.toml</code></p>
+
+        <h3>8.3 Excluded</h3>
+        <p><code>.git</code>, <code>node_modules</code>, <code>__pycache__</code>, <code>.venv</code>,
+            <code>venv</code>, <code>dist</code>, <code>build</code></p>
+
+        <h2>9. Limitations</h2>
+        <p>This standard explicitly acknowledges the following limitations:</p>
+        <ul>
+            <li>Static analysis cannot detect all classes of vulnerabilities</li>
+            <li>Runtime behavior may differ from static analysis predictions</li>
+            <li>Pattern matching produces false positives — context matters</li>
+            <li>Zero-day vulnerabilities in dependencies are not detected</li>
+            <li>Tier 1 scans do not analyze imported libraries or transitive dependencies</li>
+            <li>Obfuscation techniques beyond the listed patterns may evade detection</li>
+        </ul>
+
+        <h2>10. Versioning & Updates</h2>
+        <p>This standard uses semantic versioning. Changes to threat categories, severity weights, or risk scoring
+            require a major version increment. Pattern additions within existing categories require a minor version
+            increment.</p>
+
+        <p>Current version: <strong>1.0.0</strong> · Published: March 2026</p>
+
+        <footer>
+            <p>© 2026 <a href="https://pixelfamiliar.ca">Pixel Familiar</a> · <a
+                    href="https://clawforce.ca">ClawForce</a> · Manitoba, Canada</p>
+            <p>Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> — free to share and
+                adapt with attribution.</p>
+        </footer>
+
+    </div>
+</body>
+
+</html>

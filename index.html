@@ -1549,14 +1549,30 @@
 
     <hr class="divider">
 
-    <!-- ━━━ GALLERY ━━━ -->
+    <!-- ━━━ REGISTRY ━━━ -->
     <section class="gallery" id="gallery">
         <div class="wrap">
             <div class="fade-up">
                 <div class="section-label">// public registry</div>
-                <h2 class="section-title">Sample Certifications</h2>
-                <p class="section-sub">Example scan results from skills processed through our pipeline. These are
-                    internal test certifications demonstrating the output format.</p>
+                <h2 class="section-title">Skill Registry</h2>
+                <p class="section-sub">Browse all skills that have been scanned, verified, or certified through
+                    ClawForce. <span id="registryCount" style="color:var(--cyan);font-weight:600;"></span></p>
+            </div>
+
+            <div class="fade-up"
+                style="margin-bottom:1.5rem;display:flex;gap:0.8rem;align-items:center;flex-wrap:wrap;">
+                <input type="text" class="scan-input" id="registrySearch" placeholder="Search skills..."
+                    style="flex:1;min-width:200px;padding:0.6rem 1rem;font-size:0.82rem;">
+                <div style="display:flex;gap:0.4rem;">
+                    <button class="tier-filter-btn active" data-tier="all" onclick="filterRegistry('all', this)"
+                        style="padding:0.4rem 0.9rem;border-radius:8px;border:1px solid var(--border-hover);background:var(--card);color:var(--text);font-size:0.75rem;font-weight:600;cursor:pointer;transition:all 0.2s;">All</button>
+                    <button class="tier-filter-btn" data-tier="certified" onclick="filterRegistry('certified', this)"
+                        style="padding:0.4rem 0.9rem;border-radius:8px;border:1px solid rgba(245,158,11,0.3);background:transparent;color:var(--amber);font-size:0.75rem;font-weight:600;cursor:pointer;transition:all 0.2s;">Certified</button>
+                    <button class="tier-filter-btn" data-tier="verified" onclick="filterRegistry('verified', this)"
+                        style="padding:0.4rem 0.9rem;border-radius:8px;border:1px solid rgba(14,165,233,0.3);background:transparent;color:var(--blue);font-size:0.75rem;font-weight:600;cursor:pointer;transition:all 0.2s;">Verified</button>
+                    <button class="tier-filter-btn" data-tier="scanned" onclick="filterRegistry('scanned', this)"
+                        style="padding:0.4rem 0.9rem;border-radius:8px;border:1px solid rgba(16,185,129,0.3);background:transparent;color:var(--cyan);font-size:0.75rem;font-weight:600;cursor:pointer;transition:all 0.2s;">Scanned</button>
+                </div>
             </div>
 
             <div class="gallery-grid fade-up" id="galleryGrid">
@@ -1898,6 +1914,7 @@
                     <a href="#privacy">Privacy</a>
                     <a href="#about">About</a>
                     <a href="#legal">Legal</a>
+                    <a href="security-standard-v1.html">Security Standard</a>
                     <a href="#api">API</a>
                     <a href="https://clawtrak.com">ClawTrak</a>
                     <a href="https://pixelfamiliar.ca">Pixel Familiar</a>
@@ -2379,31 +2396,74 @@
             resultsDiv.classList.add('visible');
         }
 
-        // ━━━ Registry Table ━━━
+        // ━━━ Registry Table with Search & Filter ━━━
+        let currentTier = 'all';
         const galleryGrid = document.getElementById('galleryGrid');
         const tierColors = { scanned: 'var(--cyan)', verified: 'var(--blue)', certified: 'var(--amber)' };
         const tierLabelsG = { scanned: 'SCANNED', verified: 'VERIFIED', certified: 'CERTIFIED' };
-        let tableHtml = `<table style="width:100%;border-collapse:collapse;font-size:0.78rem;">
+
+        function renderRegistry(skills) {
+            document.getElementById('registryCount').textContent = `${skills.length} skill${skills.length !== 1 ? 's' : ''} registered`;
+            let tableHtml = `<table style="width:100%;border-collapse:collapse;font-size:0.78rem;">
                 <thead><tr style="border-bottom:2px solid var(--border);text-align:left;">
                     <th style="padding:0.7rem 1rem;color:var(--dim);font-weight:600;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.06em;">Skill Name</th>
                     <th style="padding:0.7rem 1rem;color:var(--dim);font-weight:600;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.06em;">Developer</th>
                     <th style="padding:0.7rem 1rem;color:var(--dim);font-weight:600;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.06em;">Version</th>
-                    <th style="padding:0.7rem 1rem;color:var(--dim);font-weight:600;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.06em;">Hash</th>
+                    <th style="padding:0.7rem 1rem;color:var(--dim);font-weight:600;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.06em;">Risk</th>
                     <th style="padding:0.7rem 1rem;color:var(--dim);font-weight:600;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.06em;">Tier</th>
                     <th style="padding:0.7rem 1rem;color:var(--dim);font-weight:600;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.06em;">Date</th>
                 </tr></thead><tbody>`;
-        for (const skill of certRegistry) {
-            tableHtml += `<tr style="border-bottom:1px solid var(--border);transition:background 0.2s;" onmouseenter="this.style.background='var(--card)'" onmouseleave="this.style.background='transparent'">
+            for (const skill of skills) {
+                const riskColor = skill.risk === 0 ? 'var(--cyan)' : skill.risk <= 15 ? 'var(--amber)' : 'var(--red)';
+                tableHtml += `<tr style="border-bottom:1px solid var(--border);transition:background 0.2s;" onmouseenter="this.style.background='var(--card)'" onmouseleave="this.style.background='transparent'">
                     <td style="padding:0.7rem 1rem;font-family:'JetBrains Mono',monospace;font-weight:600;color:var(--text);">${skill.name}</td>
                     <td style="padding:0.7rem 1rem;color:var(--muted);">${skill.author}</td>
                     <td style="padding:0.7rem 1rem;font-family:'JetBrains Mono',monospace;color:var(--muted);">${skill.version}</td>
-                    <td style="padding:0.7rem 1rem;font-family:'JetBrains Mono',monospace;color:var(--dim);font-size:0.72rem;"><span style="background:var(--surface);padding:2px 6px;border-radius:4px;border:1px solid var(--border);">${skill.hash}</span></td>
+                    <td style="padding:0.7rem 1rem;font-family:'JetBrains Mono',monospace;font-weight:700;color:${riskColor};">${skill.risk}/100</td>
                     <td style="padding:0.7rem 1rem;"><span style="color:${tierColors[skill.tier]};font-weight:700;font-size:0.7rem;">${tierLabelsG[skill.tier]}</span></td>
                     <td style="padding:0.7rem 1rem;font-family:'JetBrains Mono',monospace;color:var(--dim);">${skill.date}</td>
                 </tr>`;
+            }
+            if (skills.length === 0) {
+                tableHtml += `<tr><td colspan="6" style="padding:2rem;text-align:center;color:var(--dim);">No skills found matching your search.</td></tr>`;
+            }
+            tableHtml += '</tbody></table>';
+            galleryGrid.innerHTML = tableHtml;
         }
-        tableHtml += '</tbody></table>';
-        galleryGrid.innerHTML = tableHtml;
+
+        function filterRegistry(tier, btn) {
+            currentTier = tier;
+            document.querySelectorAll('.tier-filter-btn').forEach(b => {
+                b.style.background = 'transparent';
+                b.classList.remove('active');
+            });
+            if (btn) { btn.style.background = 'var(--card)'; btn.classList.add('active'); }
+            applyFilters();
+        }
+
+        function applyFilters() {
+            const searchTerm = (document.getElementById('registrySearch')?.value || '').toLowerCase();
+            let filtered = certRegistry;
+            if (currentTier !== 'all') {
+                filtered = filtered.filter(s => s.tier === currentTier);
+            }
+            if (searchTerm) {
+                filtered = filtered.filter(s =>
+                    s.name.toLowerCase().includes(searchTerm) ||
+                    s.author.toLowerCase().includes(searchTerm)
+                );
+            }
+            renderRegistry(filtered);
+        }
+
+        // Search input listener
+        const searchInput = document.getElementById('registrySearch');
+        if (searchInput) {
+            searchInput.addEventListener('input', () => applyFilters());
+        }
+
+        // Initial render
+        renderRegistry(certRegistry);
 
         // ━━━ Utilities ━━━
         function delay(ms) { return new Promise(r => setTimeout(r, ms)); }
