@@ -1934,6 +1934,13 @@
     </footer>
 
     <script>
+        // ━━━ Security: HTML Sanitization ━━━
+        function escapeHtml(str) {
+            const div = document.createElement('div');
+            div.appendChild(document.createTextNode(String(str)));
+            return div.innerHTML;
+        }
+
         // ━━━ Intersection Observer for animations ━━━
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
@@ -1962,6 +1969,20 @@
         });
 
         function handleFileUpload(file) {
+            const MAX_SIZE = 10 * 1024 * 1024; // 10MB
+            const ALLOWED_EXTS = ['.py', '.js', '.ts', '.jsx', '.tsx', '.mjs', '.cjs', '.sh', '.md', '.json', '.yml', '.yaml', '.toml', '.zip'];
+            
+            if (file.size > MAX_SIZE) {
+                alert('File too large. Maximum upload size is 10MB.');
+                return;
+            }
+            
+            const ext = '.' + file.name.split('.').pop().toLowerCase();
+            if (!ALLOWED_EXTS.includes(ext)) {
+                alert('Unsupported file type. Upload source code files (.py, .js, .ts, etc.) or .zip archives.');
+                return;
+            }
+            
             if (file.name.endsWith('.zip')) {
                 runLocalScan(file.name.replace('.zip', ''), null);
             } else {
@@ -2272,9 +2293,9 @@
             for (const f of data.findingsList || []) {
                 findingsHtml += `
                     <div class="finding-item">
-                        <span class="finding-sev ${f.sev}"></span>
-                        <span class="finding-desc">${f.desc}</span>
-                        <span class="finding-file">${f.file}</span>
+                        <span class="finding-sev ${escapeHtml(f.sev)}"></span>
+                        <span class="finding-desc">${escapeHtml(f.desc)}</span>
+                        <span class="finding-file">${escapeHtml(f.file)}</span>
                     </div>`;
             }
 
@@ -2286,15 +2307,15 @@
 
             const hashHtml = data.hash ? `
                 <div style="margin-top:12px;font-size:0.68rem;color:var(--dim);font-family:'JetBrains Mono',monospace;">
-                    scan hash: ${data.hash} · ${new Date().toISOString().split('T')[0]} · scanner v1.0.0
-                    ${data.source ? ` · source: ${data.source}` : ''}
+                    scan hash: ${escapeHtml(data.hash)} · ${new Date().toISOString().split('T')[0]} · scanner v1.0.0
+                    ${data.source ? ` · source: ${escapeHtml(data.source)}` : ''}
                     ${data.isLive ? '<span style="color:var(--cyan);"> ✦ LIVE SCAN</span>' : ''}
                 </div>` : '';
 
             results.innerHTML = `
                 <div class="result-header">
-                    <span class="result-badge ${data.tier}">${tierIcons[data.tier]} ${tierLabels[data.tier]}</span>
-                    <span class="result-score">skill: <strong>${name}</strong></span>
+                    <span class="result-badge ${escapeHtml(data.tier)}">${tierIcons[data.tier] || ''} ${tierLabels[data.tier] || escapeHtml(data.tier)}</span>
+                    <span class="result-score">skill: <strong>${escapeHtml(name)}</strong></span>
                 </div>
                 <div class="result-metrics">
                     <div class="metric">
@@ -2384,7 +2405,7 @@
                 resultsDiv.innerHTML = `
                     <div class="result-header">
                         <span class="result-badge rejected">🔴 NOT FOUND</span>
-                        <span class="result-score">No certification found for "${input}"</span>
+                        <span class="result-score">No certification found for "${escapeHtml(input)}"</span>
                     </div>
                     <div style="margin-top:12px;font-size:0.78rem;color:var(--muted);">
                         This skill has not been certified by ClawForce. 
