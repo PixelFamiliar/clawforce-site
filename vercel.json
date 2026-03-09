@@ -1,0 +1,11 @@
+{
+    "framework": null,
+    "buildCommand": "",
+    "outputDirectory": ".",
+    "rewrites": [
+        {
+            "source": "/skill/:name",
+            "destination": "/skill.html"
+        }
+    ]
+}

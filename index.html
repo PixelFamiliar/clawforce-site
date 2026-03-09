@@ -1214,6 +1214,7 @@
                 <li><a href="#scan">Scan a Skill</a></li>
                 <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#gallery">Registry</a></li>
+                <li><a href="blog.html">Blog</a></li>
                 <li><a href="#verify">Verify</a></li>
                 <li><a href="#api">API</a></li>
                 <li><a href="#trust">Trust Center</a></li>
@@ -1549,6 +1550,45 @@
 
     <hr class="divider">
 
+    <!-- ━━━ BADGE EMBED ━━━ -->
+    <section class="trust" id="badge" style="background: var(--surface);">
+        <div class="wrap">
+            <div class="fade-up">
+                <div class="section-label">// display your trust</div>
+                <h2 class="section-title">Add a Badge to Your README</h2>
+                <p class="section-sub">Show users your skill has been independently verified.</p>
+            </div>
+            <div class="fade-up"
+                style="max-width: 600px; margin: 0 auto; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem;">
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <img src="https://api.clawforce.ca/v1/badge/example" alt="ClawForce Badge Example"
+                        style="height: 24px;">
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <div style="font-size: 0.8rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text);">
+                        Markdown</div>
+                    <div
+                        style="background: var(--bg); border: 1px solid var(--border-hover); padding: 1rem; border-radius: 8px; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--muted); overflow-x: auto; white-space: nowrap;">
+                        [![ClawForce](https://api.clawforce.ca/v1/badge/your-skill-name)](https://clawforce.ca)
+                    </div>
+                </div>
+
+                <div>
+                    <div style="font-size: 0.8rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text);">HTML
+                    </div>
+                    <div
+                        style="background: var(--bg); border: 1px solid var(--border-hover); padding: 1rem; border-radius: 8px; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--muted); overflow-x: auto; white-space: nowrap;">
+                        &lt;a href="https://clawforce.ca"&gt;&lt;img
+                        src="https://api.clawforce.ca/v1/badge/your-skill-name" alt="ClawForce Status"&gt;&lt;/a&gt;
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
     <!-- ━━━ REGISTRY ━━━ -->
     <section class="gallery" id="gallery">
         <div class="wrap">
@@ -1557,28 +1597,46 @@
                 <h2 class="section-title">Skill Registry</h2>
                 <p class="section-sub">Browse all skills that have been scanned, verified, or certified through
                     ClawForce. <span id="registryCount" style="color:var(--cyan);font-weight:600;"></span></p>
-            </div>
 
-            <div class="fade-up"
-                style="margin-bottom:1.5rem;display:flex;gap:0.8rem;align-items:center;flex-wrap:wrap;">
-                <input type="text" class="scan-input" id="registrySearch" placeholder="Search skills..."
-                    style="flex:1;min-width:200px;padding:0.6rem 1rem;font-size:0.82rem;">
-                <div style="display:flex;gap:0.4rem;">
-                    <button class="tier-filter-btn active" data-tier="all" onclick="filterRegistry('all', this)"
-                        style="padding:0.4rem 0.9rem;border-radius:8px;border:1px solid var(--border-hover);background:var(--card);color:var(--text);font-size:0.75rem;font-weight:600;cursor:pointer;transition:all 0.2s;">All</button>
-                    <button class="tier-filter-btn" data-tier="certified" onclick="filterRegistry('certified', this)"
-                        style="padding:0.4rem 0.9rem;border-radius:8px;border:1px solid rgba(245,158,11,0.3);background:transparent;color:var(--amber);font-size:0.75rem;font-weight:600;cursor:pointer;transition:all 0.2s;">Certified</button>
-                    <button class="tier-filter-btn" data-tier="verified" onclick="filterRegistry('verified', this)"
-                        style="padding:0.4rem 0.9rem;border-radius:8px;border:1px solid rgba(14,165,233,0.3);background:transparent;color:var(--blue);font-size:0.75rem;font-weight:600;cursor:pointer;transition:all 0.2s;">Verified</button>
-                    <button class="tier-filter-btn" data-tier="scanned" onclick="filterRegistry('scanned', this)"
-                        style="padding:0.4rem 0.9rem;border-radius:8px;border:1px solid rgba(16,185,129,0.3);background:transparent;color:var(--cyan);font-size:0.75rem;font-weight:600;cursor:pointer;transition:all 0.2s;">Scanned</button>
+                <div style="display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 250px;">
+                        <input type="text" id="registrySearch" placeholder="Search skills or developers..."
+                            style="width: 100%; padding: 0.8rem 1.2rem; border-radius: 10px; border: 1px solid var(--border-hover); background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; font-size: 0.85rem; outline: none;">
+                    </div>
+                    <div
+                        style="display: flex; gap: 0.5rem; background: var(--bg); padding: 0.4rem; border-radius: 10px; border: 1px solid var(--border-hover);">
+                        <button class="tier-filter-btn active" onclick="filterRegistry('')"
+                            style="padding: 0.4rem 1rem; border: none; border-radius: 6px; background: var(--card); color: var(--text); font-size: 0.8rem; font-weight: 600; cursor: pointer; transition: background 0.2s;">All</button>
+                        <button class="tier-filter-btn" onclick="filterRegistry('scanned')"
+                            style="padding: 0.4rem 1rem; border: none; border-radius: 6px; background: transparent; color: var(--cyan); font-size: 0.8rem; font-weight: 600; cursor: pointer; transition: background 0.2s;">Scanned</button>
+                        <button class="tier-filter-btn" onclick="filterRegistry('verified')"
+                            style="padding: 0.4rem 1rem; border: none; border-radius: 6px; background: transparent; color: var(--blue); font-size: 0.8rem; font-weight: 600; cursor: pointer; transition: background 0.2s;">Verified</button>
+                        <button class="tier-filter-btn" onclick="filterRegistry('certified')"
+                            style="padding: 0.4rem 1rem; border: none; border-radius: 6px; background: transparent; color: var(--amber); font-size: 0.8rem; font-weight: 600; cursor: pointer; transition: background 0.2s;">Certified</button>
+                    </div>
+                </div>
+
+                <div class="fade-up"
+                    style="margin-bottom:1.5rem;display:flex;gap:0.8rem;align-items:center;flex-wrap:wrap;">
+                    <input type="text" class="scan-input" id="registrySearch" placeholder="Search skills..."
+                        style="flex:1;min-width:200px;padding:0.6rem 1rem;font-size:0.82rem;">
+                    <div style="display:flex;gap:0.4rem;">
+                        <button class="tier-filter-btn active" data-tier="all" onclick="filterRegistry('all', this)"
+                            style="padding:0.4rem 0.9rem;border-radius:8px;border:1px solid var(--border-hover);background:var(--card);color:var(--text);font-size:0.75rem;font-weight:600;cursor:pointer;transition:all 0.2s;">All</button>
+                        <button class="tier-filter-btn" data-tier="certified"
+                            onclick="filterRegistry('certified', this)"
+                            style="padding:0.4rem 0.9rem;border-radius:8px;border:1px solid rgba(245,158,11,0.3);background:transparent;color:var(--amber);font-size:0.75rem;font-weight:600;cursor:pointer;transition:all 0.2s;">Certified</button>
+                        <button class="tier-filter-btn" data-tier="verified" onclick="filterRegistry('verified', this)"
+                            style="padding:0.4rem 0.9rem;border-radius:8px;border:1px solid rgba(14,165,233,0.3);background:transparent;color:var(--blue);font-size:0.75rem;font-weight:600;cursor:pointer;transition:all 0.2s;">Verified</button>
+                        <button class="tier-filter-btn" data-tier="scanned" onclick="filterRegistry('scanned', this)"
+                            style="padding:0.4rem 0.9rem;border-radius:8px;border:1px solid rgba(16,185,129,0.3);background:transparent;color:var(--cyan);font-size:0.75rem;font-weight:600;cursor:pointer;transition:all 0.2s;">Scanned</button>
+                    </div>
+                </div>
+
+                <div class="gallery-grid fade-up" id="galleryGrid">
+                    <!-- Populated by JS -->
                 </div>
             </div>
-
-            <div class="gallery-grid fade-up" id="galleryGrid">
-                <!-- Populated by JS -->
-            </div>
-        </div>
     </section>
 
     <hr class="divider">
@@ -1838,6 +1896,81 @@
         </div>
     </section>
 
+    <!-- ━━━ CI/CD INTEGRATION ━━━ -->
+    <section style="padding:4rem 0; background: var(--surface);" id="cicd">
+        <div class="wrap">
+            <div class="fade-up">
+                <div class="section-label">// continuous integration</div>
+                <h2 class="section-title">Enforce Security in CI/CD</h2>
+                <p class="section-sub">Block vulnerable AI agents from merging into your codebase.</p>
+            </div>
+
+            <div class="fade-up"
+                style="display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:1.5rem;margin-top:2rem;">
+                <!-- GitHub Actions -->
+                <div class="scanner-card">
+                    <div class="scanner-header">
+                        <span class="scanner-dot r"></span>
+                        <span class="scanner-dot y"></span>
+                        <span class="scanner-dot g"></span>
+                        <span class="scanner-title">GitHub Actions</span>
+                    </div>
+                    <div
+                        style="padding:1.5rem;font-family:'JetBrains Mono',monospace;font-size:0.75rem;line-height:1.7;color:var(--muted);background:var(--bg);height:100%;">
+                        <span style="color:var(--dim);"># .github/workflows/scan.yml</span><br>
+                        <span style="color:var(--blue);">- name:</span> ClawForce Security Scan<br>
+                        &nbsp;&nbsp;<span style="color:var(--blue);">run:</span> npx github:PixelFamiliar/clawforce-cli
+                        scan . --threshold 40
+                    </div>
+                </div>
+
+                <!-- GitLab CI -->
+                <div class="scanner-card">
+                    <div class="scanner-header">
+                        <span class="scanner-dot r"></span>
+                        <span class="scanner-dot y"></span>
+                        <span class="scanner-dot g"></span>
+                        <span class="scanner-title">GitLab CI/CD</span>
+                    </div>
+                    <div
+                        style="padding:1.5rem;font-family:'JetBrains Mono',monospace;font-size:0.75rem;line-height:1.7;color:var(--muted);background:var(--bg);height:100%;">
+                        <span style="color:var(--dim);"># .gitlab-ci.yml</span><br>
+                        <span style="color:var(--blue);">security_scan:</span><br>
+                        &nbsp;&nbsp;<span style="color:var(--blue);">stage:</span> test<br>
+                        &nbsp;&nbsp;<span style="color:var(--blue);">image:</span> node:20-alpine<br>
+                        &nbsp;&nbsp;<span style="color:var(--blue);">script:</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;- npx github:PixelFamiliar/clawforce-cli scan . --threshold 40
+                    </div>
+                </div>
+
+                <!-- Bitbucket Pipelines -->
+                <div class="scanner-card">
+                    <div class="scanner-header">
+                        <span class="scanner-dot r"></span>
+                        <span class="scanner-dot y"></span>
+                        <span class="scanner-dot g"></span>
+                        <span class="scanner-title">Bitbucket Pipelines</span>
+                    </div>
+                    <div
+                        style="padding:1.5rem;font-family:'JetBrains Mono',monospace;font-size:0.75rem;line-height:1.7;color:var(--muted);background:var(--bg);height:100%;">
+                        <span style="color:var(--dim);"># bitbucket-pipelines.yml</span><br>
+                        <span style="color:var(--blue);">pipelines:</span><br>
+                        &nbsp;&nbsp;<span style="color:var(--blue);">default:</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;- <span style="color:var(--blue);">step:</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:var(--blue);">name:</span>
+                        ClawForce Security Scan<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:var(--blue);">image:</span>
+                        node:20<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                            style="color:var(--blue);">script:</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- npx
+                        github:PixelFamiliar/clawforce-cli scan . --threshold 40
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ━━━ API DOCS ━━━ -->
     <section style="padding:4rem 0;" id="api">
         <div class="wrap">
@@ -1915,6 +2048,7 @@
                     <a href="#about">About</a>
                     <a href="#legal">Legal</a>
                     <a href="security-standard-v1.html">Security Standard</a>
+                    <a href="#cicd">CI/CD</a>
                     <a href="#api">API</a>
                     <a href="https://clawtrak.com">ClawTrak</a>
                     <a href="https://pixelfamiliar.ca">Pixel Familiar</a>
@@ -1971,18 +2105,18 @@
         function handleFileUpload(file) {
             const MAX_SIZE = 10 * 1024 * 1024; // 10MB
             const ALLOWED_EXTS = ['.py', '.js', '.ts', '.jsx', '.tsx', '.mjs', '.cjs', '.sh', '.md', '.json', '.yml', '.yaml', '.toml', '.zip'];
-            
+
             if (file.size > MAX_SIZE) {
                 alert('File too large. Maximum upload size is 10MB.');
                 return;
             }
-            
+
             const ext = '.' + file.name.split('.').pop().toLowerCase();
             if (!ALLOWED_EXTS.includes(ext)) {
                 alert('Unsupported file type. Upload source code files (.py, .js, .ts, etc.) or .zip archives.');
                 return;
             }
-            
+
             if (file.name.endsWith('.zip')) {
                 runLocalScan(file.name.replace('.zip', ''), null);
             } else {
@@ -2418,7 +2552,7 @@
         }
 
         // ━━━ Registry Table with Search & Filter ━━━
-        let currentTier = 'all';
+        let currentTier = '';
         const galleryGrid = document.getElementById('galleryGrid');
         const tierColors = { scanned: 'var(--cyan)', verified: 'var(--blue)', certified: 'var(--amber)' };
         const tierLabelsG = { scanned: 'SCANNED', verified: 'VERIFIED', certified: 'CERTIFIED' };
@@ -2428,63 +2562,82 @@
             let tableHtml = `<table style="width:100%;border-collapse:collapse;font-size:0.78rem;">
                 <thead><tr style="border-bottom:2px solid var(--border);text-align:left;">
                     <th style="padding:0.7rem 1rem;color:var(--dim);font-weight:600;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.06em;">Skill Name</th>
-                    <th style="padding:0.7rem 1rem;color:var(--dim);font-weight:600;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.06em;">Developer</th>
-                    <th style="padding:0.7rem 1rem;color:var(--dim);font-weight:600;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.06em;">Version</th>
+                    <th style="padding:0.7rem 1rem;color:var(--dim);font-weight:600;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.06em;">Description</th>
                     <th style="padding:0.7rem 1rem;color:var(--dim);font-weight:600;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.06em;">Risk</th>
                     <th style="padding:0.7rem 1rem;color:var(--dim);font-weight:600;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.06em;">Tier</th>
-                    <th style="padding:0.7rem 1rem;color:var(--dim);font-weight:600;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.06em;">Date</th>
+                    <th style="padding:0.7rem 1rem;color:var(--dim);font-weight:600;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.06em;">Links</th>
                 </tr></thead><tbody>`;
             for (const skill of skills) {
-                const riskColor = skill.risk === 0 ? 'var(--cyan)' : skill.risk <= 15 ? 'var(--amber)' : 'var(--red)';
-                tableHtml += `<tr style="border-bottom:1px solid var(--border);transition:background 0.2s;" onmouseenter="this.style.background='var(--card)'" onmouseleave="this.style.background='transparent'">
-                    <td style="padding:0.7rem 1rem;font-family:'JetBrains Mono',monospace;font-weight:600;color:var(--text);">${skill.name}</td>
-                    <td style="padding:0.7rem 1rem;color:var(--muted);">${skill.author}</td>
-                    <td style="padding:0.7rem 1rem;font-family:'JetBrains Mono',monospace;color:var(--muted);">${skill.version}</td>
-                    <td style="padding:0.7rem 1rem;font-family:'JetBrains Mono',monospace;font-weight:700;color:${riskColor};">${skill.risk}/100</td>
-                    <td style="padding:0.7rem 1rem;"><span style="color:${tierColors[skill.tier]};font-weight:700;font-size:0.7rem;">${tierLabelsG[skill.tier]}</span></td>
-                    <td style="padding:0.7rem 1rem;font-family:'JetBrains Mono',monospace;color:var(--dim);">${skill.date}</td>
+                const riskColor = skill.risk_score === 0 ? 'var(--cyan)' : skill.risk_score <= 15 ? 'var(--amber)' : 'var(--red)';
+                const desc = skill.description || 'No description provided';
+                const shortDesc = desc.length > 60 ? desc.substring(0, 60) + '...' : desc;
+
+                tableHtml += `<tr style="border-bottom:1px solid var(--border);transition:background 0.2s;cursor:pointer;" onmouseenter="this.style.background='var(--card)'" onmouseleave="this.style.background='transparent'" onclick="window.location.href='/skill/${encodeURIComponent(skill.skill_name || skill.name)}'">
+                    <td style="padding:0.7rem 1rem;font-family:'JetBrains Mono',monospace;font-weight:600;color:var(--text);">${escapeHtml(skill.skill_name || skill.name)}</td>
+                    <td style="padding:0.7rem 1rem;color:var(--muted);">${escapeHtml(shortDesc)}</td>
+                    <td style="padding:0.7rem 1rem;font-family:'JetBrains Mono',monospace;font-weight:700;color:${riskColor};">${skill.risk_score}/100</td>
+                    <td style="padding:0.7rem 1rem;"><span style="color:${tierColors[(skill.certification_tier || 'scanned').toLowerCase()] || 'var(--dim)'};font-weight:700;font-size:0.7rem;">${(skill.certification_tier || 'unknown').toUpperCase()}</span></td>
+                    <td style="padding:0.7rem 1rem;">
+                        <a href="${escapeHtml(skill.repo)}" target="_blank" style="color:var(--cyan);text-decoration:none;font-weight:600;font-size:0.75rem;">Repo ↗</a>
+                    </td>
                 </tr>`;
             }
             if (skills.length === 0) {
-                tableHtml += `<tr><td colspan="6" style="padding:2rem;text-align:center;color:var(--dim);">No skills found matching your search.</td></tr>`;
+                tableHtml += `<tr><td colspan="5" style="padding:2rem;text-align:center;color:var(--dim);">No skills found matching your search.</td></tr>`;
             }
             tableHtml += '</tbody></table>';
             galleryGrid.innerHTML = tableHtml;
         }
 
-        function filterRegistry(tier, btn) {
-            currentTier = tier;
-            document.querySelectorAll('.tier-filter-btn').forEach(b => {
-                b.style.background = 'transparent';
-                b.classList.remove('active');
-            });
-            if (btn) { btn.style.background = 'var(--card)'; btn.classList.add('active'); }
-            applyFilters();
+        let searchTimeout;
+        function applyFilters() {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(fetchRegistry, 300);
         }
 
-        function applyFilters() {
-            const searchTerm = (document.getElementById('registrySearch')?.value || '').toLowerCase();
-            let filtered = certRegistry;
-            if (currentTier !== 'all') {
-                filtered = filtered.filter(s => s.tier === currentTier);
+        async function fetchRegistry() {
+            const searchTerm = (document.getElementById('registrySearch')?.value || '').trim();
+            const btns = document.querySelectorAll('.tier-filter-btn');
+
+            // Update active button styling
+            const tierMap = { '': 0, 'scanned': 1, 'verified': 2, 'certified': 3 };
+            btns.forEach((b, i) => {
+                const isActive = tierMap[currentTier] === i;
+                b.style.background = isActive ? 'var(--card)' : 'transparent';
+                b.classList.toggle('active', isActive);
+            });
+
+            // Build API URL
+            let url = 'https://api.clawforce.ca/v1/registry';
+            const params = new URLSearchParams();
+            if (searchTerm) params.append('q', searchTerm);
+            if (currentTier) params.append('tier', currentTier);
+            if (params.toString()) url += '?' + params.toString();
+
+            try {
+                galleryGrid.innerHTML = `<div style="text-align:center;padding:2rem;color:var(--dim);">Loading registry...</div>`;
+                const res = await fetch(url);
+                const data = await res.json();
+                renderRegistry(data.skills || []);
+            } catch (err) {
+                galleryGrid.innerHTML = `<div style="text-align:center;padding:2rem;color:var(--red);">Failed to load registry. Please try again later.</div>`;
+                console.error('Error fetching registry:', err);
             }
-            if (searchTerm) {
-                filtered = filtered.filter(s =>
-                    s.name.toLowerCase().includes(searchTerm) ||
-                    s.author.toLowerCase().includes(searchTerm)
-                );
-            }
-            renderRegistry(filtered);
+        }
+
+        function filterRegistry(tier) {
+            currentTier = tier;
+            fetchRegistry();
         }
 
         // Search input listener
         const searchInput = document.getElementById('registrySearch');
         if (searchInput) {
-            searchInput.addEventListener('input', () => applyFilters());
+            searchInput.addEventListener('input', applyFilters);
         }
 
-        // Initial render
-        renderRegistry(certRegistry);
+        // Initial fetch
+        fetchRegistry();
 
         // ━━━ Utilities ━━━
         function delay(ms) { return new Promise(r => setTimeout(r, ms)); }
