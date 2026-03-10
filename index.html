@@ -1064,46 +1064,7 @@
             font-family: 'JetBrains Mono', monospace;
         }
 
-        /* ━━━ TRUST SECTION ━━━ */
-        .trust {
-            padding: 4rem 0;
-        }
 
-        .trust-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-
-        .trust-item {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
-            padding: 1.8rem;
-            text-align: center;
-            transition: all 0.3s;
-        }
-
-        .trust-item:hover {
-            border-color: var(--border-hover);
-        }
-
-        .trust-icon {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .trust-title {
-            font-weight: 700;
-            font-size: 0.88rem;
-            margin-bottom: 0.3rem;
-        }
-
-        .trust-desc {
-            font-size: 0.82rem;
-            color: var(--muted);
-            line-height: 1.55;
-        }
 
         /* ━━━ FOOTER ━━━ */
         footer {
@@ -1161,42 +1122,13 @@
             transform: translateY(0);
         }
 
-        /* ━━━ ARCHITECTURE BLOCK ━━━ */
-        .architecture-grid {
-            display: flex;
-            gap: 0;
-            align-items: stretch;
-        }
 
-        .architecture-step {
-            flex: 1;
-            background: var(--card);
-            border: 1px solid var(--border);
-            padding: 1.5rem;
-        }
-
-        .architecture-step:first-child {
-            border-radius: var(--radius-sm) 0 0 var(--radius-sm);
-        }
-
-        .architecture-step:last-child {
-            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-        }
-
-        .architecture-arrow {
-            display: flex;
-            align-items: center;
-            padding: 0 0.5rem;
-            color: var(--dim);
-            font-size: 1.5rem;
-        }
 
         /* ━━━ RESPONSIVE ━━━ */
         @media (max-width: 768px) {
 
             .tier-cards,
-            .price-grid,
-            .trust-grid {
+            .price-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -1211,22 +1143,6 @@
                 margin-bottom: 1rem;
             }
 
-            .architecture-grid {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .architecture-step,
-            .architecture-step:first-child,
-            .architecture-step:last-child {
-                border-radius: var(--radius-sm);
-            }
-
-            .architecture-arrow {
-                justify-content: center;
-                transform: rotate(90deg);
-                padding: 0.5rem 0;
-            }
 
             .result-metrics {
                 grid-template-columns: repeat(2, 1fr);
@@ -1300,8 +1216,6 @@
                 <li><a href="#scan">Scan</a></li>
                 <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#gallery">Registry</a></li>
-                <li><a href="lab.html">Lab</a></li>
-                <li><a href="#api">API</a></li>
                 <li><a href="#scan" class="nav-cta">Scan Now →</a></li>
             </ul>
         </div>
@@ -1338,28 +1252,6 @@
             </div>
         </div>
     </section>
-    <hr class="divider">
-
-    <!-- ━━━ LIVE AUDIT LEDGER ━━━ -->
-    <section style="padding:2.5rem 0;">
-        <div class="wrap">
-            <div class="fade-up">
-                <div class="section-label">// live audit ledger</div>
-                <div class="scanner-card" style="margin-top:1rem;">
-                    <div class="scanner-header">
-                        <span class="scanner-dot r"></span>
-                        <span class="scanner-dot y"></span>
-                        <span class="scanner-dot g"></span>
-                        <span class="scanner-title">clawforce-ledger — recent activity</span>
-                    </div>
-                    <div id="auditLedger"
-                        style="padding:1rem 1.5rem;font-family:'JetBrains Mono',monospace;font-size:0.74rem;line-height:2;color:var(--muted);max-height:180px;overflow:hidden;">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- ━━━ HOW IT WORKS ━━━ -->
     <section class="how-it-works" id="how-it-works">
         <div class="wrap">
@@ -1413,71 +1305,6 @@
                         <li>Behavioral trace analysis</li>
                         <li>Human security review</li>
                     </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <hr class="divider">
-
-    <!-- ━━━ ARCHITECTURE DIAGRAM ━━━ -->
-    <section style="padding:4rem 0;" id="architecture">
-        <div class="wrap">
-            <div class="fade-up">
-                <div class="section-label">// architecture</div>
-                <h2 class="section-title">How the Scanner Works</h2>
-                <p class="section-sub">Three stages. Fully deterministic. No black boxes.</p>
-            </div>
-            <div class="fade-up architecture-grid">
-                <div class="architecture-step">
-                    <div
-                        style="font-size:0.68rem;font-weight:700;color:var(--cyan);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.5rem;">
-                        Stage 1 — Static Analysis</div>
-                    <div
-                        style="font-size:0.82rem;font-weight:600;margin-bottom:0.5rem;font-family:'JetBrains Mono',monospace;">
-                        skill_scanner.py</div>
-                    <div style="font-size:0.74rem;color:var(--muted);line-height:1.5;">
-                        AST parsing • 22 regex patterns • Secret detection (AWS, Stripe, GitHub tokens) • Base64/hex
-                        obfuscation • SKILL.md structure validation • Dependency audit
-                    </div>
-                    <div
-                        style="margin-top:0.8rem;font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:var(--dim);background:var(--bg);padding:0.5rem;border-radius:4px;border:1px solid var(--border);">
-                        Output: risk_score (0–100), findings[]
-                    </div>
-                </div>
-                <div class="architecture-arrow">→</div>
-                <div class="architecture-step">
-                    <div
-                        style="font-size:0.68rem;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.5rem;">
-                        Stage 2 — Intent Analysis</div>
-                    <div
-                        style="font-size:0.82rem;font-weight:600;margin-bottom:0.5rem;font-family:'JetBrains Mono',monospace;">
-                        intent_analyzer.py</div>
-                    <div style="font-size:0.74rem;color:var(--muted);line-height:1.5;">
-                        SKILL.md claim extraction • Code behavior detection • Claim-vs-behavior comparison • Comment
-                        stripping (anti-prompt-injection) • Manifest validation
-                    </div>
-                    <div
-                        style="margin-top:0.8rem;font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:var(--dim);background:var(--bg);padding:0.5rem;border-radius:4px;border:1px solid var(--border);">
-                        Output: mismatch_score (0–100), mismatches[]
-                    </div>
-                </div>
-                <div class="architecture-arrow">→</div>
-                <div class="architecture-step">
-                    <div
-                        style="font-size:0.68rem;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.5rem;">
-                        Stage 3 — Sandbox Execution</div>
-                    <div
-                        style="font-size:0.82rem;font-weight:600;margin-bottom:0.5rem;font-family:'JetBrains Mono',monospace;">
-                        certifier.py</div>
-                    <div style="font-size:0.74rem;color:var(--muted);line-height:1.5;">
-                        Docker isolation • Network activity monitoring • Syscall tracing • Behavioral analysis •
-                        Human security review sign-off
-                    </div>
-                    <div
-                        style="margin-top:0.8rem;font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:var(--dim);background:var(--bg);padding:0.5rem;border-radius:4px;border:1px solid var(--border);">
-                        Output: certification + badge + signed JSON
-                    </div>
                 </div>
             </div>
         </div>
@@ -1602,103 +1429,6 @@
         </div>
     </section>
 
-    <hr class="divider">
-
-    <!-- ━━━ BADGE EMBED ━━━ -->
-    <section class="trust" id="badge" style="background: var(--surface);">
-        <div class="wrap">
-            <div class="fade-up">
-                <div class="section-label">// display your trust</div>
-                <h2 class="section-title">Add a Badge to Your README</h2>
-                <p class="section-sub">Show users your skill has been independently verified. Three tiers, three badge
-                    styles.</p>
-            </div>
-
-            <div class="fade-up" style="max-width: 860px; margin: 0 auto;">
-                <!-- Badge Examples -->
-                <div
-                    style="background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; margin-bottom: 1.5rem;">
-                    <div
-                        style="font-size: 0.72rem; font-weight: 600; color: var(--dim); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 1.2rem;">
-                        Badge Examples</div>
-                    <div
-                        style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; justify-content: center;">
-                        <img src="https://img.shields.io/badge/ClawForce-Scanned-10B981?style=flat-square&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHRleHQgeT0iMTgiIGZvbnQtc2l6ZT0iMTgiPvCfm6HvuI88L3RleHQ+PC9zdmc+"
-                            alt="ClawForce Scanned" style="height: 22px;">
-                        <img src="https://img.shields.io/badge/ClawForce-Verified-0EA5E9?style=flat-square&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHRleHQgeT0iMTgiIGZvbnQtc2l6ZT0iMTgiPvCfm6HvuI88L3RleHQ+PC9zdmc+"
-                            alt="ClawForce Verified" style="height: 22px;">
-                        <img src="https://img.shields.io/badge/ClawForce-Certified-F59E0B?style=flat-square&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHRleHQgeT0iMTgiIGZvbnQtc2l6ZT0iMTgiPvCfm6HvuI88L3RleHQ+PC9zdmc+"
-                            alt="ClawForce Certified" style="height: 22px;">
-                    </div>
-                </div>
-
-                <!-- README Preview -->
-                <div
-                    style="background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; margin-bottom: 1.5rem;">
-                    <div
-                        style="padding: 0.6rem 1rem; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem; background: rgba(15, 23, 42, 0.6);">
-                        <span style="font-size: 0.7rem; color: var(--dim);">📄</span>
-                        <span
-                            style="font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--muted);">README.md</span>
-                        <span
-                            style="margin-left: auto; font-size: 0.65rem; color: var(--dim); background: var(--bg); padding: 2px 8px; border-radius: 4px;">Preview</span>
-                    </div>
-                    <div style="padding: 1.5rem;">
-                        <div
-                            style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.8rem; color: var(--text); font-family: 'Inter', sans-serif;">
-                            brave-search</div>
-                        <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap;">
-                            <img src="https://img.shields.io/badge/ClawForce-Certified-F59E0B?style=flat-square"
-                                alt="ClawForce Certified" style="height: 20px;">
-                            <img src="https://img.shields.io/badge/risk-0%2F100-10B981?style=flat-square"
-                                alt="Risk Score" style="height: 20px;">
-                            <img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" alt="License"
-                                style="height: 20px;">
-                        </div>
-                        <div style="font-size: 0.82rem; color: var(--muted); line-height: 1.5;">Web search skill using
-                            the Brave Search API for real-time web queries. Independently certified by ClawForce with a
-                            0/100 risk score.</div>
-                    </div>
-                </div>
-
-                <!-- Code Snippets -->
-                <div
-                    style="background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem;">
-                    <div style="margin-bottom: 1.2rem;">
-                        <div
-                            style="font-size: 0.75rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text); display: flex; align-items: center; gap: 0.5rem;">
-                            Markdown
-                            <span
-                                style="font-size: 0.6rem; color: var(--dim); font-weight: 500; background: var(--bg); padding: 2px 6px; border-radius: 4px;">copy
-                                & paste</span>
-                        </div>
-                        <div
-                            style="background: var(--bg); border: 1px solid var(--border-hover); padding: 0.8rem 1rem; border-radius: 8px; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--cyan); overflow-x: auto; white-space: nowrap;">
-                            [![ClawForce](https://img.shields.io/badge/ClawForce-Certified-F59E0B?style=flat-square)](https://clawforce.ca/skill/your-skill-name)
-                        </div>
-                    </div>
-
-                    <div>
-                        <div
-                            style="font-size: 0.75rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text); display: flex; align-items: center; gap: 0.5rem;">
-                            HTML
-                            <span
-                                style="font-size: 0.6rem; color: var(--dim); font-weight: 500; background: var(--bg); padding: 2px 6px; border-radius: 4px;">copy
-                                & paste</span>
-                        </div>
-                        <div
-                            style="background: var(--bg); border: 1px solid var(--border-hover); padding: 0.8rem 1rem; border-radius: 8px; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--cyan); overflow-x: auto; white-space: nowrap;">
-                            &lt;a href="https://clawforce.ca/skill/your-skill-name"&gt;&lt;img
-                            src="https://img.shields.io/badge/ClawForce-Certified-F59E0B?style=flat-square"
-                            alt="ClawForce Certified"&gt;&lt;/a&gt;
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <hr class="divider">
 
     <!-- ━━━ REGISTRY ━━━ -->
     <section class="gallery" id="gallery">
@@ -1734,431 +1464,22 @@
             </div>
     </section>
 
-    <hr class="divider">
-
-    <!-- ━━━ CERTIFICATE VERIFICATION ━━━ -->
-    <section class="scanner-section" id="verify">
-        <div class="wrap">
-            <div class="fade-up">
-                <div class="section-label">// verify a certificate</div>
-                <h2 class="section-title">Certificate Lookup</h2>
-                <p class="section-sub">Verify the authenticity of a ClawForce certification. Enter the skill name or
-                    SHA-256 hash.</p>
-            </div>
-
-            <div class="scanner-card fade-up">
-                <div class="scanner-header">
-                    <span class="scanner-dot r"></span>
-                    <span class="scanner-dot y"></span>
-                    <span class="scanner-dot g"></span>
-                    <span class="scanner-title">clawforce-registry v1.0.0</span>
-                </div>
-                <div class="scanner-body">
-                    <div class="scan-input-group">
-                        <input type="text" class="scan-input" id="verifyInput" placeholder="skill name or SHA-256 hash">
-                        <button class="scan-btn" id="verifyBtn" onclick="verifyCertificate()">🔍 Verify</button>
-                    </div>
-                    <div class="scan-results" id="verifyResults"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <hr class="divider">
-
-    <!-- ━━━ TRUST CENTER ━━━ -->
-    <section class="trust" id="trust">
-        <div class="wrap">
-            <div class="fade-up">
-                <div class="section-label">// trust center</div>
-                <h2 class="section-title">Security & Transparency</h2>
-                <p class="section-sub">We disclose our threat model, our limits, and how we operate — because real
-                    trust
-                    is earned through specifics, not badges.</p>
-            </div>
-
-            <div class="trust-grid fade-up">
-                <div class="trust-item">
-                    <div class="trust-title">Open, Deterministic Scanner</div>
-                    <div class="trust-desc">22 pattern rules, AST analysis, and intent comparison — every check is
-                        visible and auditable. No black box, no opaque ML scoring.</div>
-                </div>
-                <div class="trust-item">
-                    <div class="trust-title">Hash-Pinned Certificates</div>
-                    <div class="trust-desc">Every certification is tied to the exact SHA-256 hash of the skill
-                        bundle.
-                        Update one file and the badge invalidates — no silent swaps.</div>
-                </div>
-                <div class="trust-item">
-                    <div class="trust-title">Reproducible Results</div>
-                    <div class="trust-desc">Certificates include scanner version, timestamp, and commit hash. Anyone
-                        can
-                        re-run the exact same scan and independently verify.</div>
-                </div>
-                <div class="trust-item">
-                    <div class="trust-title">We Scan Ourselves First</div>
-                    <div class="trust-desc">Every skill we publish is certified through our own pipeline before
-                        release.
-                        Check the gallery — our skills are listed with full reports.</div>
-                </div>
-                <div class="trust-item">
-                    <div class="trust-title">Revocation API</div>
-                    <div class="trust-desc">If a zero-day is discovered post-certification, we revoke instantly.
-                        Platforms can query our CRL endpoint to check real-time badge status.</div>
-                </div>
-                <div class="trust-item">
-                    <div class="trust-title">Skill Manifest Standard</div>
-                    <div class="trust-desc">We require skills to declare permissions in a
-                        <code>skill-manifest.json</code> — network egress, file paths, shell access — before
-                        certification.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <hr class="divider">
-
-    <!-- ━━━ THREAT MODEL ━━━ -->
-    <section class="trust" id="threat-model">
-        <div class="wrap">
-            <div class="fade-up">
-                <div class="section-label">// threat model</div>
-                <h2 class="section-title">What We Defend Against</h2>
-                <p class="section-sub">We're specific about what our certification catches — and what it doesn't.
-                </p>
-            </div>
-
-            <div class="trust-grid fade-up">
-                <div class="trust-item">
-                    <div class="trust-title">What We Catch</div>
-                    <div class="trust-desc">Hardcoded secrets, obfuscated payloads, undeclared network egress,
-                        credential harvesting, base64 exfiltration, crypto miners, privilege escalation, and
-                        SKILL.md/code intent mismatches.</div>
-                </div>
-                <div class="trust-item">
-                    <div class="trust-title">Known Limitations</div>
-                    <div class="trust-desc">Certification is a point-in-time assessment. We cannot guarantee future
-                        safety if upstream dependencies are later compromised, or if novel zero-day techniques
-                        emerge.
-                    </div>
-                </div>
-                <div class="trust-item">
-                    <div class="trust-title">Security Reporting</div>
-                    <div class="trust-desc">Found a vulnerability in a certified skill? Email <a
-                            href="mailto:pixel@pixelfamiliar.ca"
-                            style="color:var(--primary-hover);text-decoration:none;">pixel@pixelfamiliar.ca</a> with
-                        reproduction
-                        steps. We respond within 48 hours and coordinate responsible disclosure.</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <hr class="divider">
-
-    <!-- ━━━ LEGAL ━━━ -->
-    <section class="trust" id="legal">
-        <div class="wrap">
-            <div class="fade-up">
-                <div class="section-label">// legal & disclaimer</div>
-                <h2 class="section-title">Terms & Limitation of Liability</h2>
-                <div style="max-width:880px;font-size:0.82rem;color:var(--muted);line-height:1.8;margin-top:1rem;">
-                    <p style="margin-bottom:1rem;"><strong style="color:var(--text);">CERTIFICATION IS A
-                            POINT-IN-TIME ASSESSMENT.</strong> ClawForce certification represents a security
-                        evaluation at a specific moment using commercially reasonable tools and practices. It is
-                        <strong style="color:var(--text);">not</strong> a guarantee of absolute security, fitness
-                        for purpose, or freedom from defects.
-                    </p>
-                    <p style="margin-bottom:1rem;"><strong style="color:var(--text);">NO WARRANTY.</strong>
-                        ClawForce services are provided "AS IS" and "AS AVAILABLE" without warranties of any kind,
-                        express or implied, including but not limited to implied warranties of merchantability,
-                        fitness for a particular purpose, and non-infringement.</p>
-                    <p style="margin-bottom:1rem;"><strong style="color:var(--text);">LIMITATION OF
-                            LIABILITY.</strong> In no event shall Pixel Familiar, its directors, employees,
-                        partners, agents, suppliers, or affiliates be liable for any indirect, incidental, special,
-                        consequential, or punitive damages, including without limitation, loss of profits, data,
-                        use, goodwill, or other intangible losses, resulting from your access to or use of (or
-                        inability to access or use) ClawForce certification services.</p>
-                    <p style="margin-bottom:1rem;"><strong style="color:var(--text);">ASSUMPTION OF RISK.</strong>
-                        Certified skills may later be affected by novel zero-day vulnerabilities, supply chain
-                        compromises, upstream dependency changes, or runtime environment mutations. Certification
-                        applies only to the exact version (SHA-256 hash) evaluated at the recorded timestamp. Users
-                        assume all risk for deployment decisions based on certification results.</p>
-                    <p style="margin-bottom:1rem;"><strong style="color:var(--text);">INDEMNIFICATION.</strong> You
-                        agree to defend, indemnify, and hold harmless Pixel Familiar and its licensees from and
-                        against any claims, damages, obligations, losses, or expenses arising from your use of
-                        ClawForce certifications or reliance on scan results.</p>
-                    <p style="margin-bottom:1rem;"><strong style="color:var(--text);">REFUND POLICY.</strong> All
-                        ClawForce certification purchases are for digital services delivered electronically. Due to
-                        the nature of the service (security scans are performed immediately upon purchase), all
-                        sales are final. No refunds will be issued once a scan has been initiated. If you experience
-                        a technical issue preventing delivery of your scan results, contact
-                        <a href="mailto:pixel@pixelfamiliar.ca"
-                            style="color:var(--primary-hover);text-decoration:none;">pixel@pixelfamiliar.ca</a>
-                        within 7 days of purchase for resolution.
-                    </p>
-                    <p style="margin-bottom:1rem;"><strong style="color:var(--text);">PRICING &amp; CURRENCY.</strong>
-                        All prices displayed on ClawForce are in United States Dollars (USD). Your payment processor
-                        or bank may apply currency conversion fees if you are paying from a non-USD account.</p>
-                    <p style="margin-bottom:1rem;"><strong style="color:var(--text);">ELECTRONIC
-                            COMMUNICATIONS.</strong> By purchasing a certification, you consent to receive
-                        transactional emails related to your scan results, certificate delivery, and service
-                        notifications. These communications are necessary to fulfill your purchase and are compliant
-                        with Canada's Anti-Spam Legislation (CASL). You will not receive marketing emails without
-                        separate explicit consent.</p>
-                    <p style="margin-bottom:1rem;"><strong style="color:var(--text);">ELIGIBILITY.</strong> You must
-                        be at least 18 years of age or the age of majority in your jurisdiction, whichever is
-                        greater, to use ClawForce services or make purchases.</p>
-                    <p style="margin-bottom:1rem;"><strong style="color:var(--text);">DISPUTE RESOLUTION.</strong>
-                        Any disputes arising from or relating to these terms or your use of ClawForce services shall
-                        be subject to the exclusive jurisdiction of the courts of the Province of Manitoba, Canada.
-                        Both parties agree to submit to the personal jurisdiction of such courts.</p>
-                    <p style="font-size:0.72rem;color:var(--dim);">These terms constitute the complete Terms of Service
-                        for ClawForce certification services. Last
-                        updated: March 2026. Governing law: Province of Manitoba, Canada.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <hr class="divider">
-
-    <!-- ━━━ PRIVACY POLICY ━━━ -->
-    <section class="trust" id="privacy">
-        <div class="wrap">
-            <div class="fade-up">
-                <div class="section-label">// privacy policy</div>
-                <h2 class="section-title">Data Handling &amp; Privacy</h2>
-                <div style="max-width:880px;font-size:0.82rem;color:var(--muted);line-height:1.8;margin-top:1rem;">
-                    <p style="margin-bottom:1rem;"><strong style="color:var(--text);">DATA COLLECTION.</strong>
-                        ClawForce collects only the data necessary to perform security scans: repository URLs, uploaded
-                        skill files, and payment information (processed exclusively by Stripe). We do not collect
-                        personal browsing data, cookies for advertising, or any data beyond what is required for the
-                        scan.</p>
-                    <p style="margin-bottom:1rem;"><strong style="color:var(--text);">DATA RETENTION.</strong> Uploaded
-                        skill files are analyzed in memory and are not stored permanently. Scan results (findings, risk
-                        scores, and certification metadata) are retained for the duration of the certification period.
-                        Payment records are maintained by Stripe in accordance with their privacy policy.</p>
-                    <p style="margin-bottom:1rem;"><strong style="color:var(--text);">THIRD-PARTY SHARING.</strong> We
-                        do not sell, rent, or share your data with third parties. Scan results are published to the
-                        public registry only with your explicit consent when purchasing a Verified or Certified tier.
-                        Free Tier 1 scans are not published.</p>
-                    <p style="margin-bottom:1rem;"><strong style="color:var(--text);">YOUR RIGHTS.</strong> Under PIPEDA
-                        (Canada) and applicable privacy legislation, you have the right to access, correct, or delete
-                        your personal data. To exercise these rights, contact <a href="mailto:pixel@pixelfamiliar.ca"
-                            style="color:var(--primary-hover);text-decoration:none;">pixel@pixelfamiliar.ca</a>.</p>
-                    <p style="margin-bottom:1rem;"><strong style="color:var(--text);">SECURITY.</strong> All data in
-                        transit is encrypted via TLS 1.3. Infrastructure is hosted in Canada on PIPEDA-compliant
-                        systems. We do not use your uploaded code for training, analytics, or any purpose other than the
-                        requested scan.</p>
-                    <p style="font-size:0.72rem;color:var(--dim);">Last updated: March 2026. For questions, contact <a
-                            href="mailto:pixel@pixelfamiliar.ca"
-                            style="color:var(--primary-hover);text-decoration:none;">pixel@pixelfamiliar.ca</a>.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <hr class="divider">
-
-    <!-- ━━━ ABOUT ━━━ -->
-    <section class="trust" id="about">
-        <div class="wrap">
-            <div class="fade-up">
-                <div class="section-label">// about clawforce</div>
-                <h2 class="section-title">Who We Are</h2>
-                <div style="max-width:880px;font-size:0.82rem;color:var(--muted);line-height:1.8;margin-top:1rem;">
-                    <p style="margin-bottom:1rem;">ClawForce is an independent security certification service operated
-                        by <strong style="color:var(--text);">Pixel Familiar</strong>, a software and AI development
-                        practice based in Manitoba, Canada. We build open-source developer tools, AI agent
-                        infrastructure, and security analysis systems.</p>
-                    <p style="margin-bottom:1rem;">ClawForce was created to solve a specific problem: as AI agent
-                        ecosystems grow, there is no independent way to verify that third-party skills are safe to run.
-                        We built a deterministic, transparent scanning pipeline that developers and platform operators
-                        can trust.</p>
-                    <p style="margin-bottom:1rem;"><strong style="color:var(--text);">Contact:</strong><br>
-                        Pixel Familiar<br>
-                        Manitoba, Canada<br>
-                        Email: <a href="mailto:pixel@pixelfamiliar.ca"
-                            style="color:var(--primary-hover);text-decoration:none;">pixel@pixelfamiliar.ca</a><br>
-                        Website: <a href="https://pixelfamiliar.ca"
-                            style="color:var(--primary-hover);text-decoration:none;">pixelfamiliar.ca</a><br>
-                        X: <a href="https://x.com/PixelFamiliar"
-                            style="color:var(--primary-hover);text-decoration:none;">@PixelFamiliar</a></p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ━━━ CI/CD INTEGRATION ━━━ -->
-    <section style="padding:4rem 0; background: var(--surface);" id="cicd">
-        <div class="wrap">
-            <div class="fade-up">
-                <div class="section-label">// continuous integration</div>
-                <h2 class="section-title">Enforce Security in CI/CD</h2>
-                <p class="section-sub">Block vulnerable AI agents from merging into your codebase.</p>
-            </div>
-
-            <div class="fade-up"
-                style="display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:1.5rem;margin-top:2rem;">
-                <!-- GitHub Actions -->
-                <div class="scanner-card">
-                    <div class="scanner-header">
-                        <span class="scanner-dot r"></span>
-                        <span class="scanner-dot y"></span>
-                        <span class="scanner-dot g"></span>
-                        <span class="scanner-title">GitHub Actions</span>
-                    </div>
-                    <div
-                        style="padding:1.5rem;font-family:'JetBrains Mono',monospace;font-size:0.75rem;line-height:1.7;color:var(--muted);background:var(--bg);height:100%;">
-                        <span style="color:var(--dim);"># .github/workflows/scan.yml</span><br>
-                        <span style="color:var(--blue);">- name:</span> ClawForce Security Scan<br>
-                        &nbsp;&nbsp;<span style="color:var(--blue);">run:</span> npx github:PixelFamiliar/clawforce-cli
-                        scan . --threshold 40
-                    </div>
-                </div>
-
-                <!-- GitLab CI -->
-                <div class="scanner-card">
-                    <div class="scanner-header">
-                        <span class="scanner-dot r"></span>
-                        <span class="scanner-dot y"></span>
-                        <span class="scanner-dot g"></span>
-                        <span class="scanner-title">GitLab CI/CD</span>
-                    </div>
-                    <div
-                        style="padding:1.5rem;font-family:'JetBrains Mono',monospace;font-size:0.75rem;line-height:1.7;color:var(--muted);background:var(--bg);height:100%;">
-                        <span style="color:var(--dim);"># .gitlab-ci.yml</span><br>
-                        <span style="color:var(--blue);">security_scan:</span><br>
-                        &nbsp;&nbsp;<span style="color:var(--blue);">stage:</span> test<br>
-                        &nbsp;&nbsp;<span style="color:var(--blue);">image:</span> node:20-alpine<br>
-                        &nbsp;&nbsp;<span style="color:var(--blue);">script:</span><br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;- npx github:PixelFamiliar/clawforce-cli scan . --threshold 40
-                    </div>
-                </div>
-
-                <!-- Bitbucket Pipelines -->
-                <div class="scanner-card">
-                    <div class="scanner-header">
-                        <span class="scanner-dot r"></span>
-                        <span class="scanner-dot y"></span>
-                        <span class="scanner-dot g"></span>
-                        <span class="scanner-title">Bitbucket Pipelines</span>
-                    </div>
-                    <div
-                        style="padding:1.5rem;font-family:'JetBrains Mono',monospace;font-size:0.75rem;line-height:1.7;color:var(--muted);background:var(--bg);height:100%;">
-                        <span style="color:var(--dim);"># bitbucket-pipelines.yml</span><br>
-                        <span style="color:var(--blue);">pipelines:</span><br>
-                        &nbsp;&nbsp;<span style="color:var(--blue);">default:</span><br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;- <span style="color:var(--blue);">step:</span><br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:var(--blue);">name:</span>
-                        ClawForce Security Scan<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:var(--blue);">image:</span>
-                        node:20<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-                            style="color:var(--blue);">script:</span><br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- npx
-                        github:PixelFamiliar/clawforce-cli scan . --threshold 40
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ━━━ API DOCS ━━━ -->
-    <section style="padding:4rem 0;" id="api">
-        <div class="wrap">
-            <div class="fade-up">
-                <div class="section-label">// api integration</div>
-                <h2 class="section-title">Developer API</h2>
-                <p class="section-sub">Integrate ClawForce scans into your CI/CD pipeline.</p>
-            </div>
-            <div class="fade-up" style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;">
-                <div class="scanner-card">
-                    <div class="scanner-header">
-                        <span class="scanner-dot r"></span>
-                        <span class="scanner-dot y"></span>
-                        <span class="scanner-dot g"></span>
-                        <span class="scanner-title">curl</span>
-                    </div>
-                    <div
-                        style="padding:1.2rem;font-family:'JetBrains Mono',monospace;font-size:0.74rem;line-height:1.8;color:var(--muted);">
-                        <span style="color:var(--dim);"># Submit a skill for Tier 1 scan</span><br>
-                        <span style="color:var(--cyan);">curl</span> -X POST https://api.clawforce.ca/v1/scan \<br>
-                        &nbsp;&nbsp;-H <span style="color:var(--amber);">"Content-Type: application/json"</span>
-                        \<br>
-                        &nbsp;&nbsp;-d <span style="color:var(--amber);">'{"repo":
-                            "github.com/you/skill"}'</span><br>
-                        <br>
-                        <span style="color:var(--dim);"># Check scan status</span><br>
-                        <span style="color:var(--cyan);">curl</span> https://api.clawforce.ca/v1/scan/<span
-                            style="color:var(--dim);">SCAN_ID</span><br>
-                        <br>
-                        <span style="color:var(--dim);"># Verify a certificate</span><br>
-                        <span style="color:var(--cyan);">curl</span> https://api.clawforce.ca/v1/verify/<span
-                            style="color:var(--dim);">HASH</span>
-                    </div>
-                </div>
-                <div class="scanner-card">
-                    <div class="scanner-header">
-                        <span class="scanner-dot r"></span>
-                        <span class="scanner-dot y"></span>
-                        <span class="scanner-dot g"></span>
-                        <span class="scanner-title">python</span>
-                    </div>
-                    <div
-                        style="padding:1.2rem;font-family:'JetBrains Mono',monospace;font-size:0.74rem;line-height:1.8;color:var(--muted);">
-                        <span style="color:var(--primary-hover);">import</span> requests<br>
-                        <br>
-                        <span style="color:var(--dim);"># Submit scan</span><br>
-                        r = requests.post(<br>
-                        &nbsp;&nbsp;<span style="color:var(--amber);">"https://api.clawforce.ca/v1/scan"</span>,<br>
-                        &nbsp;&nbsp;json={<span style="color:var(--amber);">"repo"</span>: <span
-                            style="color:var(--amber);">"github.com/you/skill"</span>}<br>
-                        )<br>
-                        scan_id = r.json()[<span style="color:var(--amber);">"id"</span>]<br>
-                        <br>
-                        <span style="color:var(--dim);"># Get results</span><br>
-                        result = requests.get(<br>
-                        &nbsp;&nbsp;<span
-                            style="color:var(--amber);">f"https://api.clawforce.ca/v1/scan/</span>{scan_id}<span
-                            style="color:var(--amber);">"</span><br>
-                        ).json()
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- ━━━ FOOTER ━━━ -->
     <footer>
         <div class="wrap">
             <div class="footer-inner">
-                <div class="footer-brand">ClawForce</div>
+                <div class="footer-brand">🛡️ ClawForce</div>
                 <div class="footer-links">
-                    <a href="#trust">Trust Center</a>
-                    <a href="#threat-model">Threat Model</a>
-                    <a href="#privacy">Privacy</a>
-                    <a href="#about">About</a>
-                    <a href="#legal">Legal</a>
+                    <a href="legal.html">Legal</a>
+                    <a href="privacy.html">Privacy</a>
                     <a href="security-standard-v1.html">Security Standard</a>
-                    <a href="#cicd">CI/CD</a>
-                    <a href="#api">API</a>
-                    <a href="https://clawtrak.com">ClawTrak</a>
                     <a href="https://pixelfamiliar.ca">Pixel Familiar</a>
                     <a href="https://x.com/PixelFamiliar">𝕏</a>
                     <a href="mailto:pixel@pixelfamiliar.ca">Contact</a>
                 </div>
             </div>
             <p class="footer-copy">© 2026 Pixel Familiar · ClawForce Verified Skills™ · Independent security
-                certification for OpenClaw agent skills.<br>
-                <span style="font-size:0.62rem;color:var(--dim);margin-top:4px;display:inline-block;">Operated by
-                    Pixel Familiar · pixel@pixelfamiliar.ca · Transport: HTTPS enforced · Last updated: March
-                    2026</span><br>
-                <span style="font-size:0.62rem;color:var(--dim);margin-top:2px;display:inline-block;">Infrastructure
-                    hosted in Canada. PIPEDA-compliant architecture. Governing law: Province of Manitoba.</span>
-            </p>
+                certification for OpenClaw agent skills.</p>
         </div>
     </footer>
 
@@ -2584,67 +1905,6 @@
             { name: 'stripe-payments', tier: 'scanned', risk: 15, hash: 'c6d7e8f9a0b1c2d3', date: '2026-03-08', version: '1.0.0', author: 'PixelFamiliar', status: 'active' },
         ];
 
-        // ━━━ Certificate Verification ━━━
-        function verifyCertificate() {
-            const input = document.getElementById('verifyInput').value.trim().toLowerCase();
-            const resultsDiv = document.getElementById('verifyResults');
-
-            if (!input) { resultsDiv.innerHTML = ''; resultsDiv.classList.remove('visible'); return; }
-
-            const found = certRegistry.find(c =>
-                c.name.toLowerCase() === input ||
-                c.hash.toLowerCase() === input ||
-                c.hash.toLowerCase().startsWith(input)
-            );
-
-            const tierIcons = { scanned: '🟢', verified: '🔵', certified: '🟡' };
-            const tierLabels = { scanned: 'SCANNED', verified: 'VERIFIED', certified: 'CERTIFIED' };
-            const statusColors = { active: 'var(--cyan)', revoked: 'var(--red)', expired: 'var(--amber)' };
-
-            if (found) {
-                resultsDiv.innerHTML = `
-                    <div class="result-header">
-                        <span class="result-badge ${found.tier}">${tierIcons[found.tier]} ${tierLabels[found.tier]}</span>
-                        <span class="result-score" style="color:${statusColors[found.status]}">● ${found.status.toUpperCase()}</span>
-                    </div>
-                    <div class="result-metrics">
-                        <div class="metric">
-                            <div class="metric-value" style="color:var(--cyan)">${found.name}</div>
-                            <div class="metric-label">Skill Name</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">${found.risk}</div>
-                            <div class="metric-label">Risk Score</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">${found.version}</div>
-                            <div class="metric-label">Version</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">${found.date}</div>
-                            <div class="metric-label">Certified</div>
-                        </div>
-                    </div>
-                    <div style="margin-top:12px;font-size:0.72rem;color:var(--dim);font-family:'JetBrains Mono',monospace;">
-                        hash: ${found.hash} · author: ${found.author} · scanner v1.0.0<br>
-                        issued: ${found.date} · status: <span style="color:${statusColors[found.status]}">${found.status}</span>
-                    </div>
-                `;
-            } else {
-                resultsDiv.innerHTML = `
-                    <div class="result-header">
-                        <span class="result-badge rejected">🔴 NOT FOUND</span>
-                        <span class="result-score">No certification found for "${escapeHtml(input)}"</span>
-                    </div>
-                    <div style="margin-top:12px;font-size:0.78rem;color:var(--muted);">
-                        This skill has not been certified by ClawForce. 
-                        <a href="#scan" style="color:var(--cyan);text-decoration:none;">Submit it for a free scan →</a>
-                    </div>
-                `;
-            }
-
-            resultsDiv.classList.add('visible');
-        }
 
         // ━━━ Registry Table with Search & Filter ━━━
         let currentTier = '';
@@ -2754,52 +2014,7 @@
             history.replaceState(null, '', '/');
         }
 
-        // ━━━ Live Audit Ledger ━━━
-        const auditLedger = document.getElementById('auditLedger');
-        const ledgerEvents = [
-            { icon: '🟢', action: 'SCAN COMPLETE', target: 'brave-search', detail: 'Risk: Low (5)', tier: 'verified' },
-            { icon: '🟢', action: 'SCAN COMPLETE', target: 'heartbeat', detail: 'Risk: Low (3)', tier: 'verified' },
-            { icon: '🟡', action: 'SCAN COMPLETE', target: 'email-triage', detail: 'Risk: Medium (18)', tier: 'scanned' },
-            { icon: '🟢', action: 'VERIFIED', target: 'polymarket', detail: 'Mismatch: 0', tier: 'verified' },
-            { icon: '🚨', action: 'BLOCKED', target: 'sys-cleaner-v2', detail: 'Unauthorized Network Egress', tier: 'rejected' },
-            { icon: '🟢', action: 'SCAN COMPLETE', target: 'backup-manager', detail: 'Risk: Low (6)', tier: 'scanned' },
-            { icon: '🟢', action: 'VERIFIED', target: 'napkin', detail: 'Mismatch: 0', tier: 'verified' },
-            { icon: '🚨', action: 'BLOCKED', target: 'free-gpu-miner', detail: 'Cryptocurrency Mining Indicator', tier: 'rejected' },
-            { icon: '🟢', action: 'SCAN COMPLETE', target: 'rank-tracker', detail: 'Risk: Low (10)', tier: 'scanned' },
-            { icon: '🟡', action: 'SCAN COMPLETE', target: 'stripe-payments', detail: 'Risk: Medium (15)', tier: 'scanned' },
-            { icon: '🚨', action: 'BLOCKED', target: 'data-harvester-pro', detail: 'SSH Key Access Attempt', tier: 'rejected' },
-            { icon: '🟢', action: 'CERTIFIED', target: 'resend-email', detail: 'Full pipeline passed', tier: 'scanned' },
-            { icon: '🟢', action: 'BADGE ISSUED', target: 'brave-search', detail: 'SHA: a1b2c3d4', tier: 'verified' },
-            { icon: '🚨', action: 'REVOKED', target: 'legacy-auth-helper', detail: 'Post-cert vulnerability discovered', tier: 'rejected' },
-        ];
 
-        function generateTimestamp(offset) {
-            const d = new Date(Date.now() - offset * 60000);
-            return d.toISOString().split('T')[1].split('.')[0] + ' UTC';
-        }
-
-        // Populate initial ledger
-        const initial = ledgerEvents.slice(0, 8);
-        for (let i = 0; i < initial.length; i++) {
-            const e = initial[i];
-            const color = e.tier === 'rejected' ? 'var(--red)' : e.tier === 'verified' ? 'var(--blue)' : 'var(--cyan)';
-            auditLedger.innerHTML += `<div>[${generateTimestamp(i * 3 + 1)}] ${e.icon} <span style="color:${color};font-weight:600;">${e.action}</span>: <span style="color:var(--text);">${e.target}</span> <span style="color:var(--dim);">(${e.detail})</span></div>`;
-        }
-
-        // Scroll new entries periodically
-        let ledgerIdx = 8;
-        setInterval(() => {
-            const e = ledgerEvents[ledgerIdx % ledgerEvents.length];
-            const color = e.tier === 'rejected' ? 'var(--red)' : e.tier === 'verified' ? 'var(--blue)' : 'var(--cyan)';
-            const line = document.createElement('div');
-            line.style.opacity = '0';
-            line.style.transition = 'opacity 0.4s';
-            line.innerHTML = `[${generateTimestamp(0)}] ${e.icon} <span style="color:${color};font-weight:600;">${e.action}</span>: <span style="color:var(--text);">${e.target}</span> <span style="color:var(--dim);">(${e.detail})</span>`;
-            auditLedger.appendChild(line);
-            setTimeout(() => { line.style.opacity = '1'; }, 50);
-            if (auditLedger.children.length > 8) auditLedger.removeChild(auditLedger.firstChild);
-            ledgerIdx++;
-        }, 4000);
     </script>
 
 </body>
