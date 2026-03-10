@@ -1296,16 +1296,12 @@
                 <span class="brand">ClawForce</span>
             </a>
             <ul class="nav-links">
-                <li><a href="#how-it-works">How It Works</a></li>
-                <li><a href="#scan">Scan a Skill</a></li>
+                <li><a href="#scan">Scan</a></li>
                 <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#gallery">Registry</a></li>
                 <li><a href="blog.html">Blog</a></li>
-                <li><a href="#verify">Verify</a></li>
                 <li><a href="#api">API</a></li>
-                <li><a href="#trust">Trust Center</a></li>
-                <li><a href="https://clawtrak.com">ClawTrak</a></li>
-                <li><a href="#trust" class="nav-cta">Security</a></li>
+                <li><a href="#scan" class="nav-cta">Scan Now →</a></li>
             </ul>
         </div>
     </nav>
@@ -1315,49 +1311,28 @@
         <div class="wrap fade-up">
             <div class="hero-badge">
                 <span class="dot"></span>
-                Independent Security Registry
+                Independent Security Certification
             </div>
-            <h1>The Independent Security Registry<br>for <span class="hl">OpenClaw Skills</span></h1>
+            <h1>Security Scanning<br>for <span class="hl">AI Agent Skills</span></h1>
             <p class="hero-sub">
-                Automated malware scanning, intent verification, and sandbox execution for
-                <a href="#what-are-skills" style="color:var(--primary-hover);text-decoration:underline;">OpenClaw agent
-                    skills</a>.
-                Upload your skill for a free Tier 1 scan — no account required.
+                Scan any OpenClaw skill for malware, credential theft, and supply chain attacks. Free.
             </p>
+            <div class="hero-cta">
+                <a href="#scan" class="btn btn-primary">Scan a Skill — Free →</a>
+                <a href="#pricing" class="btn btn-outline">View Plans</a>
+            </div>
             <div class="hero-stats">
                 <div class="hero-stat">
                     <div class="num">22</div>
-                    <div class="label">Security Patterns</div>
+                    <div class="label">Threat Patterns</div>
                 </div>
                 <div class="hero-stat">
                     <div class="num">3</div>
                     <div class="label">Cert Tiers</div>
                 </div>
                 <div class="hero-stat">
-                    <div class="num">$0</div>
-                    <div class="label">Free Tier 1</div>
-                </div>
-            </div>
-            <div class="hero-cta">
-                <a href="#scan" class="btn btn-primary">Scan a Skill →</a>
-                <a href="#architecture" class="btn btn-outline">How Our Scanner Works</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ━━━ WHAT ARE SKILLS ━━━ -->
-    <section id="what-are-skills"
-        style="padding:2rem 0;background:rgba(37,99,235,0.03);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
-        <div class="wrap">
-            <div class="fade-up" style="max-width:680px;">
-                <div style="font-size:0.82rem;color:var(--muted);line-height:1.7;">
-                    <strong style="color:var(--text);">What are OpenClaw skills?</strong> OpenClaw is an open standard
-                    for AI agent capabilities — modular packages that let agents search the web, send emails, manage
-                    files, or interact with APIs. Because skills execute with the agent's permissions, <strong
-                        style="color:var(--text);">a malicious skill can exfiltrate credentials, install crypto miners,
-                        or harvest user data</strong>. Security researchers have identified a growing number of unsafe
-                    skills distributed through public registries. ClawForce provides independent, automated security
-                    analysis to help developers and platforms verify that skills are safe before deployment.
+                    <div class="num" id="heroSkillCount">0</div>
+                    <div class="label">Skills Certified</div>
                 </div>
             </div>
         </div>
@@ -2678,6 +2653,8 @@
 
         function renderRegistry(skills) {
             document.getElementById('registryCount').textContent = `${skills.length} skill${skills.length !== 1 ? 's' : ''} registered`;
+            const heroCount = document.getElementById('heroSkillCount');
+            if (heroCount) heroCount.textContent = skills.length;
             let tableHtml = `<table style="width:100%;border-collapse:collapse;font-size:0.78rem;">
                 <thead><tr style="border-bottom:2px solid var(--border);text-align:left;">
                     <th style="padding:0.7rem 1rem;color:var(--dim);font-weight:600;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.06em;">Skill Name</th>
