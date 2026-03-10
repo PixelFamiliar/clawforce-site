@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+    <title>Lab — ClawForce Autonomous Skill Factory</title>
+    <meta name="description"
+        content="ClawForce Lab: autonomous AI-built skills generated overnight, security-scanned, and deployed automatically. See what our agent built while you slept.">
+    <link rel="canonical" href="https://clawforce.ca/lab.html">
+
+    <meta property="og:title" content="ClawForce Lab — Autonomous Skill Factory">
+    <meta property="og:description"
+        content="AI-built skills generated overnight, security-scanned, and deployed automatically.">
+    <meta property="og:url" content="https://clawforce.ca/lab.html">
+    <meta property="og:type" content="website">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #0a0f1a;
+            --surface: #0f1629;
+            --card: #131b2e;
+            --border: #1e293b;
+            --border-hover: #334155;
+            --text: #e2e8f0;
+            --muted: #94a3b8;
+            --dim: #64748b;
+            --primary: #2563eb;
+            --primary-hover: #3b82f6;
+            --cyan: #10b981;
+            --amber: #f59e0b;
+            --blue: #0ea5e9;
+            --red: #ef4444;
+            --radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* ── Nav ── */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(10, 15, 26, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 0.8rem 0;
+        }
+
+        nav .wrap {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .nav-logo .brand {
+            font-weight: 800;
+            color: var(--text);
+            letter-spacing: -0.03em;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 500;
+            transition: color 0.2s;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        .nav-cta {
+            background: var(--primary) !important;
+            color: white !important;
+            padding: 0.4rem 1rem;
+            border-radius: 8px;
+        }
+
+        /* ── Hero ── */
+        .hero {
+            padding: 8rem 0 4rem;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(37, 99, 235, 0.08);
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            border-radius: 100px;
+            padding: 0.4rem 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--primary-hover);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-badge .dot {
+            width: 6px;
+            height: 6px;
+            background: var(--cyan);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.4;
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .hero .hl {
+            background: linear-gradient(135deg, var(--primary-hover), var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-sub {
+            font-size: 1rem;
+            color: var(--muted);
+            max-width: 560px;
+            margin: 0 auto 2rem;
+            line-height: 1.7;
+        }
+
+        /* ── Section ── */
+        .section-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--primary-hover);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.8rem;
+        }
+
+        .section-title {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.8rem;
+        }
+
+        .section-sub {
+            font-size: 0.88rem;
+            color: var(--muted);
+            max-width: 520px;
+            line-height: 1.6;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        .divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 0;
+        }
+
+        /* ── Pipeline Steps ── */
+        .pipeline-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.2rem;
+            margin-top: 2rem;
+        }
+
+        .pipeline-step {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            position: relative;
+            transition: border-color 0.3s;
+        }
+
+        .pipeline-step:hover {
+            border-color: var(--border-hover);
+        }
+
+        .pipeline-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: var(--dim);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.8rem;
+        }
+
+        .pipeline-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .pipeline-name {
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+        }
+
+        .pipeline-desc {
+            font-size: 0.78rem;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        /* ── Builds Grid ── */
+        .builds-empty {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .builds-empty-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .builds-empty-title {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .builds-empty-desc {
+            font-size: 0.82rem;
+            color: var(--muted);
+            max-width: 400px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        .builds-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .build-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            transition: border-color 0.3s, transform 0.2s;
+        }
+
+        .build-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+        }
+
+        .build-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.8rem;
+        }
+
+        .build-name {
+            font-size: 0.92rem;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .build-badge {
+            font-size: 0.65rem;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .build-badge.safe {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--cyan);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .build-badge.review {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--amber);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+        }
+
+        .build-desc {
+            font-size: 0.78rem;
+            color: var(--muted);
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .build-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.7rem;
+            color: var(--dim);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .build-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        /* ── Terminal Card ── */
+        .terminal-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            margin-top: 2rem;
+        }
+
+        .terminal-header {
+            padding: 0.6rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .terminal-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .terminal-dot.r {
+            background: #ef4444;
+        }
+
+        .terminal-dot.y {
+            background: #f59e0b;
+        }
+
+        .terminal-dot.g {
+            background: #10b981;
+        }
+
+        .terminal-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--dim);
+            margin-left: 6px;
+        }
+
+        .terminal-body {
+            padding: 1.2rem 1.5rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.74rem;
+            line-height: 2;
+            color: var(--muted);
+        }
+
+        .terminal-body .cmd {
+            color: var(--cyan);
+        }
+
+        .terminal-body .dim {
+            color: var(--dim);
+        }
+
+        .terminal-body .warn {
+            color: var(--amber);
+        }
+
+        .terminal-body .ok {
+            color: var(--cyan);
+        }
+
+        /* ── Footer ── */
+        footer {
+            padding: 3rem 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 0.75rem;
+            color: var(--dim);
+        }
+
+        footer a {
+            color: var(--primary-hover);
+            text-decoration: none;
+        }
+
+        /* ── Animations ── */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .pipeline-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .builds-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="wrap">
+            <a href="/" class="nav-logo">
+                <span>🛡️</span>
+                <span class="brand">ClawForce</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/#scan">Scan</a></li>
+                <li><a href="/#pricing">Pricing</a></li>
+                <li><a href="/#gallery">Registry</a></li>
+                <li><a href="lab.html" style="color:var(--text);">Lab</a></li>
+                <li><a href="/#api">API</a></li>
+                <li><a href="/#scan" class="nav-cta">Scan Now →</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ━━━ HERO ━━━ -->
+    <section class="hero">
+        <div class="wrap fade-up">
+            <div class="hero-badge">
+                <span class="dot"></span>
+                Autonomous Skill Factory
+            </div>
+            <h1>Built Overnight.<br><span class="hl">Scanned at Dawn.</span></h1>
+            <p class="hero-sub">
+                Every night, our autonomous agent researches trending needs, generates new OpenClaw skills,
+                security-scans them through ClawForce, and deploys the ones that pass.
+            </p>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ━━━ HOW IT WORKS ━━━ -->
+    <section>
+        <div class="wrap">
+            <div class="fade-up">
+                <div class="section-label">// the pipeline</div>
+                <h2 class="section-title">How the Overnight Factory Works</h2>
+                <p class="section-sub">A fully autonomous loop — no humans in the loop between sunset and sunrise.</p>
+            </div>
+
+            <div class="pipeline-grid fade-up">
+                <div class="pipeline-step">
+                    <div class="pipeline-num">Step 1 — 11:00 PM</div>
+                    <div class="pipeline-icon">🔍</div>
+                    <div class="pipeline-name">Research</div>
+                    <div class="pipeline-desc">The agent scans developer communities, trending repos, and market gaps
+                        to identify high-demand skill opportunities.</div>
+                </div>
+
+                <div class="pipeline-step">
+                    <div class="pipeline-num">Step 2 — 11:30 PM</div>
+                    <div class="pipeline-icon">⚙️</div>
+                    <div class="pipeline-name">Generate</div>
+                    <div class="pipeline-desc">Each skill is built from scratch — SKILL.md manifest, implementation
+                        code, error handling, and documentation, all following OpenClaw standards.</div>
+                </div>
+
+                <div class="pipeline-step">
+                    <div class="pipeline-num">Step 3 — 12:00 AM</div>
+                    <div class="pipeline-icon">🛡️</div>
+                    <div class="pipeline-name">Scan</div>
+                    <div class="pipeline-desc">Every generated skill runs through the ClawForce Tier 1 scanner — 22
+                        vulnerability patterns, secret detection, and risk scoring.</div>
+                </div>
+
+                <div class="pipeline-step">
+                    <div class="pipeline-num">Step 4 — 12:30 AM</div>
+                    <div class="pipeline-icon">🚀</div>
+                    <div class="pipeline-name">Deploy</div>
+                    <div class="pipeline-desc">Skills scoring below the risk threshold get automatically deployed to the
+                        skill registry. High-risk skills are flagged for review.</div>
+                </div>
+            </div>
+
+            <!-- Terminal Visualization -->
+            <div class="terminal-card fade-up">
+                <div class="terminal-header">
+                    <span class="terminal-dot r"></span>
+                    <span class="terminal-dot y"></span>
+                    <span class="terminal-dot g"></span>
+                    <span class="terminal-title">overnight-factory — example run</span>
+                </div>
+                <div class="terminal-body">
+                    <div><span class="dim">[23:00]</span> <span class="cmd">→</span> Starting overnight research
+                        cycle...</div>
+                    <div><span class="dim">[23:12]</span> <span class="cmd">→</span> Found 3 high-demand skill gaps
+                    </div>
+                    <div><span class="dim">[23:30]</span> <span class="cmd">→</span> Generating skill:
+                        pdf-invoice-generator</div>
+                    <div><span class="dim">[23:45]</span> <span class="cmd">→</span> Generating skill:
+                        webhook-relay</div>
+                    <div><span class="dim">[00:01]</span> <span class="cmd">→</span> Generating skill:
+                        markdown-to-html</div>
+                    <div><span class="dim">[00:15]</span> 🛡️ Scanning pdf-invoice-generator... <span
+                            class="ok">PASS</span> risk: 0/100</div>
+                    <div><span class="dim">[00:18]</span> 🛡️ Scanning webhook-relay... <span class="warn">REVIEW</span>
+                        risk: 18/100</div>
+                    <div><span class="dim">[00:21]</span> 🛡️ Scanning markdown-to-html... <span class="ok">PASS</span>
+                        risk: 0/100</div>
+                    <div><span class="dim">[00:25]</span> <span class="cmd">→</span> Deployed 2 skills, 1 flagged for
+                        review</div>
+                    <div><span class="dim">[00:26]</span> <span class="cmd">✓</span> Overnight cycle complete</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ━━━ OVERNIGHT BUILDS ━━━ -->
+    <section>
+        <div class="wrap">
+            <div class="fade-up">
+                <div class="section-label">// latest builds</div>
+                <h2 class="section-title">Overnight Builds</h2>
+                <p class="section-sub">Skills generated and scanned in the last 7 days. Updated every morning.</p>
+            </div>
+
+            <div id="buildsContainer" class="fade-up">
+                <div class="builds-empty">
+                    <div class="builds-empty-icon">🌙</div>
+                    <div class="builds-empty-title">No builds yet</div>
+                    <div class="builds-empty-desc">The overnight factory hasn't produced any skills yet. Check back
+                        tomorrow morning to see what was built.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ━━━ FOOTER ━━━ -->
+    <footer>
+        <div class="wrap">
+            <p style="margin-bottom: 0.5rem;">🛡️ <strong style="color:var(--text);">ClawForce</strong></p>
+            <p>Independent security certification for AI agents.</p>
+            <p style="margin-top: 1rem;">
+                <a href="/">Home</a> · <a href="/#scan">Scan a Skill</a> · <a href="/#pricing">Pricing</a> · <a
+                    href="/#api">API</a>
+            </p>
+            <p style="margin-top: 1.5rem;">Operated by <a href="https://pixelfamiliar.ca">Pixel Familiar</a> ·
+                Manitoba, Canada</p>
+        </div>
+    </footer>
+
+    <script>
+        // Intersection Observer for fade-in animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+        // Future: Fetch overnight builds from API
+        // async function loadBuilds() {
+        //     try {
+        //         const res = await fetch('https://api.clawforce.ca/v1/lab/builds');
+        //         const data = await res.json();
+        //         if (data.builds && data.builds.length > 0) {
+        //             renderBuilds(data.builds);
+        //         }
+        //     } catch (e) { /* show empty state */ }
+        // }
+        //
+        // function renderBuilds(builds) {
+        //     const container = document.getElementById('buildsContainer');
+        //     container.innerHTML = '<div class="builds-grid">' + builds.map(b => `
+        //         <div class="build-card">
+        //             <div class="build-header">
+        //                 <div class="build-name">${b.name}</div>
+        //                 <div class="build-badge ${b.risk_score <= 10 ? 'safe' : 'review'}">
+        //                     ${b.risk_score <= 10 ? 'PASS' : 'REVIEW'}
+        //                 </div>
+        //             </div>
+        //             <div class="build-desc">${b.description}</div>
+        //             <div class="build-meta">
+        //                 <span>📊 Risk: ${b.risk_score}/100</span>
+        //                 <span>📁 ${b.files} files</span>
+        //                 <span>📅 ${b.date}</span>
+        //             </div>
+        //         </div>
+        //     `).join('') + '</div>';
+        // }
+        //
+        // loadBuilds();
+    </script>
+</body>
+
+</html>
