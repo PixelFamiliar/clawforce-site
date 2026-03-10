@@ -362,7 +362,8 @@
             document.getElementById('uiSkillName').textContent = name;
             document.getElementById('uiDeveloper').textContent = `by ${dev}`;
             document.getElementById('uiDescription').textContent = desc;
-            document.getElementById('uiRepoLink').href = escapeHtml(skill.repo || '#');
+            const repoUrl = skill.repo ? (skill.repo.startsWith('http') ? skill.repo : 'https://' + skill.repo) : '#';
+            document.getElementById('uiRepoLink').href = escapeHtml(repoUrl);
 
             // Use shields.io badge instead of broken /v1/badge/ API
             const tier = (skill.certification_tier || 'scanned').toLowerCase();
