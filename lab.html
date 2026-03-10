@@ -641,38 +641,51 @@
 
         document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-        // Future: Fetch overnight builds from API
-        // async function loadBuilds() {
-        //     try {
-        //         const res = await fetch('https://api.clawforce.ca/v1/lab/builds');
-        //         const data = await res.json();
-        //         if (data.builds && data.builds.length > 0) {
-        //             renderBuilds(data.builds);
-        //         }
-        //     } catch (e) { /* show empty state */ }
-        // }
-        //
-        // function renderBuilds(builds) {
-        //     const container = document.getElementById('buildsContainer');
-        //     container.innerHTML = '<div class="builds-grid">' + builds.map(b => `
-        //         <div class="build-card">
-        //             <div class="build-header">
-        //                 <div class="build-name">${b.name}</div>
-        //                 <div class="build-badge ${b.risk_score <= 10 ? 'safe' : 'review'}">
-        //                     ${b.risk_score <= 10 ? 'PASS' : 'REVIEW'}
-        //                 </div>
-        //             </div>
-        //             <div class="build-desc">${b.description}</div>
-        //             <div class="build-meta">
-        //                 <span>📊 Risk: ${b.risk_score}/100</span>
-        //                 <span>📁 ${b.files} files</span>
-        //                 <span>📅 ${b.date}</span>
-        //             </div>
-        //         </div>
-        //     `).join('') + '</div>';
-        // }
-        //
-        // loadBuilds();
+        // Fetch and display real builds from ClawForce registry
+        async function loadBuilds() {
+            try {
+                const res = await fetch('https://api.clawforce.ca/v1/registry');
+                const data = await res.json();
+                if (data.skills && data.skills.length > 0) {
+                    renderBuilds(data.skills);
+                }
+            } catch (e) { /* show empty state */ }
+        }
+
+        function escapeHtml(str) {
+            const d = document.createElement('div');
+            d.textContent = str;
+            return d.innerHTML;
+        }
+
+        function renderBuilds(skills) {
+            const container = document.getElementById('buildsContainer');
+            const tierColors = { certified: 'safe', verified: 'safe', scanned: 'review' };
+            const tierLabels = { certified: '✅ Certified', verified: '🔵 Verified', scanned: '🟡 Scanned' };
+
+            container.innerHTML = '<div class="builds-grid">' + skills.map(s => {
+                const tier = (s.certification_tier || 'scanned').toLowerCase();
+                const badgeClass = tierColors[tier] || 'review';
+                const badgeLabel = tierLabels[tier] || tier;
+                const riskColor = s.risk_score <= 5 ? 'var(--cyan)' : s.risk_score <= 20 ? 'var(--amber)' : 'var(--red)';
+
+                return `
+                <a href="/skill/${escapeHtml(s.skill_name)}" class="build-card" style="text-decoration:none;color:inherit;">
+                    <div class="build-header">
+                        <div class="build-name">${escapeHtml(s.skill_name)}</div>
+                        <div class="build-badge ${badgeClass}">${badgeLabel}</div>
+                    </div>
+                    <div class="build-desc">${escapeHtml(s.description || 'No description')}</div>
+                    <div class="build-meta">
+                        <span style="color:${riskColor}">Risk: ${s.risk_score}/100</span>
+                        <span>📁 ${s.files_scanned} files</span>
+                        <span>📅 ${escapeHtml(s.date || '')}</span>
+                    </div>
+                </a>`;
+            }).join('') + '</div>';
+        }
+
+        loadBuilds();
     </script>
 </body>
 
