@@ -362,8 +362,13 @@
             document.getElementById('uiSkillName').textContent = name;
             document.getElementById('uiDeveloper').textContent = `by ${dev}`;
             document.getElementById('uiDescription').textContent = desc;
-            document.getElementById('uiRepoLink').href = escapeHtml(skill.repo);
-            document.getElementById('uiBadge').src = `https://api.clawforce.ca/v1/badge/${encodeURIComponent(name)}`;
+            document.getElementById('uiRepoLink').href = escapeHtml(skill.repo || '#');
+
+            // Use shields.io badge instead of broken /v1/badge/ API
+            const tier = (skill.certification_tier || 'scanned').toLowerCase();
+            const tierColors = { scanned: '10B981', verified: '0EA5E9', certified: 'F59E0B' };
+            const tierLabel = tier.charAt(0).toUpperCase() + tier.slice(1);
+            document.getElementById('uiBadge').src = `https://img.shields.io/badge/ClawForce-${tierLabel}-${tierColors[tier] || '64748B'}?style=flat-square`;
 
             const riskLabel = document.getElementById('uiRiskScore');
             riskLabel.innerHTML = `<span>${skill.risk_score}</span><span style="font-size:0.8rem;color:var(--dim);">/100</span>`;
@@ -372,7 +377,9 @@
             else riskLabel.style.color = 'var(--red)';
 
             document.getElementById('uiFilesScanned').textContent = skill.files_scanned || 'N/A';
-            const scanDate = skill.date || (skill.scan_timestamp ? skill.scan_timestamp.split('T')[0] : 'Unknown');
+            let scanDate = 'Unknown';
+            if (skill.date) scanDate = skill.date;
+            else if (skill.scan_timestamp && typeof skill.scan_timestamp === 'string') scanDate = skill.scan_timestamp.split('T')[0];
             document.getElementById('uiDate').textContent = escapeHtml(scanDate);
             document.getElementById('uiVersion').textContent = escapeHtml(skill.version || 'v1.0.0');
             document.getElementById('uiHash').textContent = hash;
