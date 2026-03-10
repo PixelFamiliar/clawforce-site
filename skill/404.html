@@ -4,15 +4,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Dynamic SEO tags will be injected here by JS -->
     <title>ClawForce Skill Report</title>
-
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700;800&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="/index.css">
 
     <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #020617;
+            --surface: #0F172A;
+            --card: #1E293B;
+            --card-hover: #253349;
+            --border: #334155;
+            --border-hover: #475569;
+            --text: #E2E8F0;
+            --muted: #94A3B8;
+            --dim: #64748B;
+            --primary: #2563EB;
+            --primary-hover: #3B82F6;
+            --cyan: #10B981;
+            --cyan-dim: #059669;
+            --blue: #0EA5E9;
+            --amber: #F59E0B;
+            --red: #EF4444;
+            --green-bg: rgba(16, 185, 129, 0.08);
+            --blue-bg: rgba(14, 165, 233, 0.08);
+            --amber-bg: rgba(245, 158, 11, 0.08);
+            --radius: 12px;
+            --radius-sm: 8px;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', -apple-system, sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .wrap {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 0.9rem 0;
+            background: rgba(2, 6, 23, 0.95);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .divider {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-hover), transparent);
+            margin: 0;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(37, 99, 235, 0.4);
+        }
+
         .report-header {
             padding: 3rem 0;
             border-bottom: 1px solid var(--border);
@@ -73,13 +158,22 @@
             color: var(--muted);
             overflow-x: auto;
             margin-top: 1rem;
+            word-break: break-all;
+        }
+
+        .section-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--primary-hover);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.5rem;
         }
 
         #errorState {
             display: none;
             text-align: center;
             padding: 5rem 0;
-            color: var(--red);
         }
 
         #loadingState {
@@ -91,6 +185,20 @@
         #contentState {
             display: none;
         }
+
+        footer {
+            padding: 3rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .skill-title {
+                font-size: 1.6rem;
+            }
+
+            .nav-links {
+                display: none !important;
+            }
+        }
     </style>
 </head>
 
@@ -98,30 +206,32 @@
     <!-- ━━━ NAV ━━━ -->
     <nav>
         <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;">
-            <a href="/" style="text-decoration:none;display:flex;align-items:center;gap:0.8rem;">
-                <div class="logo">CF</div>
-                <div style="font-weight:800;letter-spacing:-0.03em;font-size:1.2rem;color:var(--text);">ClawForce</div>
+            <a href="/" style="text-decoration:none;display:flex;align-items:center;gap:0.5rem;">
+                <span>🛡️</span>
+                <span
+                    style="font-weight:800;letter-spacing:-0.03em;font-size:1.1rem;color:var(--text);">ClawForce</span>
             </a>
-            <div class="nav-links" style="display:flex;gap:1.5rem;font-size:0.9rem;font-weight:600;">
-                <a href="/#registry" style="color:var(--muted);text-decoration:none;transition:color 0.2s;">Registry</a>
-                <a href="/#pricing" style="color:var(--muted);text-decoration:none;transition:color 0.2s;">Pricing</a>
-                <a href="/blog.html" style="color:var(--muted);text-decoration:none;transition:color 0.2s;">Blog</a>
-                <a href="/#scan" style="color:var(--cyan);text-decoration:none;transition:color 0.2s;">Scan Now →</a>
+            <div class="nav-links" style="display:flex;gap:1.2rem;font-size:0.85rem;font-weight:500;">
+                <a href="/#gallery" style="color:var(--muted);text-decoration:none;white-space:nowrap;">Registry</a>
+                <a href="/#pricing" style="color:var(--muted);text-decoration:none;white-space:nowrap;">Pricing</a>
+                <a href="/blog.html" style="color:var(--muted);text-decoration:none;white-space:nowrap;">Blog</a>
+                <a href="/#scan" style="color:var(--cyan);text-decoration:none;white-space:nowrap;">Scan Now →</a>
             </div>
         </div>
     </nav>
 
-    <!-- ━━━ HERO / HEADER ━━━ -->
+    <!-- ━━━ CONTENT ━━━ -->
     <header style="padding-top: 100px;">
         <div class="wrap" id="loadingState">
             <h1 class="skill-title">Loading Report...</h1>
+            <p style="margin-top: 1rem; color: var(--dim);">Fetching skill data from the ClawForce registry.</p>
         </div>
 
         <div class="wrap" id="errorState">
-            <h1 class="skill-title">Skill Not Found</h1>
+            <h1 class="skill-title" style="color: var(--red);">Skill Not Found</h1>
             <p style="margin-top: 1rem; color: var(--muted);">This skill is not registered in the ClawForce database.
             </p>
-            <a href="/" class="btn" style="margin-top: 2rem;">Return Home</a>
+            <a href="/" class="btn" style="margin-top: 2rem; display: inline-flex;">← Return Home</a>
         </div>
 
         <div class="wrap" id="contentState">
@@ -184,8 +294,7 @@
     <!-- ━━━ FOOTER ━━━ -->
     <footer>
         <div class="wrap" style="text-align: center;">
-            <div class="logo" style="margin:0 auto 1.5rem auto;">CF</div>
-            <div style="font-size:0.9rem;color:var(--text);font-weight:600;margin-bottom:0.5rem;">ClawForce</div>
+            <div style="font-size:0.9rem;color:var(--text);font-weight:600;margin-bottom:0.5rem;">🛡️ ClawForce</div>
             <div style="font-size:0.8rem;color:var(--dim);">Independent security certification for AI agents.</div>
             <div style="margin-top:2rem;font-size:0.75rem;color:var(--dim);">
                 Operated by Pixel Familiar · Manitoba, Canada
@@ -197,7 +306,7 @@
     <script>
         // Extract skill name from URL path: /skill/brave-search
         const pathParts = window.location.pathname.split('/');
-        const skillId = pathParts[pathParts.length - 1];
+        const skillId = decodeURIComponent(pathParts[pathParts.length - 1] || pathParts[pathParts.length - 2] || '');
 
         async function loadReport() {
             if (!skillId) {
@@ -214,11 +323,12 @@
 
                 // Find target skill
                 const target = skillId.toLowerCase();
-                const skill = data.skills.find(s =>
-                    (s.skill_name || s.name).toLowerCase() === target ||
-                    (s.skill_name || s.name).toLowerCase() + '-skill' === target ||
-                    (s.skill_name || s.name).toLowerCase().replace('-skill', '') === target
-                );
+                const skill = data.skills.find(s => {
+                    const name = (s.skill_name || s.name || '').toLowerCase();
+                    return name === target ||
+                        name + '-skill' === target ||
+                        name.replace('-skill', '') === target;
+                });
 
                 if (skill) {
                     renderSkill(skill);
@@ -232,7 +342,6 @@
         }
 
         function renderSkill(skill) {
-            // Hide loading, show content
             document.getElementById('loadingState').style.display = 'none';
             document.getElementById('contentState').style.display = 'block';
 
@@ -263,7 +372,8 @@
             else riskLabel.style.color = 'var(--red)';
 
             document.getElementById('uiFilesScanned').textContent = skill.files_scanned || 'N/A';
-            document.getElementById('uiDate').textContent = escapeHtml(skill.date || skill.scan_timestamp ? skill.scan_timestamp.split('T')[0] : 'Unknown');
+            const scanDate = skill.date || (skill.scan_timestamp ? skill.scan_timestamp.split('T')[0] : 'Unknown');
+            document.getElementById('uiDate').textContent = escapeHtml(scanDate);
             document.getElementById('uiVersion').textContent = escapeHtml(skill.version || 'v1.0.0');
             document.getElementById('uiHash').textContent = hash;
         }
