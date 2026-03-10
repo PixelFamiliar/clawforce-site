@@ -203,25 +203,33 @@
 
         /* ━━━ HERO ━━━ */
         .hero {
-            padding: 9rem 0 4rem;
-            text-align: center;
+            padding: 8rem 0 3rem;
         }
 
-        .hero-badge {
-            display: inline-flex;
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-text {
+            text-align: left;
+        }
+
+        .hero-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 1rem;
+            display: flex;
             align-items: center;
             gap: 0.5rem;
-            font-size: 0.78rem;
-            font-weight: 600;
-            color: var(--cyan);
-            border: 1px solid rgba(6, 214, 160, 0.2);
-            background: rgba(6, 214, 160, 0.06);
-            padding: 0.35rem 1rem;
-            border-radius: 50px;
-            margin-bottom: 1.5rem;
         }
 
-        .dot {
+        .hero-label .dot {
             width: 6px;
             height: 6px;
             border-radius: 50%;
@@ -242,11 +250,11 @@
         }
 
         .hero h1 {
-            font-size: clamp(2.4rem, 5vw, 3.4rem);
+            font-size: clamp(2rem, 4vw, 2.8rem);
             font-weight: 900;
             line-height: 1.15;
             letter-spacing: -0.02em;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1rem;
         }
 
         .hero h1 .hl {
@@ -254,43 +262,87 @@
         }
 
         .hero-sub {
-            font-size: 1.12rem;
+            font-size: 1rem;
             color: var(--muted);
-            max-width: 620px;
-            margin: 0 auto 1.5rem;
-            line-height: 1.7;
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 3.5rem;
-            justify-content: center;
-            margin-bottom: 2rem;
-        }
-
-        .hero-stat {
-            text-align: center;
-        }
-
-        .hero-stat .num {
-            font-size: 1.8rem;
-            font-weight: 900;
-            color: var(--text);
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        .hero-stat .label {
-            font-size: 0.72rem;
-            color: var(--dim);
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
+            line-height: 1.65;
+            margin-bottom: 1.5rem;
+            max-width: 420px;
         }
 
         .hero-cta {
             display: flex;
             gap: 1rem;
-            justify-content: center;
             flex-wrap: wrap;
+        }
+
+        .hero-terminal {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+
+        .hero-terminal-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1rem;
+            border-bottom: 1px solid var(--border);
+            background: rgba(15, 23, 42, 0.6);
+        }
+
+        .hero-terminal-bar .scanner-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .hero-terminal-bar .r {
+            background: #EF4444;
+        }
+
+        .hero-terminal-bar .y {
+            background: #F59E0B;
+        }
+
+        .hero-terminal-bar .g {
+            background: #10B981;
+        }
+
+        .hero-terminal-bar span:last-child {
+            margin-left: auto;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.68rem;
+            color: var(--dim);
+        }
+
+        .hero-terminal-body {
+            padding: 1.2rem 1.5rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            line-height: 1.9;
+            color: var(--muted);
+        }
+
+        .hero-terminal-body .cmd {
+            color: var(--cyan);
+            font-weight: 600;
+        }
+
+        .hero-terminal-body .ok {
+            color: #10B981;
+        }
+
+        .hero-terminal-body .warn {
+            color: #F59E0B;
+        }
+
+        .hero-terminal-body .info {
+            color: var(--blue);
+        }
+
+        .hero-terminal-body .dim {
+            color: var(--dim);
         }
 
         .btn {
@@ -1127,6 +1179,27 @@
         /* ━━━ RESPONSIVE ━━━ */
         @media (max-width: 768px) {
 
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
+            .hero-label {
+                justify-content: center;
+            }
+
+            .hero-cta {
+                justify-content: center;
+            }
+
+            .hero-sub {
+                max-width: 100%;
+            }
+
             .tier-cards,
             .price-grid {
                 grid-template-columns: 1fr;
@@ -1224,30 +1297,42 @@
     <!-- ━━━ HERO ━━━ -->
     <section class="hero">
         <div class="wrap fade-up">
-            <div class="hero-badge">
-                <span class="dot"></span>
-                Independent Security Certification
-            </div>
-            <h1>Security Scanning<br>for <span class="hl">AI Agent Skills</span></h1>
-            <p class="hero-sub">
-                Scan any OpenClaw skill for malware, credential theft, and supply chain attacks. Free.
-            </p>
-            <div class="hero-cta">
-                <a href="#scan" class="btn btn-primary">Scan a Skill — Free →</a>
-                <a href="#pricing" class="btn btn-outline">View Plans</a>
-            </div>
-            <div class="hero-stats">
-                <div class="hero-stat">
-                    <div class="num">22</div>
-                    <div class="label">Threat Patterns</div>
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <div class="hero-label">
+                        <span class="dot"></span>
+                        Security certification for AI skills
+                    </div>
+                    <h1>Know what's in<br>your <span class="hl">agent's code</span></h1>
+                    <p class="hero-sub">
+                        ClawForce scans OpenClaw skills for malware, credential theft, and supply chain attacks — then
+                        certifies the safe ones.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#scan" class="btn btn-primary">Scan a Skill — Free →</a>
+                        <a href="#pricing" class="btn btn-outline">View Plans</a>
+                    </div>
                 </div>
-                <div class="hero-stat">
-                    <div class="num">3</div>
-                    <div class="label">Cert Tiers</div>
-                </div>
-                <div class="hero-stat">
-                    <div class="num" id="heroSkillCount">0</div>
-                    <div class="label">Skills Certified</div>
+                <div class="hero-terminal">
+                    <div class="hero-terminal-bar">
+                        <span class="scanner-dot r"></span>
+                        <span class="scanner-dot y"></span>
+                        <span class="scanner-dot g"></span>
+                        <span>clawforce scan</span>
+                    </div>
+                    <div class="hero-terminal-body">
+                        <span class="cmd">$</span> clawforce scan brave-search<br>
+                        <span class="dim">Fetching repo...</span><br>
+                        <span class="dim">Scanning 4 files (22 patterns)...</span><br><br>
+                        <span class="ok">✓</span> No malware detected<br>
+                        <span class="ok">✓</span> No hardcoded secrets<br>
+                        <span class="ok">✓</span> No obfuscated code<br>
+                        <span class="warn">⚠</span> 2 outbound HTTP calls (expected)<br>
+                        <span class="ok">✓</span> SKILL.md verified<br><br>
+                        <span class="info">Risk Score:</span> <span class="ok">5/100</span><br>
+                        <span class="info">Tier:</span> <span class="ok">VERIFIED ✓</span><br>
+                        <span class="dim">hash: a1b2c3d4 · v1.0.0</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1893,17 +1978,8 @@
             results.classList.add('visible');
         }
 
-        // ━━━ Certificate Registry ━━━
-        const certRegistry = [
-            { name: 'brave-search', tier: 'verified', risk: 5, hash: 'a1b2c3d4e5f6g7h8', date: '2026-03-08', version: '1.0.0', author: 'PixelFamiliar', status: 'active' },
-            { name: 'heartbeat', tier: 'verified', risk: 3, hash: 'c5d6e7f8a9b0c1d2', date: '2026-03-08', version: '1.2.1', author: 'PixelFamiliar', status: 'active' },
-            { name: 'resend-email', tier: 'scanned', risk: 12, hash: 'e3f4a5b6c7d8e9f0', date: '2026-03-08', version: '1.0.0', author: 'PixelFamiliar', status: 'active' },
-            { name: 'polymarket', tier: 'verified', risk: 8, hash: 'f7a8b9c0d1e2f3a4', date: '2026-03-08', version: '1.1.0', author: 'PixelFamiliar', status: 'active' },
-            { name: 'backup-manager', tier: 'scanned', risk: 6, hash: 'b9c0d1e2f3a4b5c6', date: '2026-03-08', version: '2.0.0', author: 'PixelFamiliar', status: 'active' },
-            { name: 'napkin', tier: 'verified', risk: 2, hash: 'd1e2f3a4b5c6d7e8', date: '2026-03-08', version: '1.0.3', author: 'PixelFamiliar', status: 'active' },
-            { name: 'rank-tracker', tier: 'scanned', risk: 10, hash: 'a4b5c6d7e8f9a0b1', date: '2026-03-08', version: '1.0.0', author: 'PixelFamiliar', status: 'active' },
-            { name: 'stripe-payments', tier: 'scanned', risk: 15, hash: 'c6d7e8f9a0b1c2d3', date: '2026-03-08', version: '1.0.0', author: 'PixelFamiliar', status: 'active' },
-        ];
+
+
 
 
         // ━━━ Registry Table with Search & Filter ━━━
@@ -1914,8 +1990,7 @@
 
         function renderRegistry(skills) {
             document.getElementById('registryCount').textContent = `${skills.length} skill${skills.length !== 1 ? 's' : ''} registered`;
-            const heroCount = document.getElementById('heroSkillCount');
-            if (heroCount) heroCount.textContent = skills.length;
+
             let tableHtml = `<table style="width:100%;border-collapse:collapse;font-size:0.78rem;">
                 <thead><tr style="border-bottom:2px solid var(--border);text-align:left;">
                     <th style="padding:0.7rem 1rem;color:var(--dim);font-weight:600;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.06em;">Skill Name</th>
