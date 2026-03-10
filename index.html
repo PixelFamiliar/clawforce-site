@@ -971,6 +971,27 @@
             gap: 1rem;
         }
 
+        .gallery-scroll-container {
+            max-height: 480px;
+            overflow-y: auto;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--surface);
+        }
+
+        .gallery-scroll-container::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .gallery-scroll-container::-webkit-scrollbar-track {
+            background: var(--bg);
+        }
+
+        .gallery-scroll-container::-webkit-scrollbar-thumb {
+            background: var(--border-hover);
+            border-radius: 3px;
+        }
+
         .gallery-item {
             background: var(--card);
             border: 1px solid var(--border);
@@ -1653,24 +1674,6 @@
                 <p class="section-sub">Browse all skills that have been scanned, verified, or certified through
                     ClawForce. <span id="registryCount" style="color:var(--cyan);font-weight:600;"></span></p>
 
-                <div style="display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
-                    <div style="flex: 1; min-width: 250px;">
-                        <input type="text" id="registrySearch" placeholder="Search skills or developers..."
-                            style="width: 100%; padding: 0.8rem 1.2rem; border-radius: 10px; border: 1px solid var(--border-hover); background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; font-size: 0.85rem; outline: none;">
-                    </div>
-                    <div
-                        style="display: flex; gap: 0.5rem; background: var(--bg); padding: 0.4rem; border-radius: 10px; border: 1px solid var(--border-hover);">
-                        <button class="tier-filter-btn active" onclick="filterRegistry('')"
-                            style="padding: 0.4rem 1rem; border: none; border-radius: 6px; background: var(--card); color: var(--text); font-size: 0.8rem; font-weight: 600; cursor: pointer; transition: background 0.2s;">All</button>
-                        <button class="tier-filter-btn" onclick="filterRegistry('scanned')"
-                            style="padding: 0.4rem 1rem; border: none; border-radius: 6px; background: transparent; color: var(--cyan); font-size: 0.8rem; font-weight: 600; cursor: pointer; transition: background 0.2s;">Scanned</button>
-                        <button class="tier-filter-btn" onclick="filterRegistry('verified')"
-                            style="padding: 0.4rem 1rem; border: none; border-radius: 6px; background: transparent; color: var(--blue); font-size: 0.8rem; font-weight: 600; cursor: pointer; transition: background 0.2s;">Verified</button>
-                        <button class="tier-filter-btn" onclick="filterRegistry('certified')"
-                            style="padding: 0.4rem 1rem; border: none; border-radius: 6px; background: transparent; color: var(--amber); font-size: 0.8rem; font-weight: 600; cursor: pointer; transition: background 0.2s;">Certified</button>
-                    </div>
-                </div>
-
                 <div class="fade-up"
                     style="margin-bottom:1.5rem;display:flex;gap:0.8rem;align-items:center;flex-wrap:wrap;">
                     <input type="text" class="scan-input" id="registrySearch" placeholder="Search skills..."
@@ -1688,8 +1691,10 @@
                     </div>
                 </div>
 
-                <div class="gallery-grid fade-up" id="galleryGrid">
-                    <!-- Populated by JS -->
+                <div class="gallery-scroll-container fade-up">
+                    <div id="galleryGrid">
+                        <!-- Populated by JS -->
+                    </div>
                 </div>
             </div>
     </section>
