@@ -641,15 +641,33 @@
 
         document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-        // Fetch and display real builds from ClawForce registry
+        // Fetch and display real builds from ClawForce registry (API first, local fallback)
         async function loadBuilds() {
+            let skills = null;
+
+            // Try API first
             try {
                 const res = await fetch('https://api.clawforce.ca/v1/registry');
                 const data = await res.json();
                 if (data.skills && data.skills.length > 0) {
-                    renderBuilds(data.skills);
+                    skills = data.skills;
                 }
-            } catch (e) { /* show empty state */ }
+            } catch (e) { /* API unreachable, try fallback */ }
+
+            // Fallback to local lab-builds.json (populated by autoresearch pipeline)
+            if (!skills) {
+                try {
+                    const res = await fetch('/lab-builds.json');
+                    const data = await res.json();
+                    if (data.skills && data.skills.length > 0) {
+                        skills = data.skills;
+                    }
+                } catch (e) { /* no local data either */ }
+            }
+
+            if (skills) {
+                renderBuilds(skills);
+            }
         }
 
         function escapeHtml(str) {
