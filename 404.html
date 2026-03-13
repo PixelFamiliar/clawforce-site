@@ -91,6 +91,43 @@
         #contentState {
             display: none;
         }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none !important;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links.open {
+                display: flex !important;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(2, 6, 23, 0.95);
+                backdrop-filter: blur(20px);
+                padding: 1.5rem 2rem;
+                border-bottom: 1px solid var(--border);
+                gap: 1rem;
+            }
+
+            .report-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 
@@ -102,6 +139,7 @@
                 <div class="logo">CF</div>
                 <div style="font-weight:800;letter-spacing:-0.03em;font-size:1.2rem;color:var(--text);">ClawForce</div>
             </a>
+            <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">☰</button>
             <div class="nav-links" style="display:flex;gap:1.5rem;font-size:0.9rem;font-weight:600;">
                 <a href="/#registry" style="color:var(--muted);text-decoration:none;transition:color 0.2s;">Registry</a>
                 <a href="/#pricing" style="color:var(--muted);text-decoration:none;transition:color 0.2s;">Pricing</a>

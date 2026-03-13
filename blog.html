@@ -144,6 +144,15 @@
             font-weight: 700 !important;
         }
 
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
         /* ━━━ ARTICLE ━━━ */
         .article-wrap {
             max-width: 680px;
@@ -337,6 +346,24 @@
                 display: none;
             }
 
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(2, 6, 23, 0.95);
+                backdrop-filter: blur(20px);
+                padding: 1.5rem 2rem;
+                border-bottom: 1px solid var(--border);
+                gap: 1rem;
+            }
+
             .article-title {
                 font-size: 2.2rem;
             }
@@ -356,6 +383,7 @@
                 <span style="font-size: 1.3rem;">🛡️</span>
                 <span class="brand">ClawForce</span>
             </a>
+            <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">☰</button>
             <ul class="nav-links">
                 <li><a href="/#how-it-works">How It Works</a></li>
                 <li><a href="/#scan">Scan a Skill</a></li>

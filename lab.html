@@ -119,6 +119,15 @@
             border-radius: 8px;
         }
 
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
         /* ── Hero ── */
         .hero {
             padding: 8rem 0 4rem;
@@ -469,6 +478,24 @@
                 display: none;
             }
 
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(10, 15, 26, 0.95);
+                backdrop-filter: blur(20px);
+                padding: 1.5rem 2rem;
+                border-bottom: 1px solid var(--border);
+                gap: 1rem;
+            }
+
             .pipeline-grid {
                 grid-template-columns: 1fr;
             }
@@ -487,6 +514,7 @@
                 <span>🛡️</span>
                 <span class="brand">ClawForce</span>
             </a>
+            <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">☰</button>
             <ul class="nav-links">
                 <li><a href="/#scan">Scan</a></li>
                 <li><a href="/#pricing">Pricing</a></li>
