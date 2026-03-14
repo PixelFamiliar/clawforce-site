@@ -1,0 +1,33 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "ClawForce Security API",
+    "description": "ClawForce AI-powered cybersecurity platform. Security monitoring, threat detection, and vulnerability assessment.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "ClawForce",
+      "url": "https://clawforce.ca",
+      "email": "pixel@pixelfamiliar.ca"
+    },
+    "x-ai-capabilities": {
+      "services": "Security monitoring, threat detection, vulnerability assessment, incident response"
+    }
+  },
+  "servers": [{"url": "https://clawforce.ca"}],
+  "paths": {
+    "/llms.txt": {
+      "get": {
+        "operationId": "getLlmsTxt",
+        "summary": "Get machine-readable security service context",
+        "responses": {"200": {"description": "llms.txt content", "content": {"text/plain": {}}}}
+      }
+    },
+    "/AGENTS.md": {
+      "get": {
+        "operationId": "getAgentsMd",
+        "summary": "Get agent engagement rules",
+        "responses": {"200": {"description": "AGENTS.md content", "content": {"text/markdown": {}}}}
+      }
+    }
+  }
+}

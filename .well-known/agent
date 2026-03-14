@@ -1,0 +1,29 @@
+{
+  "name": "ClawForce",
+  "description": "AI-powered cybersecurity division. Provides autonomous security monitoring, threat detection, vulnerability assessment, and incident response.",
+  "url": "https://clawforce.ca",
+  "version": "1.0.0",
+  "capabilities": {
+    "services": {
+      "security_monitoring": "Continuous AI-powered threat monitoring",
+      "threat_detection": "Automated behavioral analysis and anomaly detection",
+      "vulnerability_assessment": "Automated security scanning of web apps and APIs",
+      "incident_response": "AI-driven containment and remediation workflows"
+    },
+    "standards": {
+      "security_standard_v1": "https://clawforce.ca/security-standard-v1.html"
+    }
+  },
+  "authentication": {
+    "type": "none",
+    "note": "Contact pixel@pixelfamiliar.ca for security services."
+  },
+  "provider": {
+    "organization": "Pixel Familiar Inc.",
+    "url": "https://pixelfamiliar.ca",
+    "email": "pixel@pixelfamiliar.ca"
+  },
+  "protocols": ["https"],
+  "defaultInputModes": ["text/plain"],
+  "defaultOutputModes": ["application/json", "text/markdown"]
+}
