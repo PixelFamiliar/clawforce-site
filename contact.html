@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/logo.png" type="image/png">
+    <title>Contact — ClawForce Security Certification</title>
+    <meta name="description"
+        content="Get in touch with ClawForce for support, enterprise inquiries, security vulnerability reports, or partnership opportunities.">
+    <link rel="canonical" href="https://clawforce.ca/contact.html">
+
+    <meta property="og:title" content="Contact ClawForce">
+    <meta property="og:description" content="Get in touch for support, enterprise inquiries, or partnership opportunities.">
+    <meta property="og:url" content="https://clawforce.ca/contact.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ClawForce">
+    <meta property="og:image" content="https://clawforce.ca/logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #FAFAF8;
+            --surface: #FFFFFF;
+            --card: #FFFFFF;
+            --card-hover: #F5F5F0;
+            --border: #E0DDD5;
+            --border-hover: #C8C4BA;
+            --text: #0A0A0A;
+            --muted: #5C5C5C;
+            --dim: #8A8A80;
+            --primary: #0A0A0A;
+            --cyan: #3D7A5F;
+            --blue: #4A6FA5;
+            --amber: #B8860B;
+            --red: #C0392B;
+            --green-bg: rgba(61, 122, 95, 0.06);
+            --radius: 2px;
+            --mono: 'Space Mono', monospace;
+            --sans: 'DM Sans', -apple-system, sans-serif;
+        }
+
+        body {
+            background: var(--bg); color: var(--text);
+            font-family: var(--sans); line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body::before {
+            content: '';
+            position: fixed; inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='400' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none; z-index: 0;
+        }
+
+        .wrap { max-width: 1100px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; }
+
+        /* ━━━ NAV ━━━ */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            padding: 0.75rem 0;
+            background: rgba(250, 250, 248, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+        nav .wrap { display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo {
+            display: flex; align-items: center; gap: 0.5rem;
+            text-decoration: none; font-family: var(--mono);
+            font-weight: 700; font-size: 0.95rem; color: var(--text);
+            letter-spacing: -0.02em;
+        }
+        .nav-links { display: flex; gap: 1.5rem; list-style: none; align-items: center; }
+        .nav-links a {
+            color: var(--muted); text-decoration: none; font-size: 0.82rem;
+            font-weight: 500; transition: color 0.2s; white-space: nowrap;
+        }
+        .nav-links a:hover { color: var(--text); }
+        .nav-cta {
+            background: var(--primary); color: var(--bg) !important;
+            padding: 0.4rem 1rem; border-radius: 2px; font-weight: 700 !important;
+            font-family: var(--mono); font-size: 0.75rem !important;
+            letter-spacing: 0.04em; text-transform: uppercase;
+        }
+        .mobile-menu-btn { display: none; background: none; border: none; color: var(--text); font-size: 1.5rem; cursor: pointer; }
+
+        /* ━━━ HERO ━━━ */
+        .hero { padding: 9rem 0 4rem; }
+        .hero-label {
+            font-family: var(--mono); font-size: 0.7rem; font-weight: 700;
+            color: var(--cyan); text-transform: uppercase;
+            letter-spacing: 0.12em; margin-bottom: 1.2rem;
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+        .hero-label .dot {
+            width: 6px; height: 6px; border-radius: 50%;
+            background: var(--cyan); animation: pulse 2s ease-in-out infinite;
+        }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+        .hero h1 {
+            font-family: var(--mono);
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 700; line-height: 1.15;
+            letter-spacing: -0.04em; margin-bottom: 1.2rem;
+        }
+        .hero h1 .hl { color: var(--cyan); }
+        .hero-sub {
+            font-size: 1.05rem; color: var(--muted); line-height: 1.7;
+            max-width: 600px;
+        }
+
+        .divider { border: none; height: 1px; background: var(--border); margin: 0; }
+        .section-label {
+            font-family: var(--mono); font-size: 0.68rem; font-weight: 700;
+            color: var(--dim); text-transform: uppercase;
+            letter-spacing: 0.1em; margin-bottom: 0.5rem;
+        }
+        .section-title {
+            font-family: var(--mono); font-size: 1.6rem; font-weight: 700;
+            margin-bottom: 0.6rem; letter-spacing: -0.03em;
+        }
+        .section-sub {
+            color: var(--muted); font-size: 0.95rem;
+            margin-bottom: 2.5rem; line-height: 1.7;
+        }
+
+        /* ━━━ CONTACT GRID ━━━ */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        .contact-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+        .contact-card:hover { border-color: var(--border-hover); background: var(--card-hover); }
+        .contact-icon { font-size: 1.8rem; margin-bottom: 1rem; }
+        .contact-title {
+            font-family: var(--mono); font-size: 0.9rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.5rem;
+        }
+        .contact-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.6; margin-bottom: 1rem; }
+        .contact-action {
+            display: inline-flex; align-items: center; gap: 0.3rem;
+            font-family: var(--mono); font-size: 0.78rem; font-weight: 700;
+            color: var(--cyan); text-decoration: none; transition: color 0.2s;
+        }
+        .contact-action:hover { color: var(--text); }
+
+        /* ━━━ RESPONSE EXPECTATIONS ━━━ */
+        .response-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            border: 1px solid var(--border);
+            margin-bottom: 3rem;
+        }
+        .response-card {
+            border-right: 1px solid var(--border);
+            padding: 1.5rem;
+            text-align: center;
+            transition: background 0.3s;
+        }
+        .response-card:last-child { border-right: none; }
+        .response-card:hover { background: var(--card-hover); }
+        .response-label {
+            font-family: var(--mono); font-size: 0.65rem; font-weight: 700;
+            color: var(--dim); text-transform: uppercase;
+            letter-spacing: 0.08em; margin-bottom: 0.5rem;
+        }
+        .response-value {
+            font-family: var(--mono); font-size: 1.3rem; font-weight: 700;
+            color: var(--cyan); margin-bottom: 0.3rem;
+        }
+        .response-detail { font-size: 0.78rem; color: var(--muted); }
+
+        /* ━━━ FOOTER ━━━ */
+        footer { border-top: 1px solid var(--border); padding: 3rem 0; }
+        .footer-inner {
+            display: flex; justify-content: space-between;
+            align-items: center; flex-wrap: wrap; gap: 1rem;
+        }
+        .footer-brand { font-family: var(--mono); font-weight: 700; font-size: 0.9rem; color: var(--text); }
+        .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+        .footer-links a { color: var(--dim); text-decoration: none; font-size: 0.78rem; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--text); }
+        .footer-copy { font-size: 0.68rem; color: var(--dim); width: 100%; text-align: center; margin-top: 0.8rem; }
+
+        .fade-up { opacity: 0; transform: translateY(16px); transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1); }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .nav-links.open {
+                display: flex; flex-direction: column; position: absolute;
+                top: 100%; left: 0; right: 0;
+                background: rgba(250, 250, 248, 0.95); backdrop-filter: blur(20px);
+                padding: 1.5rem 2rem; border-bottom: 1px solid var(--border); gap: 1rem;
+            }
+            .contact-grid { grid-template-columns: 1fr; }
+            .response-grid { grid-template-columns: 1fr; }
+            .response-card { border-right: none; border-bottom: 1px solid var(--border); }
+            .response-card:last-child { border-bottom: none; }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="wrap">
+            <a href="/" class="nav-logo">
+                <img src="/logo.png" alt="ClawForce" style="height:22px;width:22px;">
+                <span class="brand">ClawForce</span>
+            </a>
+            <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">☰</button>
+            <ul class="nav-links">
+                <li><a href="/#scan">Scan</a></li>
+                <li><a href="/#pricing">Pricing</a></li>
+                <li><a href="/blog.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/faq.html">FAQ</a></li>
+                <li><a href="/#scan" class="nav-cta">Scan Now →</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ━━━ HERO ━━━ -->
+    <section class="hero">
+        <div class="wrap fade-up">
+            <div class="hero-label">
+                <span class="dot"></span>
+                Get in Touch
+            </div>
+            <h1>Let's <span class="hl">talk</span></h1>
+            <p class="hero-sub">
+                Whether you need support, want to discuss enterprise pricing, or have a security
+                concern, we're here to help.
+            </p>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ━━━ CONTACT CHANNELS ━━━ -->
+    <section style="padding: 4rem 0;">
+        <div class="wrap">
+            <div class="fade-up">
+                <div class="section-label">// reach us</div>
+                <h2 class="section-title">Contact Channels</h2>
+                <p class="section-sub">Choose the channel that best fits your inquiry.</p>
+            </div>
+
+            <div class="contact-grid fade-up">
+                <div class="contact-card">
+                    <div class="contact-icon">📧</div>
+                    <div class="contact-title">General Support</div>
+                    <div class="contact-desc">
+                        Questions about scanning, certification, billing, or your account.
+                        We aim to respond within 24 hours on business days.
+                    </div>
+                    <a href="mailto:pixel@pixelfamiliar.ca?subject=ClawForce Support" class="contact-action">
+                        pixel@pixelfamiliar.ca →
+                    </a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">🏢</div>
+                    <div class="contact-title">Enterprise & Partnerships</div>
+                    <div class="contact-desc">
+                        Volume pricing, custom integrations, agent platform partnerships,
+                        or white-label certification inquiries.
+                    </div>
+                    <a href="mailto:pixel@pixelfamiliar.ca?subject=ClawForce Enterprise Inquiry" class="contact-action">
+                        pixel@pixelfamiliar.ca →
+                    </a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">🛡️</div>
+                    <div class="contact-title">Security Vulnerabilities</div>
+                    <div class="contact-desc">
+                        Found a vulnerability in ClawForce itself, or in a certified skill?
+                        We take security reports seriously and respond within 4 hours.
+                    </div>
+                    <a href="mailto:pixel@pixelfamiliar.ca?subject=Security Vulnerability Report" class="contact-action">
+                        pixel@pixelfamiliar.ca →
+                    </a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">🐛</div>
+                    <div class="contact-title">Bug Reports & Technical Issues</div>
+                    <div class="contact-desc">
+                        Scanner errors, false positives, API issues, or GitHub Action problems.
+                        Please include reproduction steps if possible.
+                    </div>
+                    <a href="https://github.com/PixelFamiliar/clawforce-scan-action/issues" class="contact-action" target="_blank">
+                        Open a GitHub Issue →
+                    </a>
+                </div>
+            </div>
+
+            <!-- Response Expectations -->
+            <div class="fade-up">
+                <div class="section-label">// response times</div>
+                <h2 class="section-title" style="margin-bottom:1.5rem;">What to Expect</h2>
+            </div>
+
+            <div class="response-grid fade-up">
+                <div class="response-card">
+                    <div class="response-label">Security Reports</div>
+                    <div class="response-value">&lt; 4 hrs</div>
+                    <div class="response-detail">Acknowledged within 4 hours, triaged within 24</div>
+                </div>
+                <div class="response-card">
+                    <div class="response-label">General Support</div>
+                    <div class="response-value">&lt; 24 hrs</div>
+                    <div class="response-detail">Business day response, typically same-day</div>
+                </div>
+                <div class="response-card">
+                    <div class="response-label">Enterprise Inquiries</div>
+                    <div class="response-value">&lt; 48 hrs</div>
+                    <div class="response-detail">Custom proposal within one week</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ━━━ COMPANY INFO ━━━ -->
+    <section style="padding: 4rem 0;">
+        <div class="wrap">
+            <div class="fade-up" style="max-width:520px;">
+                <div class="section-label">// company</div>
+                <h2 class="section-title">Pixel Familiar Inc.</h2>
+                <p style="font-size:0.95rem;color:var(--muted);line-height:1.7;margin-bottom:1rem;">
+                    ClawForce is a product of Pixel Familiar Inc., a Canadian company
+                    building security infrastructure for the agentic web.
+                </p>
+                <p style="font-size:0.85rem;color:var(--dim);line-height:1.7;">
+                    Manitoba, Canada · <a href="https://pixelfamiliar.ca" style="color:var(--cyan);text-decoration:none;">pixelfamiliar.ca</a>
+                    · <a href="https://x.com/PixelFamiliar" style="color:var(--cyan);text-decoration:none;">𝕏 @PixelFamiliar</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ━━━ FOOTER ━━━ -->
+    <footer>
+        <div class="wrap">
+            <div class="footer-inner">
+                <div class="footer-brand"><img src="/logo.png" alt="ClawForce" style="height:18px;width:18px;vertical-align:middle;margin-right:4px;"> ClawForce</div>
+                <div class="footer-links">
+                    <a href="/about.html">About</a>
+                    <a href="/faq.html">FAQ</a>
+                    <a href="/contact.html">Contact</a>
+                    <a href="/legal.html">Legal</a>
+                    <a href="/privacy.html">Privacy</a>
+                    <a href="/security-standard-v1.html">Security Standard</a>
+                    <a href="https://github.com/PixelFamiliar">GitHub</a>
+                    <a href="https://pixelfamiliar.ca">Pixel Familiar</a>
+                </div>
+            </div>
+            <p class="footer-copy">© 2026 Pixel Familiar Inc. · ClawForce Verified Skills™ · Manitoba, Canada</p>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>

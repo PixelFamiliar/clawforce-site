@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/logo.png" type="image/png">
+    <title>FAQ — ClawForce Security Certification</title>
+    <meta name="description"
+        content="Frequently asked questions about ClawForce security certification for AI agent skills. Learn about scanning, privacy, pricing, and how ClawForce differs from traditional SAST tools.">
+    <link rel="canonical" href="https://clawforce.ca/faq.html">
+
+    <meta property="og:title" content="ClawForce FAQ">
+    <meta property="og:description" content="Frequently asked questions about security certification for AI agent skills.">
+    <meta property="og:url" content="https://clawforce.ca/faq.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ClawForce">
+    <meta property="og:image" content="https://clawforce.ca/logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- JSON-LD: FAQ -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Is my code private during scanning?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Code submitted for scanning is processed on Canadian infrastructure and deleted after analysis. We never store your source code beyond the scan window. For Tier 1 (free) browser scans, your code is analyzed entirely client-side and never leaves your browser."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How long do scans take?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Tier 1 (Scanned) results are returned in under 30 seconds. Tier 2 (Verified) typically completes within 1-2 hours. Tier 3 (Certified) includes human review and sandbox execution, which takes up to 24 hours."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How is ClawForce different from SAST tools like Snyk or Semgrep?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Traditional SAST tools are designed for general application code. ClawForce is purpose-built for AI agent skills. We analyze intent by comparing a skill's declared capabilities (in SKILL.md) against its actual behavior, catching undeclared network access, file system reads, and credential harvesting that SAST tools would miss or flag incorrectly."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #FAFAF8;
+            --surface: #FFFFFF;
+            --card: #FFFFFF;
+            --card-hover: #F5F5F0;
+            --border: #E0DDD5;
+            --border-hover: #C8C4BA;
+            --text: #0A0A0A;
+            --muted: #5C5C5C;
+            --dim: #8A8A80;
+            --primary: #0A0A0A;
+            --cyan: #3D7A5F;
+            --blue: #4A6FA5;
+            --amber: #B8860B;
+            --radius: 2px;
+            --mono: 'Space Mono', monospace;
+            --sans: 'DM Sans', -apple-system, sans-serif;
+        }
+
+        body {
+            background: var(--bg); color: var(--text);
+            font-family: var(--sans); line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body::before {
+            content: '';
+            position: fixed; inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='400' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none; z-index: 0;
+        }
+
+        .wrap { max-width: 1100px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; }
+
+        /* ━━━ NAV ━━━ */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            padding: 0.75rem 0;
+            background: rgba(250, 250, 248, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+        nav .wrap { display: flex; justify-content: space-between; align-items: center; }
+
+        .nav-logo {
+            display: flex; align-items: center; gap: 0.5rem;
+            text-decoration: none; font-family: var(--mono);
+            font-weight: 700; font-size: 0.95rem; color: var(--text);
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links { display: flex; gap: 1.5rem; list-style: none; align-items: center; }
+        .nav-links a {
+            color: var(--muted); text-decoration: none; font-size: 0.82rem;
+            font-weight: 500; transition: color 0.2s; white-space: nowrap;
+        }
+        .nav-links a:hover { color: var(--text); }
+        .nav-cta {
+            background: var(--primary); color: var(--bg) !important;
+            padding: 0.4rem 1rem; border-radius: 2px; font-weight: 700 !important;
+            font-family: var(--mono); font-size: 0.75rem !important;
+            letter-spacing: 0.04em; text-transform: uppercase;
+        }
+        .mobile-menu-btn { display: none; background: none; border: none; color: var(--text); font-size: 1.5rem; cursor: pointer; }
+
+        /* ━━━ HERO ━━━ */
+        .hero { padding: 9rem 0 4rem; }
+        .hero-label {
+            font-family: var(--mono); font-size: 0.7rem; font-weight: 700;
+            color: var(--cyan); text-transform: uppercase;
+            letter-spacing: 0.12em; margin-bottom: 1.2rem;
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+        .hero-label .dot {
+            width: 6px; height: 6px; border-radius: 50%;
+            background: var(--cyan); animation: pulse 2s ease-in-out infinite;
+        }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+        .hero h1 {
+            font-family: var(--mono);
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 700; line-height: 1.15;
+            letter-spacing: -0.04em; margin-bottom: 1.2rem;
+        }
+        .hero h1 .hl { color: var(--cyan); }
+        .hero-sub {
+            font-size: 1.05rem; color: var(--muted); line-height: 1.7;
+            max-width: 600px;
+        }
+
+        /* ━━━ FAQ ━━━ */
+        .faq-section { padding: 3rem 0 5rem; max-width: 760px; margin: 0 auto; }
+
+        .faq-category {
+            font-family: var(--mono); font-size: 0.68rem; font-weight: 700;
+            color: var(--cyan); text-transform: uppercase;
+            letter-spacing: 0.1em; margin-bottom: 1rem; margin-top: 3rem;
+            padding-bottom: 0.5rem; border-bottom: 1px solid var(--border);
+        }
+        .faq-category:first-child { margin-top: 0; }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            padding: 0;
+        }
+        .faq-question {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1.2rem 0; cursor: pointer;
+            font-family: var(--mono); font-size: 0.88rem; font-weight: 700;
+            color: var(--text); transition: color 0.2s;
+            background: none; border: none; width: 100%; text-align: left;
+        }
+        .faq-question:hover { color: var(--cyan); }
+        .faq-toggle {
+            font-size: 1.2rem; color: var(--dim); transition: transform 0.3s;
+            flex-shrink: 0; margin-left: 1rem;
+        }
+        .faq-item.open .faq-toggle { transform: rotate(45deg); }
+
+        .faq-answer {
+            max-height: 0; overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        .faq-item.open .faq-answer {
+            max-height: 500px;
+            padding-bottom: 1.2rem;
+        }
+        .faq-answer p {
+            font-size: 0.9rem; color: var(--muted); line-height: 1.7;
+            margin-bottom: 0.8rem;
+        }
+        .faq-answer p:last-child { margin-bottom: 0; }
+        .faq-answer code {
+            font-family: var(--mono); font-size: 0.82em;
+            background: #F0EFEB; padding: 0.15em 0.4em; border-radius: 2px;
+        }
+        .faq-answer a {
+            color: var(--cyan); text-decoration: none; font-weight: 600;
+        }
+        .faq-answer a:hover { text-decoration: underline; }
+
+        /* ━━━ CTA ━━━ */
+        .faq-cta {
+            text-align: center; padding: 3rem 2rem;
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: var(--radius); margin-top: 3rem;
+        }
+        .faq-cta h3 {
+            font-family: var(--mono); font-size: 1.1rem; font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .faq-cta p { font-size: 0.88rem; color: var(--muted); margin-bottom: 1.2rem; }
+        .faq-cta a {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            padding: 0.65rem 1.5rem; background: var(--primary); color: var(--bg);
+            border-radius: 2px; font-family: var(--mono); font-size: 0.8rem;
+            font-weight: 700; text-decoration: none; letter-spacing: 0.02em;
+            transition: all 0.25s;
+        }
+        .faq-cta a:hover { transform: translateY(-1px); box-shadow: 4px 4px 0 rgba(0,0,0,0.12); }
+
+        .divider { border: none; height: 1px; background: var(--border); margin: 0; }
+
+        /* ━━━ FOOTER ━━━ */
+        footer { border-top: 1px solid var(--border); padding: 3rem 0; }
+        .footer-inner {
+            display: flex; justify-content: space-between;
+            align-items: center; flex-wrap: wrap; gap: 1rem;
+        }
+        .footer-brand { font-family: var(--mono); font-weight: 700; font-size: 0.9rem; color: var(--text); }
+        .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+        .footer-links a { color: var(--dim); text-decoration: none; font-size: 0.78rem; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--text); }
+        .footer-copy { font-size: 0.68rem; color: var(--dim); width: 100%; text-align: center; margin-top: 0.8rem; }
+
+        .fade-up { opacity: 0; transform: translateY(16px); transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1); }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .nav-links.open {
+                display: flex; flex-direction: column; position: absolute;
+                top: 100%; left: 0; right: 0;
+                background: rgba(250, 250, 248, 0.95); backdrop-filter: blur(20px);
+                padding: 1.5rem 2rem; border-bottom: 1px solid var(--border); gap: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="wrap">
+            <a href="/" class="nav-logo">
+                <img src="/logo.png" alt="ClawForce" style="height:22px;width:22px;">
+                <span class="brand">ClawForce</span>
+            </a>
+            <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">☰</button>
+            <ul class="nav-links">
+                <li><a href="/#scan">Scan</a></li>
+                <li><a href="/#pricing">Pricing</a></li>
+                <li><a href="/blog.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/faq.html" style="color:var(--text);">FAQ</a></li>
+                <li><a href="/#scan" class="nav-cta">Scan Now →</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ━━━ HERO ━━━ -->
+    <section class="hero">
+        <div class="wrap fade-up">
+            <div class="hero-label">
+                <span class="dot"></span>
+                Frequently Asked Questions
+            </div>
+            <h1>Everything you need<br>to <span class="hl">know</span></h1>
+            <p class="hero-sub">
+                Common questions about ClawForce scanning, certification, privacy, and pricing.
+                Can't find your answer? <a href="/contact.html" style="color:var(--cyan);font-weight:600;text-decoration:none;">Contact us →</a>
+            </p>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ━━━ FAQ CONTENT ━━━ -->
+    <div class="wrap">
+        <div class="faq-section fade-up">
+
+            <!-- SCANNING & CERTIFICATION -->
+            <div class="faq-category">Scanning & Certification</div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    How long do scans take?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p><strong>Tier 1 (Scanned)</strong> results return in under 30 seconds. The free browser-based scan runs entirely client-side.</p>
+                    <p><strong>Tier 2 (Verified)</strong> includes intent analysis comparing your SKILL.md claims against actual code behavior. Results are typically delivered within 1-2 hours.</p>
+                    <p><strong>Tier 3 (Certified)</strong> includes Docker sandbox execution, behavioral monitoring, and human security review. Results are delivered within 24 hours.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    What languages and frameworks are supported?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>ClawForce currently scans skills written in <strong>Python</strong> and <strong>JavaScript/TypeScript</strong>, which covers the vast majority of the OpenClaw skill ecosystem.</p>
+                    <p>We analyze <code>.py</code>, <code>.js</code>, <code>.ts</code>, <code>.jsx</code>, <code>.tsx</code>, <code>.mjs</code>, <code>.cjs</code>, and <code>.sh</code> files automatically. JSON, YAML, and TOML configuration files are also included in structural analysis.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    What does the certificate contain?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>A ClawForce certificate is a signed JSON document containing: the skill name and version, certification tier, risk score, scan timestamp, findings summary, a SHA-256 hash of the scanned code, and a cryptographic signature.</p>
+                    <p>You also receive an embeddable HTML/SVG badge for your README, and the skill is listed in the public <a href="/#gallery">ClawForce Registry</a>.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    What happens if my skill fails certification?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>You receive a detailed report explaining every finding, its severity, the file and line where it was detected, and remediation guidance. You can fix the issues and re-submit for free (Tier 1) or at a discounted rate (Tier 2/3).</p>
+                    <p>A failed scan does not appear in the public registry unless you explicitly opt in.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    Who reviews Tier 3 (Certified) skills?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Tier 3 certification includes both automated sandbox execution and a human security review. The review is performed by the ClawForce team (currently our founder and AI operator). We verify the sandbox execution trace, check for false positives, and sign off on the behavioral analysis before issuing the certificate.</p>
+                </div>
+            </div>
+
+            <!-- PRIVACY & SECURITY -->
+            <div class="faq-category">Privacy & Security</div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    Is my code private during scanning?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p><strong>Yes.</strong> For free Tier 1 browser scans using a GitHub URL, we fetch the code via GitHub's public API and analyze it client-side in your browser. Your code never touches our servers.</p>
+                    <p>For Tier 2 and Tier 3 scans, code is processed on our Canadian infrastructure, analyzed, and then deleted. We retain only the findings report and certificate metadata, never the source code itself.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    Where is my data stored?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>All ClawForce infrastructure is hosted in Canada. Scan results and certificates are stored on Canadian servers. Source code submitted for analysis is processed in-memory and deleted after the scan completes.</p>
+                    <p>For details, see our <a href="/privacy.html">Privacy Policy</a>.</p>
+                </div>
+            </div>
+
+            <!-- COMPARISON -->
+            <div class="faq-category">ClawForce vs. Traditional Tools</div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    How is ClawForce different from SAST tools like Snyk or Semgrep?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Traditional SAST tools are built for general application code. They flag <code>subprocess.Popen</code> as a vulnerability because most web apps don't need it. But for an agent skill designed to run shell commands, it's the core feature.</p>
+                    <p>ClawForce is purpose-built for AI agent skills. We analyze <strong>intent</strong>: we compare a skill's declared capabilities (in SKILL.md) against what the code actually does. This catches undeclared network access, credential harvesting, and supply-chain attacks that SAST tools would either miss or flag incorrectly.</p>
+                    <p>We also provide <strong>certification</strong>, not just scanning. A ClawForce certificate is a signed attestation that a skill has passed specific security checks at a given point in time.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    Can I use ClawForce in my CI/CD pipeline?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes. We provide a <a href="https://github.com/PixelFamiliar/clawforce-scan-action">GitHub Action</a> that runs a Tier 1 scan on every push or pull request. You can configure it to fail the build if the risk score exceeds a threshold you set.</p>
+                    <p>For API-level integration, our REST API allows automated scanning from any CI system. <a href="/contact.html">Contact us</a> for API access.</p>
+                </div>
+            </div>
+
+            <!-- PRICING & BILLING -->
+            <div class="faq-category">Pricing & Billing</div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    Do you offer volume discounts or subscriptions?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>We're actively developing subscription plans for teams and platforms that need to certify skills at scale. If you're scanning more than 10 skills per month, <a href="/contact.html">contact us</a> to discuss custom pricing.</p>
+                    <p>Tier 1 (Scanned) is always free, with no limits on the number of scans.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    How does payment work?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Payments are processed securely through <strong>Stripe</strong>. When you purchase a Tier 2 or Tier 3 certification, you provide a GitHub repository URL, then complete checkout via Stripe. Results are delivered to the email address associated with your payment.</p>
+                    <p>We do not store any payment information. All billing is handled by Stripe.</p>
+                </div>
+            </div>
+
+            <!-- STILL HAVE QUESTIONS -->
+            <div class="faq-cta">
+                <h3>Still have questions?</h3>
+                <p>We're happy to help with technical, pricing, or partnership inquiries.</p>
+                <a href="/contact.html">Contact Us →</a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ━━━ FOOTER ━━━ -->
+    <footer>
+        <div class="wrap">
+            <div class="footer-inner">
+                <div class="footer-brand"><img src="/logo.png" alt="ClawForce" style="height:18px;width:18px;vertical-align:middle;margin-right:4px;"> ClawForce</div>
+                <div class="footer-links">
+                    <a href="/about.html">About</a>
+                    <a href="/faq.html">FAQ</a>
+                    <a href="/contact.html">Contact</a>
+                    <a href="/legal.html">Legal</a>
+                    <a href="/privacy.html">Privacy</a>
+                    <a href="/security-standard-v1.html">Security Standard</a>
+                    <a href="https://github.com/PixelFamiliar">GitHub</a>
+                    <a href="https://pixelfamiliar.ca">Pixel Familiar</a>
+                </div>
+            </div>
+            <p class="footer-copy">© 2026 Pixel Familiar Inc. · ClawForce Verified Skills™ · Manitoba, Canada</p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ toggle
+        function toggleFaq(btn) {
+            const item = btn.closest('.faq-item');
+            item.classList.toggle('open');
+        }
+
+        // Intersection Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>
