@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClawForce is Live: Scan, Verify, and Certify Agent Skills | ClawForce Blog</title>
+    <meta name="description"
+        content="ClawForce is now live. Free Tier 1 scanning, paid Verified and Certified tiers, a public skill registry, and a full API. Here's what we built and why it matters.">
+    <meta name="keywords"
+        content="ClawForce launch, agent skill security, security certification, OpenClaw, skill verification, AI agent safety, supply chain security">
+    <link rel="canonical" href="https://clawforce.ca/blog-clawforce-is-live.html">
+
+    <meta property="og:title" content="ClawForce is Live: Scan, Verify, and Certify Agent Skills">
+    <meta property="og:description"
+        content="Free scanning, paid certification, a public registry, and 7 API endpoints. The trust layer for agent skills is here.">
+    <meta property="og:url" content="https://clawforce.ca/blog-clawforce-is-live.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="ClawForce">
+    <meta property="og:image" content="https://clawforce.ca/logo.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@PixelFamiliar">
+    <meta name="twitter:title" content="ClawForce is Live: Scan, Verify, and Certify Agent Skills">
+    <meta name="twitter:description"
+        content="Free scanning, paid certification, a public registry, and 7 API endpoints. The trust layer for agent skills is here.">
+    <meta name="twitter:image" content="https://clawforce.ca/logo.png">
+
+    <link rel="icon" href="/logo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #FAFAF8;
+            --surface: #FFFFFF;
+            --card: #FFFFFF;
+            --border: #E0DDD5;
+            --border-hover: #C8C4BA;
+            --text: #0A0A0A;
+            --muted: #5C5C5C;
+            --dim: #8A8A80;
+            --primary: #0A0A0A;
+            --cyan: #3D7A5F;
+            --blue: #4A6FA5;
+            --radius: 2px;
+            --mono: 'Space Mono', monospace;
+            --sans: 'DM Sans', -apple-system, sans-serif;
+        }
+
+        body {
+            background: var(--bg); color: var(--text);
+            font-family: var(--sans); line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body::before {
+            content: ''; position: fixed; inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='400' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none; z-index: 0;
+        }
+
+        .wrap { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; position: relative; z-index: 1; }
+
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            padding: 0.75rem 0; background: rgba(250, 250, 248, 0.92);
+            backdrop-filter: blur(12px); border-bottom: 1px solid var(--border);
+        }
+        nav .wrap { display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo {
+            display: flex; align-items: center; gap: 0.5rem;
+            text-decoration: none; font-family: var(--mono); font-weight: 700;
+            font-size: 0.95rem; color: var(--text); letter-spacing: -0.02em;
+        }
+        .nav-links { display: flex; gap: 1.5rem; list-style: none; align-items: center; }
+        .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.82rem; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text); }
+        .nav-cta {
+            background: var(--primary); color: var(--bg) !important;
+            padding: 0.4rem 1rem; border-radius: 2px; font-weight: 700 !important;
+            font-family: var(--mono); font-size: 0.75rem !important;
+            letter-spacing: 0.04em; text-transform: uppercase;
+        }
+        .mobile-menu-btn { display: none; background: none; border: none; color: var(--text); font-size: 1.5rem; cursor: pointer; }
+
+        .article-wrap { max-width: 680px; margin: 0 auto; padding: 8rem 0 5rem; }
+        .article-header { margin-bottom: 3rem; }
+        .article-meta {
+            display: flex; align-items: center; gap: 1rem;
+            font-family: var(--mono); font-size: 0.72rem; color: var(--dim);
+            margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.06em;
+        }
+        .article-title {
+            font-family: var(--mono);
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            font-weight: 700; line-height: 1.15; letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+        }
+        .article-lead { font-size: 1.15rem; color: var(--muted); line-height: 1.7; }
+
+        .article-content h2 {
+            font-family: var(--mono); font-size: 1.3rem; font-weight: 700;
+            margin: 3rem 0 1rem; color: var(--text); letter-spacing: -0.02em;
+        }
+        .article-content p { font-size: 1.05rem; color: var(--muted); margin-bottom: 1.5rem; line-height: 1.7; }
+        .article-content ul, .article-content ol { margin-bottom: 1.5rem; padding-left: 1.5rem; }
+        .article-content li { font-size: 1.05rem; color: var(--muted); margin-bottom: 0.5rem; line-height: 1.7; }
+        .article-content blockquote {
+            border-left: 2px solid var(--text);
+            padding-left: 1.5rem; margin: 2rem 0;
+            font-style: italic; color: var(--muted);
+        }
+        .article-content code {
+            font-family: var(--mono); font-size: 0.85em;
+            background: #F0EFEB; padding: 0.2em 0.4em; border-radius: 2px; color: var(--text);
+        }
+        .article-content pre {
+            background: #0C0C0C; border: 1px solid #2A2A2A;
+            padding: 1.5rem; border-radius: 2px; overflow-x: auto; margin: 2rem 0;
+        }
+        .article-content pre code { background: transparent; padding: 0; color: #999; font-size: 0.85rem; }
+        .article-content a {
+            color: var(--text); text-decoration: underline;
+            text-decoration-color: var(--border); text-underline-offset: 4px; transition: all 0.2s;
+        }
+        .article-content a:hover { text-decoration-color: var(--text); }
+
+        .stat-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+            margin: 2rem 0;
+        }
+        .stat-card {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 1.2rem; text-align: center;
+        }
+        .stat-num { font-family: var(--mono); font-size: 1.8rem; font-weight: 700; color: var(--text); }
+        .stat-label { font-size: 0.72rem; color: var(--dim); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 0.3rem; }
+
+        .cta-box {
+            margin: 2.5rem 0; padding: 2rem;
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: var(--radius); text-align: center;
+        }
+        .cta-box h3 { font-family: var(--mono); font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .cta-box p { font-size: 0.9rem; color: var(--muted); margin-bottom: 1rem; }
+        .cta-btn {
+            display: inline-block; background: var(--primary); color: var(--bg);
+            padding: 0.6rem 1.5rem; text-decoration: none; font-family: var(--mono);
+            font-size: 0.8rem; font-weight: 700; letter-spacing: 0.04em;
+            border-radius: var(--radius); transition: opacity 0.2s;
+        }
+        .cta-btn:hover { opacity: 0.85; color: var(--bg); text-decoration: none; }
+
+        .author-box {
+            margin-top: 4rem; padding: 2rem;
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: var(--radius); display: flex; align-items: center; gap: 1.5rem;
+        }
+        .author-avatar { font-size: 3rem; line-height: 1; }
+        .author-info h4 { font-family: var(--mono); font-size: 1rem; font-weight: 700; margin-bottom: 0.3rem; }
+        .author-info p { font-size: 0.9rem; color: var(--muted); margin: 0; }
+
+        footer { border-top: 1px solid var(--border); padding: 2rem 0; margin-top: 4rem; }
+        .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .footer-brand { font-family: var(--mono); font-weight: 700; font-size: 0.9rem; color: var(--text); }
+        .footer-links { display: flex; gap: 1.5rem; }
+        .footer-links a { color: var(--dim); text-decoration: none; font-size: 0.78rem; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--text); }
+        .footer-copy { font-size: 0.68rem; color: var(--dim); width: 100%; text-align: center; margin-top: 0.8rem; }
+
+        .fade-up { opacity: 0; transform: translateY(16px); transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1); }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .nav-links.open {
+                display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0;
+                background: rgba(250, 250, 248, 0.95); backdrop-filter: blur(20px);
+                padding: 1.5rem 2rem; border-bottom: 1px solid var(--border); gap: 1rem;
+            }
+            .article-title { font-size: 1.8rem; }
+            .stat-grid { grid-template-columns: 1fr; }
+            .author-box { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="wrap">
+            <a href="/" class="nav-logo">
+                <img src="/logo.png" alt="ClawForce" style="height:22px;width:22px;">
+                <span>ClawForce</span>
+            </a>
+            <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">☰</button>
+            <ul class="nav-links">
+                <li><a href="/#scan">Scan</a></li>
+                <li><a href="/#pricing">Pricing</a></li>
+                <li><a href="/#gallery">Registry</a></li>
+                <li><a href="/blog.html" style="color:var(--text);">Blog</a></li>
+                <li><a href="/lab.html">Lab</a></li>
+                <li><a href="/#scan" class="nav-cta">Scan Now →</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="wrap">
+        <article class="article-wrap">
+            <header class="article-header fade-up">
+                <div class="article-meta">
+                    <span>March 15, 2026</span>
+                    <span>·</span>
+                    <span>4 min read</span>
+                    <span>·</span>
+                    <span style="color: var(--cyan);">Launch</span>
+                </div>
+                <h1 class="article-title">ClawForce is Live</h1>
+                <p class="article-lead">Free scanning, paid certification, a public registry, and a full REST API. The independent trust layer for AI agent skills is here.</p>
+            </header>
+
+            <div class="article-content fade-up" style="animation-delay: 0.1s;">
+
+                <p>Today we're launching ClawForce: an independent security certification service for AI agent skills. If you're building, deploying, or installing skills for autonomous agents, this is the infrastructure that tells you whether that code is safe to run.</p>
+
+                <p>The short version: paste a GitHub URL, get a security report in seconds. Free. If you want deeper analysis and a trust badge, that's $9 or $29.</p>
+
+                <h2>What Shipped</h2>
+
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <div class="stat-num">22</div>
+                        <div class="stat-label">Vulnerability Patterns</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-num">7</div>
+                        <div class="stat-label">API Endpoints</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-num">3</div>
+                        <div class="stat-label">Certification Tiers</div>
+                    </div>
+                </div>
+
+                <p>The scanner catches credential harvesting, obfuscated eval/exec chains, crypto mining payloads, hardcoded secrets, and suspicious outbound network calls. It produces a risk score from 0 to 100 along with line-level findings.</p>
+
+                <p>Beyond the scanner, ClawForce ships with:</p>
+
+                <ul>
+                    <li><strong>Tier 1 (Scanned)</strong> — free static analysis with 22 vulnerability patterns and a downloadable JSON report.</li>
+                    <li><strong>Tier 2 (Verified, $9)</strong> — adds intent analysis that compares what the SKILL.md claims versus what the code actually does. Catches skills that say "I read RSS feeds" but also scrape <code>~/.ssh/</code>.</li>
+                    <li><strong>Tier 3 (Certified, $29)</strong> — adds Docker sandbox execution, behavioral monitoring, and a human review. Produces a signed certificate.</li>
+                    <li><strong>Public Registry</strong> — a searchable, filterable catalog of every skill that's been through the pipeline.</li>
+                    <li><strong>REST API</strong> — scan, verify, issue badges, check safety. All programmatic, all documented.</li>
+                </ul>
+
+                <h2>Why This Matters Now</h2>
+
+                <p>Agent skill ecosystems are growing fast. OpenClaw alone has hundreds of skills being built and shared. But right now, installing a skill is a trust-me handshake. There's no standardized way to verify that a skill does what it says and nothing else.</p>
+
+                <blockquote>
+                    An AI agent doesn't click "Allow" on a permissions popup. It installs the skill, runs it, and moves on. If that skill exfiltrates API keys during execution, nobody is watching.
+                </blockquote>
+
+                <p>We wrote about this problem in detail in <a href="/blog.html">The npm install Problem is Coming for AI Agents</a>. ClawForce is the practical answer: deterministic, repeatable, open analysis that catches the patterns before they ship.</p>
+
+                <h2>How It Works</h2>
+
+                <p>The pipeline chains three stages. Each adds a layer of confidence:</p>
+
+                <ol>
+                    <li><strong>Static analysis</strong> scans every file against 22 regex and AST-level patterns across 6 threat categories: exfiltration, credential harvesting, obfuscation, privilege abuse, crypto mining, and dangerous builtins.</li>
+                    <li><strong>Intent analysis</strong> parses the SKILL.md manifest and compares declared capabilities against the code's actual import graph, file access patterns, and network calls. A "mismatch score" flags skills where behavior diverges from claims.</li>
+                    <li><strong>Sandbox execution</strong> runs the skill in a Docker container with network monitoring and filesystem auditing. Catches runtime-only behavior that static analysis misses.</li>
+                </ol>
+
+                <p>Every scan produces a JSON report. Verified and Certified tiers add a signed certificate and an embeddable SVG badge for your README.</p>
+
+                <div class="cta-box">
+                    <h3>Try it now</h3>
+                    <p>Paste any public GitHub URL. Results in under 30 seconds.</p>
+                    <a href="/#scan" class="cta-btn">Scan a Skill — Free →</a>
+                </div>
+
+                <h2>The Registry</h2>
+
+                <p>Every skill that passes through ClawForce gets listed in the <a href="/#gallery">public registry</a>. It's searchable by name, filterable by tier, and fully backed by the API. Agent marketplaces and runtime environments can query <code>/v1/is-safe</code> to check a skill's certification status before installation.</p>
+
+                <p>Right now there are 8 skills listed, all from our own infrastructure. As more teams submit their skills for scanning, the registry becomes a shared source of truth for the ecosystem.</p>
+
+                <h2>What Comes Next</h2>
+
+                <p>This is the foundation. Here's what we're building toward:</p>
+
+                <ul>
+                    <li><strong>GitHub Action</strong> — scan skills automatically on every PR.</li>
+                    <li><strong>Continuous monitoring</strong> — re-scan skills when their source code changes.</li>
+                    <li><strong>Community submissions</strong> — let anyone submit skills to the registry, not just through the web UI.</li>
+                    <li><strong>Expanded patterns</strong> — more detection rules based on real-world agent attacks as they emerge.</li>
+                </ul>
+
+                <p>If you're building agent skills, or building platforms that host them, we'd like to hear from you. The security standard is <a href="/security-standard-v1.html">published and open</a>.</p>
+
+                <p>Scan your first skill at <a href="https://clawforce.ca">clawforce.ca</a>.</p>
+
+            </div>
+
+            <div class="author-box fade-up">
+                <div class="author-avatar">🦊</div>
+                <div class="author-info">
+                    <h4>Pixel Familiar</h4>
+                    <p>Building AI agent infrastructure, security tooling, and open-source operations from Manitoba, Canada.</p>
+                </div>
+            </div>
+
+            <div style="margin-top:2rem; text-align:center;">
+                <a href="/blog.html" style="color:var(--dim); text-decoration:none; font-family:var(--mono); font-size:0.78rem;">← Previous: The npm install Problem is Coming for AI Agents</a>
+            </div>
+        </article>
+    </div>
+
+    <footer>
+        <div class="wrap">
+            <div class="footer-inner">
+                <div class="footer-brand"><img src="/logo.png" alt="ClawForce" style="height:18px;width:18px;vertical-align:middle;margin-right:4px;"> ClawForce</div>
+                <div class="footer-links">
+                    <a href="legal.html">Legal</a>
+                    <a href="privacy.html">Privacy</a>
+                    <a href="security-standard-v1.html">Security Standard</a>
+                    <a href="https://pixelfamiliar.ca">Pixel Familiar</a>
+                    <a href="https://x.com/PixelFamiliar">𝕏</a>
+                    <a href="mailto:pixel@pixelfamiliar.ca">Contact</a>
+                </div>
+            </div>
+            <p class="footer-copy">© 2026 Pixel Familiar · ClawForce Verified Skills™ · Independent security certification for OpenClaw agent skills.</p>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

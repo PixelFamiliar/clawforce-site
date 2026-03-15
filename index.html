@@ -18,13 +18,14 @@
     <meta property="og:url" content="https://clawforce.ca/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="ClawForce">
+    <meta property="og:image" content="https://clawforce.ca/logo.png">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@PixelFamiliar">
     <meta name="twitter:title" content="ClawForce — Certify Your Agent Skills">
     <meta name="twitter:description"
         content="Three-tier security certification for OpenClaw skills. Free Tier 1 scans with 50+ vulnerability patterns.">
+    <meta name="twitter:image" content="https://clawforce.ca/logo.png">
     <meta name="robots" content="index, follow">
-    <link rel="icon" href="/logo.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -1222,6 +1223,8 @@
                 <li><a href="#scan">Scan</a></li>
                 <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#gallery">Registry</a></li>
+                <li><a href="/blog.html">Blog</a></li>
+                <li><a href="/lab.html">Lab</a></li>
                 <li><a href="#scan" class="nav-cta">Scan Now →</a></li>
             </ul>
         </div>
@@ -1421,8 +1424,7 @@
                     <p style="font-size:0.68rem;color:var(--dim);margin-bottom:0.8rem;line-height:1.4;">You receive:
                         full Tier 1 report + intent analysis comparing SKILL.md claims to actual code behavior. Verified
                         badge and signed certificate.</p>
-                    <a href="https://buy.stripe.com/00w14pdxd6fh1sR0fY9wt0a" target="_blank" class="btn-price paid">Get
-                        Verified — $9</a>
+                    <a href="#" onclick="openCheckout('verified'); return false;" class="btn-price paid">Get Verified — $9</a>
                 </div>
 
                 <div class="price-card">
@@ -1440,8 +1442,7 @@
                     <p style="font-size:0.68rem;color:var(--dim);margin-bottom:0.8rem;line-height:1.4;">You receive:
                         full Tier 1+2 reports + sandbox execution trace, behavioral analysis, human sign-off, and
                         cryptographically signed JSON certificate.</p>
-                    <a href="https://buy.stripe.com/6oU5kFct9bzBb3r3sa9wt0b" target="_blank" class="btn-price paid">Get
-                        Certified — $29</a>
+                    <a href="#" onclick="openCheckout('certified'); return false;" class="btn-price paid">Get Certified — $29</a>
                 </div>
             </div>
         </div>
@@ -1481,6 +1482,104 @@
                 </div>
             </div>
     </section>
+
+    <!-- ━━━ CHECKOUT MODAL ━━━ -->
+    <div class="checkout-overlay" id="checkoutOverlay" onclick="if(event.target===this) closeCheckout()">
+        <div class="checkout-modal">
+            <button class="checkout-close" onclick="closeCheckout()" aria-label="Close">✕</button>
+            <div class="checkout-header">
+                <div class="checkout-icon">🛡️</div>
+                <h3 class="checkout-title" id="checkoutTitle">Get Verified</h3>
+                <p class="checkout-subtitle">We need your GitHub repo URL to run the certification scan.</p>
+            </div>
+            <form id="checkoutForm" onsubmit="submitCheckout(event)">
+                <div class="checkout-field">
+                    <label for="checkoutUrl">GitHub Repository URL</label>
+                    <input type="url" id="checkoutUrl" placeholder="https://github.com/user/skill-repo" required
+                        pattern="https?://github\.com/.+/.+">
+                    <span class="checkout-hint">Must be a public GitHub repository</span>
+                </div>
+                <div class="checkout-summary" id="checkoutSummary">
+                    <div class="checkout-tier-badge" id="checkoutTierBadge">🔵 VERIFIED</div>
+                    <div class="checkout-price" id="checkoutPrice">$9</div>
+                </div>
+                <button type="submit" class="checkout-submit" id="checkoutSubmit">Continue to Payment →</button>
+                <p class="checkout-fine">You'll be redirected to Stripe's secure checkout. Results delivered to your payment email within 24 hours.</p>
+            </form>
+        </div>
+    </div>
+
+    <style>
+        .checkout-overlay {
+            display: none; position: fixed; inset: 0; z-index: 9999;
+            background: rgba(0,0,0,0.5); backdrop-filter: blur(4px);
+            align-items: center; justify-content: center; padding: 1.5rem;
+        }
+        .checkout-overlay.open { display: flex; }
+        .checkout-modal {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: var(--radius); max-width: 440px; width: 100%;
+            padding: 2rem; position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            animation: modalIn 0.2s ease;
+        }
+        @keyframes modalIn { from { transform: translateY(12px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .checkout-close {
+            position: absolute; top: 1rem; right: 1rem;
+            background: none; border: none; font-size: 1.1rem;
+            color: var(--dim); cursor: pointer; padding: 0.3rem;
+            transition: color 0.2s;
+        }
+        .checkout-close:hover { color: var(--text); }
+        .checkout-header { text-align: center; margin-bottom: 1.5rem; }
+        .checkout-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+        .checkout-title {
+            font-family: var(--mono); font-size: 1.2rem; font-weight: 700;
+            letter-spacing: -0.02em; margin-bottom: 0.4rem;
+        }
+        .checkout-subtitle { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+        .checkout-field { margin-bottom: 1.2rem; }
+        .checkout-field label {
+            display: block; font-family: var(--mono); font-size: 0.7rem;
+            font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
+            color: var(--dim); margin-bottom: 0.4rem;
+        }
+        .checkout-field input {
+            width: 100%; padding: 0.7rem 1rem; font-size: 0.85rem;
+            font-family: var(--mono); background: var(--bg);
+            border: 1px solid var(--border); border-radius: var(--radius);
+            color: var(--text); outline: none; transition: border-color 0.2s;
+        }
+        .checkout-field input:focus { border-color: var(--text); }
+        .checkout-field input:invalid:not(:placeholder-shown) { border-color: var(--red, #C0392B); }
+        .checkout-hint { font-size: 0.68rem; color: var(--dim); margin-top: 0.3rem; display: block; }
+        .checkout-summary {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0.8rem 1rem; background: var(--bg); border: 1px solid var(--border);
+            border-radius: var(--radius); margin-bottom: 1.2rem;
+        }
+        .checkout-tier-badge {
+            font-family: var(--mono); font-size: 0.72rem;
+            font-weight: 700; letter-spacing: 0.04em;
+        }
+        .checkout-price {
+            font-family: var(--mono); font-size: 1.3rem;
+            font-weight: 700; color: var(--text);
+        }
+        .checkout-submit {
+            width: 100%; padding: 0.75rem;
+            background: var(--primary); color: var(--bg);
+            border: none; border-radius: var(--radius);
+            font-family: var(--mono); font-size: 0.82rem;
+            font-weight: 700; cursor: pointer;
+            letter-spacing: 0.02em; transition: opacity 0.2s;
+        }
+        .checkout-submit:hover { opacity: 0.85; }
+        .checkout-fine {
+            font-size: 0.68rem; color: var(--dim); text-align: center;
+            margin-top: 0.8rem; line-height: 1.5;
+        }
+    </style>
 
     <!-- ━━━ FOOTER ━━━ -->
     <footer>
@@ -1870,7 +1969,7 @@
             const upgradeHtml = data.tier === 'scanned' ? `
                 <div style="margin-top:16px;padding:12px 16px;background:rgba(17,138,178,0.08);border:1px solid rgba(17,138,178,0.2);border-radius:10px;font-size:0.78rem;color:var(--muted);">
                     <strong style="color:var(--blue);">⬆ Upgrade to Verified ($9)</strong> — includes intent analysis, permission scope audit, and embeddable badge.<br>
-                    <a href="https://buy.stripe.com/00w14pdxd6fh1sR0fY9wt0a" target="_blank" style="color:var(--cyan);text-decoration:none;font-weight:600;">Get Verified →</a>
+                    <a href="#" onclick="openCheckout('verified'); return false;" style="color:var(--cyan);text-decoration:none;font-weight:600;">Get Verified →</a>
                 </div>` : '';
 
             const hashHtml = data.hash ? `
@@ -2022,6 +2121,62 @@
             history.replaceState(null, '', '/');
         }
 
+        // ━━━ Checkout Modal ━━━
+        const STRIPE_LINKS = {
+            verified: 'https://buy.stripe.com/00w14pdxd6fh1sR0fY9wt0a',
+            certified: 'https://buy.stripe.com/6oU5kFct9bzBb3r3sa9wt0b',
+        };
+        const TIER_META = {
+            verified: { badge: '🔵 VERIFIED', price: '$9' },
+            certified: { badge: '🟡 CERTIFIED', price: '$29' },
+        };
+        let selectedTier = 'verified';
+
+        function openCheckout(tier) {
+            selectedTier = tier;
+            const meta = TIER_META[tier] || TIER_META.verified;
+            document.getElementById('checkoutTitle').textContent = `Get ${tier.charAt(0).toUpperCase() + tier.slice(1)}`;
+            document.getElementById('checkoutTierBadge').textContent = meta.badge;
+            document.getElementById('checkoutPrice').textContent = meta.price;
+
+            // Pre-fill from scanner input if available
+            const scanInput = document.getElementById('githubUrl');
+            const checkoutUrl = document.getElementById('checkoutUrl');
+            if (scanInput && scanInput.value.includes('github.com')) {
+                checkoutUrl.value = scanInput.value.trim();
+            }
+
+            document.getElementById('checkoutOverlay').classList.add('open');
+            checkoutUrl.focus();
+        }
+
+        function closeCheckout() {
+            document.getElementById('checkoutOverlay').classList.remove('open');
+        }
+
+        function submitCheckout(e) {
+            e.preventDefault();
+            const url = document.getElementById('checkoutUrl').value.trim();
+            if (!url || !url.includes('github.com/')) {
+                document.getElementById('checkoutUrl').setCustomValidity('Please enter a valid GitHub URL');
+                document.getElementById('checkoutUrl').reportValidity();
+                return;
+            }
+            document.getElementById('checkoutUrl').setCustomValidity('');
+
+            // Base64-encode the GitHub URL for client_reference_id
+            const encoded = btoa(url);
+            const stripeLink = STRIPE_LINKS[selectedTier];
+            if (!stripeLink) return;
+
+            // Redirect to Stripe with client_reference_id
+            window.location.href = `${stripeLink}?client_reference_id=${encodeURIComponent(encoded)}`;
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeCheckout();
+        });
 
     </script>
 
