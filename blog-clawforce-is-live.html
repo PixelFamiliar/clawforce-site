@@ -253,7 +253,7 @@
                 <ul>
                     <li><strong>Tier 1 (Scanned)</strong> — free static analysis with 22 vulnerability patterns and a downloadable JSON report.</li>
                     <li><strong>Tier 2 (Verified, $9)</strong> — adds intent analysis that compares what the SKILL.md claims versus what the code actually does. Catches skills that say "I read RSS feeds" but also scrape <code>~/.ssh/</code>.</li>
-                    <li><strong>Tier 3 (Certified, $29)</strong> — adds Docker sandbox execution, behavioral monitoring, and automated behavioral analysis. Produces a signed certificate.</li>
+                    <li><strong>Tier 3 (Certified, $29)</strong> — adds AI-powered semantic code review and supply chain deep analysis. Produces a signed certificate and embeddable trust badge.</li>
                     <li><strong>Public Registry</strong> — a searchable, filterable catalog of every skill that's been through the pipeline.</li>
                     <li><strong>REST API</strong> — scan, verify, issue badges, check safety. All programmatic, all documented.</li>
                 </ul>
@@ -275,7 +275,7 @@
                 <ol>
                     <li><strong>Static analysis</strong> scans every file against 22 regex and AST-level patterns across 6 threat categories: exfiltration, credential harvesting, obfuscation, privilege abuse, crypto mining, and dangerous builtins.</li>
                     <li><strong>Intent analysis</strong> parses the SKILL.md manifest and compares declared capabilities against the code's actual import graph, file access patterns, and network calls. A "mismatch score" flags skills where behavior diverges from claims.</li>
-                    <li><strong>Sandbox execution</strong> runs the skill in a Docker container with network monitoring and filesystem auditing. Catches runtime-only behavior that static analysis misses.</li>
+                    <li><strong>AI semantic review</strong> sends your source code (with comments stripped to prevent injection) to an AI-powered reviewer that analyzes behavior semantically. Catches subtle issues that static pattern matching misses.</li>
                 </ol>
 
                 <p>Every scan produces a JSON report. Verified and Certified tiers add a signed certificate and an embeddable SVG badge for your README.</p>
