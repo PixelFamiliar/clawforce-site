@@ -9,158 +9,135 @@
     <meta name="description" content="Terms of Service and legal disclaimers for ClawForce certification services.">
     <link rel="canonical" href="https://clawforce.ca/legal.html">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap"
         rel="stylesheet">
     <style>
-        *,
-        *::before,
-        *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --bg: #020617;
-            --surface: #0F172A;
-            --card: #1E293B;
-            --border: #334155;
-            --border-hover: #475569;
-            --text: #E2E8F0;
-            --muted: #94A3B8;
-            --dim: #64748B;
-            --primary: #2563EB;
-            --primary-hover: #3B82F6;
+            --bg: #FAFAF8;
+            --surface: #FFFFFF;
+            --card: #FFFFFF;
+            --card-hover: #F5F5F0;
+            --border: #E0DDD5;
+            --border-hover: #C8C4BA;
+            --text: #0A0A0A;
+            --muted: #5C5C5C;
+            --dim: #8A8A80;
+            --primary: #0A0A0A;
+            --cyan: #3D7A5F;
+            --radius: 2px;
+            --mono: 'Space Mono', monospace;
+            --sans: 'DM Sans', -apple-system, sans-serif;
         }
 
         body {
-            background: var(--bg);
-            color: var(--text);
-            font-family: 'Inter', -apple-system, sans-serif;
-            line-height: 1.6;
+            background: var(--bg); color: var(--text);
+            font-family: var(--sans); line-height: 1.6;
             -webkit-font-smoothing: antialiased;
         }
 
-        .wrap {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 2rem;
+        body::before {
+            content: ''; position: fixed; inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='400' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none; z-index: 0;
         }
+
+        .wrap { max-width: 760px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; }
 
         nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            padding: 0.9rem 0;
-            background: rgba(2, 6, 23, 0.95);
-            backdrop-filter: blur(16px);
-            border-bottom: 1px solid var(--border);
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            padding: 0.75rem 0; background: rgba(250, 250, 248, 0.92);
+            backdrop-filter: blur(12px); border-bottom: 1px solid var(--border);
         }
-
-        nav .wrap {
-            max-width: 1140px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
+        nav .wrap { max-width: 1100px; display: flex; justify-content: space-between; align-items: center; }
         .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            text-decoration: none;
-            font-weight: 800;
-            font-size: 1.1rem;
-            color: var(--text);
+            display: flex; align-items: center; gap: 0.5rem;
+            text-decoration: none; font-family: var(--mono); font-weight: 700;
+            font-size: 0.95rem; color: var(--text); letter-spacing: -0.02em;
         }
+        .nav-links { display: flex; gap: 1.5rem; list-style: none; align-items: center; }
+        .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.82rem; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text); }
+        .nav-cta {
+            background: var(--primary); color: var(--bg) !important;
+            padding: 0.4rem 1rem; border-radius: 2px; font-weight: 700 !important;
+            font-family: var(--mono); font-size: 0.75rem !important;
+            letter-spacing: 0.04em; text-transform: uppercase;
+        }
+        .mobile-menu-btn { display: none; background: none; border: none; color: var(--text); font-size: 1.5rem; cursor: pointer; }
 
-        main {
-            padding: 8rem 0 4rem;
-        }
+        main { padding: 8rem 0 4rem; }
 
         h1 {
-            font-size: 1.8rem;
-            font-weight: 800;
-            margin-bottom: 2rem;
+            font-family: var(--mono); font-size: 1.8rem; font-weight: 700;
+            margin-bottom: 0.5rem; letter-spacing: -0.03em;
         }
 
-        .content {
-            font-size: 0.88rem;
-            color: var(--muted);
-            line-height: 1.85;
+        .page-label {
+            font-family: var(--mono); font-size: 0.68rem; font-weight: 700;
+            color: var(--cyan); text-transform: uppercase;
+            letter-spacing: 0.1em; margin-bottom: 0.5rem;
+            display: flex; align-items: center; gap: 0.5rem;
         }
-
-        .content p {
-            margin-bottom: 1.2rem;
+        .page-label .dot {
+            width: 6px; height: 6px; border-radius: 50%;
+            background: var(--cyan); animation: pulse 2s ease-in-out infinite;
         }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
-        .content strong {
-            color: var(--text);
-        }
+        .content { font-size: 0.92rem; color: var(--muted); line-height: 1.85; margin-top: 2rem; }
+        .content p { margin-bottom: 1.4rem; }
+        .content strong { color: var(--text); }
+        .content a { color: var(--cyan); text-decoration: none; }
+        .content a:hover { text-decoration: underline; }
 
-        .content a {
-            color: var(--primary-hover);
-            text-decoration: none;
-        }
+        .last-updated { font-size: 0.75rem; color: var(--dim); margin-top: 2rem; }
 
-        .last-updated {
-            font-size: 0.75rem;
-            color: var(--dim);
-            margin-top: 2rem;
-        }
+        footer { border-top: 1px solid var(--border); padding: 3rem 0; }
+        .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .footer-brand { font-family: var(--mono); font-weight: 700; font-size: 0.9rem; color: var(--text); }
+        .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+        .footer-links a { color: var(--dim); text-decoration: none; font-size: 0.78rem; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--text); }
+        .footer-copy { font-size: 0.68rem; color: var(--dim); width: 100%; text-align: center; margin-top: 0.8rem; }
 
-        footer {
-            border-top: 1px solid var(--border);
-            padding: 2rem 0;
-            text-align: center;
-        }
-
-        footer .wrap {
-            max-width: 1140px;
-        }
-
-        footer a {
-            color: var(--dim);
-            text-decoration: none;
-            font-size: 0.78rem;
-            transition: color 0.2s;
-        }
-
-        footer a:hover {
-            color: var(--primary-hover);
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 1rem;
-        }
-
-        .footer-copy {
-            font-size: 0.7rem;
-            color: var(--dim);
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .nav-links.open {
+                display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0;
+                background: rgba(250, 250, 248, 0.95); backdrop-filter: blur(20px);
+                padding: 1.5rem 2rem; border-bottom: 1px solid var(--border); gap: 1rem;
+            }
         }
     </style>
 </head>
 
 <body>
     <nav>
-        <div class="wrap">
+        <div class="wrap" style="max-width:1100px;">
             <a href="/" class="nav-logo">
                 <img src="/logo.png" alt="ClawForce" style="height:22px;width:22px;">
                 <span>ClawForce</span>
             </a>
+            <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">☰</button>
+            <ul class="nav-links">
+                <li><a href="/#scan">Scan</a></li>
+                <li><a href="/#pricing">Pricing</a></li>
+                <li><a href="/blog.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/faq.html">FAQ</a></li>
+                <li><a href="/#scan" class="nav-cta">Scan Now →</a></li>
+            </ul>
         </div>
     </nav>
 
     <main>
         <div class="wrap">
-            <h1>Terms &amp; Limitation of Liability</h1>
+            <div class="page-label"><span class="dot"></span> Legal</div>
+            <h1>Terms & Limitation of Liability</h1>
             <div class="content">
                 <p><strong>CERTIFICATION IS A POINT-IN-TIME ASSESSMENT.</strong> ClawForce certification represents a
                     security evaluation at a specific moment using commercially reasonable tools and practices. It is
@@ -179,30 +156,26 @@
                     mutations. Certification applies only to the exact version (SHA-256 hash) evaluated at the recorded
                     timestamp. Users assume all risk for deployment decisions based on certification results.</p>
                 <p><strong>INDEMNIFICATION.</strong> You agree to defend, indemnify, and hold harmless Pixel Familiar
-                    and
-                    its licensees from and against any claims, damages, obligations, losses, or expenses arising from
+                    and its licensees from and against any claims, damages, obligations, losses, or expenses arising from
                     your use of ClawForce certifications or reliance on scan results.</p>
                 <p><strong>REFUND POLICY.</strong> All ClawForce certification purchases are for digital services
                     delivered electronically. Due to the nature of the service (security scans are performed immediately
-                    upon purchase), all sales are final. No refunds will be issued once a scan has been initiated. If
-                    you
+                    upon purchase), all sales are final. No refunds will be issued once a scan has been initiated. If you
                     experience a technical issue preventing delivery of your scan results, contact
                     <a href="mailto:pixel@pixelfamiliar.ca">pixel@pixelfamiliar.ca</a> within 7 days of purchase for
                     resolution.
                 </p>
-                <p><strong>PRICING &amp; CURRENCY.</strong> All prices displayed on ClawForce are in United States
+                <p><strong>PRICING & CURRENCY.</strong> All prices displayed on ClawForce are in United States
                     Dollars (USD). Your payment processor or bank may apply currency conversion fees if you are paying
                     from a non-USD account.</p>
                 <p><strong>ELECTRONIC COMMUNICATIONS.</strong> By purchasing a certification, you consent to receive
                     transactional emails related to your scan results, certificate delivery, and service notifications.
-                    These communications are necessary to fulfill your purchase and are compliant with Canada's
-                    Anti-Spam
+                    These communications are necessary to fulfill your purchase and are compliant with Canada's Anti-Spam
                     Legislation (CASL). You will not receive marketing emails without separate explicit consent.</p>
                 <p><strong>ELIGIBILITY.</strong> You must be at least 18 years of age or the age of majority in your
                     jurisdiction, whichever is greater, to use ClawForce services or make purchases.</p>
                 <p><strong>DISPUTE RESOLUTION.</strong> Any disputes arising from or relating to these terms or your use
-                    of ClawForce services shall be subject to the exclusive jurisdiction of the courts of the Province
-                    of
+                    of ClawForce services shall be subject to the exclusive jurisdiction of the courts of the Province of
                     Manitoba, Canada. Both parties agree to submit to the personal jurisdiction of such courts.</p>
                 <p class="last-updated">These terms constitute the complete Terms of Service for ClawForce certification
                     services. Last updated: March 2026. Governing law: Province of Manitoba, Canada.</p>
@@ -211,15 +184,18 @@
     </main>
 
     <footer>
-        <div class="wrap">
-            <div class="footer-links">
-                <a href="/">Home</a>
-                <a href="/about.html">About</a>
-                <a href="/faq.html">FAQ</a>
-                <a href="/contact.html">Contact</a>
-                <a href="/privacy.html">Privacy</a>
-                <a href="/security-standard-v1.html">Security Standard</a>
-                <a href="https://pixelfamiliar.ca">Pixel Familiar</a>
+        <div class="wrap" style="max-width:1100px;">
+            <div class="footer-inner">
+                <div class="footer-brand"><img src="/logo.png" alt="ClawForce" style="height:18px;width:18px;vertical-align:middle;margin-right:4px;"> ClawForce</div>
+                <div class="footer-links">
+                    <a href="/about.html">About</a>
+                    <a href="/faq.html">FAQ</a>
+                    <a href="/contact.html">Contact</a>
+                    <a href="/privacy.html">Privacy</a>
+                    <a href="/security-standard-v1.html">Security Standard</a>
+                    <a href="https://github.com/PixelFamiliar">GitHub</a>
+                    <a href="https://pixelfamiliar.ca">Pixel Familiar</a>
+                </div>
             </div>
             <p class="footer-copy">© 2026 Pixel Familiar Inc. · ClawForce Verified Skills™ · Manitoba, Canada</p>
         </div>
