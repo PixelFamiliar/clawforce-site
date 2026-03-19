@@ -1,0 +1,33 @@
+# agents.txt — ClawForce Business-to-Agent Declarations
+# https://clawforce.ca
+
+# API Access
+api_documentation: https://clawforce.ca/openapi.json
+agent_card: https://clawforce.ca/.well-known/agent
+
+# Authentication
+authentication: API Key
+registration: https://clawforce.ca/contact.html
+scope: read_public_pages, read_security_reports
+
+# Rate Limits
+rate_limit: 500 requests/day
+rate_limit_burst: 5 requests/second
+
+# Payment
+payment: Stripe
+checkout_url: https://clawforce.ca/skill.html
+
+# Permissions
+allow: read_public_pages
+allow: read_security_reports
+allow: read_documentation
+allow: read_blog
+restrict: admin_access
+restrict: customer_data
+restrict: scan_results
+restrict: payment_processing
+
+# Contact
+support: pixel@pixelfamiliar.ca
+website: https://clawforce.ca

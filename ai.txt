@@ -1,0 +1,33 @@
+# ai.txt — ClawForce AI Interaction Policy
+# https://clawforce.ca
+# Generated: 2026-03-18
+
+User-agent: *
+
+# Content permissions
+Allow: Crawl
+Allow: Summarize
+Allow: Index
+Disallow: Train
+
+# Element-level controls
+Element: article
+  Allow: Summarize
+  Allow: Index
+
+Element: form
+  Disallow: AutoSubmit
+  Allow: Read
+
+Element: nav
+  Allow: Follow
+
+# Commercial use
+Commercial-Use: allow
+
+# Rate limiting
+Rate-Limit-RPS: 5
+Rate-Limit-Daily: 10000
+
+# Contact for AI-related queries
+Contact: pixel@pixelfamiliar.ca
