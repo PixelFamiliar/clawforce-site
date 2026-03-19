@@ -205,17 +205,23 @@
         .fade-up.visible { opacity: 1; transform: translateY(0); }
 
         @media (max-width: 768px) {
+            .wrap { padding: 0 1.25rem; }
+            .hero { padding: 6rem 0 3rem; }
             .nav-links { display: none; }
             .mobile-menu-btn { display: block; }
             .nav-links.open {
                 display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0;
                 background: rgba(250, 250, 248, 0.95); backdrop-filter: blur(20px);
-                padding: 1.5rem 2rem; border-bottom: 1px solid var(--border); gap: 1rem;
+                padding: 1.5rem 1.25rem; border-bottom: 1px solid var(--border); gap: 1rem;
             }
             .pipeline-grid { grid-template-columns: 1fr; }
             .pipeline-step { border-right: none; border-bottom: 1px solid var(--border); }
             .pipeline-step:last-child { border-bottom: none; }
             .builds-grid { grid-template-columns: 1fr; }
+            .terminal-body { padding: 1rem; font-size: 0.65rem; overflow-x: auto; }
+            .terminal-card { margin: 0 -0.25rem; }
+            .section-title { font-size: 1.3rem; }
+            section { padding: 3rem 0; }
         }
     </style>
 </head>

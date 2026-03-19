@@ -18,13 +18,15 @@
     <meta property="og:url" content="https://clawforce.ca/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="ClawForce">
-    <meta property="og:image" content="https://clawforce.ca/logo.png">
-    <meta name="twitter:card" content="summary">
+    <meta property="og:image" content="https://clawforce.ca/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@PixelFamiliar">
     <meta name="twitter:title" content="ClawForce — Certify Your Agent Skills">
     <meta name="twitter:description"
         content="Three-tier security certification for OpenClaw skills. Free Tier 1 scans with 50+ vulnerability patterns.">
-    <meta name="twitter:image" content="https://clawforce.ca/logo.png">
+    <meta name="twitter:image" content="https://clawforce.ca/og-image.png">
     <meta name="robots" content="index, follow">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1352,6 +1354,10 @@
 
         /* ━━━ RESPONSIVE ━━━ */
         @media (max-width: 768px) {
+            .wrap { padding: 0 1.25rem; }
+
+            .hero { padding: 6rem 0 3rem; }
+
             .hero-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
@@ -1359,8 +1365,11 @@
 
             .hero-text { text-align: center; }
             .hero-label { justify-content: center; }
-            .hero-cta { justify-content: center; }
+            .hero-cta { justify-content: center; flex-direction: column; align-items: center; }
             .hero-sub { max-width: 100%; }
+
+            .hero-terminal { margin: 0 -0.25rem; }
+            .hero-terminal-body { padding: 1rem; font-size: 0.65rem; overflow-x: auto; }
 
             .tier-cards {
                 grid-template-columns: 1fr;
@@ -1411,7 +1420,7 @@
                 right: 0;
                 background: rgba(250, 250, 248, 0.95);
                 backdrop-filter: blur(20px);
-                padding: 1.5rem 2rem;
+                padding: 1.5rem 1.25rem;
                 border-bottom: 1px solid var(--border);
                 gap: 1rem;
             }
@@ -1422,6 +1431,47 @@
                 flex-direction: column;
                 text-align: center;
             }
+
+            /* Who Uses grid stacking */
+            .who-uses-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .who-uses-grid > div {
+                border-right: none !important;
+                border-bottom: 1px solid var(--border);
+            }
+            .who-uses-grid > div:last-child {
+                border-bottom: none !important;
+            }
+
+            /* Footer mobile */
+            .footer-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.8rem 1.2rem;
+            }
+
+            /* Scanner section */
+            .scanner-body { padding: 1.25rem; }
+
+            /* Touch targets */
+            .btn, .scan-btn, .nav-cta, .btn-price {
+                min-height: 44px;
+                min-width: 44px;
+            }
+            .btn {
+                padding: 0.85rem 1.5rem;
+                width: 100%;
+                justify-content: center;
+            }
+
+            /* Sections spacing */
+            .how-it-works, .scanner-section, .pricing, .gallery, .scanviz-section { padding: 3rem 0; }
+            .section-title { font-size: 1.3rem; }
         }
 
         /* scanning animation */
@@ -1529,7 +1579,7 @@
                 <div class="section-label">// built for</div>
                 <h2 class="section-title">Who Uses ClawForce</h2>
             </div>
-            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;" class="fade-up">
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;" class="fade-up who-uses-grid">
                 <div style="padding:2rem 1.5rem;border-right:1px solid var(--border);transition:background 0.3s;" onmouseenter="this.style.background='var(--card-hover)'" onmouseleave="this.style.background='transparent'">
                     <div style="font-size:1.8rem;margin-bottom:0.8rem;">⚙️</div>
                     <div style="font-family:var(--mono);font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:0.4rem;">Skill Developers</div>

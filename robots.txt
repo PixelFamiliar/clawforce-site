@@ -31,25 +31,49 @@ Disallow: /api/*
 # ═══ AI Training Crawlers ═══
 # Control whether AI companies can use your content for model training.
 # This does NOT affect generative search results or AI-powered search.
+# Note: /llms.txt and /AGENTS.md are explicitly allowed for all crawlers.
 
 User-agent: GPTBot
+Allow: /llms.txt
+Allow: /AGENTS.md
+Allow: /.well-known/agent
 Disallow: /
+
 User-agent: CCBot
+Allow: /llms.txt
+Allow: /AGENTS.md
 Disallow: /
+
 User-agent: Google-Extended
 Disallow: /
+
 User-agent: Bytespider
 Disallow: /
+
 User-agent: Applebot-Extended
 Disallow: /
+
 User-agent: ClaudeBot
+Allow: /llms.txt
+Allow: /AGENTS.md
+Allow: /.well-known/agent
 Disallow: /
+
 User-agent: Claude-Web
+Allow: /llms.txt
+Allow: /AGENTS.md
 Disallow: /
+
 User-agent: Anthropic
+Allow: /llms.txt
+Allow: /AGENTS.md
 Disallow: /
+
 User-agent: cohere-ai
+Allow: /llms.txt
+Allow: /AGENTS.md
 Disallow: /
+
 User-agent: FacebookBot
 Disallow: /
 
@@ -63,27 +87,20 @@ Disallow: /admin
 Disallow: /internal
 Disallow: /private
 Disallow: /api/*
+
 User-agent: PerplexityBot
 Allow: /
 Disallow: /admin
 Disallow: /internal
 Disallow: /private
 Disallow: /api/*
+
 User-agent: OAI-SearchBot
 Allow: /
 Disallow: /admin
 Disallow: /internal
 Disallow: /private
 Disallow: /api/*
-
-# ═══ Machine-Readable Resources ═══
-# Always accessible to all agents
-
-User-agent: *
-Allow: /llms.txt
-Allow: /AGENTS.md
-Allow: /.well-known/agent
-Allow: /robots.txt
 
 # ═══ Crawl Rate ═══
 Crawl-delay: 1
