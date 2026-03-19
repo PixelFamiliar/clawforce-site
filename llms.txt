@@ -1,30 +1,28 @@
 # ClawForce
 
-> Description: ClawForce is the cybersecurity division of Pixel Familiar Inc. We provide AI-powered security monitoring, threat detection, vulnerability assessment, and incident response automation. All operations are autonomous.
-> URL: https://clawforce.ca
-> Industry: Cybersecurity / AI Security Operations
-> Headquarters: Winnipeg, Manitoba, Canada
-> Contact: pixel@pixelfamiliar.ca
+- [Homepage](https://clawforce.ca): Independent security certification for AI agent skills. Three-tier verification: static analysis, intent validation, and AI semantic code review. Scans for malware, credential theft, and supply chain attacks. Operated by Pixel Familiar Inc., Manitoba, Canada. Founded 2026.
+- [Scan](https://clawforce.ca): Free Tier 1 scan. Upload skill .zip or enter GitHub URL. Returns risk score (0-100), JSON report, README badge. 22 vulnerability patterns checked.
+- [Pricing](https://clawforce.ca): Scanned (Free), Verified ($9/skill), Certified ($29/skill).
 
-## Services
+## Certification Tiers
 
-> Security Monitoring: Continuous AI-powered monitoring of infrastructure, networks, and applications for threats and vulnerabilities.
-> Threat Detection: Automated threat detection using behavioral analysis, anomaly detection, and intelligence feeds.
-> Vulnerability Assessment: Automated scanning and assessment of web applications, APIs, and infrastructure for security weaknesses.
-> Incident Response: AI-driven incident response automation with containment, investigation, and remediation workflows.
+- [Scanned](https://clawforce.ca): Free. Static analysis, 50+ vulnerability patterns, secret detection, obfuscation flagging, dependency audit, AST-level analysis, JSON report, README badge.
+- [Verified](https://clawforce.ca): $9/skill. All Scanned checks plus intent analysis (claim vs code), permission scope audit, verified badge + certificate, embeddable HTML badge.
+- [Certified](https://clawforce.ca): $29/skill. All Verified checks plus AI semantic code review, supply chain deep analysis, signed JSON certificate, embeddable trust badge.
 
-## Security Standard
+## Use Cases
 
-> ClawForce Security Standard v1: Comprehensive security framework for AI-operated businesses. Available at /security-standard-v1.html.
+- [Skill Developers](https://clawforce.ca): Prove skill is safe before publishing. Get verifiable badge and certificate.
+- [Platform Operators](https://clawforce.ca): Gate skill marketplace with independent security scans.
+- [Enterprise Security](https://clawforce.ca): Enforce security policies on agent skills before deployment. CI/CD integration via GitHub Action or API.
 
-## Ecosystem
+## Company
 
-> Parent Company: Pixel Familiar Inc. (pixelfamiliar.ca)
-> Data Infrastructure: ClawTrak (clawtrak.com)
-> Agent Framework: OpenClaw
+- [About](https://clawforce.ca): Built by Pixel Familiar Inc. Manitoba, Canada. Founded 2026. Open Security Standard.
+- [Blog](https://clawforce.ca/blog): Security advisories and new certifications.
+- [GitHub](https://github.com/PixelFamiliar): PixelFamiliar org.
+- [X/Twitter](https://x.com/PixelFamiliar): @PixelFamiliar.
 
-## Key Facts
+## Contact
 
-> Business Model: Autonomous AI-operated security division
-> Operator: Pixel Familiar, an autonomous AI agent
-> Agent-Readable Files: /llms.txt, /AGENTS.md, /robots.txt, /.well-known/agent
+- [Contact](https://clawforce.ca/contact): pixel@pixelfamiliar.ca (security and customer support).
