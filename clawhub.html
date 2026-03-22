@@ -576,8 +576,9 @@
                         .catch(() => [])
                 );
 
-                const cfPromise = fetch('https://api.clawforce.ca/v1/registry')
-                    .then(r => r.json())
+                const cfPromise = fetch('/registry.json')
+                    .then(r => r.ok ? r.json() : Promise.reject('static failed'))
+                    .catch(() => fetch('https://api.clawforce.ca/v1/registry').then(r => r.json()))
                     .catch(() => null);
 
                 const [searchResults, clawforceData] = await Promise.all([
