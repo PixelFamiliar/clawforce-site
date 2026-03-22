@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Trust Profiles | ClawForce</title>
+    <meta name="description" content="Aggregate trust profiles for ClawHub skill developers. See skill count, average risk, permission patterns, and riskiest skills per developer.">
+    <link rel="canonical" href="https://clawforce.ca/developers.html">
+    <link rel="icon" href="/logo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #FAFAF8; --surface: #FFFFFF; --border: #E0DDD5; --border-hover: #C8C4BA;
+            --text: #0A0A0A; --muted: #5C5C5C; --dim: #8A8A80;
+            --primary: #0A0A0A; --cyan: #3D7A5F; --blue: #4A6FA5;
+            --amber: #B8860B; --red: #C0392B; --radius: 2px;
+            --mono: 'Space Mono', monospace; --sans: 'DM Sans', -apple-system, sans-serif;
+        }
+        body { background: var(--bg); color: var(--text); font-family: var(--sans); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+        body::before { content: ''; position: fixed; inset: 0; background: url("data:image/svg+xml,%3Csvg width='400' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events: none; z-index: 0; }
+        .wrap { max-width: 1100px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; }
+        nav { position: fixed; top: 0; width: 100%; z-index: 100; background: rgba(250, 250, 248, 0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
+        nav .wrap { display: flex; align-items: center; justify-content: space-between; }
+        .nav-logo { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; font-family: var(--mono); font-weight: 700; font-size: 0.95rem; letter-spacing: -0.02em; }
+        .nav-logo .brand { color: var(--text); }
+        .nav-links { list-style: none; display: flex; gap: 1.5rem; align-items: center; }
+        .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.82rem; font-weight: 500; transition: color 0.2s; white-space: nowrap; }
+        .nav-links a:hover { color: var(--text); }
+        .nav-links a.active { color: var(--text); }
+        .nav-cta { background: var(--primary) !important; color: var(--bg) !important; padding: 0.4rem 1rem; border-radius: 2px; font-family: var(--mono); font-size: 0.75rem !important; font-weight: 700 !important; letter-spacing: 0.04em; text-transform: uppercase; }
+        .mobile-menu-btn { display: none; background: none; border: none; color: var(--text); font-size: 1.5rem; cursor: pointer; }
+
+        .hero { padding: 9rem 0 3rem; text-align: center; }
+        .hero h1 { font-family: var(--mono); font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 1rem; }
+        .hero .hl { color: var(--cyan); }
+        .hero-sub { font-size: 1rem; color: var(--muted); max-width: 600px; margin: 0 auto 2rem; line-height: 1.7; }
+
+        .section-label { font-family: var(--mono); font-size: 0.68rem; font-weight: 700; color: var(--dim); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.8rem; }
+        .divider { border: none; height: 1px; background: var(--border); margin: 0; }
+
+        .dev-grid { margin: 2rem 0; }
+        .dev-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin-bottom: 1rem; transition: border-color 0.2s, box-shadow 0.2s; cursor: pointer; }
+        .dev-card:hover { border-color: var(--border-hover); box-shadow: 0 2px 12px rgba(0,0,0,0.04); }
+        .dev-header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap; }
+        .dev-name { font-family: var(--mono); font-size: 1.1rem; font-weight: 700; color: var(--text); }
+        .dev-handle { font-family: var(--mono); font-size: 0.72rem; color: var(--dim); }
+        .dev-stats { display: flex; gap: 2rem; flex-wrap: wrap; }
+        .dev-stat { text-align: center; }
+        .dev-stat-value { font-family: var(--mono); font-size: 1.2rem; font-weight: 700; }
+        .dev-stat-label { font-family: var(--mono); font-size: 0.58rem; color: var(--dim); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 2px; }
+        .dev-skills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 1rem; }
+        .dev-skill-tag { font-family: var(--mono); font-size: 0.6rem; padding: 2px 8px; border-radius: 3px; border: 1px solid var(--border); color: var(--muted); background: var(--bg); text-decoration: none; transition: all 0.2s; }
+        .dev-skill-tag:hover { border-color: var(--cyan); color: var(--cyan); }
+        .dev-skill-tag.high { border-color: rgba(192,57,43,0.3); color: var(--red); }
+        .dev-skill-tag.medium { border-color: rgba(184,134,11,0.3); color: var(--amber); }
+        .dev-scopes { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 0.8rem; }
+        .scope-badge { font-family: var(--mono); font-size: 0.52rem; padding: 1px 6px; border-radius: 2px; font-weight: 600; }
+
+        .search-input { width: 100%; padding: 0.7rem 1rem; border: 1px solid var(--border); border-radius: 4px; font-size: 0.88rem; font-family: var(--sans); background: var(--surface); color: var(--text); margin-bottom: 1.5rem; outline: none; transition: border-color 0.2s; }
+        .search-input:focus { border-color: var(--cyan); }
+
+        .sort-group { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .sort-btn { font-family: var(--mono); font-size: 0.68rem; padding: 0.3rem 0.8rem; border: 1px solid var(--border); border-radius: 3px; background: var(--surface); color: var(--muted); cursor: pointer; transition: all 0.2s; }
+        .sort-btn:hover { border-color: var(--text); color: var(--text); }
+        .sort-btn.active { background: var(--primary); color: var(--bg); border-color: var(--primary); }
+
+        .loading { text-align: center; padding: 4rem 0; font-family: var(--mono); font-size: 0.85rem; color: var(--dim); }
+
+        footer { border-top: 1px solid var(--border); padding: 2rem 0; margin-top: 4rem; }
+        .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .footer-brand { font-family: var(--mono); font-weight: 700; font-size: 0.9rem; }
+        .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+        .footer-links a { color: var(--dim); text-decoration: none; font-size: 0.78rem; }
+        .footer-links a:hover { color: var(--text); }
+        .footer-copy { font-size: 0.68rem; color: var(--dim); width: 100%; text-align: center; margin-top: 0.8rem; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: rgba(250,250,248,0.95); backdrop-filter: blur(20px); padding: 1.5rem 2rem; border-bottom: 1px solid var(--border); gap: 1rem; }
+            .dev-header { flex-direction: column; align-items: flex-start; }
+            .dev-stats { gap: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="wrap">
+            <a href="/" class="nav-logo">
+                <img src="/logo.png" alt="ClawForce" style="height:22px;width:22px;">
+                <span class="brand">ClawForce</span>
+            </a>
+            <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">☰</button>
+            <ul class="nav-links">
+                <li><a href="/#scan">Scan</a></li>
+                <li><a href="/#pricing">Pricing</a></li>
+                <li><a href="/blog-index.html">Blog</a></li>
+                <li><a href="/clawhub.html">ClawHub</a></li>
+                <li><a href="/developers.html" class="active">Developers</a></li>
+                <li><a href="/scopes.html">Scopes</a></li>
+                <li><a href="/#scan" class="nav-cta">Scan Now →</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="wrap">
+            <div class="section-label">// developer trust profiles</div>
+            <h1>Who's Building<br><span class="hl">Your Agent's Skills?</span></h1>
+            <p class="hero-sub">Aggregate trust scores per developer. See how many skills they publish, their average risk, and which permission scopes they request most.</p>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <div class="wrap" style="padding-top: 2rem;">
+        <input type="text" class="search-input" id="searchInput" placeholder="Search developers...">
+        <div class="sort-group">
+            <button class="sort-btn active" onclick="sortBy('risk', this)">Highest Risk</button>
+            <button class="sort-btn" onclick="sortBy('skills', this)">Most Skills</button>
+            <button class="sort-btn" onclick="sortBy('name', this)">A-Z</button>
+        </div>
+        <div id="loading" class="loading">Loading developer profiles...</div>
+        <div id="devGrid" class="dev-grid" style="display:none;"></div>
+    </div>
+
+    <footer>
+        <div class="wrap">
+            <div class="footer-inner">
+                <div class="footer-brand"><img src="/logo.png" alt="ClawForce" style="height:18px;width:18px;vertical-align:middle;margin-right:4px;"> ClawForce</div>
+                <div class="footer-links">
+                    <a href="/about.html">About</a>
+                    <a href="/faq.html">FAQ</a>
+                    <a href="/api-docs.html">API</a>
+                    <a href="/contact.html">Contact</a>
+                    <a href="/legal.html">Legal</a>
+                    <a href="/privacy.html">Privacy</a>
+                    <a href="https://pixelfamiliar.ca">Pixel Familiar</a>
+                </div>
+            </div>
+            <p class="footer-copy">© 2026 Pixel Familiar Inc. · ClawForce Verified Skills™ · Manitoba, Canada</p>
+        </div>
+    </footer>
+
+    <script>
+        let allDevs = [];
+        let currentSort = 'risk';
+
+        const scopeColors = {
+            network: '#3D7A5F', filesystem: '#4A6FA5', execution: '#C0392B', credentials: '#B8860B',
+            browser: '#6A5ACD', email: '#2E86C1', database: '#1ABC9C', system: '#C0392B'
+        };
+        const scopeAbbr = { network: 'net', filesystem: 'fs', execution: 'exec', credentials: 'cred', browser: 'web', email: 'mail', database: 'db', system: 'sys' };
+
+        async function loadData() {
+            try {
+                const res = await fetch('/registry.json');
+                const data = await res.json();
+                const skills = data.skills || [];
+
+                // Group by developer
+                const devMap = {};
+                for (const s of skills) {
+                    const dev = s.developer || s.developer_handle || 'unknown';
+                    if (!devMap[dev]) devMap[dev] = { name: dev, handle: s.developer_handle || '', skills: [] };
+                    devMap[dev].skills.push(s);
+                }
+
+                // Build profiles
+                allDevs = Object.values(devMap).map(d => {
+                    const risks = d.skills.map(s => s.risk_score || 0);
+                    const avgRisk = risks.reduce((a, b) => a + b, 0) / risks.length;
+                    const maxRisk = Math.max(...risks);
+                    const riskiest = d.skills.find(s => (s.risk_score || 0) === maxRisk);
+                    const allScopes = new Set();
+                    d.skills.forEach(s => (s.permissions || []).forEach(p => allScopes.add(p)));
+
+                    return {
+                        name: d.name,
+                        handle: d.handle,
+                        skillCount: d.skills.length,
+                        avgRisk: Math.round(avgRisk * 10) / 10,
+                        maxRisk,
+                        riskiest: riskiest ? (riskiest.display_name || riskiest.skill_name) : '',
+                        riskiestSlug: riskiest ? riskiest.skill_name : '',
+                        scopes: Array.from(allScopes),
+                        skills: d.skills.sort((a, b) => (b.risk_score || 0) - (a.risk_score || 0)),
+                    };
+                });
+
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('devGrid').style.display = 'block';
+                render();
+            } catch (err) {
+                document.getElementById('loading').textContent = 'Failed to load data.';
+            }
+        }
+
+        function render() {
+            const search = (document.getElementById('searchInput').value || '').toLowerCase().trim();
+            let filtered = allDevs.filter(d => {
+                if (search && !d.name.toLowerCase().includes(search) && !d.handle.toLowerCase().includes(search)) return false;
+                return true;
+            });
+
+            // Sort
+            if (currentSort === 'risk') filtered.sort((a, b) => b.avgRisk - a.avgRisk);
+            else if (currentSort === 'skills') filtered.sort((a, b) => b.skillCount - a.skillCount);
+            else if (currentSort === 'name') filtered.sort((a, b) => a.name.localeCompare(b.name));
+
+            const grid = document.getElementById('devGrid');
+            grid.innerHTML = '';
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '<div class="loading">No developers found.</div>';
+                return;
+            }
+
+            for (const dev of filtered) {
+                const riskColor = dev.avgRisk <= 5 ? 'var(--cyan)' : dev.avgRisk <= 20 ? 'var(--amber)' : 'var(--red)';
+                const card = document.createElement('div');
+                card.className = 'dev-card';
+
+                let scopeHtml = '';
+                for (const scope of dev.scopes) {
+                    const c = scopeColors[scope] || 'var(--dim)';
+                    scopeHtml += `<span class="scope-badge" style="border:1px solid ${c}33;color:${c};background:${c}0a;">${scopeAbbr[scope] || scope}</span>`;
+                }
+
+                let skillTags = '';
+                for (const s of dev.skills.slice(0, 8)) {
+                    const cls = (s.risk_score || 0) > 20 ? 'high' : (s.risk_score || 0) > 5 ? 'medium' : '';
+                    skillTags += `<a href="/skill/${s.skill_name}" class="dev-skill-tag ${cls}">${s.display_name || s.skill_name}</a>`;
+                }
+                if (dev.skills.length > 8) skillTags += `<span class="dev-skill-tag">+${dev.skills.length - 8} more</span>`;
+
+                card.innerHTML = `
+                    <div class="dev-header">
+                        <div>
+                            <div class="dev-name">${esc(dev.name)}</div>
+                            ${dev.handle ? `<div class="dev-handle">@${esc(dev.handle)}</div>` : ''}
+                        </div>
+                        <div class="dev-stats">
+                            <div class="dev-stat">
+                                <div class="dev-stat-value">${dev.skillCount}</div>
+                                <div class="dev-stat-label">Skills</div>
+                            </div>
+                            <div class="dev-stat">
+                                <div class="dev-stat-value" style="color:${riskColor}">${dev.avgRisk}</div>
+                                <div class="dev-stat-label">Avg Risk</div>
+                            </div>
+                            <div class="dev-stat">
+                                <div class="dev-stat-value" style="color:${dev.maxRisk > 20 ? 'var(--red)' : dev.maxRisk > 5 ? 'var(--amber)' : 'var(--cyan)'}">${dev.maxRisk}</div>
+                                <div class="dev-stat-label">Max Risk</div>
+                            </div>
+                            <div class="dev-stat">
+                                <div class="dev-stat-value">${dev.scopes.length}</div>
+                                <div class="dev-stat-label">Scopes</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dev-scopes">${scopeHtml}</div>
+                    <div class="dev-skills">${skillTags}</div>
+                `;
+                grid.appendChild(card);
+            }
+        }
+
+        function sortBy(sort, btn) {
+            currentSort = sort;
+            document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            render();
+        }
+
+        function esc(str) {
+            if (!str) return '';
+            const d = document.createElement('div');
+            d.textContent = str;
+            return d.innerHTML;
+        }
+
+        let searchTimeout;
+        document.getElementById('searchInput').addEventListener('input', () => {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(render, 200);
+        });
+
+        document.addEventListener('DOMContentLoaded', loadData);
+    </script>
+</body>
+</html>

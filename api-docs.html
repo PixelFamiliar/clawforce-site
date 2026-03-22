@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation | ClawForce</title>
+    <meta name="description" content="ClawForce REST API documentation. Retrieve scan results, skill reports, and security data programmatically.">
+    <link rel="canonical" href="https://clawforce.ca/api-docs.html">
+    <link rel="icon" href="/logo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #FAFAF8; --surface: #FFFFFF; --border: #E0DDD5; --border-hover: #C8C4BA;
+            --text: #0A0A0A; --muted: #5C5C5C; --dim: #8A8A80;
+            --primary: #0A0A0A; --cyan: #3D7A5F; --blue: #4A6FA5;
+            --amber: #B8860B; --red: #C0392B;
+            --mono: 'Space Mono', monospace; --sans: 'DM Sans', -apple-system, sans-serif;
+        }
+        body { background: var(--bg); color: var(--text); font-family: var(--sans); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+        body::before { content: ''; position: fixed; inset: 0; background: url("data:image/svg+xml,%3Csvg width='400' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events: none; z-index: 0; }
+        .wrap { max-width: 800px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; }
+        .wrap-full { max-width: 1100px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; }
+        nav { position: fixed; top: 0; width: 100%; z-index: 100; background: rgba(250, 250, 248, 0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
+        nav .wrap-full { display: flex; align-items: center; justify-content: space-between; }
+        .nav-logo { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; font-family: var(--mono); font-weight: 700; font-size: 0.95rem; letter-spacing: -0.02em; }
+        .nav-logo .brand { color: var(--text); }
+        .nav-links { list-style: none; display: flex; gap: 1.5rem; align-items: center; }
+        .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.82rem; font-weight: 500; transition: color 0.2s; white-space: nowrap; }
+        .nav-links a:hover { color: var(--text); }
+        .nav-links a.active { color: var(--text); }
+        .nav-cta { background: var(--primary) !important; color: var(--bg) !important; padding: 0.4rem 1rem; border-radius: 2px; font-family: var(--mono); font-size: 0.75rem !important; font-weight: 700 !important; letter-spacing: 0.04em; text-transform: uppercase; }
+        .mobile-menu-btn { display: none; background: none; border: none; color: var(--text); font-size: 1.5rem; cursor: pointer; }
+
+        .hero { padding: 9rem 0 2rem; }
+        .hero h1 { font-family: var(--mono); font-size: 2.2rem; font-weight: 700; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 0.8rem; }
+        .hero .hl { color: var(--cyan); }
+        .hero-sub { font-size: 1rem; color: var(--muted); max-width: 600px; line-height: 1.7; }
+        .base-url { font-family: var(--mono); font-size: 0.82rem; background: var(--surface); border: 1px solid var(--border); padding: 0.5rem 1rem; border-radius: 4px; display: inline-block; margin-top: 1rem; }
+
+        h2 { font-family: var(--mono); font-size: 1.3rem; font-weight: 700; margin: 3rem 0 1rem; padding-top: 1rem; border-top: 1px solid var(--border); letter-spacing: -0.02em; }
+        h3 { font-family: var(--mono); font-size: 1rem; font-weight: 700; margin: 2rem 0 0.8rem; }
+
+        .endpoint { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; margin: 1.5rem 0; overflow: hidden; }
+        .endpoint-header { display: flex; align-items: center; gap: 0.8rem; padding: 1rem 1.5rem; border-bottom: 1px solid var(--border); background: var(--bg); }
+        .method { font-family: var(--mono); font-size: 0.7rem; font-weight: 700; padding: 3px 10px; border-radius: 3px; text-transform: uppercase; letter-spacing: 0.05em; }
+        .method-get { background: rgba(61,122,95,0.1); color: var(--cyan); }
+        .endpoint-path { font-family: var(--mono); font-size: 0.85rem; font-weight: 600; color: var(--text); }
+        .endpoint-body { padding: 1.5rem; }
+        .endpoint-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.6; margin-bottom: 1rem; }
+
+        .code-block { background: #1a1a1a; color: #e0e0e0; font-family: var(--mono); font-size: 0.72rem; padding: 1rem 1.5rem; border-radius: 6px; overflow-x: auto; line-height: 1.7; margin: 0.8rem 0; white-space: pre; }
+        .code-block .comment { color: #6a9955; }
+        .code-block .string { color: #ce9178; }
+        .code-block .key { color: #9cdcfe; }
+        .code-block .number { color: #b5cea8; }
+
+        .params-table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+        .params-table th { font-family: var(--mono); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--dim); text-align: left; padding: 0.5rem; border-bottom: 1px solid var(--border); }
+        .params-table td { font-size: 0.82rem; padding: 0.5rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+        .params-table td:first-child { font-family: var(--mono); font-size: 0.78rem; color: var(--text); font-weight: 600; }
+
+        .try-btn { font-family: var(--mono); font-size: 0.7rem; padding: 0.4rem 1rem; border: 1px solid var(--cyan); background: transparent; color: var(--cyan); border-radius: 3px; cursor: pointer; font-weight: 700; transition: all 0.2s; }
+        .try-btn:hover { background: var(--cyan); color: white; }
+        .try-result { margin-top: 0.8rem; display: none; }
+
+        .rate-limits { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; }
+        .rate-limit-row { display: flex; justify-content: space-between; padding: 0.4rem 0; border-bottom: 1px solid var(--border); }
+        .rate-limit-row:last-child { border-bottom: none; }
+
+        footer { border-top: 1px solid var(--border); padding: 2rem 0; margin-top: 4rem; }
+        .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .footer-brand { font-family: var(--mono); font-weight: 700; font-size: 0.9rem; }
+        .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+        .footer-links a { color: var(--dim); text-decoration: none; font-size: 0.78rem; }
+        .footer-copy { font-size: 0.68rem; color: var(--dim); width: 100%; text-align: center; margin-top: 0.8rem; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: rgba(250,250,248,0.95); backdrop-filter: blur(20px); padding: 1.5rem 2rem; border-bottom: 1px solid var(--border); gap: 1rem; }
+            .endpoint-header { flex-direction: column; align-items: flex-start; gap: 0.4rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="wrap-full">
+            <a href="/" class="nav-logo">
+                <img src="/logo.png" alt="ClawForce" style="height:22px;width:22px;">
+                <span class="brand">ClawForce</span>
+            </a>
+            <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">☰</button>
+            <ul class="nav-links">
+                <li><a href="/#scan">Scan</a></li>
+                <li><a href="/#pricing">Pricing</a></li>
+                <li><a href="/blog-index.html">Blog</a></li>
+                <li><a href="/clawhub.html">ClawHub</a></li>
+                <li><a href="/developers.html">Developers</a></li>
+                <li><a href="/scopes.html">Scopes</a></li>
+                <li><a href="/#scan" class="nav-cta">Scan Now →</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="wrap">
+        <section class="hero">
+            <h1>API <span class="hl">Documentation</span></h1>
+            <p class="hero-sub">Retrieve scan results, skill reports, and embeddable badges programmatically. No authentication required for read endpoints.</p>
+            <div class="base-url">Base URL: https://api.clawforce.ca</div>
+        </section>
+
+        <!-- Registry -->
+        <h2>Registry</h2>
+
+        <div class="endpoint">
+            <div class="endpoint-header">
+                <span class="method method-get">GET</span>
+                <span class="endpoint-path">/v1/registry</span>
+            </div>
+            <div class="endpoint-body">
+                <p class="endpoint-desc">Returns the full skill registry with all scanned skills, risk scores, permissions, and metadata.</p>
+                <div class="code-block"><span class="comment">// Example request</span>
+fetch('<span class="string">https://api.clawforce.ca/v1/registry</span>')
+  .then(r => r.json())
+  .then(data => {
+    console.log(data.skills.length + ' skills');
+  });</div>
+                <button class="try-btn" onclick="tryEndpoint('/v1/registry', 'result-registry')">Try it →</button>
+                <div class="try-result" id="result-registry">
+                    <div class="code-block" id="result-registry-code"></div>
+                </div>
+
+                <h3>Response Schema</h3>
+                <table class="params-table">
+                    <tr><th>Field</th><th>Type</th><th>Description</th></tr>
+                    <tr><td>skills</td><td>array</td><td>Array of skill objects</td></tr>
+                    <tr><td>skills[].skill_name</td><td>string</td><td>Unique skill identifier (slug)</td></tr>
+                    <tr><td>skills[].display_name</td><td>string</td><td>Human-readable name</td></tr>
+                    <tr><td>skills[].developer</td><td>string</td><td>Developer name or handle</td></tr>
+                    <tr><td>skills[].risk_score</td><td>integer</td><td>Risk score (0-100)</td></tr>
+                    <tr><td>skills[].permissions</td><td>array</td><td>Detected permission scopes</td></tr>
+                    <tr><td>skills[].certification_tier</td><td>string</td><td>scanned, verified, certified, or flagged</td></tr>
+                    <tr><td>skills[].clawhub_verdict</td><td>string</td><td>ClawHub moderation verdict (clean/suspicious)</td></tr>
+                    <tr><td>skills[].verdict_disagree</td><td>boolean</td><td>Whether ClawForce disagrees with ClawHub</td></tr>
+                    <tr><td>skills[].llm_assessment</td><td>string</td><td>AI analysis (when available)</td></tr>
+                    <tr><td>skills[].downloads</td><td>integer</td><td>Download count from ClawHub</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Skill Lookup -->
+        <h2>Skill Lookup</h2>
+
+        <div class="endpoint">
+            <div class="endpoint-header">
+                <span class="method method-get">GET</span>
+                <span class="endpoint-path">/v1/skill/{name}</span>
+            </div>
+            <div class="endpoint-body">
+                <p class="endpoint-desc">Retrieve a single skill's scan report by name.</p>
+                <table class="params-table">
+                    <tr><th>Parameter</th><th>Type</th><th>Description</th></tr>
+                    <tr><td>name</td><td>string</td><td>Skill slug (e.g., react-email-skills)</td></tr>
+                </table>
+                <div class="code-block"><span class="comment">// Example</span>
+fetch('<span class="string">https://api.clawforce.ca/v1/skill/react-email-skills</span>')
+  .then(r => r.json())
+  .then(skill => console.log(skill.risk_score));</div>
+                <button class="try-btn" onclick="tryEndpoint('/v1/skill/react-email-skills', 'result-skill')">Try it →</button>
+                <div class="try-result" id="result-skill">
+                    <div class="code-block" id="result-skill-code"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Badge -->
+        <h2>Badges</h2>
+
+        <div class="endpoint">
+            <div class="endpoint-header">
+                <span class="method method-get">GET</span>
+                <span class="endpoint-path">/v1/badge/{name}</span>
+            </div>
+            <div class="endpoint-body">
+                <p class="endpoint-desc">Returns an SVG badge showing the skill's ClawForce scan status. Use in READMEs and documentation.</p>
+                <table class="params-table">
+                    <tr><th>Parameter</th><th>Type</th><th>Description</th></tr>
+                    <tr><td>name</td><td>string</td><td>Skill name</td></tr>
+                </table>
+                <div class="code-block"><span class="comment">// Markdown embed</span>
+![ClawForce](https://clawforce.ca/badges/your-skill.svg)
+
+<span class="comment">// HTML embed</span>
+&lt;img src="https://clawforce.ca/badges/your-skill.svg"
+     alt="ClawForce Security Badge"&gt;</div>
+                <p style="margin-top:1rem;font-size:0.82rem;color:var(--muted);">Static SVG badges are also available at <code style="font-family:var(--mono);font-size:0.78rem;">https://clawforce.ca/badges/{name}.svg</code></p>
+            </div>
+        </div>
+
+        <!-- Scan -->
+        <h2>Submit Scan</h2>
+
+        <div class="endpoint">
+            <div class="endpoint-header">
+                <span class="method method-get">GET</span>
+                <span class="endpoint-path">/v1/scan?repo={github_url}</span>
+            </div>
+            <div class="endpoint-body">
+                <p class="endpoint-desc">Submit a GitHub repository for security scanning. Returns the scan result with risk score, findings, and certification tier.</p>
+                <table class="params-table">
+                    <tr><th>Parameter</th><th>Type</th><th>Description</th></tr>
+                    <tr><td>repo</td><td>string</td><td>Full GitHub repository URL</td></tr>
+                </table>
+                <div class="code-block"><span class="comment">// Example</span>
+fetch('<span class="string">https://api.clawforce.ca/v1/scan?repo=https://github.com/user/skill</span>')
+  .then(r => r.json())
+  .then(result => {
+    console.log('Risk:', result.risk_score);
+    console.log('Tier:', result.certification_tier);
+  });</div>
+            </div>
+        </div>
+
+        <!-- Rate Limits -->
+        <h2>Rate Limits</h2>
+        <div class="rate-limits">
+            <div class="rate-limit-row">
+                <span style="font-family:var(--mono);font-size:0.82rem;font-weight:600;">Registry / Skill Lookup</span>
+                <span style="font-family:var(--mono);font-size:0.82rem;color:var(--cyan);">100 req/min</span>
+            </div>
+            <div class="rate-limit-row">
+                <span style="font-family:var(--mono);font-size:0.82rem;font-weight:600;">Badge</span>
+                <span style="font-family:var(--mono);font-size:0.82rem;color:var(--cyan);">Unlimited (CDN cached)</span>
+            </div>
+            <div class="rate-limit-row">
+                <span style="font-family:var(--mono);font-size:0.82rem;font-weight:600;">Scan</span>
+                <span style="font-family:var(--mono);font-size:0.82rem;color:var(--amber);">10 req/min</span>
+            </div>
+        </div>
+
+        <h2>SDKs &amp; Tools</h2>
+        <p style="color:var(--muted);font-size:0.9rem;line-height:1.7;">All endpoints return JSON. No authentication needed for read operations. CORS headers are set for browser access. For bulk operations, prefer the <code style="font-family:var(--mono);font-size:0.78rem;">/v1/registry</code> endpoint over individual skill lookups.</p>
+    </div>
+
+    <footer>
+        <div class="wrap-full">
+            <div class="footer-inner">
+                <div class="footer-brand"><img src="/logo.png" alt="ClawForce" style="height:18px;width:18px;vertical-align:middle;margin-right:4px;"> ClawForce</div>
+                <div class="footer-links">
+                    <a href="/about.html">About</a><a href="/faq.html">FAQ</a><a href="/api-docs.html" style="color:var(--text);">API</a>
+                    <a href="/contact.html">Contact</a><a href="/legal.html">Legal</a><a href="https://pixelfamiliar.ca">Pixel Familiar</a>
+                </div>
+            </div>
+            <p class="footer-copy">© 2026 Pixel Familiar Inc. · ClawForce Verified Skills™ · Manitoba, Canada</p>
+        </div>
+    </footer>
+
+    <script>
+        async function tryEndpoint(path, resultId) {
+            const container = document.getElementById(resultId);
+            const code = document.getElementById(resultId + '-code');
+            container.style.display = 'block';
+            code.textContent = 'Loading...';
+            try {
+                const res = await fetch('https://api.clawforce.ca' + path);
+                const data = await res.json();
+                const preview = JSON.stringify(data, null, 2);
+                code.textContent = preview.length > 2000 ? preview.slice(0, 2000) + '\n// ... truncated' : preview;
+            } catch (err) {
+                code.textContent = 'Error: ' + err.message;
+            }
+        }
+    </script>
+</body>
+</html>
