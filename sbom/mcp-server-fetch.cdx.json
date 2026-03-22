@@ -1,0 +1,112 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-051865aff0cb0076",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.798613+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:pypi/mcp-server-fetch",
+      "name": "mcp-server-fetch",
+      "version": "2025.4.7",
+      "description": "A Model Context Protocol server providing tools to fetch and convert web content for usage by LLMs",
+      "purl": "pkg:pypi/mcp-server-fetch@2025.4.7",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://pypi.org/project/mcp-server-fetch/"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "3"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "pypi"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:pypi/mcp-server-fetch",
+      "name": "mcp-server-fetch",
+      "version": "2025.4.7",
+      "description": "A Model Context Protocol server providing tools to fetch and convert web content for usage by LLMs",
+      "purl": "pkg:pypi/mcp-server-fetch@2025.4.7",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://pypi.org/project/mcp-server-fetch/"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "3"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "pypi"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

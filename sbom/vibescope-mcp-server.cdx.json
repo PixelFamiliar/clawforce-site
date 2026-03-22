@@ -1,0 +1,112 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-eac82e59287cf669",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.732336+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:npm/vibescope-mcp-server",
+      "name": "@vibescope/mcp-server",
+      "version": "0.5.0",
+      "description": "MCP server for Vibescope - AI project tracking tools",
+      "purl": "pkg:npm/vibescope-mcp-server@0.5.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/PaulNonatomic/Vibescope"
+        },
+        {
+          "type": "website",
+          "url": "https://www.npmjs.com/package/@vibescope/mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "0"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "npm"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:npm/vibescope-mcp-server",
+      "name": "@vibescope/mcp-server",
+      "version": "0.5.0",
+      "description": "MCP server for Vibescope - AI project tracking tools",
+      "purl": "pkg:npm/vibescope-mcp-server@0.5.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/PaulNonatomic/Vibescope"
+        },
+        {
+          "type": "website",
+          "url": "https://www.npmjs.com/package/@vibescope/mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "0"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "npm"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

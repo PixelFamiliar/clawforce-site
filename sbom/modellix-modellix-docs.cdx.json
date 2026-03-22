@@ -1,0 +1,108 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-e8b132d62be70f55",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:58.512537+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/modellix-modellix-docs",
+      "name": "Modellix Docs",
+      "version": "",
+      "description": "Search the Modellix knowledge base to quickly find relevant technical information, code examples, and API references. Retrieve implementation details and official guides to solve development queries e",
+      "purl": "pkg:generic/modellix-modellix-docs",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/modellix/modellix-docs"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/modellix/modellix-docs"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "7"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/modellix-modellix-docs",
+      "name": "Modellix Docs",
+      "version": "",
+      "description": "Search the Modellix knowledge base to quickly find relevant technical information, code examples, and API references. Retrieve implementation details and official guides to solve development queries e",
+      "purl": "pkg:generic/modellix-modellix-docs",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/modellix/modellix-docs"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/modellix/modellix-docs"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "7"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-afb149857bd73b66",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:55.876641+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/send-file",
+      "name": "Send File",
+      "version": "1.0.1",
+      "description": "\u53d1\u9001\u6587\u4ef6\u5230\u6d88\u606f\u5e73\u53f0\u3002\u89e6\u53d1\u8bcd\uff1a\u53d1\u9001\u6587\u4ef6\u3001\u53d1\u9001\u6587\u6863\u3001\u53d1\u9001\u622a\u56fe\u3001\u4f20\u6587\u4ef6\u3001\u53d1\u6587\u4ef6\u3002\u652f\u6301\u98de\u4e66\u7b49\u5e73\u53f0\uff0c\u5185\u5bb9\u4f18\u5148\u7ea7\uff1a\u751f\u6210\u7684\u6587\u6863 > \u672c\u5730\u6587\u4ef6 > \u622a\u56fe\u3002",
+      "purl": "pkg:generic/send-file@1.0.1",
+      "licenses": [
+        {
+          "license": {
+            "name": "MIT-0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/wlong800/send-file"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "14"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/send-file",
+      "name": "Send File",
+      "version": "1.0.1",
+      "description": "\u53d1\u9001\u6587\u4ef6\u5230\u6d88\u606f\u5e73\u53f0\u3002\u89e6\u53d1\u8bcd\uff1a\u53d1\u9001\u6587\u4ef6\u3001\u53d1\u9001\u6587\u6863\u3001\u53d1\u9001\u622a\u56fe\u3001\u4f20\u6587\u4ef6\u3001\u53d1\u6587\u4ef6\u3002\u652f\u6301\u98de\u4e66\u7b49\u5e73\u53f0\uff0c\u5185\u5bb9\u4f18\u5148\u7ea7\uff1a\u751f\u6210\u7684\u6587\u6863 > \u672c\u5730\u6587\u4ef6 > \u622a\u56fe\u3002",
+      "purl": "pkg:generic/send-file@1.0.1",
+      "licenses": [
+        {
+          "license": {
+            "name": "MIT-0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/wlong800/send-file"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "14"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

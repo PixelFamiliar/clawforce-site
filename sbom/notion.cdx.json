@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-ce80af9ae2238b9c",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.180657+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/notion",
+      "name": "Notion",
+      "version": "",
+      "description": "Search across your Notion workspace and connected sources to quickly find pages, databases, and users. View full page and database details for deeper context. Create and update pages, manage databases",
+      "purl": "pkg:generic/notion",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/notion"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "11"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:database",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/notion",
+      "name": "Notion",
+      "version": "",
+      "description": "Search across your Notion workspace and connected sources to quickly find pages, databases, and users. View full page and database details for deeper context. Create and update pages, manage databases",
+      "purl": "pkg:generic/notion",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/notion"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "11"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:database",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

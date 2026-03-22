@@ -1,0 +1,92 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-b960bfd58584dc05",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.067841+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/security-best-practices",
+      "name": "Security Best Practices",
+      "version": "1.0.0",
+      "description": "Review code with secure-by-default standards, prioritize exploitable risks, and deliver minimal-diff fixes with evidence and regression checks.",
+      "purl": "pkg:generic/security-best-practices@1.0.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/ivangdavila/security-best-practices"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "14"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/security-best-practices",
+      "name": "Security Best Practices",
+      "version": "1.0.0",
+      "description": "Review code with secure-by-default standards, prioritize exploitable risks, and deliver minimal-diff fixes with evidence and regression checks.",
+      "purl": "pkg:generic/security-best-practices@1.0.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/ivangdavila/security-best-practices"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "14"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

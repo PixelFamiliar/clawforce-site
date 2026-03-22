@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-2ab00f753d4a7ae4",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.313098+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/rdassignies-openlegi",
+      "name": "openlegi",
+      "version": "",
+      "description": "Serveur MCP pour les sources juridiques suivantes : \n- Legifrance\n- Judilibre\n- Registre National des Entreprises (RNE)\n- BODACC\n- BOAMP\n...",
+      "purl": "pkg:generic/rdassignies-openlegi",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rdassignies/openlegi"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/rdassignies/openlegi"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/rdassignies-openlegi",
+      "name": "openlegi",
+      "version": "",
+      "description": "Serveur MCP pour les sources juridiques suivantes : \n- Legifrance\n- Judilibre\n- Registre National des Entreprises (RNE)\n- BODACC\n- BOAMP\n...",
+      "purl": "pkg:generic/rdassignies-openlegi",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rdassignies/openlegi"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/rdassignies/openlegi"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-30d267944f176b9e",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:58.426971+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:github/yuniko-software-minecraft-mcp-server",
+      "name": "minecraft-mcp-server",
+      "version": "",
+      "description": "A Minecraft MCP Server powered by Mineflayer API. It allows to control a Minecraft character in real-time, allowing AI assistants to build structures, explore the world, and interact with the game env",
+      "purl": "pkg:github/yuniko-software/yuniko-software-minecraft-mcp-server",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/yuniko-software/minecraft-mcp-server"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/yuniko-software/minecraft-mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "2"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:github/yuniko-software-minecraft-mcp-server",
+      "name": "minecraft-mcp-server",
+      "version": "",
+      "description": "A Minecraft MCP Server powered by Mineflayer API. It allows to control a Minecraft character in real-time, allowing AI assistants to build structures, explore the world, and interact with the game env",
+      "purl": "pkg:github/yuniko-software/yuniko-software-minecraft-mcp-server",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/yuniko-software/minecraft-mcp-server"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/yuniko-software/minecraft-mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "2"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

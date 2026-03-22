@@ -1,0 +1,92 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-2609a4781a3c90e2",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:55.846438+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/local-file-rag-basic",
+      "name": "local-file-rag-basic",
+      "version": "1.0.0",
+      "description": "High-performance local File RAG suite (Basic Edition).",
+      "purl": "pkg:generic/local-file-rag-basic@1.0.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/wjreliable/local-file-rag-basic"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "20"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/local-file-rag-basic",
+      "name": "local-file-rag-basic",
+      "version": "1.0.0",
+      "description": "High-performance local File RAG suite (Basic Edition).",
+      "purl": "pkg:generic/local-file-rag-basic@1.0.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/wjreliable/local-file-rag-basic"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "20"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

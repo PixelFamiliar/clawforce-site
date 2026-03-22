@@ -1,0 +1,112 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-d3f755deaccfda83",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.057660+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:npm/leonardsellem-n8n-mcp-server",
+      "name": "@leonardsellem/n8n-mcp-server",
+      "version": "0.1.8",
+      "description": "Model Context Protocol (MCP) server for n8n workflow automation",
+      "purl": "pkg:npm/leonardsellem-n8n-mcp-server@0.1.8",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/leonardsellem/n8n-mcp-server"
+        },
+        {
+          "type": "website",
+          "url": "https://www.npmjs.com/package/@leonardsellem/n8n-mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "0"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "npm"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:npm/leonardsellem-n8n-mcp-server",
+      "name": "@leonardsellem/n8n-mcp-server",
+      "version": "0.1.8",
+      "description": "Model Context Protocol (MCP) server for n8n workflow automation",
+      "purl": "pkg:npm/leonardsellem-n8n-mcp-server@0.1.8",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/leonardsellem/n8n-mcp-server"
+        },
+        {
+          "type": "website",
+          "url": "https://www.npmjs.com/package/@leonardsellem/n8n-mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "0"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "npm"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

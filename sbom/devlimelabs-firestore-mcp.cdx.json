@@ -1,0 +1,215 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-05cebfc595c359e2",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.597883+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/devlimelabs-firestore-mcp",
+      "name": "Firestore Server",
+      "version": "",
+      "description": "Provide secure, permission-controlled access to Firebase Firestore databases through a standardized MCP interface. Enable AI assistants and other clients to perform full CRUD operations, advanced quer",
+      "purl": "pkg:generic/devlimelabs-firestore-mcp",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/devlimelabs/firestore-mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/devlimelabs/firestore-mcp"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "59"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "source"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:execution",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:database",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:system",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:dep_count",
+          "value": "4"
+        },
+        {
+          "name": "clawforce:dep_risk_score",
+          "value": "0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/devlimelabs-firestore-mcp",
+      "name": "Firestore Server",
+      "version": "",
+      "description": "Provide secure, permission-controlled access to Firebase Firestore databases through a standardized MCP interface. Enable AI assistants and other clients to perform full CRUD operations, advanced quer",
+      "purl": "pkg:generic/devlimelabs-firestore-mcp",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/devlimelabs/firestore-mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/devlimelabs/firestore-mcp"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "59"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "source"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:execution",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:database",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:system",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:dep_count",
+          "value": "4"
+        },
+        {
+          "name": "clawforce:dep_risk_score",
+          "value": "0"
+        }
+      ]
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "bom-ref": "vuln-49c0f1b4492b",
+      "id": "CF-49C0F1B4492B",
+      "source": {
+        "name": "ClawForce Scanner",
+        "url": "https://clawforce.ca"
+      },
+      "ratings": [
+        {
+          "severity": "low",
+          "method": "other",
+          "source": {
+            "name": "ClawForce Code Scanner"
+          }
+        }
+      ],
+      "description": "Environment variable access",
+      "affects": [
+        {
+          "ref": "pkg:smithery/devlimelabs-firestore-mcp"
+        }
+      ]
+    },
+    {
+      "bom-ref": "vuln-a1f5b84bfa21",
+      "id": "CF-A1F5B84BFA21",
+      "source": {
+        "name": "ClawForce Scanner",
+        "url": "https://clawforce.ca"
+      },
+      "ratings": [
+        {
+          "severity": "high",
+          "method": "other",
+          "source": {
+            "name": "ClawForce Code Scanner"
+          }
+        }
+      ],
+      "description": "Dynamic code/command execution",
+      "affects": [
+        {
+          "ref": "pkg:smithery/devlimelabs-firestore-mcp"
+        }
+      ]
+    },
+    {
+      "bom-ref": "vuln-undeclared-credentials",
+      "id": "CF-UNDECLARED-CREDENTIALS",
+      "source": {
+        "name": "ClawForce Schema Validator"
+      },
+      "ratings": [
+        {
+          "severity": "medium",
+          "method": "other"
+        }
+      ],
+      "description": "Undeclared credentials capability detected in source but not in MCP tool declarations",
+      "affects": [
+        {
+          "ref": "pkg:smithery/devlimelabs-firestore-mcp"
+        }
+      ]
+    }
+  ]
+}

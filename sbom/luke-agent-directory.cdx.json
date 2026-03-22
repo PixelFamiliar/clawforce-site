@@ -1,0 +1,112 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-25eaf491c0363064",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:55.638575+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/luke-agent-directory",
+      "name": "Luke Agent Directory",
+      "version": "1.0.0",
+      "description": "The directory for AI agent services. Discover tools, platforms, and infrastructure built for agents.",
+      "purl": "pkg:generic/luke-agent-directory@1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "name": "MIT-0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/banalit/luke-agent-directory"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "8"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:filesystem",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/luke-agent-directory",
+      "name": "Luke Agent Directory",
+      "version": "1.0.0",
+      "description": "The directory for AI agent services. Discover tools, platforms, and infrastructure built for agents.",
+      "purl": "pkg:generic/luke-agent-directory@1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "name": "MIT-0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/banalit/luke-agent-directory"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "8"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:filesystem",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-885470fe7037f3b6",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:55.720185+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/modified-code-review",
+      "name": "Modified Code Review",
+      "version": "1.0.0",
+      "description": "Reviews user-modified code (diffs/PRs), provides best-practice recommendations, analyzes cost-effectiveness of the approach, and outputs a code score. Use wh...",
+      "purl": "pkg:generic/modified-code-review@1.0.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/wangzhiming1999/modified-code-review"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "20"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/modified-code-review",
+      "name": "Modified Code Review",
+      "version": "1.0.0",
+      "description": "Reviews user-modified code (diffs/PRs), provides best-practice recommendations, analyzes cost-effectiveness of the approach, and outputs a code score. Use wh...",
+      "purl": "pkg:generic/modified-code-review@1.0.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/wangzhiming1999/modified-code-review"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "20"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

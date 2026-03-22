@@ -1,0 +1,108 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-4d364375bf92775c",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.456068+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/agentidx-zarq-risk",
+      "name": "Zarq",
+      "version": "",
+      "description": "Evaluate crypto token safety with real-time trust scores and structural risk signals. Identify potential market distress and impending collapses to safeguard your digital investments. Compare assets h",
+      "purl": "pkg:generic/agentidx-zarq-risk",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/agentidx/zarq-risk"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/agentidx/zarq-risk"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "24"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:credentials",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/agentidx-zarq-risk",
+      "name": "Zarq",
+      "version": "",
+      "description": "Evaluate crypto token safety with real-time trust scores and structural risk signals. Identify potential market distress and impending collapses to safeguard your digital investments. Compare assets h",
+      "purl": "pkg:generic/agentidx-zarq-risk",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/agentidx/zarq-risk"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/agentidx/zarq-risk"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "24"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:credentials",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-b7b749ea001937b8",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:58.163972+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:github/ifuryst-rednote-mcp",
+      "name": "RedNote-MCP",
+      "version": "",
+      "description": "\ud83d\ude80MCP server for accessing RedNote(XiaoHongShu, xhs).",
+      "purl": "pkg:github/iFurySt/ifuryst-rednote-mcp",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/iFurySt/RedNote-MCP"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/iFurySt/RedNote-MCP"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "1"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:github/ifuryst-rednote-mcp",
+      "name": "RedNote-MCP",
+      "version": "",
+      "description": "\ud83d\ude80MCP server for accessing RedNote(XiaoHongShu, xhs).",
+      "purl": "pkg:github/iFurySt/ifuryst-rednote-mcp",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/iFurySt/RedNote-MCP"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/iFurySt/RedNote-MCP"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "1"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-4b15c42c48d4de56",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.607578+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/seahbk1006-seahboonkeong-chat-opendosm",
+      "name": "Seah Boon Keong - Chat with OpenDOSM Datasets",
+      "version": "",
+      "description": "MCP for public datasets OpenDOSM (Developed by Seah Boon Keong)\n\nWhat it delivers:\n- 163 curated datasets (Department of Statistics Malaysia + sources)\n- Programmatic tools: discover, query, get lates",
+      "purl": "pkg:generic/seahbk1006-seahboonkeong-chat-opendosm",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/seahbk1006/seahboonkeong-chat-opendosm"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/seahbk1006/seahboonkeong-chat-opendosm"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "7"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/seahbk1006-seahboonkeong-chat-opendosm",
+      "name": "Seah Boon Keong - Chat with OpenDOSM Datasets",
+      "version": "",
+      "description": "MCP for public datasets OpenDOSM (Developed by Seah Boon Keong)\n\nWhat it delivers:\n- 163 curated datasets (Department of Statistics Malaysia + sources)\n- Programmatic tools: discover, query, get lates",
+      "purl": "pkg:generic/seahbk1006-seahboonkeong-chat-opendosm",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/seahbk1006/seahboonkeong-chat-opendosm"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/seahbk1006/seahboonkeong-chat-opendosm"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "7"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

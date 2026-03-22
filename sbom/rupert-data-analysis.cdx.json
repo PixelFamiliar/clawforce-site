@@ -1,0 +1,104 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-fd8f5f3d38cf3469",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:55.915174+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/rupert-data-analysis",
+      "name": "Data Analysis",
+      "version": "1.0.0",
+      "description": "Analyze and transform data from multiple formats to generate insights, visualize trends, detect anomalies, and create comprehensive reports.",
+      "purl": "pkg:generic/rupert-data-analysis@1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "name": "MIT-0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/rupertnt034/rupert-data-analysis"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "4"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/rupert-data-analysis",
+      "name": "Data Analysis",
+      "version": "1.0.0",
+      "description": "Analyze and transform data from multiple formats to generate insights, visualize trends, detect anomalies, and create comprehensive reports.",
+      "purl": "pkg:generic/rupert-data-analysis@1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "name": "MIT-0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/rupertnt034/rupert-data-analysis"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "4"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

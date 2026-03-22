@@ -1,0 +1,120 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-df3d8e1c1db9ed95",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.066996+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:npm/delorenj-mcp-server-trello",
+      "name": "@delorenj/mcp-server-trello",
+      "version": "1.7.1",
+      "description": "An MCP server for Trello boards, powered by Bun for maximum performance.",
+      "purl": "pkg:npm/delorenj-mcp-server-trello@1.7.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/delorenj/mcp-server-trello"
+        },
+        {
+          "type": "website",
+          "url": "https://www.npmjs.com/package/@delorenj/mcp-server-trello"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "1"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "npm"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:npm/delorenj-mcp-server-trello",
+      "name": "@delorenj/mcp-server-trello",
+      "version": "1.7.1",
+      "description": "An MCP server for Trello boards, powered by Bun for maximum performance.",
+      "purl": "pkg:npm/delorenj-mcp-server-trello@1.7.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/delorenj/mcp-server-trello"
+        },
+        {
+          "type": "website",
+          "url": "https://www.npmjs.com/package/@delorenj/mcp-server-trello"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "1"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "npm"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

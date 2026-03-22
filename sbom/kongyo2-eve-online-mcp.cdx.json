@@ -1,0 +1,108 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-e5eb5c5f59052d67",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.638530+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/kongyo2-eve-online-mcp",
+      "name": "EVE Online Market Data Server",
+      "version": "",
+      "description": "Provide real-time access to EVE Online market data including prices, orders, history, and statistics. Enable detailed market analysis and structure-specific order retrieval with support for authentica",
+      "purl": "pkg:generic/kongyo2-eve-online-mcp",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/kongyo2/eve-online-mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/kongyo2/eve-online-mcp"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "20"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:credentials",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/kongyo2-eve-online-mcp",
+      "name": "EVE Online Market Data Server",
+      "version": "",
+      "description": "Provide real-time access to EVE Online market data including prices, orders, history, and statistics. Enable detailed market analysis and structure-specific order retrieval with support for authentica",
+      "purl": "pkg:generic/kongyo2-eve-online-mcp",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/kongyo2/eve-online-mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/kongyo2/eve-online-mcp"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "20"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:credentials",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,177 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-a9a7acc35897521a",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.926147+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:github/firecrawl-firecrawl-mcp-server",
+      "name": "firecrawl-mcp-server",
+      "version": "",
+      "description": "\ud83d\udd25 Official Firecrawl MCP Server - Adds powerful web scraping and search to Cursor, Claude and any other LLM clients.",
+      "purl": "pkg:github/firecrawl/firecrawl-firecrawl-mcp-server",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/firecrawl/firecrawl-mcp-server"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/firecrawl/firecrawl-mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "19"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "source"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:execution",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:browser",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:dep_count",
+          "value": "5"
+        },
+        {
+          "name": "clawforce:dep_risk_score",
+          "value": "0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:github/firecrawl-firecrawl-mcp-server",
+      "name": "firecrawl-mcp-server",
+      "version": "",
+      "description": "\ud83d\udd25 Official Firecrawl MCP Server - Adds powerful web scraping and search to Cursor, Claude and any other LLM clients.",
+      "purl": "pkg:github/firecrawl/firecrawl-firecrawl-mcp-server",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/firecrawl/firecrawl-mcp-server"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/firecrawl/firecrawl-mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "19"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "source"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:execution",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:browser",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:dep_count",
+          "value": "5"
+        },
+        {
+          "name": "clawforce:dep_risk_score",
+          "value": "0"
+        }
+      ]
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "bom-ref": "vuln-3c5088f13320",
+      "id": "CF-3C5088F13320",
+      "source": {
+        "name": "ClawForce Scanner",
+        "url": "https://clawforce.ca"
+      },
+      "ratings": [
+        {
+          "severity": "low",
+          "method": "other",
+          "source": {
+            "name": "ClawForce Code Scanner"
+          }
+        }
+      ],
+      "description": "Environment variable access",
+      "affects": [
+        {
+          "ref": "pkg:github/firecrawl-firecrawl-mcp-server"
+        }
+      ]
+    }
+  ]
+}

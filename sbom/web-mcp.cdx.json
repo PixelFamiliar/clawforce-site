@@ -1,0 +1,92 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-ab568ae7bac37a68",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:55.689826+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/web-mcp",
+      "name": "WebMCP",
+      "version": "1.0.0",
+      "description": "WebMCP - Enable AI agents to interact with your web applications through structured tools. Implements the WebMCP standard for Next.js/React apps with tool re...",
+      "purl": "pkg:generic/web-mcp@1.0.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/slemo54/web-mcp"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "20"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/web-mcp",
+      "name": "WebMCP",
+      "version": "1.0.0",
+      "description": "WebMCP - Enable AI agents to interact with your web applications through structured tools. Implements the WebMCP standard for Next.js/React apps with tool re...",
+      "purl": "pkg:generic/web-mcp@1.0.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/slemo54/web-mcp"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "20"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

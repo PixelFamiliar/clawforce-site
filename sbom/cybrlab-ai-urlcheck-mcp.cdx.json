@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-b31a568caf865cc0",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.521216+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/cybrlab-ai-urlcheck-mcp",
+      "name": "URL security scanner to protect AI agent workflows.",
+      "version": "",
+      "description": "MCP-native URL security scanner that protects AI agent workflows. Analyzes URLs for phishing, malware, and suspicious patterns before agent navigation. Returns risk scores, confidence levels, and agen",
+      "purl": "pkg:generic/cybrlab-ai-urlcheck-mcp",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/cybrlab-ai/urlcheck-mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/cybrlab-ai/urlcheck-mcp"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/cybrlab-ai-urlcheck-mcp",
+      "name": "URL security scanner to protect AI agent workflows.",
+      "version": "",
+      "description": "MCP-native URL security scanner that protects AI agent workflows. Analyzes URLs for phishing, malware, and suspicious patterns before agent navigation. Returns risk scores, confidence levels, and agen",
+      "purl": "pkg:generic/cybrlab-ai-urlcheck-mcp",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/cybrlab-ai/urlcheck-mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/cybrlab-ai/urlcheck-mcp"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-005ac0c6453bdb3d",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.694186+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/svgverseai-svgverseai-mcp",
+      "name": "SvgverseAI \u2014 The AI Vector Generator",
+      "version": "",
+      "description": "The SVGverseAI MCP Server lets you connect your AI agents, automation workflows, or creative tools directly to SVGverseAI\u2019s image generation engine \u2014 without ever opening the app.\n\nWith just a few API",
+      "purl": "pkg:generic/svgverseai-svgverseai-mcp",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/Svgverseai/svgverseai-mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/Svgverseai/svgverseai-mcp"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "7"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/svgverseai-svgverseai-mcp",
+      "name": "SvgverseAI \u2014 The AI Vector Generator",
+      "version": "",
+      "description": "The SVGverseAI MCP Server lets you connect your AI agents, automation workflows, or creative tools directly to SVGverseAI\u2019s image generation engine \u2014 without ever opening the app.\n\nWith just a few API",
+      "purl": "pkg:generic/svgverseai-svgverseai-mcp",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/Svgverseai/svgverseai-mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/Svgverseai/svgverseai-mcp"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "7"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

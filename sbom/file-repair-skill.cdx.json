@@ -1,0 +1,112 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-3a220f0fc0b56a0b",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:55.849534+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/file-repair-skill",
+      "name": "file-repair-skill",
+      "version": "1.0.7",
+      "description": "Repair damaged/corrupted files (video/document/design/archive) and provide an output download URL.",
+      "purl": "pkg:generic/file-repair-skill@1.0.7",
+      "licenses": [
+        {
+          "license": {
+            "name": "MIT-0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/ilpvc/file-repair-skill"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "18"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:filesystem",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/file-repair-skill",
+      "name": "file-repair-skill",
+      "version": "1.0.7",
+      "description": "Repair damaged/corrupted files (video/document/design/archive) and provide an output download URL.",
+      "purl": "pkg:generic/file-repair-skill@1.0.7",
+      "licenses": [
+        {
+          "license": {
+            "name": "MIT-0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/ilpvc/file-repair-skill"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "18"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:filesystem",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

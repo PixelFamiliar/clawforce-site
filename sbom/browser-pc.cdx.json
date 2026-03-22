@@ -1,0 +1,108 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-46f978650598ec34",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.012495+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/browser-pc",
+      "name": "Browser Automation CLI",
+      "version": "1.0.0",
+      "description": "Automate web browser interactions using natural language via CLI commands. Use when the user asks to browse websites, navigate web pages, extract data from websites, take screenshots, fill forms, clic",
+      "purl": "pkg:generic/browser-pc@1.0.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/peytoncasper/browser-pc"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "35"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:execution",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:browser",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/browser-pc",
+      "name": "Browser Automation CLI",
+      "version": "1.0.0",
+      "description": "Automate web browser interactions using natural language via CLI commands. Use when the user asks to browse websites, navigate web pages, extract data from websites, take screenshots, fill forms, clic",
+      "purl": "pkg:generic/browser-pc@1.0.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/peytoncasper/browser-pc"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "35"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:execution",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:browser",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-1ec2fb8bd64ddd00",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.546608+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/rftsngl-newsmcp_mediastackapi",
+      "name": "Mediastack News",
+      "version": "",
+      "description": "Track breaking news worldwide with granular filters for keywords, sources, countries, languages, categories, and dates. Explore and select sources to tailor coverage to your topics and regions. Integr",
+      "purl": "pkg:generic/rftsngl-newsmcp_mediastackapi",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rftsngl/newsmcp_mediastackapi"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/rftsngl/newsmcp_mediastackapi"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/rftsngl-newsmcp_mediastackapi",
+      "name": "Mediastack News",
+      "version": "",
+      "description": "Track breaking news worldwide with granular filters for keywords, sources, countries, languages, categories, and dates. Explore and select sources to tailor coverage to your topics and regions. Integr",
+      "purl": "pkg:generic/rftsngl-newsmcp_mediastackapi",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rftsngl/newsmcp_mediastackapi"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/rftsngl/newsmcp_mediastackapi"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

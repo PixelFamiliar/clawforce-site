@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-6a6c556c211892b0",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.452865+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/sgroy10-speclock",
+      "name": "SpecLock - AI Constraint Engine",
+      "version": "",
+      "description": "AI Constraint Engine with AI Patch Firewall. 42 MCP tools. Patch Gateway (ALLOW/WARN/BLOCK verdicts), diff-native review (10 scored signals, hard escalation rules), Spec Compiler, Code Graph, Typed co",
+      "purl": "pkg:generic/sgroy10-speclock",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/sgroy10/speclock"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/sgroy10/speclock"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/sgroy10-speclock",
+      "name": "SpecLock - AI Constraint Engine",
+      "version": "",
+      "description": "AI Constraint Engine with AI Patch Firewall. 42 MCP tools. Patch Gateway (ALLOW/WARN/BLOCK verdicts), diff-native review (10 scored signals, hard escalation rules), Spec Compiler, Code Graph, Typed co",
+      "purl": "pkg:generic/sgroy10-speclock",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/sgroy10/speclock"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/sgroy10/speclock"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

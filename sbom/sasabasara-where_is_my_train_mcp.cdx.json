@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-6960f53c76b33cce",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.336691+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/sasabasara-where_is_my_train_mcp",
+      "name": "Where's my train? MTA Guide",
+      "version": "",
+      "description": "Real-time NYC subway intel at your fingertips: stations, arrivals, service alerts, and route planning. \n\n",
+      "purl": "pkg:generic/sasabasara-where_is_my_train_mcp",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/sasabasara/where_is_my_train_mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/sasabasara/where_is_my_train_mcp"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/sasabasara-where_is_my_train_mcp",
+      "name": "Where's my train? MTA Guide",
+      "version": "",
+      "description": "Real-time NYC subway intel at your fingertips: stations, arrivals, service alerts, and route planning. \n\n",
+      "purl": "pkg:generic/sasabasara-where_is_my_train_mcp",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/sasabasara/where_is_my_train_mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/sasabasara/where_is_my_train_mcp"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-ff59670b882fd6fb",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.231571+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "4.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/trustloop",
+      "name": "TrustLoop - Trust layer for AI Agents",
+      "version": "1.0.3",
+      "description": "AI governance layer \u2014 logs, audits, and enforces kill-switch rules on agent tool calls. Built by trustloop.live.",
+      "purl": "pkg:generic/trustloop@1.0.3",
+      "licenses": [
+        {
+          "license": {
+            "name": "MIT-0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/SMJAI/trustloop"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "14"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "4.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/trustloop",
+      "name": "TrustLoop - Trust layer for AI Agents",
+      "version": "1.0.3",
+      "description": "AI governance layer \u2014 logs, audits, and enforces kill-switch rules on agent tool calls. Built by trustloop.live.",
+      "purl": "pkg:generic/trustloop@1.0.3",
+      "licenses": [
+        {
+          "license": {
+            "name": "MIT-0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/SMJAI/trustloop"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "14"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "4.0.0"
+        }
+      ]
+    }
+  ]
+}

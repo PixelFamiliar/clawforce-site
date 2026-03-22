@@ -1,0 +1,112 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-6a3782806c8fa834",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:55.754303+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/api-debugger-cn",
+      "name": "Api Debugger Cn",
+      "version": "1.0.3",
+      "description": "API \u8c03\u8bd5\u5de5\u5177 - \u5feb\u901f\u6d4b\u8bd5 API\u3001\u751f\u6210\u8bf7\u6c42\u4ee3\u7801\u3001\u5206\u6790\u54cd\u5e94\u3002\u9002\u5408\uff1a\u540e\u7aef\u5f00\u53d1\u8005\u3001\u524d\u7aef\u5de5\u7a0b\u5e08\u3001QA\u3002",
+      "purl": "pkg:generic/api-debugger-cn@1.0.3",
+      "licenses": [
+        {
+          "license": {
+            "name": "MIT-0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/yang1002378395-cmyk/api-debugger-cn"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "5"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/api-debugger-cn",
+      "name": "Api Debugger Cn",
+      "version": "1.0.3",
+      "description": "API \u8c03\u8bd5\u5de5\u5177 - \u5feb\u901f\u6d4b\u8bd5 API\u3001\u751f\u6210\u8bf7\u6c42\u4ee3\u7801\u3001\u5206\u6790\u54cd\u5e94\u3002\u9002\u5408\uff1a\u540e\u7aef\u5f00\u53d1\u8005\u3001\u524d\u7aef\u5de5\u7a0b\u5e08\u3001QA\u3002",
+      "purl": "pkg:generic/api-debugger-cn@1.0.3",
+      "licenses": [
+        {
+          "license": {
+            "name": "MIT-0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/yang1002378395-cmyk/api-debugger-cn"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "5"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

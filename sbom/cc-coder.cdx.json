@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-466c25cf5439c5db",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:55.741485+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "2.3.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/cc-coder",
+      "name": "Cc Coder",
+      "version": "unknown",
+      "description": "\u4f7f\u7528 Claude Code CLI \u81ea\u52a8\u7f16\u5199\u4ee3\u7801\u3002\u89e6\u53d1\u6761\u4ef6\uff1a\u7528\u6237\u8981\u6c42\u5199\u4ee3\u7801\u3001\u521b\u5efa\u9879\u76ee\u3001\u4fee\u590d bug\u3001\u5b9e\u73b0\u529f\u80fd\u7b49\u7f16\u7a0b\u4efb\u52a1\u3002",
+      "purl": "pkg:generic/cc-coder",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/wenlavril/cc-coder"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "21"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "2.3.0"
+        },
+        {
+          "name": "clawforce:permission:execution",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/cc-coder",
+      "name": "Cc Coder",
+      "version": "unknown",
+      "description": "\u4f7f\u7528 Claude Code CLI \u81ea\u52a8\u7f16\u5199\u4ee3\u7801\u3002\u89e6\u53d1\u6761\u4ef6\uff1a\u7528\u6237\u8981\u6c42\u5199\u4ee3\u7801\u3001\u521b\u5efa\u9879\u76ee\u3001\u4fee\u590d bug\u3001\u5b9e\u73b0\u529f\u80fd\u7b49\u7f16\u7a0b\u4efb\u52a1\u3002",
+      "purl": "pkg:generic/cc-coder",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/wenlavril/cc-coder"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "21"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "2.3.0"
+        },
+        {
+          "name": "clawforce:permission:execution",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

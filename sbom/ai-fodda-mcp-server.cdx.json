@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-69e0df262bc56dea",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.367773+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:mcp-registry/ai-fodda-mcp-server",
+      "name": "Fodda Knowledge Graphs",
+      "version": "1.3.0",
+      "description": "Expert-curated knowledge graphs for AI agents \u2014 PSFK Retail, Beauty, Sports and more.",
+      "purl": "pkg:generic/ai-fodda-mcp-server@1.3.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/fodda/mcp-server"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/fodda/mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "7"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "mcp-registry"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:mcp-registry/ai-fodda-mcp-server",
+      "name": "Fodda Knowledge Graphs",
+      "version": "1.3.0",
+      "description": "Expert-curated knowledge graphs for AI agents \u2014 PSFK Retail, Beauty, Sports and more.",
+      "purl": "pkg:generic/ai-fodda-mcp-server@1.3.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/fodda/mcp-server"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/fodda/mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "7"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "mcp-registry"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-9bfd0f61c7bb88a4",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.379126+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/xiaobenyang-com-rfc-server",
+      "name": "rfc-server",
+      "version": "",
+      "description": "Search and fetch RFCs by keyword or number. Jump directly to specific sections for precise citations. Speed up standards research and technical writing.",
+      "purl": "pkg:generic/xiaobenyang-com-rfc-server",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/xiaobenyang-com/rfc-server"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/xiaobenyang-com/rfc-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "8"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/xiaobenyang-com-rfc-server",
+      "name": "rfc-server",
+      "version": "",
+      "description": "Search and fetch RFCs by keyword or number. Jump directly to specific sections for precise citations. Speed up standards research and technical writing.",
+      "purl": "pkg:generic/xiaobenyang-com-rfc-server",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/xiaobenyang-com/rfc-server"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/xiaobenyang-com/rfc-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "8"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

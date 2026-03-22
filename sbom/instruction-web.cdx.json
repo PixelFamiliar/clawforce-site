@@ -1,0 +1,108 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-2561d34977e61827",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:55.826614+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "2.4.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/instruction-web",
+      "name": "instruction-web",
+      "version": "unknown",
+      "description": "\u751f\u6210\u5305\u542b\u622a\u56fe\u5360\u4f4d\u7b26\u548c\u64cd\u4f5c\u6b65\u9aa4\u7684\u7f8e\u89c2Web\u754c\u9762\u64cd\u4f5c\u6307\u5357HTML\u9875\u9762\uff0c\u4ecb\u7ecd\u8f6f\u4ef6\u529f\u80fd\u53ca\u5bfc\u5165\u667a\u80fd\u4f53\u6559\u7a0b\u3002",
+      "purl": "pkg:generic/instruction-web",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/2239721014-ops/instruction-web"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "16"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "2.4.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:filesystem",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/instruction-web",
+      "name": "instruction-web",
+      "version": "unknown",
+      "description": "\u751f\u6210\u5305\u542b\u622a\u56fe\u5360\u4f4d\u7b26\u548c\u64cd\u4f5c\u6b65\u9aa4\u7684\u7f8e\u89c2Web\u754c\u9762\u64cd\u4f5c\u6307\u5357HTML\u9875\u9762\uff0c\u4ecb\u7ecd\u8f6f\u4ef6\u529f\u80fd\u53ca\u5bfc\u5165\u667a\u80fd\u4f53\u6559\u7a0b\u3002",
+      "purl": "pkg:generic/instruction-web",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/2239721014-ops/instruction-web"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "16"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "2.4.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:filesystem",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

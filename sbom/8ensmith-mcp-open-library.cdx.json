@@ -1,0 +1,108 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-339b775b36910a76",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.549722+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/8ensmith-mcp-open-library",
+      "name": "Open Library MCP Server",
+      "version": "",
+      "description": "Enable AI assistants to search and retrieve detailed book and author information from the Open Library. Provide structured, consistent JSON responses for book titles, author details, and cover images.",
+      "purl": "pkg:generic/8ensmith-mcp-open-library",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/8enSmith/mcp-open-library"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/8enSmith/mcp-open-library"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "16"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:credentials",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/8ensmith-mcp-open-library",
+      "name": "Open Library MCP Server",
+      "version": "",
+      "description": "Enable AI assistants to search and retrieve detailed book and author information from the Open Library. Provide structured, consistent JSON responses for book titles, author details, and cover images.",
+      "purl": "pkg:generic/8ensmith-mcp-open-library",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/8enSmith/mcp-open-library"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/8enSmith/mcp-open-library"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "16"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:credentials",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-f54a8478709a6e82",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:55.624981+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/agent-proxy-guardian",
+      "name": "Agent Proxy Guardian",
+      "version": "1.0.0",
+      "description": "Autonomous RPC & VPN rotation for AI Agents. Ensures 99.9% uptime by bypassing geo-locks and rate limits on exchanges and Web3 protocols.",
+      "purl": "pkg:generic/agent-proxy-guardian@1.0.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/tmstudio667-commits/agent-proxy-guardian"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "25"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/agent-proxy-guardian",
+      "name": "Agent Proxy Guardian",
+      "version": "1.0.0",
+      "description": "Autonomous RPC & VPN rotation for AI Agents. Ensures 99.9% uptime by bypassing geo-locks and rate limits on exchanges and Web3 protocols.",
+      "purl": "pkg:generic/agent-proxy-guardian@1.0.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/tmstudio667-commits/agent-proxy-guardian"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "25"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

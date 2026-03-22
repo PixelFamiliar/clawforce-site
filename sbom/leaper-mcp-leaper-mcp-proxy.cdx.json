@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-613dd82035f603e1",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.720476+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/leaper-mcp-leaper-mcp-proxy",
+      "name": "Leaper Vision Toolkit",
+      "version": "",
+      "description": "Convert images to desired formats or styles seamlessly. Enhance your applications with flexible image processing capabilities. Simplify image transformations through a standardized protocol interface.",
+      "purl": "pkg:generic/leaper-mcp-leaper-mcp-proxy",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/leaper-mcp/leaper-mcp-proxy"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/leaper-mcp/leaper-mcp-proxy"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/leaper-mcp-leaper-mcp-proxy",
+      "name": "Leaper Vision Toolkit",
+      "version": "",
+      "description": "Convert images to desired formats or styles seamlessly. Enhance your applications with flexible image processing capabilities. Simplify image transformations through a standardized protocol interface.",
+      "purl": "pkg:generic/leaper-mcp-leaper-mcp-proxy",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/leaper-mcp/leaper-mcp-proxy"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/leaper-mcp/leaper-mcp-proxy"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

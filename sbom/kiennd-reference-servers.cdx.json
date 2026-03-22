@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-e6e832d0fcc0c105",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.482427+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/kiennd-reference-servers",
+      "name": "Sequential Thinking",
+      "version": "",
+      "description": "Facilitate dynamic and reflective problem-solving through a structured thinking process. Break down complex problems into manageable steps and revise thoughts as understanding deepens, allowing for al",
+      "purl": "pkg:generic/kiennd-reference-servers",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/kiennd/reference-servers"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/kiennd/reference-servers"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/kiennd-reference-servers",
+      "name": "Sequential Thinking",
+      "version": "",
+      "description": "Facilitate dynamic and reflective problem-solving through a structured thinking process. Break down complex problems into manageable steps and revise thoughts as understanding deepens, allowing for al",
+      "purl": "pkg:generic/kiennd-reference-servers",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/kiennd/reference-servers"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/kiennd/reference-servers"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

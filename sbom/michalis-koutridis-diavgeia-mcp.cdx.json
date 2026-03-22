@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-535d1edf00f10b51",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.648346+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/michalis-koutridis-diavgeia-mcp",
+      "name": "diavgeia-mcp",
+      "version": "",
+      "description": "Browse and search decisions published on Greece\u2019s Diavgeia transparency portal. Filter results by multiple criteria to find relevant acts fast. Retrieve full details for a specific decision using its ",
+      "purl": "pkg:generic/michalis-koutridis-diavgeia-mcp",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/michalis.koutridis/diavgeia-mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/michalis.koutridis/diavgeia-mcp"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/michalis-koutridis-diavgeia-mcp",
+      "name": "diavgeia-mcp",
+      "version": "",
+      "description": "Browse and search decisions published on Greece\u2019s Diavgeia transparency portal. Filter results by multiple criteria to find relevant acts fast. Retrieve full details for a specific decision using its ",
+      "purl": "pkg:generic/michalis-koutridis-diavgeia-mcp",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/michalis.koutridis/diavgeia-mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/michalis.koutridis/diavgeia-mcp"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

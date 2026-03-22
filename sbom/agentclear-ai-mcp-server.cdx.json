@@ -1,0 +1,116 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-23803e25e5a3df8b",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.713800+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/agentclear-ai-mcp-server",
+      "name": "AgentClear \u2014 API Marketplace for AI Agents",
+      "version": "",
+      "description": "Access 60+ paid API services through a single API key with sub-cent micropayments. Discover financial data, weather, email tools, document parsing, and more \u2014 all metered per-call with no subscription",
+      "purl": "pkg:generic/agentclear-ai-mcp-server",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/agentclear-ai/mcp-server"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/agentclear-ai/mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "12"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:email",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/agentclear-ai-mcp-server",
+      "name": "AgentClear \u2014 API Marketplace for AI Agents",
+      "version": "",
+      "description": "Access 60+ paid API services through a single API key with sub-cent micropayments. Discover financial data, weather, email tools, document parsing, and more \u2014 all metered per-call with no subscription",
+      "purl": "pkg:generic/agentclear-ai-mcp-server",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/agentclear-ai/mcp-server"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/agentclear-ai/mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "12"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:email",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

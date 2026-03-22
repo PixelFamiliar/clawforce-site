@@ -1,0 +1,120 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-45b03fe73a853a7b",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.679747+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:npm/xeroapi-xero-mcp-server",
+      "name": "@xeroapi/xero-mcp-server",
+      "version": "0.0.14",
+      "description": "MCP server implementation for Xero integration",
+      "purl": "pkg:npm/xeroapi-xero-mcp-server@0.0.14",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "git://github.com/XeroAPI/xero-mcp-server"
+        },
+        {
+          "type": "website",
+          "url": "https://www.npmjs.com/package/@xeroapi/xero-mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "1"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "npm"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:npm/xeroapi-xero-mcp-server",
+      "name": "@xeroapi/xero-mcp-server",
+      "version": "0.0.14",
+      "description": "MCP server implementation for Xero integration",
+      "purl": "pkg:npm/xeroapi-xero-mcp-server@0.0.14",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "git://github.com/XeroAPI/xero-mcp-server"
+        },
+        {
+          "type": "website",
+          "url": "https://www.npmjs.com/package/@xeroapi/xero-mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "1"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "npm"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

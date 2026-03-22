@@ -1,0 +1,108 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-96980f0f121de0f3",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.301692+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:mcp-registry/ai-cirra-salesforce-mcp",
+      "name": "Cirra AI Salesforce Admin MCP Server",
+      "version": "1.0.0",
+      "description": "Comprehensive Salesforce administration and data management capabilities",
+      "purl": "pkg:generic/ai-cirra-salesforce-mcp@1.0.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/cirra-ai/mcp-server"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/cirra-ai/mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "21"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "mcp-registry"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:system",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:mcp-registry/ai-cirra-salesforce-mcp",
+      "name": "Cirra AI Salesforce Admin MCP Server",
+      "version": "1.0.0",
+      "description": "Comprehensive Salesforce administration and data management capabilities",
+      "purl": "pkg:generic/ai-cirra-salesforce-mcp@1.0.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/cirra-ai/mcp-server"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/cirra-ai/mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "21"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "mcp-registry"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:system",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

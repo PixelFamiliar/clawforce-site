@@ -1,0 +1,92 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-f9ee95b585d6ca86",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.265893+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:mcp-registry/ai-alpic-mcp-alpic-mcp",
+      "name": "Alpic",
+      "version": "0.0.1",
+      "description": "Manage your projects, debug deployment, and check analytics for any MCP server you host with Alpic",
+      "purl": "pkg:generic/ai-alpic-mcp-alpic-mcp@0.0.1",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://alpic.ai"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "7"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "mcp-registry"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:mcp-registry/ai-alpic-mcp-alpic-mcp",
+      "name": "Alpic",
+      "version": "0.0.1",
+      "description": "Manage your projects, debug deployment, and check analytics for any MCP server you host with Alpic",
+      "purl": "pkg:generic/ai-alpic-mcp-alpic-mcp@0.0.1",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://alpic.ai"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "7"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "mcp-registry"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

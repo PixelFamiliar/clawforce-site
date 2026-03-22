@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-6984a2d445215559",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.395350+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:mcp-registry/ai-limitguard-api-trust-intelligence",
+      "name": "LimitGuard Trust Intelligence",
+      "version": "1.0.1",
+      "description": "Entity verification, sanctions screening, and trust scoring for AI agents.",
+      "purl": "pkg:generic/ai-limitguard-api-trust-intelligence@1.0.1",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/JWconsultancy1234/limitguard-ai"
+        },
+        {
+          "type": "website",
+          "url": "https://limitguard.ai"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "7"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "mcp-registry"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:mcp-registry/ai-limitguard-api-trust-intelligence",
+      "name": "LimitGuard Trust Intelligence",
+      "version": "1.0.1",
+      "description": "Entity verification, sanctions screening, and trust scoring for AI agents.",
+      "purl": "pkg:generic/ai-limitguard-api-trust-intelligence@1.0.1",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/JWconsultancy1234/limitguard-ai"
+        },
+        {
+          "type": "website",
+          "url": "https://limitguard.ai"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "7"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "mcp-registry"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

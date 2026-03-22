@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-96f03d448afd0f0d",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.036919+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/strike163163-my-browser-control",
+      "name": "My Browser Control",
+      "version": "0.1.4",
+      "description": "\u57fa\u4e8ePython\u5b9e\u73b0\u7684macOS\u6d4f\u89c8\u5668\u81ea\u52a8\u5316\u5de5\u5177\uff0c\u53ef\u4e00\u952e\u6253\u5f00\u6307\u5b9a\u7f51\u5740\uff0c\u652f\u6301Safari/Chrome\u6d4f\u89c8\u5668\u3002",
+      "purl": "pkg:generic/strike163163-my-browser-control@0.1.4",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/strike163163/strike163163-my-browser-control"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "15"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:browser",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/strike163163-my-browser-control",
+      "name": "My Browser Control",
+      "version": "0.1.4",
+      "description": "\u57fa\u4e8ePython\u5b9e\u73b0\u7684macOS\u6d4f\u89c8\u5668\u81ea\u52a8\u5316\u5de5\u5177\uff0c\u53ef\u4e00\u952e\u6253\u5f00\u6307\u5b9a\u7f51\u5740\uff0c\u652f\u6301Safari/Chrome\u6d4f\u89c8\u5668\u3002",
+      "purl": "pkg:generic/strike163163-my-browser-control@0.1.4",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/strike163163/strike163163-my-browser-control"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "15"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:browser",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

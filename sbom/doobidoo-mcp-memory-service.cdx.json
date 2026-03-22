@@ -1,0 +1,136 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-dbf4ec6d7db5f8da",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:58.068783+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:github/doobidoo-mcp-memory-service",
+      "name": "mcp-memory-service",
+      "version": "",
+      "description": "Open-source persistent memory for AI agent pipelines (LangGraph, CrewAI, AutoGen) and Claude. REST API + knowledge graph + autonomous consolidation.",
+      "purl": "pkg:github/doobidoo/doobidoo-mcp-memory-service",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/doobidoo/mcp-memory-service"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/doobidoo/mcp-memory-service"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "11"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:filesystem",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:database",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:github/doobidoo-mcp-memory-service",
+      "name": "mcp-memory-service",
+      "version": "",
+      "description": "Open-source persistent memory for AI agent pipelines (LangGraph, CrewAI, AutoGen) and Claude. REST API + knowledge graph + autonomous consolidation.",
+      "purl": "pkg:github/doobidoo/doobidoo-mcp-memory-service",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/doobidoo/mcp-memory-service"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/doobidoo/mcp-memory-service"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "11"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:filesystem",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:database",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-b0f037b341fd4ed0",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.902122+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:github/xinnan-tech-xiaozhi-esp32-server",
+      "name": "xiaozhi-esp32-server",
+      "version": "",
+      "description": "\u672c\u9879\u76ee\u4e3axiaozhi-esp32\u63d0\u4f9b\u540e\u7aef\u670d\u52a1\uff0c\u5e2e\u52a9\u60a8\u5feb\u901f\u642d\u5efaESP32\u8bbe\u5907\u63a7\u5236\u670d\u52a1\u5668\u3002Backend service for xiaozhi-esp32, helps you quickly build an ESP32 device control server.",
+      "purl": "pkg:github/xinnan-tech/xinnan-tech-xiaozhi-esp32-server",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/xinnan-tech/xiaozhi-esp32-server"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/xinnan-tech/xiaozhi-esp32-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "1"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:github/xinnan-tech-xiaozhi-esp32-server",
+      "name": "xiaozhi-esp32-server",
+      "version": "",
+      "description": "\u672c\u9879\u76ee\u4e3axiaozhi-esp32\u63d0\u4f9b\u540e\u7aef\u670d\u52a1\uff0c\u5e2e\u52a9\u60a8\u5feb\u901f\u642d\u5efaESP32\u8bbe\u5907\u63a7\u5236\u670d\u52a1\u5668\u3002Backend service for xiaozhi-esp32, helps you quickly build an ESP32 device control server.",
+      "purl": "pkg:github/xinnan-tech/xinnan-tech-xiaozhi-esp32-server",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/xinnan-tech/xiaozhi-esp32-server"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/xinnan-tech/xiaozhi-esp32-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "1"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

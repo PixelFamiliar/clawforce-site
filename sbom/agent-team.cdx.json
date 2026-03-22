@@ -1,0 +1,92 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-66fe906ae2907dcd",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:55.618351+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/agent-team",
+      "name": "Agent Team",
+      "version": "1.0.0",
+      "description": "\u7ba1\u7406\u548c\u8c03\u7528\u5177\u5907\u4e0d\u540c\u8eab\u4efd\u548c\u4e13\u7528\u6a21\u578b\u7684\u591a\u5b50 Agent \u56e2\u961f\uff0c\u652f\u6301\u4efb\u52a1\u6267\u884c\u548c\u4ea4\u4e92\u5f0f\u5bf9\u8bdd\u4e24\u79cd\u6a21\u5f0f\u3002",
+      "purl": "pkg:generic/agent-team@1.0.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/jiangzhiyu/agent-team"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "20"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/agent-team",
+      "name": "Agent Team",
+      "version": "1.0.0",
+      "description": "\u7ba1\u7406\u548c\u8c03\u7528\u5177\u5907\u4e0d\u540c\u8eab\u4efd\u548c\u4e13\u7528\u6a21\u578b\u7684\u591a\u5b50 Agent \u56e2\u961f\uff0c\u652f\u6301\u4efb\u52a1\u6267\u884c\u548c\u4ea4\u4e92\u5f0f\u5bf9\u8bdd\u4e24\u79cd\u6a21\u5f0f\u3002",
+      "purl": "pkg:generic/agent-team@1.0.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/jiangzhiyu/agent-team"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "20"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

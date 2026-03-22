@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-808bfa59faef52bd",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.443379+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/rubenayla-partle",
+      "name": "Partle",
+      "version": "",
+      "description": "Search and discover products across a diverse marketplace of local stores. Access detailed information on specific items and store locations to streamline the shopping experience. Monitor platform sta",
+      "purl": "pkg:generic/rubenayla-partle",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rubenayla/partle"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/rubenayla/partle"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/rubenayla-partle",
+      "name": "Partle",
+      "version": "",
+      "description": "Search and discover products across a diverse marketplace of local stores. Access detailed information on specific items and store locations to streamline the shopping experience. Monitor platform sta",
+      "purl": "pkg:generic/rubenayla-partle",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rubenayla/partle"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/rubenayla/partle"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

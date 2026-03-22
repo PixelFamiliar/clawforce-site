@@ -1,0 +1,191 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-4310d3f6023e18fd",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:58.220442+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:github/rohitg00-kubectl-mcp-server",
+      "name": "kubectl-mcp-server",
+      "version": "",
+      "description": "A Model Context Protocol (MCP) server for Kubernetes. Install: npx kubectl-mcp-server or pip install kubectl-mcp-server",
+      "purl": "pkg:github/rohitg00/rohitg00-kubectl-mcp-server",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rohitg00/kubectl-mcp-server"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/rohitg00/kubectl-mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "33"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "source"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:system",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:github/rohitg00-kubectl-mcp-server",
+      "name": "kubectl-mcp-server",
+      "version": "",
+      "description": "A Model Context Protocol (MCP) server for Kubernetes. Install: npx kubectl-mcp-server or pip install kubectl-mcp-server",
+      "purl": "pkg:github/rohitg00/rohitg00-kubectl-mcp-server",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rohitg00/kubectl-mcp-server"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/rohitg00/kubectl-mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "33"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "source"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:system",
+          "value": "inferred"
+        }
+      ]
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "bom-ref": "vuln-48830b9caec9",
+      "id": "CF-48830B9CAEC9",
+      "source": {
+        "name": "ClawForce Scanner",
+        "url": "https://clawforce.ca"
+      },
+      "ratings": [
+        {
+          "severity": "high",
+          "method": "other",
+          "source": {
+            "name": "ClawForce Code Scanner"
+          }
+        }
+      ],
+      "description": "Code obfuscation detected",
+      "affects": [
+        {
+          "ref": "pkg:github/rohitg00-kubectl-mcp-server"
+        }
+      ]
+    },
+    {
+      "bom-ref": "vuln-6d1298801046",
+      "id": "CF-6D1298801046",
+      "source": {
+        "name": "ClawForce Scanner",
+        "url": "https://clawforce.ca"
+      },
+      "ratings": [
+        {
+          "severity": "low",
+          "method": "other",
+          "source": {
+            "name": "ClawForce Code Scanner"
+          }
+        }
+      ],
+      "description": "Environment variable access",
+      "affects": [
+        {
+          "ref": "pkg:github/rohitg00-kubectl-mcp-server"
+        }
+      ]
+    },
+    {
+      "bom-ref": "vuln-afdf9b762100",
+      "id": "CF-AFDF9B762100",
+      "source": {
+        "name": "ClawForce Scanner",
+        "url": "https://clawforce.ca"
+      },
+      "ratings": [
+        {
+          "severity": "high",
+          "method": "other",
+          "source": {
+            "name": "ClawForce Code Scanner"
+          }
+        }
+      ],
+      "description": "Dynamic code/command execution",
+      "affects": [
+        {
+          "ref": "pkg:github/rohitg00-kubectl-mcp-server"
+        }
+      ]
+    }
+  ]
+}

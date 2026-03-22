@@ -1,0 +1,116 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-f77950b0a51083db",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.568844+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/marco280690-mcp",
+      "name": "Model Context Protocol Server",
+      "version": "",
+      "description": "Integrate your applications with real-world data and tools seamlessly. Access files, databases, and APIs while leveraging the power of language models to enhance your workflows. Simplify complex inter",
+      "purl": "pkg:generic/marco280690-mcp",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/marco280690/mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/marco280690/mcp"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "12"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:database",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/marco280690-mcp",
+      "name": "Model Context Protocol Server",
+      "version": "",
+      "description": "Integrate your applications with real-world data and tools seamlessly. Access files, databases, and APIs while leveraging the power of language models to enhance your workflows. Simplify complex inter",
+      "purl": "pkg:generic/marco280690-mcp",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/marco280690/mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/marco280690/mcp"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "12"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:database",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

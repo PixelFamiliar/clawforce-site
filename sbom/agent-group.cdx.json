@@ -1,0 +1,92 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-42c714441355b1d6",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:55.615187+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/agent-group",
+      "name": "Agent Group",
+      "version": "1.0.3",
+      "description": "\u6781\u7b80\u591aAgent\u7fa4\u7ec4 - \u50cf\u5fae\u4fe1\u62c9\u7fa4\u4e00\u6837\u7b80\u5355",
+      "purl": "pkg:generic/agent-group@1.0.3",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/84191879/agent-group"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "10"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/agent-group",
+      "name": "Agent Group",
+      "version": "1.0.3",
+      "description": "\u6781\u7b80\u591aAgent\u7fa4\u7ec4 - \u50cf\u5fae\u4fe1\u62c9\u7fa4\u4e00\u6837\u7b80\u5355",
+      "purl": "pkg:generic/agent-group@1.0.3",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/84191879/agent-group"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "10"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-628b0eb30a4ac6d9",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.029974+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/browser-js",
+      "name": "Browser Js",
+      "version": "1.5.0",
+      "description": "Lightweight CDP browser control for AI agents. Token-efficient alternative to the built-in browser tool \u2014 3-10x fewer tokens per interaction. Use when browsi...",
+      "purl": "pkg:generic/browser-js@1.5.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/shaihazher/browser-js"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "39"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:credentials",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:browser",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/browser-js",
+      "name": "Browser Js",
+      "version": "1.5.0",
+      "description": "Lightweight CDP browser control for AI agents. Token-efficient alternative to the built-in browser tool \u2014 3-10x fewer tokens per interaction. Use when browsi...",
+      "purl": "pkg:generic/browser-js@1.5.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/shaihazher/browser-js"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "39"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:credentials",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:browser",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

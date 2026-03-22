@@ -1,0 +1,104 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-237fe186ff2077ef",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.537156+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:npm/aikidosec-mcp",
+      "name": "@aikidosec/mcp",
+      "version": "1.0.3",
+      "description": "Aikido MCP server",
+      "purl": "pkg:npm/aikidosec-mcp@1.0.3",
+      "licenses": [
+        {
+          "license": {
+            "name": "AGPL"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://www.npmjs.com/package/@aikidosec/mcp"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "0"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "npm"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:npm/aikidosec-mcp",
+      "name": "@aikidosec/mcp",
+      "version": "1.0.3",
+      "description": "Aikido MCP server",
+      "purl": "pkg:npm/aikidosec-mcp@1.0.3",
+      "licenses": [
+        {
+          "license": {
+            "name": "AGPL"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://www.npmjs.com/package/@aikidosec/mcp"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "0"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "npm"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-a3fad7425677f934",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:58.256136+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:github/iosifache-annas-mcp",
+      "name": "annas-mcp",
+      "version": "",
+      "description": "MCP server and CLI tool for searching and downloading documents from Anna's Archive",
+      "purl": "pkg:github/iosifache/iosifache-annas-mcp",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/iosifache/annas-mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/iosifache/annas-mcp"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "21"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:filesystem",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:execution",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:github/iosifache-annas-mcp",
+      "name": "annas-mcp",
+      "version": "",
+      "description": "MCP server and CLI tool for searching and downloading documents from Anna's Archive",
+      "purl": "pkg:github/iosifache/iosifache-annas-mcp",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/iosifache/annas-mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/iosifache/annas-mcp"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "21"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:filesystem",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:execution",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

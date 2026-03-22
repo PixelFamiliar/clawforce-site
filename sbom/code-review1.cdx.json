@@ -1,0 +1,104 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-3d30d07dcea843b6",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:55.723509+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/code-review1",
+      "name": "code-review",
+      "version": "1.0.0",
+      "description": "\u5728\u4ee3\u7801\u63d0\u4ea4\u524d\u6216\u4efb\u52a1\u5b8c\u6210\u540e\u4f7f\u7528\uff0c\u8fdb\u884c\u4ee3\u7801\u5ba1\u67e5",
+      "purl": "pkg:generic/code-review1@1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "name": "MIT-0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/tlreal/code-review1"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "4"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/code-review1",
+      "name": "code-review",
+      "version": "1.0.0",
+      "description": "\u5728\u4ee3\u7801\u63d0\u4ea4\u524d\u6216\u4efb\u52a1\u5b8c\u6210\u540e\u4f7f\u7528\uff0c\u8fdb\u884c\u4ee3\u7801\u5ba1\u67e5",
+      "purl": "pkg:generic/code-review1@1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "name": "MIT-0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/tlreal/code-review1"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "4"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-10d7c266cb86ce0f",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:58.259393+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:github/browser-use-vibetest-use",
+      "name": "vibetest-use",
+      "version": "",
+      "description": "Vibetest MCP - automated QA testing using Browser-Use agents",
+      "purl": "pkg:github/browser-use/browser-use-vibetest-use",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/browser-use/vibetest-use"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/browser-use/vibetest-use"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "12"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:browser",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:github/browser-use-vibetest-use",
+      "name": "vibetest-use",
+      "version": "",
+      "description": "Vibetest MCP - automated QA testing using Browser-Use agents",
+      "purl": "pkg:github/browser-use/browser-use-vibetest-use",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/browser-use/vibetest-use"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/browser-use/vibetest-use"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "12"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:browser",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

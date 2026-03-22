@@ -1,0 +1,92 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-9118f373a35ca3cc",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:55.535010+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "2.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:unknown/email-triage",
+      "name": "email-triage",
+      "version": "unknown",
+      "description": "Automated email classification and routing based on content analysis and priority scoring",
+      "purl": "pkg:generic/email-triage",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/PixelFamiliar/email-triage-skill"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "18"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": ""
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "2.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:unknown/email-triage",
+      "name": "email-triage",
+      "version": "unknown",
+      "description": "Automated email classification and routing based on content analysis and priority scoring",
+      "purl": "pkg:generic/email-triage",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/PixelFamiliar/email-triage-skill"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "18"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": ""
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "2.0.0"
+        }
+      ]
+    }
+  ]
+}

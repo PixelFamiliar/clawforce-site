@@ -1,0 +1,108 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-737ca852e6b42731",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:55.804201+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "2.4.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/glm-web-search",
+      "name": "glm-web-search",
+      "version": "unknown",
+      "description": "\u4f7f\u7528 GLM \u8054\u7f51\u641c\u7d22 MCP \u8fdb\u884c\u7f51\u7edc\u641c\u7d22\u3002\u89e6\u53d1\u6761\u4ef6\uff1a(1) \u7528\u6237\u8981\u6c42\u8fdb\u884c\u7f51\u7edc\u641c\u7d22\u3001\u5728\u7ebf\u641c\u7d22\u3001\u67e5\u627e\u4fe1\u606f (2) \u9700\u8981\u67e5\u8be2\u6700\u65b0\u8d44\u8baf\u3001\u65b0\u95fb\u3001\u8d44\u6599 (3) \u4f7f\u7528 GLM \u7684 web_search \u529f\u80fd",
+      "purl": "pkg:generic/glm-web-search",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/Thincher/glm-web-search"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "22"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "2.4.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:credentials",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/glm-web-search",
+      "name": "glm-web-search",
+      "version": "unknown",
+      "description": "\u4f7f\u7528 GLM \u8054\u7f51\u641c\u7d22 MCP \u8fdb\u884c\u7f51\u7edc\u641c\u7d22\u3002\u89e6\u53d1\u6761\u4ef6\uff1a(1) \u7528\u6237\u8981\u6c42\u8fdb\u884c\u7f51\u7edc\u641c\u7d22\u3001\u5728\u7ebf\u641c\u7d22\u3001\u67e5\u627e\u4fe1\u606f (2) \u9700\u8981\u67e5\u8be2\u6700\u65b0\u8d44\u8baf\u3001\u65b0\u95fb\u3001\u8d44\u6599 (3) \u4f7f\u7528 GLM \u7684 web_search \u529f\u80fd",
+      "purl": "pkg:generic/glm-web-search",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/Thincher/glm-web-search"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "22"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "2.4.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:credentials",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

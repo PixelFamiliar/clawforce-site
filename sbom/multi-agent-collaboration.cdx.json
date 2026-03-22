@@ -1,0 +1,92 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-971cd1793eab8a92",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:55.605478+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/multi-agent-collaboration",
+      "name": "Multi Agent Collaboration",
+      "version": "1.0.0",
+      "description": "\u591a\u667a\u80fd\u4f53\u534f\u4f5c\u7cfb\u7edfV1.4\uff08\u6700\u7ec8\u7248\uff09\uff0c\u652f\u6301**\u6240\u6709\u884c\u4e1a\u6240\u6709\u5185\u5bb9**\u7684\u667a\u80fd\u534f\u4f5c\uff1a \u901a\u7528\u4fe1\u606f\u5b88\u62a4\u8005(\u4fe1\u606f\u91c7\u96c6)\u3001\u5185\u5bb9\u8d8b\u52bf\u4f18\u5316\u7cfb\u7edf(\u8d8b\u52bf\u521b\u4f5c)\u3001\u72b6\u6001\u6d1e\u5bdf\u6a21\u5757(\u4e2a\u4eba\u72b6\u6001)\u3001\u5de5\u4f5c\u6d41\u6c89\u6dc0\u7cfb\u7edf(\u62a5\u544a\u751f\u6210)\u3002 \u9002\u7528\u4e8e\uff1a\u91d1\u878d\u3001\u533b\u7597\u3001\u6559\u80b2\u3001\u96f6\u552e\u3001\u79d1\u6280\u3001\u5236\u9020\u4e1a\u3001\u9910\u996e\u3001\u670d\u52a1\u4e1a\u7b49**\u5168\u884c\u4e1a**\u3002 \u6838\u5fc3\u529f\u80fd\uff1a\u610f\u56fe\u8bc6\u522b+\u667a\u80fd\u8def\u7531+\u53cd\u601d\u673a\u5236+\u4e3b\u52a8...",
+      "purl": "pkg:generic/multi-agent-collaboration@1.0.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/e2e5g/multi-agent-collaboration"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "20"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/multi-agent-collaboration",
+      "name": "Multi Agent Collaboration",
+      "version": "1.0.0",
+      "description": "\u591a\u667a\u80fd\u4f53\u534f\u4f5c\u7cfb\u7edfV1.4\uff08\u6700\u7ec8\u7248\uff09\uff0c\u652f\u6301**\u6240\u6709\u884c\u4e1a\u6240\u6709\u5185\u5bb9**\u7684\u667a\u80fd\u534f\u4f5c\uff1a \u901a\u7528\u4fe1\u606f\u5b88\u62a4\u8005(\u4fe1\u606f\u91c7\u96c6)\u3001\u5185\u5bb9\u8d8b\u52bf\u4f18\u5316\u7cfb\u7edf(\u8d8b\u52bf\u521b\u4f5c)\u3001\u72b6\u6001\u6d1e\u5bdf\u6a21\u5757(\u4e2a\u4eba\u72b6\u6001)\u3001\u5de5\u4f5c\u6d41\u6c89\u6dc0\u7cfb\u7edf(\u62a5\u544a\u751f\u6210)\u3002 \u9002\u7528\u4e8e\uff1a\u91d1\u878d\u3001\u533b\u7597\u3001\u6559\u80b2\u3001\u96f6\u552e\u3001\u79d1\u6280\u3001\u5236\u9020\u4e1a\u3001\u9910\u996e\u3001\u670d\u52a1\u4e1a\u7b49**\u5168\u884c\u4e1a**\u3002 \u6838\u5fc3\u529f\u80fd\uff1a\u610f\u56fe\u8bc6\u522b+\u667a\u80fd\u8def\u7531+\u53cd\u601d\u673a\u5236+\u4e3b\u52a8...",
+      "purl": "pkg:generic/multi-agent-collaboration@1.0.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/e2e5g/multi-agent-collaboration"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "20"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

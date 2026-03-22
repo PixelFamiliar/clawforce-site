@@ -1,0 +1,108 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-eb92a6a14aa98bbc",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.365716+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/pi3ch-secdim",
+      "name": "SecDim Secure Coding Labs",
+      "version": "",
+      "description": "Find hands-on secure coding labs for vulnerabilities like XSS, SQL Injection, and OWASP Top 10 topics. Get a personalized learning pathway based on your GitHub or SecDim profile to accelerate your rem",
+      "purl": "pkg:generic/pi3ch-secdim",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/pi3ch/secdim"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/pi3ch/secdim"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "15"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:database",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/pi3ch-secdim",
+      "name": "SecDim Secure Coding Labs",
+      "version": "",
+      "description": "Find hands-on secure coding labs for vulnerabilities like XSS, SQL Injection, and OWASP Top 10 topics. Get a personalized learning pathway based on your GitHub or SecDim profile to accelerate your rem",
+      "purl": "pkg:generic/pi3ch-secdim",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/pi3ch/secdim"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/pi3ch/secdim"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "15"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:database",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

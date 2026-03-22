@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-c591c7cbf1e4a8b4",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.530548+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/gigachadtrey-websimm",
+      "name": "WebSim Explorer",
+      "version": "",
+      "description": "Discover WebSim projects, creators, and trending content with powerful search and filters. Inspect project details, screenshots, comments, and engagement stats to guide research and curation. Track us",
+      "purl": "pkg:generic/gigachadtrey-websimm",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/gigachadtrey/websimm"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/gigachadtrey/websimm"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/gigachadtrey-websimm",
+      "name": "WebSim Explorer",
+      "version": "",
+      "description": "Discover WebSim projects, creators, and trending content with powerful search and filters. Inspect project details, screenshots, comments, and engagement stats to guide research and curation. Track us",
+      "purl": "pkg:generic/gigachadtrey-websimm",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/gigachadtrey/websimm"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/gigachadtrey/websimm"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

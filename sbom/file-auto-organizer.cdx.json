@@ -1,0 +1,104 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-3585e7bbac739fdc",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:55.866828+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/file-auto-organizer",
+      "name": "File Auto Organizer",
+      "version": "1.0.0",
+      "description": "\u6587\u4ef6\u81ea\u52a8\u6574\u7406\u5de5\u5177\u3002\u6309\u6587\u4ef6\u7c7b\u578b\u3001\u65e5\u671f\u81ea\u52a8\u5f52\u7c7b\u4e0b\u8f7d\u6587\u4ef6\u5939\uff0c\u9002\u5408\u6574\u7406\u63a7\u548c\u6d01\u7656\u7528\u6237\u3002",
+      "purl": "pkg:generic/file-auto-organizer@1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "name": "MIT-0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/SxLiuYu/file-auto-organizer"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "4"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/file-auto-organizer",
+      "name": "File Auto Organizer",
+      "version": "1.0.0",
+      "description": "\u6587\u4ef6\u81ea\u52a8\u6574\u7406\u5de5\u5177\u3002\u6309\u6587\u4ef6\u7c7b\u578b\u3001\u65e5\u671f\u81ea\u52a8\u5f52\u7c7b\u4e0b\u8f7d\u6587\u4ef6\u5939\uff0c\u9002\u5408\u6574\u7406\u63a7\u548c\u6d01\u7656\u7528\u6237\u3002",
+      "purl": "pkg:generic/file-auto-organizer@1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "name": "MIT-0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/SxLiuYu/file-auto-organizer"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "4"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

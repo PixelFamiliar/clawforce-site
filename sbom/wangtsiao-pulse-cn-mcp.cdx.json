@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-858c921c37c77e6b",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.594648+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/wangtsiao-pulse-cn-mcp",
+      "name": "Pulse CN MCP Server",
+      "version": "",
+      "description": "Access real-time trending content from the Chinese internet. Connect your AI models to the latest data from popular social media platforms and news sites. Stay updated with what's trending in China ef",
+      "purl": "pkg:generic/wangtsiao-pulse-cn-mcp",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/wangtsiao/pulse-cn-mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/wangtsiao/pulse-cn-mcp"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "10"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/wangtsiao-pulse-cn-mcp",
+      "name": "Pulse CN MCP Server",
+      "version": "",
+      "description": "Access real-time trending content from the Chinese internet. Connect your AI models to the latest data from popular social media platforms and news sites. Stay updated with what's trending in China ef",
+      "purl": "pkg:generic/wangtsiao-pulse-cn-mcp",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/wangtsiao/pulse-cn-mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/wangtsiao/pulse-cn-mcp"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "10"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

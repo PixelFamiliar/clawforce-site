@@ -1,0 +1,112 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-0e83b244a5fe25d2",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.739465+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:npm/hypertrack-mcp-server",
+      "name": "@hypertrack/mcp-server",
+      "version": "0.1.36",
+      "description": "HyperTrack MCP Server - Query your HyperTrack account through AI assistants",
+      "purl": "pkg:npm/hypertrack-mcp-server@0.1.36",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/hypertrack/feature-foundation"
+        },
+        {
+          "type": "website",
+          "url": "https://www.npmjs.com/package/@hypertrack/mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "1"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "npm"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:npm/hypertrack-mcp-server",
+      "name": "@hypertrack/mcp-server",
+      "version": "0.1.36",
+      "description": "HyperTrack MCP Server - Query your HyperTrack account through AI assistants",
+      "purl": "pkg:npm/hypertrack-mcp-server@0.1.36",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/hypertrack/feature-foundation"
+        },
+        {
+          "type": "website",
+          "url": "https://www.npmjs.com/package/@hypertrack/mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "1"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "npm"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

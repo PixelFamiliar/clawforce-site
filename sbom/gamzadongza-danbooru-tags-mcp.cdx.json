@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-c4f221acd333c7c0",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.262025+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/gamzadongza-danbooru-tags-mcp",
+      "name": "Danbooru Tags",
+      "version": "",
+      "description": "Extract tags from any Danbooru post and explore categories at a glance. Analyze character-specific tag frequencies to surface top traits and clothing patterns. Look up tag and character details from t",
+      "purl": "pkg:generic/gamzadongza-danbooru-tags-mcp",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/gamzadongza/danbooru-tags-mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/gamzadongza/danbooru-tags-mcp"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/gamzadongza-danbooru-tags-mcp",
+      "name": "Danbooru Tags",
+      "version": "",
+      "description": "Extract tags from any Danbooru post and explore categories at a glance. Analyze character-specific tag frequencies to surface top traits and clothing patterns. Look up tag and character details from t",
+      "purl": "pkg:generic/gamzadongza-danbooru-tags-mcp",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/gamzadongza/danbooru-tags-mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/gamzadongza/danbooru-tags-mcp"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

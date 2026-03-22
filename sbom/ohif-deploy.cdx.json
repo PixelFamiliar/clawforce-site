@@ -1,0 +1,92 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-a96f97f16a1fcdb8",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.148839+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/ohif-deploy",
+      "name": "Ohif Deploy",
+      "version": "1.0.0",
+      "description": "Deploy OHIF medical imaging viewer with Docker, configure DICOMweb sources, SSL, and integrate servers like tbidea, orthanc, and DCM4CHEE.",
+      "purl": "pkg:generic/ohif-deploy@1.0.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/Sunshine-del-ux/ohif-deploy"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "24"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/ohif-deploy",
+      "name": "Ohif Deploy",
+      "version": "1.0.0",
+      "description": "Deploy OHIF medical imaging viewer with Docker, configure DICOMweb sources, SSL, and integrate servers like tbidea, orthanc, and DCM4CHEE.",
+      "purl": "pkg:generic/ohif-deploy@1.0.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/Sunshine-del-ux/ohif-deploy"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "24"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

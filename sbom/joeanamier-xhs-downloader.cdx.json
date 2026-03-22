@@ -1,0 +1,208 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-a8b405a4542dbcfd",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.892121+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:github/joeanamier-xhs-downloader",
+      "name": "XHS-Downloader",
+      "version": "",
+      "description": "\u5c0f\u7ea2\u4e66\uff08XiaoHongShu\u3001RedNote\uff09\u94fe\u63a5\u63d0\u53d6/\u4f5c\u54c1\u91c7\u96c6\u5de5\u5177\uff1a\u63d0\u53d6\u8d26\u53f7\u53d1\u5e03\u3001\u6536\u85cf\u3001\u70b9\u8d5e\u3001\u4e13\u8f91\u4f5c\u54c1\u94fe\u63a5\uff1b\u63d0\u53d6\u641c\u7d22\u7ed3\u679c\u4f5c\u54c1\u3001\u7528\u6237\u94fe\u63a5\uff1b\u91c7\u96c6\u5c0f\u7ea2\u4e66\u4f5c\u54c1\u4fe1\u606f\uff1b\u63d0\u53d6\u5c0f\u7ea2\u4e66\u4f5c\u54c1\u4e0b\u8f7d\u5730\u5740\uff1b\u4e0b\u8f7d\u5c0f\u7ea2\u4e66\u4f5c\u54c1\u6587\u4ef6",
+      "purl": "pkg:github/JoeanAmier/joeanamier-xhs-downloader",
+      "licenses": [
+        {
+          "license": {
+            "id": "GPL-3.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/JoeanAmier/XHS-Downloader"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/JoeanAmier/XHS-Downloader"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "29"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "source"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:filesystem",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:database",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:system",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:dep_count",
+          "value": "13"
+        },
+        {
+          "name": "clawforce:dep_risk_score",
+          "value": "0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:github/joeanamier-xhs-downloader",
+      "name": "XHS-Downloader",
+      "version": "",
+      "description": "\u5c0f\u7ea2\u4e66\uff08XiaoHongShu\u3001RedNote\uff09\u94fe\u63a5\u63d0\u53d6/\u4f5c\u54c1\u91c7\u96c6\u5de5\u5177\uff1a\u63d0\u53d6\u8d26\u53f7\u53d1\u5e03\u3001\u6536\u85cf\u3001\u70b9\u8d5e\u3001\u4e13\u8f91\u4f5c\u54c1\u94fe\u63a5\uff1b\u63d0\u53d6\u641c\u7d22\u7ed3\u679c\u4f5c\u54c1\u3001\u7528\u6237\u94fe\u63a5\uff1b\u91c7\u96c6\u5c0f\u7ea2\u4e66\u4f5c\u54c1\u4fe1\u606f\uff1b\u63d0\u53d6\u5c0f\u7ea2\u4e66\u4f5c\u54c1\u4e0b\u8f7d\u5730\u5740\uff1b\u4e0b\u8f7d\u5c0f\u7ea2\u4e66\u4f5c\u54c1\u6587\u4ef6",
+      "purl": "pkg:github/JoeanAmier/joeanamier-xhs-downloader",
+      "licenses": [
+        {
+          "license": {
+            "id": "GPL-3.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/JoeanAmier/XHS-Downloader"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/JoeanAmier/XHS-Downloader"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "29"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "source"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:filesystem",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:database",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:system",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:dep_count",
+          "value": "13"
+        },
+        {
+          "name": "clawforce:dep_risk_score",
+          "value": "0"
+        }
+      ]
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "bom-ref": "vuln-0844d2ed7c9a",
+      "id": "CF-0844D2ED7C9A",
+      "source": {
+        "name": "ClawForce Scanner",
+        "url": "https://clawforce.ca"
+      },
+      "ratings": [
+        {
+          "severity": "medium",
+          "method": "other",
+          "source": {
+            "name": "ClawForce Code Scanner"
+          }
+        }
+      ],
+      "description": "Dynamic module loading (potential code injection)",
+      "affects": [
+        {
+          "ref": "pkg:github/joeanamier-xhs-downloader"
+        }
+      ]
+    },
+    {
+      "bom-ref": "vuln-5fb033a761b7",
+      "id": "CF-5FB033A761B7",
+      "source": {
+        "name": "ClawForce Scanner",
+        "url": "https://clawforce.ca"
+      },
+      "ratings": [
+        {
+          "severity": "high",
+          "method": "other",
+          "source": {
+            "name": "ClawForce Code Scanner"
+          }
+        }
+      ],
+      "description": "Code obfuscation detected",
+      "affects": [
+        {
+          "ref": "pkg:github/joeanamier-xhs-downloader"
+        }
+      ]
+    }
+  ]
+}

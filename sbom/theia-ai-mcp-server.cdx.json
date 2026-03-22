@@ -1,0 +1,112 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-5f5ede0551c82850",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.523529+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:npm/theia-ai-mcp-server",
+      "name": "@theia/ai-mcp-server",
+      "version": "1.69.0",
+      "description": "Theia - MCP Server",
+      "purl": "pkg:npm/theia-ai-mcp-server@1.69.0",
+      "licenses": [
+        {
+          "license": {
+            "name": "EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/eclipse-theia/theia"
+        },
+        {
+          "type": "website",
+          "url": "https://www.npmjs.com/package/@theia/ai-mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "0"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "npm"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:npm/theia-ai-mcp-server",
+      "name": "@theia/ai-mcp-server",
+      "version": "1.69.0",
+      "description": "Theia - MCP Server",
+      "purl": "pkg:npm/theia-ai-mcp-server@1.69.0",
+      "licenses": [
+        {
+          "license": {
+            "name": "EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/eclipse-theia/theia"
+        },
+        {
+          "type": "website",
+          "url": "https://www.npmjs.com/package/@theia/ai-mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "0"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "npm"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

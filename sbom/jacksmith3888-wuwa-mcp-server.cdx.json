@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-c93c443bb8c12ce4",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.309915+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/jacksmith3888-wuwa-mcp-server",
+      "name": "\u9e23\u6f6e MCP Server",
+      "version": "",
+      "description": "\u4e00\u4e2a\u63d0\u4f9b\u67e5\u8be2\u9e23\u6f6e\u89d2\u8272\u4fe1\u606f\u3001\u914d\u961f\u3001\u58f0\u9ab8\u3001\u80cc\u666f\u6545\u4e8b\u53ca\u653b\u7565\u7684MCP server\n\u6570\u636e\u6765\u81ea\u5e93\u8857\u533a",
+      "purl": "pkg:generic/jacksmith3888-wuwa-mcp-server",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/jacksmith3888/wuwa-mcp-server"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/jacksmith3888/wuwa-mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/jacksmith3888-wuwa-mcp-server",
+      "name": "\u9e23\u6f6e MCP Server",
+      "version": "",
+      "description": "\u4e00\u4e2a\u63d0\u4f9b\u67e5\u8be2\u9e23\u6f6e\u89d2\u8272\u4fe1\u606f\u3001\u914d\u961f\u3001\u58f0\u9ab8\u3001\u80cc\u666f\u6545\u4e8b\u53ca\u653b\u7565\u7684MCP server\n\u6570\u636e\u6765\u81ea\u5e93\u8857\u533a",
+      "purl": "pkg:generic/jacksmith3888-wuwa-mcp-server",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/jacksmith3888/wuwa-mcp-server"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/jacksmith3888/wuwa-mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

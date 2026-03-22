@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-3d34c054ad0bc61a",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.178301+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/email-mail-master",
+      "name": "Send email with Mail Master \u4e07\u80fd\u90ae\u7bb1\u52a9\u624b",
+      "version": "1.0.0",
+      "description": "\u901a\u8fc7\u963f\u91cc\u4e91\u90ae\u7bb1\u3001QQ\u90ae\u7bb1\u6216163\u90ae\u7bb1\u7b49\u53d1\u9001\u548c\u63a5\u6536\u90ae\u4ef6\u3002\u652f\u6301\u53d1\u9001\u666e\u901a\u90ae\u4ef6\u3001\u5e26\u9644\u4ef6\u90ae\u4ef6\u3001\u63a5\u6536\u90ae\u4ef6\u3001\u68c0\u67e5\u65b0\u90ae\u4ef6\u3002\u5f53\u7528\u6237\u8981\u6c42\u53d1\u9001\u90ae\u4ef6\u3001\u67e5\u770b\u90ae\u4ef6\u3001\u68c0\u67e5\u65b0\u90ae\u4ef6\u65f6\u4f7f\u7528\u3002",
+      "purl": "pkg:generic/email-mail-master@1.0.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/jaccchina-ai/email-mail-master"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "15"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:email",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/email-mail-master",
+      "name": "Send email with Mail Master \u4e07\u80fd\u90ae\u7bb1\u52a9\u624b",
+      "version": "1.0.0",
+      "description": "\u901a\u8fc7\u963f\u91cc\u4e91\u90ae\u7bb1\u3001QQ\u90ae\u7bb1\u6216163\u90ae\u7bb1\u7b49\u53d1\u9001\u548c\u63a5\u6536\u90ae\u4ef6\u3002\u652f\u6301\u53d1\u9001\u666e\u901a\u90ae\u4ef6\u3001\u5e26\u9644\u4ef6\u90ae\u4ef6\u3001\u63a5\u6536\u90ae\u4ef6\u3001\u68c0\u67e5\u65b0\u90ae\u4ef6\u3002\u5f53\u7528\u6237\u8981\u6c42\u53d1\u9001\u90ae\u4ef6\u3001\u67e5\u770b\u90ae\u4ef6\u3001\u68c0\u67e5\u65b0\u90ae\u4ef6\u65f6\u4f7f\u7528\u3002",
+      "purl": "pkg:generic/email-mail-master@1.0.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/jaccchina-ai/email-mail-master"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "15"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:email",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

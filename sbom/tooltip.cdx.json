@@ -1,0 +1,92 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-03e38cd5857d5a4f",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:55.677080+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "2.2.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/tooltip",
+      "name": "Tooltip",
+      "version": "unknown",
+      "description": "Tooltip UI component reference \u2014 positioning, accessibility, trigger patterns, animation. Use when implementing tooltips, popovers, or contextual help overla...",
+      "purl": "pkg:generic/tooltip",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/xueyetianya/tooltip"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "1"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "2.2.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/tooltip",
+      "name": "Tooltip",
+      "version": "unknown",
+      "description": "Tooltip UI component reference \u2014 positioning, accessibility, trigger patterns, animation. Use when implementing tooltips, popovers, or contextual help overla...",
+      "purl": "pkg:generic/tooltip",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/xueyetianya/tooltip"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "1"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "2.2.0"
+        }
+      ]
+    }
+  ]
+}

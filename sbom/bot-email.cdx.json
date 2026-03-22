@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-48ca7c25197ebaa5",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.189060+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/bot-email",
+      "name": "BotEmail.ai - Free bot email",
+      "version": "v1.0.7",
+      "description": "Get an email address without your human. Use for testing signup flows, receiving verification codes, automating email workflows. Free.",
+      "purl": "pkg:generic/bot-email@v1.0.7",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/claw-silhouette/bot-email"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "15"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:email",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/bot-email",
+      "name": "BotEmail.ai - Free bot email",
+      "version": "v1.0.7",
+      "description": "Get an email address without your human. Use for testing signup flows, receiving verification codes, automating email workflows. Free.",
+      "purl": "pkg:generic/bot-email@v1.0.7",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/claw-silhouette/bot-email"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "15"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:email",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

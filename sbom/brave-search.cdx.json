@@ -1,0 +1,92 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-32f730ba15edd519",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:55.508459+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "2.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:unknown/brave-search",
+      "name": "brave-search",
+      "version": "unknown",
+      "description": "Web search integration via Brave Search API with structured result parsing",
+      "purl": "pkg:generic/brave-search",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/anthropics/claude-code"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "5"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "verified"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": ""
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "2.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:unknown/brave-search",
+      "name": "brave-search",
+      "version": "unknown",
+      "description": "Web search integration via Brave Search API with structured result parsing",
+      "purl": "pkg:generic/brave-search",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/anthropics/claude-code"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "5"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "verified"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": ""
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "2.0.0"
+        }
+      ]
+    }
+  ]
+}

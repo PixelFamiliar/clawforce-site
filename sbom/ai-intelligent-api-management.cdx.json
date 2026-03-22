@@ -1,0 +1,112 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-4ec41a8dd0cf8cb6",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:55.763735+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/ai-intelligent-api-management",
+      "name": "Ai Intelligent Api Management",
+      "version": "1.0.0",
+      "description": "API \u7ba1\u7406\uff0c\u63a5\u53e3\u8bbe\u8ba1 + \u6587\u6863 + \u6d4b\u8bd5\u3002",
+      "purl": "pkg:generic/ai-intelligent-api-management@1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "name": "MIT-0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/yang1002378395-cmyk/ai-intelligent-api-management"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "15"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/ai-intelligent-api-management",
+      "name": "Ai Intelligent Api Management",
+      "version": "1.0.0",
+      "description": "API \u7ba1\u7406\uff0c\u63a5\u53e3\u8bbe\u8ba1 + \u6587\u6863 + \u6d4b\u8bd5\u3002",
+      "purl": "pkg:generic/ai-intelligent-api-management@1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "name": "MIT-0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/yang1002378395-cmyk/ai-intelligent-api-management"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "15"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

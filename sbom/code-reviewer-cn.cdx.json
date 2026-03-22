@@ -1,0 +1,104 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-d1803db50d9e2c48",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:55.709863+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/code-reviewer-cn",
+      "name": "Code Reviewer Cn",
+      "version": "2.3.6",
+      "description": "\u4ee3\u7801\u5ba1\u67e5\u3001\u91cd\u6784\u5efa\u8bae\u3001\u5b89\u5168\u6f0f\u6d1e\u68c0\u67e5\u3001\u547d\u540d\u89c4\u8303\u3001\u590d\u6742\u5ea6\u5206\u6790\u3001\u6ce8\u91ca\u6587\u6863\u751f\u6210. Use when you need code reviewer cn capabilities. Triggers on: code reviewer cn, \u5708\u590d\u6742\u5ea6\u4f30\u7b97, \u5d4c\u5957\u6df1\u5ea6\u68c0\u6d4b, \u547d\u540d\u98ce\u683c\u4e00\u81f4\u6027, \u6ce8\u91ca\u7387\u8ba1\u7b97\u4e0e\u8bc4\u7ea7, \u91cd\u590d\u884c\u68c0\u6d4b.",
+      "purl": "pkg:generic/code-reviewer-cn@2.3.6",
+      "licenses": [
+        {
+          "license": {
+            "name": "MIT-0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/bytesagain/code-reviewer-cn"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "4"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/code-reviewer-cn",
+      "name": "Code Reviewer Cn",
+      "version": "2.3.6",
+      "description": "\u4ee3\u7801\u5ba1\u67e5\u3001\u91cd\u6784\u5efa\u8bae\u3001\u5b89\u5168\u6f0f\u6d1e\u68c0\u67e5\u3001\u547d\u540d\u89c4\u8303\u3001\u590d\u6742\u5ea6\u5206\u6790\u3001\u6ce8\u91ca\u6587\u6863\u751f\u6210. Use when you need code reviewer cn capabilities. Triggers on: code reviewer cn, \u5708\u590d\u6742\u5ea6\u4f30\u7b97, \u5d4c\u5957\u6df1\u5ea6\u68c0\u6d4b, \u547d\u540d\u98ce\u683c\u4e00\u81f4\u6027, \u6ce8\u91ca\u7387\u8ba1\u7b97\u4e0e\u8bc4\u7ea7, \u91cd\u590d\u884c\u68c0\u6d4b.",
+      "purl": "pkg:generic/code-reviewer-cn@2.3.6",
+      "licenses": [
+        {
+          "license": {
+            "name": "MIT-0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/bytesagain/code-reviewer-cn"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "4"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

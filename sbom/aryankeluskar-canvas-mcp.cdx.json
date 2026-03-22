@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-fd8fb9c35316680a",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.465582+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/aryankeluskar-canvas-mcp",
+      "name": "Canvas",
+      "version": "",
+      "description": "Canvas MCP is a collection of Canvas LMS tools for the model context protocol. This allows you to query your courses and get help for your assignments in the AI app of your choice!",
+      "purl": "pkg:generic/aryankeluskar-canvas-mcp",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/aryankeluskar/canvas-mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/aryankeluskar/canvas-mcp"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "7"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/aryankeluskar-canvas-mcp",
+      "name": "Canvas",
+      "version": "",
+      "description": "Canvas MCP is a collection of Canvas LMS tools for the model context protocol. This allows you to query your courses and get help for your assignments in the AI app of your choice!",
+      "purl": "pkg:generic/aryankeluskar-canvas-mcp",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/aryankeluskar/canvas-mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/aryankeluskar/canvas-mcp"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "7"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

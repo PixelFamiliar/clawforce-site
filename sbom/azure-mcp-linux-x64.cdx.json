@@ -1,0 +1,112 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-98166b3b08581f8a",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.024635+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:npm/azure-mcp-linux-x64",
+      "name": "@azure/mcp-linux-x64",
+      "version": "2.0.0-beta.31",
+      "description": "Azure MCP Server - Model Context Protocol implementation for Azure, for linux on x64",
+      "purl": "pkg:npm/azure-mcp-linux-x64@2.0.0-beta.31",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/microsoft/mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://www.npmjs.com/package/@azure/mcp-linux-x64"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "0"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "npm"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:npm/azure-mcp-linux-x64",
+      "name": "@azure/mcp-linux-x64",
+      "version": "2.0.0-beta.31",
+      "description": "Azure MCP Server - Model Context Protocol implementation for Azure, for linux on x64",
+      "purl": "pkg:npm/azure-mcp-linux-x64@2.0.0-beta.31",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/microsoft/mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://www.npmjs.com/package/@azure/mcp-linux-x64"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "0"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "npm"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

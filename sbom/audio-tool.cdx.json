@@ -1,0 +1,104 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-85a85c115f36debd",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:55.651296+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/audio-tool",
+      "name": "Audio Tool",
+      "version": "1.0.3",
+      "description": "\u97f3\u9891\u5904\u7406\u5de5\u5177 - \u683c\u5f0f\u8f6c\u6362\u3001\u526a\u8f91\u3001\u538b\u7f29\u3001\u63d0\u53d6\u97f3\u9891\u3002\u9002\u5408\uff1a\u64ad\u5ba2\u3001\u97f3\u4e50\u5236\u4f5c\u3001\u89c6\u9891\u526a\u8f91\u3002",
+      "purl": "pkg:generic/audio-tool@1.0.3",
+      "licenses": [
+        {
+          "license": {
+            "name": "MIT-0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/yang1002378395-cmyk/audio-tool"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "4"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/audio-tool",
+      "name": "Audio Tool",
+      "version": "1.0.3",
+      "description": "\u97f3\u9891\u5904\u7406\u5de5\u5177 - \u683c\u5f0f\u8f6c\u6362\u3001\u526a\u8f91\u3001\u538b\u7f29\u3001\u63d0\u53d6\u97f3\u9891\u3002\u9002\u5408\uff1a\u64ad\u5ba2\u3001\u97f3\u4e50\u5236\u4f5c\u3001\u89c6\u9891\u526a\u8f91\u3002",
+      "purl": "pkg:generic/audio-tool@1.0.3",
+      "licenses": [
+        {
+          "license": {
+            "name": "MIT-0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/yang1002378395-cmyk/audio-tool"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "4"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-65d8d3b15c5c545d",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.608130+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:npm/malicious-mcp-server",
+      "name": "malicious-mcp-server",
+      "version": "1.5.0",
+      "description": "A deliberately malicious MCP server for E2E testing purposes",
+      "purl": "pkg:npm/malicious-mcp-server@1.5.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/anysource-AI/malicious-mcp-server"
+        },
+        {
+          "type": "website",
+          "url": "https://www.npmjs.com/package/malicious-mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "0"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "npm"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:npm/malicious-mcp-server",
+      "name": "malicious-mcp-server",
+      "version": "1.5.0",
+      "description": "A deliberately malicious MCP server for E2E testing purposes",
+      "purl": "pkg:npm/malicious-mcp-server@1.5.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/anysource-AI/malicious-mcp-server"
+        },
+        {
+          "type": "website",
+          "url": "https://www.npmjs.com/package/malicious-mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "0"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "npm"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-2fbda017d72492db",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.635199+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/adarshem-mcp-server-learn",
+      "name": "Weather Server",
+      "version": "",
+      "description": "Provide real-time weather alerts and forecasts for US locations using official National Weather Service data. Enable applications to retrieve accurate weather information dynamically through simple to",
+      "purl": "pkg:generic/adarshem-mcp-server-learn",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/adarshem/mcp-server-learn"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/adarshem/mcp-server-learn"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/adarshem-mcp-server-learn",
+      "name": "Weather Server",
+      "version": "",
+      "description": "Provide real-time weather alerts and forecasts for US locations using official National Weather Service data. Enable applications to retrieve accurate weather information dynamically through simple to",
+      "purl": "pkg:generic/adarshem-mcp-server-learn",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/adarshem/mcp-server-learn"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/adarshem/mcp-server-learn"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

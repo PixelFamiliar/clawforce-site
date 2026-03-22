@@ -1,0 +1,92 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-6dfdba1cc8f89124",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:55.980809+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/git-hooks-generator",
+      "name": "Git Hooks Generator",
+      "version": "1.0.0",
+      "description": "\u751f\u6210 Git hooks \u811a\u672c\uff0c\u81ea\u52a8\u683c\u5f0f\u5316\u4ee3\u7801\u3001\u68c0\u67e5 lint\u3001\u8fd0\u884c\u6d4b\u8bd5\u7b49\u3002",
+      "purl": "pkg:generic/git-hooks-generator@1.0.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/Sunshine-del-ux/git-hooks-generator"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "20"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/git-hooks-generator",
+      "name": "Git Hooks Generator",
+      "version": "1.0.0",
+      "description": "\u751f\u6210 Git hooks \u811a\u672c\uff0c\u81ea\u52a8\u683c\u5f0f\u5316\u4ee3\u7801\u3001\u68c0\u67e5 lint\u3001\u8fd0\u884c\u6d4b\u8bd5\u7b49\u3002",
+      "purl": "pkg:generic/git-hooks-generator@1.0.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/Sunshine-del-ux/git-hooks-generator"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "20"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

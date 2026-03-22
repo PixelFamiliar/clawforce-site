@@ -1,0 +1,92 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-19e2a351e78d0ad1",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:55.696424+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/explain-code",
+      "name": "explain-code",
+      "version": "1.0.0",
+      "description": "\u7528\u53ef\u89c6\u5316\u56fe\u8868\u548c\u7c7b\u6bd4\u89e3\u91ca\u4ee3\u7801\u3002\u5728\u89e3\u91ca\u4ee3\u7801\u5982\u4f55\u5de5\u4f5c\u3001\u6559\u6388\u4ee3\u7801\u5e93\u6216\u7528\u6237\u8be2\u95ee\u5982\u4f55\u5de5\u4f5c\u65f6\u4f7f\u7528",
+      "purl": "pkg:generic/explain-code@1.0.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/EdwinInAu/explain-code"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "10"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/explain-code",
+      "name": "explain-code",
+      "version": "1.0.0",
+      "description": "\u7528\u53ef\u89c6\u5316\u56fe\u8868\u548c\u7c7b\u6bd4\u89e3\u91ca\u4ee3\u7801\u3002\u5728\u89e3\u91ca\u4ee3\u7801\u5982\u4f55\u5de5\u4f5c\u3001\u6559\u6388\u4ee3\u7801\u5e93\u6216\u7528\u6237\u8be2\u95ee\u5982\u4f55\u5de5\u4f5c\u65f6\u4f7f\u7528",
+      "purl": "pkg:generic/explain-code@1.0.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/EdwinInAu/explain-code"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "10"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

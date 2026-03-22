@@ -1,0 +1,92 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-17d8593fab0c2b75",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.140105+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/gpu-deploy",
+      "name": "Gpu Deploy",
+      "version": "0.1.0",
+      "description": "\u5728 GPU \u670d\u52a1\u5668\u4e0a\u90e8\u7f72 vLLM \u6a21\u578b\u670d\u52a1\u3002\u652f\u6301\u591a\u670d\u52a1\u5668\u914d\u7f6e\uff0c\u81ea\u52a8\u68c0\u67e5 GPU \u548c\u7aef\u53e3\u5360\u7528\uff0c\u4e00\u952e\u90e8\u7f72\u6d41\u884c\u7684\u5f00\u6e90\u6a21\u578b\u3002",
+      "purl": "pkg:generic/gpu-deploy@0.1.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/wang-junjian/gpu-deploy"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "20"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/gpu-deploy",
+      "name": "Gpu Deploy",
+      "version": "0.1.0",
+      "description": "\u5728 GPU \u670d\u52a1\u5668\u4e0a\u90e8\u7f72 vLLM \u6a21\u578b\u670d\u52a1\u3002\u652f\u6301\u591a\u670d\u52a1\u5668\u914d\u7f6e\uff0c\u81ea\u52a8\u68c0\u67e5 GPU \u548c\u7aef\u53e3\u5360\u7528\uff0c\u4e00\u952e\u90e8\u7f72\u6d41\u884c\u7684\u5f00\u6e90\u6a21\u578b\u3002",
+      "purl": "pkg:generic/gpu-deploy@0.1.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/wang-junjian/gpu-deploy"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "20"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

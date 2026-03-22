@@ -1,0 +1,108 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-c8f3cd757504e91d",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:55.820295+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "2.4.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/web-learner-1-0-0",
+      "name": "Web Learner 1.0.0",
+      "version": "unknown",
+      "description": "\u81ea\u4e3b\u4e0a\u7f51\u5b66\u4e60\u6280\u80fd - \u8ba9 AI \u80fd\u591f\u4e3b\u52a8\u641c\u7d22\u3001\u6d4f\u89c8\u548c\u4ece\u4e92\u8054\u7f51\u83b7\u53d6\u77e5\u8bc6\u3002\u5f53\u7528\u6237\u8981\u6c42\u4e86\u89e3\u6700\u65b0\u4fe1\u606f\u3001\u5b66\u4e60\u65b0\u77e5\u8bc6\u3001\u67e5\u8be2\u65b0\u95fb\u3001\u83b7\u53d6\u67d0\u4e2a\u4e3b\u9898\u7684\u8be6\u7ec6\u4fe1\u606f\uff0c\u6216\u9700\u8981\u4ece\u7f51\u7edc\u4e0a\u83b7\u53d6\u6570\u636e\u65f6\u89e6\u53d1\u6b64\u6280\u80fd\u3002",
+      "purl": "pkg:generic/web-learner-1-0-0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/332054781/web-learner-1-0-0"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "9"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "2.4.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:browser",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/web-learner-1-0-0",
+      "name": "Web Learner 1.0.0",
+      "version": "unknown",
+      "description": "\u81ea\u4e3b\u4e0a\u7f51\u5b66\u4e60\u6280\u80fd - \u8ba9 AI \u80fd\u591f\u4e3b\u52a8\u641c\u7d22\u3001\u6d4f\u89c8\u548c\u4ece\u4e92\u8054\u7f51\u83b7\u53d6\u77e5\u8bc6\u3002\u5f53\u7528\u6237\u8981\u6c42\u4e86\u89e3\u6700\u65b0\u4fe1\u606f\u3001\u5b66\u4e60\u65b0\u77e5\u8bc6\u3001\u67e5\u8be2\u65b0\u95fb\u3001\u83b7\u53d6\u67d0\u4e2a\u4e3b\u9898\u7684\u8be6\u7ec6\u4fe1\u606f\uff0c\u6216\u9700\u8981\u4ece\u7f51\u7edc\u4e0a\u83b7\u53d6\u6570\u636e\u65f6\u89e6\u53d1\u6b64\u6280\u80fd\u3002",
+      "purl": "pkg:generic/web-learner-1-0-0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/332054781/web-learner-1-0-0"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "9"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "2.4.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:browser",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

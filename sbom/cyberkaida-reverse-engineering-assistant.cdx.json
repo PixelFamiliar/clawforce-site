@@ -1,0 +1,112 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-329bf6d74332a271",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:58.301469+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:github/cyberkaida-reverse-engineering-assistant",
+      "name": "reverse-engineering-assistant",
+      "version": "",
+      "description": "MCP server for reverse engineering tasks in Ghidra \ud83d\udc69\u200d\ud83d\udcbb",
+      "purl": "pkg:github/cyberkaida/cyberkaida-reverse-engineering-assistant",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/cyberkaida/reverse-engineering-assistant"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/cyberkaida/reverse-engineering-assistant"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "1"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:github/cyberkaida-reverse-engineering-assistant",
+      "name": "reverse-engineering-assistant",
+      "version": "",
+      "description": "MCP server for reverse engineering tasks in Ghidra \ud83d\udc69\u200d\ud83d\udcbb",
+      "purl": "pkg:github/cyberkaida/cyberkaida-reverse-engineering-assistant",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/cyberkaida/reverse-engineering-assistant"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/cyberkaida/reverse-engineering-assistant"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "1"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

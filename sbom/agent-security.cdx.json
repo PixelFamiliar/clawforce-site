@@ -1,0 +1,124 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-b6d1f89ef7f33b29",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.064467+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/agent-security",
+      "name": "Agent Security",
+      "version": "1.0.0",
+      "description": "Security hardening for AI agents. Audit your workspace for leaked secrets, check file permissions, validate API key storage, scan for prompt injection risks,...",
+      "purl": "pkg:generic/agent-security@1.0.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/imaflytok/agent-security"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "43"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:filesystem",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:credentials",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:system",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/agent-security",
+      "name": "Agent Security",
+      "version": "1.0.0",
+      "description": "Security hardening for AI agents. Audit your workspace for leaked secrets, check file permissions, validate API key storage, scan for prompt injection risks,...",
+      "purl": "pkg:generic/agent-security@1.0.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/imaflytok/agent-security"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "43"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:filesystem",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:credentials",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:system",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-57aec9cb2a510682",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.308890+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:mcp-registry/ai-clarid-hmda",
+      "name": "Clarid HMDA Validator",
+      "version": "1.0.0",
+      "description": "Validate HMDA LAR files against CFPB edit checks for community banks and credit unions.",
+      "purl": "pkg:generic/ai-clarid-hmda@1.0.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/clarid-ai/compliance-checker"
+        },
+        {
+          "type": "website",
+          "url": "https://clarid.ai"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "7"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "mcp-registry"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:mcp-registry/ai-clarid-hmda",
+      "name": "Clarid HMDA Validator",
+      "version": "1.0.0",
+      "description": "Validate HMDA LAR files against CFPB edit checks for community banks and credit unions.",
+      "purl": "pkg:generic/ai-clarid-hmda@1.0.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/clarid-ai/compliance-checker"
+        },
+        {
+          "type": "website",
+          "url": "https://clarid.ai"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "7"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "mcp-registry"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

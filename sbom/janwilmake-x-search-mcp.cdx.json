@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-41124a0940e851c3",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.591460+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/janwilmake-x-search-mcp",
+      "name": "Tweet Search",
+      "version": "",
+      "description": "Search Twitter using advanced operators to find relevant tweets, media, and links. Filter by users, hashtags, dates, sentiment, and more, then paginate through results to explore deeper. Discover time",
+      "purl": "pkg:generic/janwilmake-x-search-mcp",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/janwilmake/x-search-mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/janwilmake/x-search-mcp"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/janwilmake-x-search-mcp",
+      "name": "Tweet Search",
+      "version": "",
+      "description": "Search Twitter using advanced operators to find relevant tweets, media, and links. Filter by users, hashtags, dates, sentiment, and more, then paginate through results to explore deeper. Discover time",
+      "purl": "pkg:generic/janwilmake-x-search-mcp",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/janwilmake/x-search-mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/janwilmake/x-search-mcp"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

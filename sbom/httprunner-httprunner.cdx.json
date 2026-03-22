@@ -1,0 +1,120 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-cc57372c71728113",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.945949+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:github/httprunner-httprunner",
+      "name": "httprunner",
+      "version": "",
+      "description": "HttpRunner \u662f\u4e00\u6b3e\u5f00\u6e90\u7684 API/UI \u6d4b\u8bd5\u6846\u67b6\uff0c\u7b80\u5355\u6613\u7528\uff0c\u529f\u80fd\u5f3a\u5927\uff0c\u5177\u6709\u4e30\u5bcc\u7684\u63d2\u4ef6\u5316\u673a\u5236\u548c\u9ad8\u5ea6\u7684\u53ef\u6269\u5c55\u80fd\u529b\u3002",
+      "purl": "pkg:github/httprunner/httprunner-httprunner",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/httprunner/httprunner"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/httprunner/httprunner"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "3"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:github/httprunner-httprunner",
+      "name": "httprunner",
+      "version": "",
+      "description": "HttpRunner \u662f\u4e00\u6b3e\u5f00\u6e90\u7684 API/UI \u6d4b\u8bd5\u6846\u67b6\uff0c\u7b80\u5355\u6613\u7528\uff0c\u529f\u80fd\u5f3a\u5927\uff0c\u5177\u6709\u4e30\u5bcc\u7684\u63d2\u4ef6\u5316\u673a\u5236\u548c\u9ad8\u5ea6\u7684\u53ef\u6269\u5c55\u80fd\u529b\u3002",
+      "purl": "pkg:github/httprunner/httprunner-httprunner",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/httprunner/httprunner"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/httprunner/httprunner"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "3"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

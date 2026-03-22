@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-9fe903e699a5e24a",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.674727+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/aparajithn-agent-utils",
+      "name": "Developer Utilities",
+      "version": "",
+      "description": "Streamline technical workflows with a comprehensive suite of data transformation and validation utilities. Convert between diverse formats like JSON, CSV, and Markdown while managing encodings and ide",
+      "purl": "pkg:generic/aparajithn-agent-utils",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/aparajithn/agent-utils"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/aparajithn/agent-utils"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/aparajithn-agent-utils",
+      "name": "Developer Utilities",
+      "version": "",
+      "description": "Streamline technical workflows with a comprehensive suite of data transformation and validation utilities. Convert between diverse formats like JSON, CSV, and Markdown while managing encodings and ide",
+      "purl": "pkg:generic/aparajithn-agent-utils",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/aparajithn/agent-utils"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/aparajithn/agent-utils"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

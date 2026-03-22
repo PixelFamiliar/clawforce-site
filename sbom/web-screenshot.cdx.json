@@ -1,0 +1,92 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-c07113ce51bc1dca",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:55.832739+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "2.4.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/web-screenshot",
+      "name": "web-screenshot",
+      "version": "unknown",
+      "description": "\ud83d\uddbc\ufe0f \u4efb\u610fURL\u5168\u9875\u9762\u622a\u56fe + PDF\u5bfc\u51fa\u5de5\u5177\u3002\u5f53\u7528\u6237\u8981\u6c42\u622a\u53d6\u7f51\u9875\u3001\u4fdd\u5b58\u7f51\u9875\u5feb\u7167\u3001\u622a\u56fe\u5b58\u6863\u3001\u505aQA\u5bf9\u6bd4\u3001\u5bfc\u51faPDF\u65f6\u4f7f\u7528\u3002\u652f\u6301\u767e\u5ea6/\u77e5\u4e4e/\u5fae\u4fe1\u516c\u4f17\u53f7/\u5c0f\u7ea2\u4e66\u7b49\u4e2d\u6587\u7f51\u7ad9\uff0c\u81ea\u52a8\u7b49\u5f85JS\u6e32\u67d3\u4ea4\u4ed8PNG/JPG/PDF\u3002",
+      "purl": "pkg:generic/web-screenshot",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/jiaonvmo-maker/web-screenshot"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "1"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "2.4.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/web-screenshot",
+      "name": "web-screenshot",
+      "version": "unknown",
+      "description": "\ud83d\uddbc\ufe0f \u4efb\u610fURL\u5168\u9875\u9762\u622a\u56fe + PDF\u5bfc\u51fa\u5de5\u5177\u3002\u5f53\u7528\u6237\u8981\u6c42\u622a\u53d6\u7f51\u9875\u3001\u4fdd\u5b58\u7f51\u9875\u5feb\u7167\u3001\u622a\u56fe\u5b58\u6863\u3001\u505aQA\u5bf9\u6bd4\u3001\u5bfc\u51faPDF\u65f6\u4f7f\u7528\u3002\u652f\u6301\u767e\u5ea6/\u77e5\u4e4e/\u5fae\u4fe1\u516c\u4f17\u53f7/\u5c0f\u7ea2\u4e66\u7b49\u4e2d\u6587\u7f51\u7ad9\uff0c\u81ea\u52a8\u7b49\u5f85JS\u6e32\u67d3\u4ea4\u4ed8PNG/JPG/PDF\u3002",
+      "purl": "pkg:generic/web-screenshot",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/jiaonvmo-maker/web-screenshot"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "1"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "2.4.0"
+        }
+      ]
+    }
+  ]
+}

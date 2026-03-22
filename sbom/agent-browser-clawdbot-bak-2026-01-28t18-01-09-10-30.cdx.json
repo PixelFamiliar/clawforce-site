@@ -1,0 +1,108 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-01b0897ffa354de5",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.019290+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/agent-browser-clawdbot-bak-2026-01-28t18-01-09-10-30",
+      "name": "Agent Browser Clawdbot.Bak 2026 01 28T18:01:09+10:30",
+      "version": "1.0.0",
+      "description": "Headless browser automation CLI optimized for AI agents with accessibility tree snapshots and ref-based element selection",
+      "purl": "pkg:generic/agent-browser-clawdbot-bak-2026-01-28t18-01-09-10-30@1.0.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/nicoataiza/agent-browser-clawdbot-bak-2026-01-28t18-01-09-10-30"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "35"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:execution",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:browser",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/agent-browser-clawdbot-bak-2026-01-28t18-01-09-10-30",
+      "name": "Agent Browser Clawdbot.Bak 2026 01 28T18:01:09+10:30",
+      "version": "1.0.0",
+      "description": "Headless browser automation CLI optimized for AI agents with accessibility tree snapshots and ref-based element selection",
+      "purl": "pkg:generic/agent-browser-clawdbot-bak-2026-01-28t18-01-09-10-30@1.0.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/nicoataiza/agent-browser-clawdbot-bak-2026-01-28t18-01-09-10-30"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "35"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:execution",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:browser",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

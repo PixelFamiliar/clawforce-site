@@ -1,0 +1,200 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-96e6c87268b6eb28",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:58.354682+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:github/jonigl-mcp-client-for-ollama",
+      "name": "mcp-client-for-ollama",
+      "version": "",
+      "description": "A text-based user interface (TUI) client for interacting with MCP servers using Ollama. Features include agent mode, multi-server, model switching, streaming responses, tool management, human-in-the-l",
+      "purl": "pkg:github/jonigl/jonigl-mcp-client-for-ollama",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/jonigl/mcp-client-for-ollama"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/jonigl/mcp-client-for-ollama"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "25"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "source"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:execution",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:system",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:dep_count",
+          "value": "3"
+        },
+        {
+          "name": "clawforce:dep_risk_score",
+          "value": "0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:github/jonigl-mcp-client-for-ollama",
+      "name": "mcp-client-for-ollama",
+      "version": "",
+      "description": "A text-based user interface (TUI) client for interacting with MCP servers using Ollama. Features include agent mode, multi-server, model switching, streaming responses, tool management, human-in-the-l",
+      "purl": "pkg:github/jonigl/jonigl-mcp-client-for-ollama",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/jonigl/mcp-client-for-ollama"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/jonigl/mcp-client-for-ollama"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "25"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "source"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:execution",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:system",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:dep_count",
+          "value": "3"
+        },
+        {
+          "name": "clawforce:dep_risk_score",
+          "value": "0"
+        }
+      ]
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "bom-ref": "vuln-c2e833184472",
+      "id": "CF-C2E833184472",
+      "source": {
+        "name": "ClawForce Scanner",
+        "url": "https://clawforce.ca"
+      },
+      "ratings": [
+        {
+          "severity": "high",
+          "method": "other",
+          "source": {
+            "name": "ClawForce Code Scanner"
+          }
+        }
+      ],
+      "description": "Dynamic code/command execution",
+      "affects": [
+        {
+          "ref": "pkg:github/jonigl-mcp-client-for-ollama"
+        }
+      ]
+    },
+    {
+      "bom-ref": "vuln-e314430ec87a",
+      "id": "CF-E314430EC87A",
+      "source": {
+        "name": "ClawForce Scanner",
+        "url": "https://clawforce.ca"
+      },
+      "ratings": [
+        {
+          "severity": "medium",
+          "method": "other",
+          "source": {
+            "name": "ClawForce Code Scanner"
+          }
+        }
+      ],
+      "description": "Outbound network calls to external services",
+      "affects": [
+        {
+          "ref": "pkg:github/jonigl-mcp-client-for-ollama"
+        }
+      ]
+    }
+  ]
+}

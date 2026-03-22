@@ -1,0 +1,187 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-efcae3790ddf9ec9",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:58.121338+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:github/devin-axis-a2v",
+      "name": "A2V",
+      "version": "",
+      "description": "A2V: Next-Gen AI Value Compute Protocol.                                                                                 ",
+      "purl": "pkg:github/Devin-AXIS/devin-axis-a2v",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/Devin-AXIS/A2V"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/Devin-AXIS/A2V"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "46"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "source"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:credentials",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:dep_count",
+          "value": "54"
+        },
+        {
+          "name": "clawforce:dep_risk_score",
+          "value": "9"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:github/devin-axis-a2v",
+      "name": "A2V",
+      "version": "",
+      "description": "A2V: Next-Gen AI Value Compute Protocol.                                                                                 ",
+      "purl": "pkg:github/Devin-AXIS/devin-axis-a2v",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/Devin-AXIS/A2V"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/Devin-AXIS/A2V"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "46"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "source"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:credentials",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:dep_count",
+          "value": "54"
+        },
+        {
+          "name": "clawforce:dep_risk_score",
+          "value": "9"
+        }
+      ]
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "bom-ref": "vuln-95df3d77d090",
+      "id": "CF-95DF3D77D090",
+      "source": {
+        "name": "ClawForce Scanner",
+        "url": "https://clawforce.ca"
+      },
+      "ratings": [
+        {
+          "severity": "medium",
+          "method": "other",
+          "source": {
+            "name": "ClawForce Code Scanner"
+          }
+        }
+      ],
+      "description": "Dangerous filesystem operations",
+      "affects": [
+        {
+          "ref": "pkg:github/devin-axis-a2v"
+        }
+      ]
+    },
+    {
+      "bom-ref": "vuln-undeclared-filesystem",
+      "id": "CF-UNDECLARED-FILESYSTEM",
+      "source": {
+        "name": "ClawForce Schema Validator"
+      },
+      "ratings": [
+        {
+          "severity": "medium",
+          "method": "other"
+        }
+      ],
+      "description": "Undeclared filesystem capability detected in source but not in MCP tool declarations",
+      "affects": [
+        {
+          "ref": "pkg:github/devin-axis-a2v"
+        }
+      ]
+    },
+    {
+      "bom-ref": "vuln-undeclared-credentials",
+      "id": "CF-UNDECLARED-CREDENTIALS",
+      "source": {
+        "name": "ClawForce Schema Validator"
+      },
+      "ratings": [
+        {
+          "severity": "medium",
+          "method": "other"
+        }
+      ],
+      "description": "Undeclared credentials capability detected in source but not in MCP tool declarations",
+      "affects": [
+        {
+          "ref": "pkg:github/devin-axis-a2v"
+        }
+      ]
+    }
+  ]
+}

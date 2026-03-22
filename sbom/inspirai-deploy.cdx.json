@@ -1,0 +1,104 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-da38e98cd3b4adc5",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.152954+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/inspirai-deploy",
+      "name": "InspirAI Deploy",
+      "version": "1.0.0",
+      "description": "\u667a\u80fd\u90e8\u7f72\u5de5\u5177 - \u81ea\u52a8\u68c0\u6d4b\u90e8\u7f72\u7b56\u7565\uff0c\u9884\u68c0\u67e5\u3001\u53d1\u5e03\u3001\u76d1\u63a7\u4e00\u4f53\u5316\u3002\u652f\u6301 K8s/Helm\u3001Docker Compose\u3001Vercel\u3001Fly.io\u3002Triggers: '\u90e8\u7f72', 'deploy', '\u53d1\u5e03', '\u4e0a\u7ebf', '\u9884\u68c0\u67e5', '\u90e8\u7f72\u76d1\u63a7', 'helm upgrade', 'docker compose...",
+      "purl": "pkg:generic/inspirai-deploy@1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "name": "MIT-0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/alexxxiong/inspirai-deploy"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "18"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/inspirai-deploy",
+      "name": "InspirAI Deploy",
+      "version": "1.0.0",
+      "description": "\u667a\u80fd\u90e8\u7f72\u5de5\u5177 - \u81ea\u52a8\u68c0\u6d4b\u90e8\u7f72\u7b56\u7565\uff0c\u9884\u68c0\u67e5\u3001\u53d1\u5e03\u3001\u76d1\u63a7\u4e00\u4f53\u5316\u3002\u652f\u6301 K8s/Helm\u3001Docker Compose\u3001Vercel\u3001Fly.io\u3002Triggers: '\u90e8\u7f72', 'deploy', '\u53d1\u5e03', '\u4e0a\u7ebf', '\u9884\u68c0\u67e5', '\u90e8\u7f72\u76d1\u63a7', 'helm upgrade', 'docker compose...",
+      "purl": "pkg:generic/inspirai-deploy@1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "name": "MIT-0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/alexxxiong/inspirai-deploy"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "18"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

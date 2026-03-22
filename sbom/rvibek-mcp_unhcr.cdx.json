@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-c09caa7de2c920f3",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.668074+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/rvibek-mcp_unhcr",
+      "name": "UNHCR",
+      "version": "",
+      "description": "Retrieve official global refugee data and humanitarian emergency statistics directly from the UN Refugee Agency. Access comprehensive reports on displacement trends and protection needs to inform rese",
+      "purl": "pkg:generic/rvibek-mcp_unhcr",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rvibek/mcp_unhcr"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/rvibek/mcp_unhcr"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/rvibek-mcp_unhcr",
+      "name": "UNHCR",
+      "version": "",
+      "description": "Retrieve official global refugee data and humanitarian emergency statistics directly from the UN Refugee Agency. Access comprehensive reports on displacement trends and protection needs to inform rese",
+      "purl": "pkg:generic/rvibek-mcp_unhcr",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rvibek/mcp_unhcr"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/rvibek/mcp_unhcr"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

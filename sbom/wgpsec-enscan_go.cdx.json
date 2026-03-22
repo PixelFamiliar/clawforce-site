@@ -1,0 +1,120 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-f418b7ce775dc16d",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.949083+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:github/wgpsec-enscan_go",
+      "name": "ENScan_GO",
+      "version": "",
+      "description": "\u4e00\u6b3e\u57fa\u4e8e\u5404\u5927\u4f01\u4e1a\u4fe1\u606fAPI\u7684\u5de5\u5177\uff0c\u89e3\u51b3\u5728\u9047\u5230\u7684\u5404\u79cd\u9488\u5bf9\u56fd\u5185\u4f01\u4e1a\u4fe1\u606f\u6536\u96c6\u96be\u9898\u3002\u4e00\u952e\u6536\u96c6\u63a7\u80a1\u516c\u53f8ICP\u5907\u6848\u3001APP\u3001\u5c0f\u7a0b\u5e8f\u3001\u5fae\u4fe1\u516c\u4f17\u53f7\u7b49\u4fe1\u606f\u805a\u5408\u5bfc\u51fa\u3002\u652f\u6301MCP\u63a5\u5165",
+      "purl": "pkg:github/wgpsec/wgpsec-enscan_go",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/wgpsec/ENScan_GO"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/wgpsec/ENScan_GO"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "2"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:github/wgpsec-enscan_go",
+      "name": "ENScan_GO",
+      "version": "",
+      "description": "\u4e00\u6b3e\u57fa\u4e8e\u5404\u5927\u4f01\u4e1a\u4fe1\u606fAPI\u7684\u5de5\u5177\uff0c\u89e3\u51b3\u5728\u9047\u5230\u7684\u5404\u79cd\u9488\u5bf9\u56fd\u5185\u4f01\u4e1a\u4fe1\u606f\u6536\u96c6\u96be\u9898\u3002\u4e00\u952e\u6536\u96c6\u63a7\u80a1\u516c\u53f8ICP\u5907\u6848\u3001APP\u3001\u5c0f\u7a0b\u5e8f\u3001\u5fae\u4fe1\u516c\u4f17\u53f7\u7b49\u4fe1\u606f\u805a\u5408\u5bfc\u51fa\u3002\u652f\u6301MCP\u63a5\u5165",
+      "purl": "pkg:github/wgpsec/wgpsec-enscan_go",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/wgpsec/ENScan_GO"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/wgpsec/ENScan_GO"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "2"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-e0a1d90d11fa8d64",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.349649+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:mcp-registry/ai-exa-exa",
+      "name": "exa",
+      "version": "3.1.3",
+      "description": "Fast, intelligent web search and web crawling.\n\nNew mcp tool: Exa-code is a context tool for coding ",
+      "purl": "pkg:generic/ai-exa-exa@3.1.3",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/exa-labs/exa-mcp-server"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/exa-labs/exa-mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "12"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "mcp-registry"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:browser",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:mcp-registry/ai-exa-exa",
+      "name": "exa",
+      "version": "3.1.3",
+      "description": "Fast, intelligent web search and web crawling.\n\nNew mcp tool: Exa-code is a context tool for coding ",
+      "purl": "pkg:generic/ai-exa-exa@3.1.3",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/exa-labs/exa-mcp-server"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/exa-labs/exa-mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "12"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "mcp-registry"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:browser",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

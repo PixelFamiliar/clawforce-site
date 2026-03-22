@@ -1,0 +1,92 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-9b7b267e7fde77fb",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:55.530509+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "2.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:unknown/cron-scheduling",
+      "name": "cron-scheduling",
+      "version": "unknown",
+      "description": "Plain-English cron job scheduling with human-readable time expressions",
+      "purl": "pkg:generic/cron-scheduling",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/PixelFamiliar/cron-scheduling-skill"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "3"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": ""
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "2.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:unknown/cron-scheduling",
+      "name": "cron-scheduling",
+      "version": "unknown",
+      "description": "Plain-English cron job scheduling with human-readable time expressions",
+      "purl": "pkg:generic/cron-scheduling",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/PixelFamiliar/cron-scheduling-skill"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "3"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": ""
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "2.0.0"
+        }
+      ]
+    }
+  ]
+}

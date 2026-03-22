@@ -1,0 +1,112 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-50eb4ad6d4661cf6",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:58.330847+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:github/wgpsec-cloudsword",
+      "name": "cloudsword",
+      "version": "",
+      "description": "\u4e00\u6b3e\u5e2e\u52a9\u4e91\u79df\u6237\u53d1\u73b0\u548c\u6d4b\u8bd5\u4e91\u4e0a\u98ce\u9669\u3001\u589e\u5f3a\u4e91\u4e0a\u9632\u62a4\u80fd\u529b\u7684\u7efc\u5408\u6027\u5f00\u6e90\u5de5\u5177",
+      "purl": "pkg:github/wgpsec/wgpsec-cloudsword",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/wgpsec/cloudsword"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/wgpsec/cloudsword"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "1"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:github/wgpsec-cloudsword",
+      "name": "cloudsword",
+      "version": "",
+      "description": "\u4e00\u6b3e\u5e2e\u52a9\u4e91\u79df\u6237\u53d1\u73b0\u548c\u6d4b\u8bd5\u4e91\u4e0a\u98ce\u9669\u3001\u589e\u5f3a\u4e91\u4e0a\u9632\u62a4\u80fd\u529b\u7684\u7efc\u5408\u6027\u5f00\u6e90\u5de5\u5177",
+      "purl": "pkg:github/wgpsec/wgpsec-cloudsword",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/wgpsec/cloudsword"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/wgpsec/cloudsword"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "1"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

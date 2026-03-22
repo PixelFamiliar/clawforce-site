@@ -1,0 +1,92 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-284813236a4331c1",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:55.902180+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/data-lineage-tracker",
+      "name": "Data Lineage Tracker",
+      "version": "2.1.0",
+      "description": "Track data origin, transformations, and flow through construction systems. Essential for audit trails, compliance, and debugging data issues.",
+      "purl": "pkg:generic/data-lineage-tracker@2.1.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/datadrivenconstruction/data-lineage-tracker"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "20"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/data-lineage-tracker",
+      "name": "Data Lineage Tracker",
+      "version": "2.1.0",
+      "description": "Track data origin, transformations, and flow through construction systems. Essential for audit trails, compliance, and debugging data issues.",
+      "purl": "pkg:generic/data-lineage-tracker@2.1.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/datadrivenconstruction/data-lineage-tracker"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "20"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

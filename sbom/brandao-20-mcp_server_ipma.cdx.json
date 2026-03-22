@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-2c68798335b088c2",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.578667+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/brandao-20-mcp_server_ipma",
+      "name": "IPMA Weather Data Server",
+      "version": "",
+      "description": "Provide real-time and historical weather data from the Portuguese Institute for Sea and Atmosphere (IPMA) to your applications. Enable seamless access to meteorological information for forecasting, an",
+      "purl": "pkg:generic/brandao-20-mcp_server_ipma",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/brandao-20/mcp_server_ipma"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/brandao-20/mcp_server_ipma"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/brandao-20-mcp_server_ipma",
+      "name": "IPMA Weather Data Server",
+      "version": "",
+      "description": "Provide real-time and historical weather data from the Portuguese Institute for Sea and Atmosphere (IPMA) to your applications. Enable seamless access to meteorological information for forecasting, an",
+      "purl": "pkg:generic/brandao-20-mcp_server_ipma",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/brandao-20/mcp_server_ipma"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/brandao-20/mcp_server_ipma"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-4596aa84e20f431f",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.723625+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/couchloop-ceq",
+      "name": "CouchLoop EQ",
+      "version": "",
+      "description": "CouchLoop EQ is an MCP (Model Context Protocol) server that provides behavioral governance for LLMs. It monitors AI responses for hallucination, inconsistency, tone drift, and unsafe reasoning pattern",
+      "purl": "pkg:generic/couchloop-ceq",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/couchloop/ceq"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/couchloop/ceq"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/couchloop-ceq",
+      "name": "CouchLoop EQ",
+      "version": "",
+      "description": "CouchLoop EQ is an MCP (Model Context Protocol) server that provides behavioral governance for LLMs. It monitors AI responses for hallucination, inconsistency, tone drift, and unsafe reasoning pattern",
+      "purl": "pkg:generic/couchloop-ceq",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/couchloop/ceq"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/couchloop/ceq"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

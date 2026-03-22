@@ -1,0 +1,112 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-3dc476b5c03c60fa",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:58.003972+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:github/blazickjp-arxiv-mcp-server",
+      "name": "arxiv-mcp-server",
+      "version": "",
+      "description": "A Model Context Protocol server for searching and analyzing arXiv papers",
+      "purl": "pkg:github/blazickjp/blazickjp-arxiv-mcp-server",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/blazickjp/arxiv-mcp-server"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/blazickjp/arxiv-mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "1"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:github/blazickjp-arxiv-mcp-server",
+      "name": "arxiv-mcp-server",
+      "version": "",
+      "description": "A Model Context Protocol server for searching and analyzing arXiv papers",
+      "purl": "pkg:github/blazickjp/blazickjp-arxiv-mcp-server",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/blazickjp/arxiv-mcp-server"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/blazickjp/arxiv-mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "1"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

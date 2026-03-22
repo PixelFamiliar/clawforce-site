@@ -1,0 +1,108 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-910d696f66bc20e0",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:58.492823+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/tkoba1974-mcp-kroki",
+      "name": "Kroki Server",
+      "version": "",
+      "description": "Generate and download diagrams in various formats using Kroki.io. Convert your Mermaid, PlantUML, and Graphviz diagrams to SVG, PNG, PDF, or JPEG files effortlessly.",
+      "purl": "pkg:generic/tkoba1974-mcp-kroki",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/tkoba1974/mcp-kroki"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/tkoba1974/mcp-kroki"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "10"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:filesystem",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/tkoba1974-mcp-kroki",
+      "name": "Kroki Server",
+      "version": "",
+      "description": "Generate and download diagrams in various formats using Kroki.io. Convert your Mermaid, PlantUML, and Graphviz diagrams to SVG, PNG, PDF, or JPEG files effortlessly.",
+      "purl": "pkg:generic/tkoba1974-mcp-kroki",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/tkoba1974/mcp-kroki"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/tkoba1974/mcp-kroki"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "10"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:filesystem",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

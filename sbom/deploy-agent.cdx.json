@@ -1,0 +1,92 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-8a73ab0fc6b5a635",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.093796+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/deploy-agent",
+      "name": "C.R.A.B Deploy Agent",
+      "version": "1.1.0",
+      "description": "Multi-step deployment agent for full-stack apps. Build \u2192 Test \u2192 GitHub \u2192 Cloudflare Pages with human approval at each step.",
+      "purl": "pkg:generic/deploy-agent@1.1.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/sherajdev/deploy-agent"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "10"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/deploy-agent",
+      "name": "C.R.A.B Deploy Agent",
+      "version": "1.1.0",
+      "description": "Multi-step deployment agent for full-stack apps. Build \u2192 Test \u2192 GitHub \u2192 Cloudflare Pages with human approval at each step.",
+      "purl": "pkg:generic/deploy-agent@1.1.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/sherajdev/deploy-agent"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "10"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

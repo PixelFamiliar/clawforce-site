@@ -1,0 +1,112 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-89c0479ae6cfe1a6",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.874679+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:github/triggerdotdev-trigger-dev",
+      "name": "trigger.dev",
+      "version": "",
+      "description": "Trigger.dev \u2013 build and deploy fully\u2011managed AI agents and workflows",
+      "purl": "pkg:github/triggerdotdev/triggerdotdev-trigger-dev",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/triggerdotdev/trigger.dev"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/triggerdotdev/trigger.dev"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "1"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:github/triggerdotdev-trigger-dev",
+      "name": "trigger.dev",
+      "version": "",
+      "description": "Trigger.dev \u2013 build and deploy fully\u2011managed AI agents and workflows",
+      "purl": "pkg:github/triggerdotdev/triggerdotdev-trigger-dev",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/triggerdotdev/trigger.dev"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/triggerdotdev/trigger.dev"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "1"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

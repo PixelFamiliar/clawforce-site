@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-35923574d5812302",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.414518+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/hellokitty-v-smithery-mcp-servers",
+      "name": "United States Weather Data Access",
+      "version": "",
+      "description": "Provide real-time access to United States weather data through the National Weather Service. Enable applications to retrieve accurate and up-to-date weather information seamlessly. Enhance your projec",
+      "purl": "pkg:generic/hellokitty-v-smithery-mcp-servers",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/hellokitty-v/smithery-mcp-servers"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/hellokitty-v/smithery-mcp-servers"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/hellokitty-v-smithery-mcp-servers",
+      "name": "United States Weather Data Access",
+      "version": "",
+      "description": "Provide real-time access to United States weather data through the National Weather Service. Enable applications to retrieve accurate and up-to-date weather information seamlessly. Enhance your projec",
+      "purl": "pkg:generic/hellokitty-v-smithery-mcp-servers",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/hellokitty-v/smithery-mcp-servers"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/hellokitty-v/smithery-mcp-servers"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

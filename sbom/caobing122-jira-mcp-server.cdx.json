@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-696e72517dd0c624",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.573267+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:npm/caobing122-jira-mcp-server",
+      "name": "@caobing122/jira-mcp-server",
+      "version": "1.1.5",
+      "description": "Jira MCP Server",
+      "purl": "pkg:npm/caobing122-jira-mcp-server@1.1.5",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "ssh://git@github.com/caobing122/jira-mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://www.npmjs.com/package/@caobing122/jira-mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "npm"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:npm/caobing122-jira-mcp-server",
+      "name": "@caobing122/jira-mcp-server",
+      "version": "1.1.5",
+      "description": "Jira MCP Server",
+      "purl": "pkg:npm/caobing122-jira-mcp-server@1.1.5",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "ssh://git@github.com/caobing122/jira-mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://www.npmjs.com/package/@caobing122/jira-mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "npm"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

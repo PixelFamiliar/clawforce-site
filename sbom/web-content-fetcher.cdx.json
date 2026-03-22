@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-557ff63a8b2ae2a0",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:55.797509+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "2.4.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/web-content-fetcher",
+      "name": "Web Content Fetcher",
+      "version": "unknown",
+      "description": "\u7f51\u9875\u5185\u5bb9\u83b7\u53d6\u5de5\u5177 | \u5f53\u5e38\u89c4\u722c\u866b\u88ab\u8fc7\u6ee4\u65f6\uff0c\u4f7f\u7528\u66ff\u4ee3\u670d\u52a1\u83b7\u53d6\u7f51\u9875\u5185\u5bb9\u3002\u652f\u6301\uff1a1) r.jina.ai - \u6700\u7a33\u5b9a 2) markdown.new - Cloudflare \u4e13\u7528 3) defuddle.md - \u5907\u7528\u65b9\u6848\u3002\u89e6\u53d1\u8bcd\uff1a\u83b7\u53d6\u7f51\u9875\u5185\u5bb9\u3001\u7f51\u9875\u8f6cmarkdown\u3001\u5185\u5bb9\u6293\u53d6\u3001fetch webpage\u3001bypas...",
+      "purl": "pkg:generic/web-content-fetcher",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/MRTommyWU/web-content-fetcher"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "13"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "2.4.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/web-content-fetcher",
+      "name": "Web Content Fetcher",
+      "version": "unknown",
+      "description": "\u7f51\u9875\u5185\u5bb9\u83b7\u53d6\u5de5\u5177 | \u5f53\u5e38\u89c4\u722c\u866b\u88ab\u8fc7\u6ee4\u65f6\uff0c\u4f7f\u7528\u66ff\u4ee3\u670d\u52a1\u83b7\u53d6\u7f51\u9875\u5185\u5bb9\u3002\u652f\u6301\uff1a1) r.jina.ai - \u6700\u7a33\u5b9a 2) markdown.new - Cloudflare \u4e13\u7528 3) defuddle.md - \u5907\u7528\u65b9\u6848\u3002\u89e6\u53d1\u8bcd\uff1a\u83b7\u53d6\u7f51\u9875\u5185\u5bb9\u3001\u7f51\u9875\u8f6cmarkdown\u3001\u5185\u5bb9\u6293\u53d6\u3001fetch webpage\u3001bypas...",
+      "purl": "pkg:generic/web-content-fetcher",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/MRTommyWU/web-content-fetcher"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "13"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "2.4.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-791e7c4d44dc9826",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:55.657896+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/fumi-cli-tool-template",
+      "name": "Cli Tool Template",
+      "version": "1.0.0",
+      "description": "\u30b3\u30de\u30f3\u30c9\u30e9\u30a4\u30f3\u30c4\u30fc\u30eb\uff08CLI\uff09\u958b\u767a\u306e\u305f\u3081\u306eOpenClaw\u30ef\u30fc\u30af\u30b9\u30da\u30fc\u30b9\u8a2d\u5b9a\u30c6\u30f3\u30d7\u30ec\u30fc\u30c8\u3002CLI UX\u3001\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8\u512a\u5148\u3001\u30c6\u30b9\u30c8\u99c6\u52d5\u958b\u767a\u306e\u539f\u5247\u3002",
+      "purl": "pkg:generic/fumi-cli-tool-template@1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "name": "MIT-0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/HiroFumiko/fumi-cli-tool-template"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "24"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:execution",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/fumi-cli-tool-template",
+      "name": "Cli Tool Template",
+      "version": "1.0.0",
+      "description": "\u30b3\u30de\u30f3\u30c9\u30e9\u30a4\u30f3\u30c4\u30fc\u30eb\uff08CLI\uff09\u958b\u767a\u306e\u305f\u3081\u306eOpenClaw\u30ef\u30fc\u30af\u30b9\u30da\u30fc\u30b9\u8a2d\u5b9a\u30c6\u30f3\u30d7\u30ec\u30fc\u30c8\u3002CLI UX\u3001\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8\u512a\u5148\u3001\u30c6\u30b9\u30c8\u99c6\u52d5\u958b\u767a\u306e\u539f\u5247\u3002",
+      "purl": "pkg:generic/fumi-cli-tool-template@1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "name": "MIT-0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/HiroFumiko/fumi-cli-tool-template"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "24"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:execution",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

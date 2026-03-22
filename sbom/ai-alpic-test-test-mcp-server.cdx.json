@@ -1,0 +1,82 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-46aa1f3be3b8f484",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.269502+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:mcp-registry/ai-alpic-test-test-mcp-server",
+      "name": "test-mcp-server",
+      "version": "0.0.1",
+      "description": "Alpic Test MCP Server - great server!",
+      "purl": "pkg:generic/ai-alpic-test-test-mcp-server@0.0.1",
+      "licenses": [],
+      "externalReferences": [],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "7"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "mcp-registry"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:mcp-registry/ai-alpic-test-test-mcp-server",
+      "name": "test-mcp-server",
+      "version": "0.0.1",
+      "description": "Alpic Test MCP Server - great server!",
+      "purl": "pkg:generic/ai-alpic-test-test-mcp-server@0.0.1",
+      "licenses": [],
+      "externalReferences": [],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "7"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "mcp-registry"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

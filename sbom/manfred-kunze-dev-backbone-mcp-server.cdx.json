@@ -1,0 +1,104 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-040690cd0d518329",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.998689+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:npm/manfred-kunze-dev-backbone-mcp-server",
+      "name": "@manfred-kunze-dev/backbone-mcp-server",
+      "version": "2.12.1",
+      "description": "MCP server for the Backbone AI platform",
+      "purl": "pkg:npm/manfred-kunze-dev-backbone-mcp-server@2.12.1",
+      "licenses": [
+        {
+          "license": {
+            "name": "SEE LICENSE IN LICENSE"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://www.npmjs.com/package/@manfred-kunze-dev/backbone-mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "5"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "npm"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:npm/manfred-kunze-dev-backbone-mcp-server",
+      "name": "@manfred-kunze-dev/backbone-mcp-server",
+      "version": "2.12.1",
+      "description": "MCP server for the Backbone AI platform",
+      "purl": "pkg:npm/manfred-kunze-dev-backbone-mcp-server@2.12.1",
+      "licenses": [
+        {
+          "license": {
+            "name": "SEE LICENSE IN LICENSE"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://www.npmjs.com/package/@manfred-kunze-dev/backbone-mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "5"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "npm"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

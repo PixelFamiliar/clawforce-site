@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-018219b394c8fc69",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.167941+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/supabase",
+      "name": "Supabase",
+      "version": "",
+      "description": "Search the Supabase docs for up-to-date guidance and troubleshoot errors quickly. Manage organizations, projects, databases, and Edge Functions, including migrations, SQL, logs, advisors, keys, and ty",
+      "purl": "pkg:generic/supabase",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/Supabase"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "11"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:database",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/supabase",
+      "name": "Supabase",
+      "version": "",
+      "description": "Search the Supabase docs for up-to-date guidance and troubleshoot errors quickly. Manage organizations, projects, databases, and Edge Functions, including migrations, SQL, logs, advisors, keys, and ty",
+      "purl": "pkg:generic/supabase",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/Supabase"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "11"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:database",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

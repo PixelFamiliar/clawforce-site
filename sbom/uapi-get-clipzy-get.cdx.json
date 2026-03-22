@@ -1,0 +1,120 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-052695925fee2a14",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:55.791087+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/uapi-get-clipzy-get",
+      "name": "UAPI \u6b65\u9aa42 (\u65b9\u6cd5\u4e00): \u83b7\u53d6\u52a0\u5bc6\u6570\u636e \u63a5\u53e3",
+      "version": "1.0.0",
+      "description": "\u4f7f\u7528 UAPI \u7684\u201c\u6b65\u9aa42 (\u65b9\u6cd5\u4e00): \u83b7\u53d6\u52a0\u5bc6\u6570\u636e\u201d\u5355\u63a5\u53e3 skill\uff0c\u5904\u7406 \u6b65\u9aa42 (\u65b9\u6cd5\u4e00): \u83b7\u53d6\u52a0\u5bc6\u6570\u636e\u3001\u52a0\u5bc6\u526a\u8d34\u677f\u3001\u7aef\u5230\u7aef\u52a0\u5bc6\u6587\u672c\u3001\u52a0\u5bc6\u5206\u4eab \u7b49\u8bf7\u6c42\u3002 Use when the user wants get clipzy get, api get, get, clipzy, or when you...",
+      "purl": "pkg:generic/uapi-get-clipzy-get@1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "name": "MIT-0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/shuakami/uapi-get-clipzy-get"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "15"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:execution",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/uapi-get-clipzy-get",
+      "name": "UAPI \u6b65\u9aa42 (\u65b9\u6cd5\u4e00): \u83b7\u53d6\u52a0\u5bc6\u6570\u636e \u63a5\u53e3",
+      "version": "1.0.0",
+      "description": "\u4f7f\u7528 UAPI \u7684\u201c\u6b65\u9aa42 (\u65b9\u6cd5\u4e00): \u83b7\u53d6\u52a0\u5bc6\u6570\u636e\u201d\u5355\u63a5\u53e3 skill\uff0c\u5904\u7406 \u6b65\u9aa42 (\u65b9\u6cd5\u4e00): \u83b7\u53d6\u52a0\u5bc6\u6570\u636e\u3001\u52a0\u5bc6\u526a\u8d34\u677f\u3001\u7aef\u5230\u7aef\u52a0\u5bc6\u6587\u672c\u3001\u52a0\u5bc6\u5206\u4eab \u7b49\u8bf7\u6c42\u3002 Use when the user wants get clipzy get, api get, get, clipzy, or when you...",
+      "purl": "pkg:generic/uapi-get-clipzy-get@1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "name": "MIT-0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/shuakami/uapi-get-clipzy-get"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "15"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:execution",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

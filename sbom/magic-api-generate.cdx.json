@@ -1,0 +1,112 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-5366ea0fddd5cd5e",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:55.750906+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/magic-api-generate",
+      "name": "magic-api-generate",
+      "version": "1.0.0",
+      "description": "magic-api \u56fd\u4ea7\u63a5\u53e3\u5feb\u901f\u5f00\u53d1\u6846\u67b6\u3002\u901a\u8fc7 Web UI \u7f16\u5199\u811a\u672c\u81ea\u52a8\u6620\u5c04\u4e3a HTTP \u63a5\u53e3\uff0c\u65e0\u9700 Controller/Service/Dao\u3002\u5f53\u7528\u6237\u63d0\u5230 magic-api\u3001\u63a5\u53e3\u5feb\u901f\u5f00\u53d1\u3001\u4f4e\u4ee3\u7801\u63a5\u53e3\u3001\u52a8\u6001\u63a5\u53e3\u751f\u6210\u3001magic-script \u65f6\u89e6\u53d1\u6b64\u6280\u80fd\u3002\u9002\u7528\u4e8e Spring Boot \u96c6\u6210\u3001\u6570\u636e\u5e93\u64cd\u4f5c\u3001\u811a...",
+      "purl": "pkg:generic/magic-api-generate@1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "name": "MIT-0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/webx32/magic-api-generate"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/magic-api-generate",
+      "name": "magic-api-generate",
+      "version": "1.0.0",
+      "description": "magic-api \u56fd\u4ea7\u63a5\u53e3\u5feb\u901f\u5f00\u53d1\u6846\u67b6\u3002\u901a\u8fc7 Web UI \u7f16\u5199\u811a\u672c\u81ea\u52a8\u6620\u5c04\u4e3a HTTP \u63a5\u53e3\uff0c\u65e0\u9700 Controller/Service/Dao\u3002\u5f53\u7528\u6237\u63d0\u5230 magic-api\u3001\u63a5\u53e3\u5feb\u901f\u5f00\u53d1\u3001\u4f4e\u4ee3\u7801\u63a5\u53e3\u3001\u52a8\u6001\u63a5\u53e3\u751f\u6210\u3001magic-script \u65f6\u89e6\u53d1\u6b64\u6280\u80fd\u3002\u9002\u7528\u4e8e Spring Boot \u96c6\u6210\u3001\u6570\u636e\u5e93\u64cd\u4f5c\u3001\u811a...",
+      "purl": "pkg:generic/magic-api-generate@1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "name": "MIT-0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/webx32/magic-api-generate"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

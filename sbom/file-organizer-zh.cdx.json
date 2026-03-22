@@ -1,0 +1,92 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-7cf9cc76d5d5cc0d",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:55.842388+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/file-organizer-zh",
+      "name": "File Organizer",
+      "version": "1.0.0",
+      "description": "\u6587\u4ef6\u6574\u7406\u5668\uff0c\u6309\u7c7b\u578b\u81ea\u52a8\u5206\u7c7b\uff08\u4e2d\u6587\u7248\uff09",
+      "purl": "pkg:generic/file-organizer-zh@1.0.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/huangjingzhi07/file-organizer-zh"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "10"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/file-organizer-zh",
+      "name": "File Organizer",
+      "version": "1.0.0",
+      "description": "\u6587\u4ef6\u6574\u7406\u5668\uff0c\u6309\u7c7b\u578b\u81ea\u52a8\u5206\u7c7b\uff08\u4e2d\u6587\u7248\uff09",
+      "purl": "pkg:generic/file-organizer-zh@1.0.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/huangjingzhi07/file-organizer-zh"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "10"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

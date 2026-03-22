@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-e5026782bc84d858",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.543399+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/aleatoric-causal-mcp",
+      "name": "Aleatoric",
+      "version": "",
+      "description": "Aleatoric Engine is deterministic market simulation infrastructure for generating reproducible, schema-stable synthetic market data used in financial research, validation, and systems testing. It prio",
+      "purl": "pkg:generic/aleatoric-causal-mcp",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/aleatoric/causal-mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/aleatoric/causal-mcp"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/aleatoric-causal-mcp",
+      "name": "Aleatoric",
+      "version": "",
+      "description": "Aleatoric Engine is deterministic market simulation infrastructure for generating reproducible, schema-stable synthetic market data used in financial research, validation, and systems testing. It prio",
+      "purl": "pkg:generic/aleatoric-causal-mcp",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/aleatoric/causal-mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/aleatoric/causal-mcp"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

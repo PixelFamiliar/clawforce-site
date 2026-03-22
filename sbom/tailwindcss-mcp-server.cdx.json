@@ -1,0 +1,112 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-49ff8091e5b4d7e5",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.892490+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:npm/tailwindcss-mcp-server",
+      "name": "tailwindcss-mcp-server",
+      "version": "0.1.1",
+      "description": "MCP server for TailwindCSS utility classes, documentation, and project assistance",
+      "purl": "pkg:npm/tailwindcss-mcp-server@0.1.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/CarbonoDev/tailwindcss-mcp-server"
+        },
+        {
+          "type": "website",
+          "url": "https://www.npmjs.com/package/tailwindcss-mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "0"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "npm"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:npm/tailwindcss-mcp-server",
+      "name": "tailwindcss-mcp-server",
+      "version": "0.1.1",
+      "description": "MCP server for TailwindCSS utility classes, documentation, and project assistance",
+      "purl": "pkg:npm/tailwindcss-mcp-server@0.1.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/CarbonoDev/tailwindcss-mcp-server"
+        },
+        {
+          "type": "website",
+          "url": "https://www.npmjs.com/package/tailwindcss-mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "0"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "npm"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-5889d1ec5480fc31",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:58.509333+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/mnemox-ai-idea-reality-mcp",
+      "name": "Idea Reality",
+      "version": "",
+      "description": "Pre-build reality check for AI coding agents. Scans GitHub, HN, npm, PyPI & Product Hunt before you build \u2014 returns a 0-100 reality signal, top competitors, and pivot suggestions. Quick mode (2 source",
+      "purl": "pkg:generic/mnemox-ai-idea-reality-mcp",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/mnemox-ai/idea-reality-mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/mnemox-ai/idea-reality-mcp"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/mnemox-ai-idea-reality-mcp",
+      "name": "Idea Reality",
+      "version": "",
+      "description": "Pre-build reality check for AI coding agents. Scans GitHub, HN, npm, PyPI & Product Hunt before you build \u2014 returns a 0-100 reality signal, top competitors, and pivot suggestions. Quick mode (2 source",
+      "purl": "pkg:generic/mnemox-ai-idea-reality-mcp",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/mnemox-ai/idea-reality-mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/mnemox-ai/idea-reality-mcp"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

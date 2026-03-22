@@ -1,0 +1,112 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-0dc427a6eedcc307",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.540683+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:npm/cap-js-mcp-server",
+      "name": "@cap-js/mcp-server",
+      "version": "0.0.4",
+      "description": "Model Context Protocol (MCP) server for AI-assisted development of CAP applications.",
+      "purl": "pkg:npm/cap-js-mcp-server@0.0.4",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/cap-js/mcp-server"
+        },
+        {
+          "type": "website",
+          "url": "https://www.npmjs.com/package/@cap-js/mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "0"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "npm"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:npm/cap-js-mcp-server",
+      "name": "@cap-js/mcp-server",
+      "version": "0.0.4",
+      "description": "Model Context Protocol (MCP) server for AI-assisted development of CAP applications.",
+      "purl": "pkg:npm/cap-js-mcp-server@0.0.4",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/cap-js/mcp-server"
+        },
+        {
+          "type": "website",
+          "url": "https://www.npmjs.com/package/@cap-js/mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "0"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "npm"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

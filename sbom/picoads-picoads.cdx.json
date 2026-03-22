@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-fb96537c1281866c",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.508388+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/picoads-picoads",
+      "name": "picoads",
+      "version": "",
+      "description": "Earn from your audience or buy ad distribution \u2014 the only agent ad network with independent delivery verification. Publishers receive 100% of the agreed price with zero deductions. Verified deliveries",
+      "purl": "pkg:generic/picoads-picoads",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/picoads/picoads"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/picoads/picoads"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "7"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/picoads-picoads",
+      "name": "picoads",
+      "version": "",
+      "description": "Earn from your audience or buy ad distribution \u2014 the only agent ad network with independent delivery verification. Publishers receive 100% of the agreed price with zero deductions. Verified deliveries",
+      "purl": "pkg:generic/picoads-picoads",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/picoads/picoads"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/picoads/picoads"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "7"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

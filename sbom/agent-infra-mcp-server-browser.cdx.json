@@ -1,0 +1,120 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-16a607423dff4b18",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.782070+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:npm/agent-infra-mcp-server-browser",
+      "name": "@agent-infra/mcp-server-browser",
+      "version": "1.2.29",
+      "description": "MCP server for browser use access",
+      "purl": "pkg:npm/agent-infra-mcp-server-browser@1.2.29",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/bytedance/UI-TARS-desktop"
+        },
+        {
+          "type": "website",
+          "url": "https://www.npmjs.com/package/@agent-infra/mcp-server-browser"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "5"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "npm"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:browser",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:npm/agent-infra-mcp-server-browser",
+      "name": "@agent-infra/mcp-server-browser",
+      "version": "1.2.29",
+      "description": "MCP server for browser use access",
+      "purl": "pkg:npm/agent-infra-mcp-server-browser@1.2.29",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/bytedance/UI-TARS-desktop"
+        },
+        {
+          "type": "website",
+          "url": "https://www.npmjs.com/package/@agent-infra/mcp-server-browser"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "5"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "npm"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:browser",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

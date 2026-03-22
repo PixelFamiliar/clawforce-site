@@ -1,0 +1,120 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-833cea5b9ec64b28",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.438175+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:npm/notionhq-notion-mcp-server",
+      "name": "@notionhq/notion-mcp-server",
+      "version": "2.2.1",
+      "description": "Official MCP server for Notion API",
+      "purl": "pkg:npm/notionhq-notion-mcp-server@2.2.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "ssh://git@github.com/makenotion/notion-mcp-server"
+        },
+        {
+          "type": "website",
+          "url": "https://www.npmjs.com/package/@notionhq/notion-mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "1"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "npm"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:npm/notionhq-notion-mcp-server",
+      "name": "@notionhq/notion-mcp-server",
+      "version": "2.2.1",
+      "description": "Official MCP server for Notion API",
+      "purl": "pkg:npm/notionhq-notion-mcp-server@2.2.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "ssh://git@github.com/makenotion/notion-mcp-server"
+        },
+        {
+          "type": "website",
+          "url": "https://www.npmjs.com/package/@notionhq/notion-mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "1"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "npm"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

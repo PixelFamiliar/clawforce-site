@@ -1,0 +1,92 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-667259fc6b468216",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.135338+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/lu-auto-deploy",
+      "name": "Lu Auto Deploy",
+      "version": "1.0.0",
+      "description": "\u63d0\u4f9b Docker \u670d\u52a1\u4e00\u952e\u90e8\u7f72\u3001\u914d\u7f6e\u751f\u6210\u3001\u6279\u91cf\u90e8\u7f72\u548c\u66f4\u65b0\uff0c\u652f\u6301\u5e38\u89c1\u76d1\u63a7\u3001\u5a92\u4f53\u3001\u5b89\u5168\u53ca\u5de5\u5177\u7c7b\u670d\u52a1\u3002",
+      "purl": "pkg:generic/lu-auto-deploy@1.0.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/jesson1222-ship-it/lu-auto-deploy"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "24"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/lu-auto-deploy",
+      "name": "Lu Auto Deploy",
+      "version": "1.0.0",
+      "description": "\u63d0\u4f9b Docker \u670d\u52a1\u4e00\u952e\u90e8\u7f72\u3001\u914d\u7f6e\u751f\u6210\u3001\u6279\u91cf\u90e8\u7f72\u548c\u66f4\u65b0\uff0c\u652f\u6301\u5e38\u89c1\u76d1\u63a7\u3001\u5a92\u4f53\u3001\u5b89\u5168\u53ca\u5de5\u5177\u7c7b\u670d\u52a1\u3002",
+      "purl": "pkg:generic/lu-auto-deploy@1.0.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/jesson1222-ship-it/lu-auto-deploy"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "24"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

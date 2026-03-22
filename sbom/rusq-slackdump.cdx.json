@@ -1,0 +1,176 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-90c6c3e6c487d085",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:58.000561+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:github/rusq-slackdump",
+      "name": "slackdump",
+      "version": "",
+      "description": "Save or export your private and public Slack messages, threads, files, and users locally without admin privileges.",
+      "purl": "pkg:github/rusq/rusq-slackdump",
+      "licenses": [
+        {
+          "license": {
+            "id": "AGPL-3.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rusq/slackdump"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/rusq/slackdump"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "22"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "source"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:filesystem",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:system",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:github/rusq-slackdump",
+      "name": "slackdump",
+      "version": "",
+      "description": "Save or export your private and public Slack messages, threads, files, and users locally without admin privileges.",
+      "purl": "pkg:github/rusq/rusq-slackdump",
+      "licenses": [
+        {
+          "license": {
+            "id": "AGPL-3.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rusq/slackdump"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/rusq/slackdump"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "22"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "source"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:filesystem",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:system",
+          "value": "inferred"
+        }
+      ]
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "bom-ref": "vuln-1e4f2ec277f4",
+      "id": "CF-1E4F2EC277F4",
+      "source": {
+        "name": "ClawForce Scanner",
+        "url": "https://clawforce.ca"
+      },
+      "ratings": [
+        {
+          "severity": "high",
+          "method": "other",
+          "source": {
+            "name": "ClawForce Code Scanner"
+          }
+        }
+      ],
+      "description": "Dynamic code/command execution",
+      "affects": [
+        {
+          "ref": "pkg:github/rusq-slackdump"
+        }
+      ]
+    },
+    {
+      "bom-ref": "vuln-016cd9c54fcb",
+      "id": "CF-016CD9C54FCB",
+      "source": {
+        "name": "ClawForce Scanner",
+        "url": "https://clawforce.ca"
+      },
+      "ratings": [
+        {
+          "severity": "medium",
+          "method": "other",
+          "source": {
+            "name": "ClawForce Code Scanner"
+          }
+        }
+      ],
+      "description": "Dangerous filesystem operations",
+      "affects": [
+        {
+          "ref": "pkg:github/rusq-slackdump"
+        }
+      ]
+    }
+  ]
+}

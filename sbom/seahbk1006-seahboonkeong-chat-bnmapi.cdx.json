@@ -1,0 +1,108 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-364331373495fcbe",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.430595+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/seahbk1006-seahboonkeong-chat-bnmapi",
+      "name": "Seah Boon Keong - Chat with BNM API Datasets",
+      "version": "",
+      "description": "\nMCP for public datasets on BNM Open Data API (Developed by Seah Boon Keong)\nAllows users to access a wide range of financial and economic data published by Bank Negara Malaysia. Users can retrieve da",
+      "purl": "pkg:generic/seahbk1006-seahboonkeong-chat-bnmapi",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/seahbk1006/seahboonkeong-chat-bnmapi"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/seahbk1006/seahboonkeong-chat-bnmapi"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "7"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/seahbk1006-seahboonkeong-chat-bnmapi",
+      "name": "Seah Boon Keong - Chat with BNM API Datasets",
+      "version": "",
+      "description": "\nMCP for public datasets on BNM Open Data API (Developed by Seah Boon Keong)\nAllows users to access a wide range of financial and economic data published by Bank Negara Malaysia. Users can retrieve da",
+      "purl": "pkg:generic/seahbk1006-seahboonkeong-chat-bnmapi",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/seahbk1006/seahboonkeong-chat-bnmapi"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/seahbk1006/seahboonkeong-chat-bnmapi"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "7"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

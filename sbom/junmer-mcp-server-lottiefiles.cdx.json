@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-e8c2661d9e366160",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.622261+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/junmer-mcp-server-lottiefiles",
+      "name": "LottieFiles Server",
+      "version": "",
+      "description": "Search and retrieve Lottie animations effortlessly. Access detailed information about specific animations and discover popular animations with ease. Enhance your projects with dynamic animations from ",
+      "purl": "pkg:generic/junmer-mcp-server-lottiefiles",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/junmer/mcp-server-lottiefiles"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/junmer/mcp-server-lottiefiles"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/junmer-mcp-server-lottiefiles",
+      "name": "LottieFiles Server",
+      "version": "",
+      "description": "Search and retrieve Lottie animations effortlessly. Access detailed information about specific animations and discover popular animations with ease. Enhance your projects with dynamic animations from ",
+      "purl": "pkg:generic/junmer-mcp-server-lottiefiles",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/junmer/mcp-server-lottiefiles"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/junmer/mcp-server-lottiefiles"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

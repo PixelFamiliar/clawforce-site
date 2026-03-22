@@ -1,0 +1,112 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-1726da32cc0824e4",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.981409+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:github/wanshuiyin-auto-claude-code-research-in-sleep",
+      "name": "Auto-claude-code-research-in-sleep",
+      "version": "",
+      "description": "ARIS \u2694\ufe0f (Auto-Research-In-Sleep) \u2014 Lightweight Markdown-only skills for autonomous ML research: cross-model review loops, idea discovery, and experiment automation. No framework, no lock-in \u2014 works wi",
+      "purl": "pkg:github/wanshuiyin/wanshuiyin-auto-claude-code-research-in-sleep",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "1"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:github/wanshuiyin-auto-claude-code-research-in-sleep",
+      "name": "Auto-claude-code-research-in-sleep",
+      "version": "",
+      "description": "ARIS \u2694\ufe0f (Auto-Research-In-Sleep) \u2014 Lightweight Markdown-only skills for autonomous ML research: cross-model review loops, idea discovery, and experiment automation. No framework, no lock-in \u2014 works wi",
+      "purl": "pkg:github/wanshuiyin/wanshuiyin-auto-claude-code-research-in-sleep",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "1"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

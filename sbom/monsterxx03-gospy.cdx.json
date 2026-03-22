@@ -1,0 +1,116 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-9446ec38da75fc99",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.691029+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/monsterxx03-gospy",
+      "name": "Go Process Inspector",
+      "version": "",
+      "description": "Inspect and analyze running Go processes with detailed goroutine states, memory statistics, and binary information. Use an interactive terminal UI or HTTP API for programmatic access. Enable the MCP s",
+      "purl": "pkg:generic/monsterxx03-gospy",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/monsterxx03/gospy"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/monsterxx03/gospy"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "18"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:execution",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/monsterxx03-gospy",
+      "name": "Go Process Inspector",
+      "version": "",
+      "description": "Inspect and analyze running Go processes with detailed goroutine states, memory statistics, and binary information. Use an interactive terminal UI or HTTP API for programmatic access. Enable the MCP s",
+      "purl": "pkg:generic/monsterxx03-gospy",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/monsterxx03/gospy"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/monsterxx03/gospy"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "18"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:execution",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

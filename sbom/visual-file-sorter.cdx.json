@@ -1,0 +1,92 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-ed053172d337caba",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:55.853041+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/visual-file-sorter",
+      "name": "\u89c6\u89c9\u7cfb\u6587\u4ef6\u5206\u7c7b\u5927\u5e08 (Visual File Sorter)",
+      "version": "0.1.0",
+      "description": "\u81ea\u52a8\u904d\u5386\u4e0b\u8f7d\u6587\u4ef6\u5939\u6216\u684c\u9762\uff0c\u5229\u7528\u89c6\u89c9\u6a21\u578b\u201c\u770b\u201d\u6587\u4ef6\u5185\u5bb9\u5e76\u91cd\u547d\u540d\uff0c\u6700\u540e\u5f52\u6863\u5230\u6307\u5b9a\u5206\u7c7b\u76ee\u5f55\u3002",
+      "purl": "pkg:generic/visual-file-sorter@0.1.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/AnotherJ1/visual-file-sorter"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "20"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/visual-file-sorter",
+      "name": "\u89c6\u89c9\u7cfb\u6587\u4ef6\u5206\u7c7b\u5927\u5e08 (Visual File Sorter)",
+      "version": "0.1.0",
+      "description": "\u81ea\u52a8\u904d\u5386\u4e0b\u8f7d\u6587\u4ef6\u5939\u6216\u684c\u9762\uff0c\u5229\u7528\u89c6\u89c9\u6a21\u578b\u201c\u770b\u201d\u6587\u4ef6\u5185\u5bb9\u5e76\u91cd\u547d\u540d\uff0c\u6700\u540e\u5f52\u6863\u5230\u6307\u5b9a\u5206\u7c7b\u76ee\u5f55\u3002",
+      "purl": "pkg:generic/visual-file-sorter@0.1.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/AnotherJ1/visual-file-sorter"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "20"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

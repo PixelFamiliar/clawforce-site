@@ -1,0 +1,120 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-9ece20d27a904167",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.927773+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:npm/figma-mcp-server",
+      "name": "figma-mcp-server",
+      "version": "2.1.1",
+      "description": "A comprehensive local MCP server for Figma. Connect Figma with the Gemini CLI, Cursor, and Claude Desktop.",
+      "purl": "pkg:npm/figma-mcp-server@2.1.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/planetabhi/figma-mcp-server"
+        },
+        {
+          "type": "website",
+          "url": "https://www.npmjs.com/package/figma-mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "10"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "npm"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:execution",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:npm/figma-mcp-server",
+      "name": "figma-mcp-server",
+      "version": "2.1.1",
+      "description": "A comprehensive local MCP server for Figma. Connect Figma with the Gemini CLI, Cursor, and Claude Desktop.",
+      "purl": "pkg:npm/figma-mcp-server@2.1.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/planetabhi/figma-mcp-server"
+        },
+        {
+          "type": "website",
+          "url": "https://www.npmjs.com/package/figma-mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "10"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "npm"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:execution",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

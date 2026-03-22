@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-09866d827426603b",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:55.780200+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/swagger-skill",
+      "name": "swagger-skill",
+      "version": "1.0.1",
+      "description": "\u667a\u80fd Swagger API \u67e5\u8be2\u548c\u8c03\u7528\u5de5\u5177\u3002\u901a\u8fc7\u81ea\u7136\u8bed\u8a00\u6307\u4ee4\u76f4\u63a5\u67e5\u8be2\u63a5\u53e3\u8be6\u60c5\u3001\u8c03\u7528 API\uff0c\u65e0\u9700\u7e41\u7410\u7684\u4ea4\u4e92\u6b65\u9aa4\u3002",
+      "purl": "pkg:generic/swagger-skill@1.0.1",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/MinusGod/swagger-skill"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "21"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/swagger-skill",
+      "name": "swagger-skill",
+      "version": "1.0.1",
+      "description": "\u667a\u80fd Swagger API \u67e5\u8be2\u548c\u8c03\u7528\u5de5\u5177\u3002\u901a\u8fc7\u81ea\u7136\u8bed\u8a00\u6307\u4ee4\u76f4\u63a5\u67e5\u8be2\u63a5\u53e3\u8be6\u60c5\u3001\u8c03\u7528 API\uff0c\u65e0\u9700\u7e41\u7410\u7684\u4ea4\u4e92\u6b65\u9aa4\u3002",
+      "purl": "pkg:generic/swagger-skill@1.0.1",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/MinusGod/swagger-skill"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "21"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

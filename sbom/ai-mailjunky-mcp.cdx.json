@@ -1,0 +1,108 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-824fec97949ea927",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.405722+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:mcp-registry/ai-mailjunky-mcp",
+      "name": "MailJunky",
+      "version": "0.1.0",
+      "description": "Send emails, track events, and manage contacts with MailJunky.",
+      "purl": "pkg:generic/ai-mailjunky-mcp@0.1.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/TheNightProject/tnp.web.mailjunky.ai"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/TheNightProject/tnp.web.mailjunky.ai"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "12"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "mcp-registry"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:email",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:mcp-registry/ai-mailjunky-mcp",
+      "name": "MailJunky",
+      "version": "0.1.0",
+      "description": "Send emails, track events, and manage contacts with MailJunky.",
+      "purl": "pkg:generic/ai-mailjunky-mcp@0.1.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/TheNightProject/tnp.web.mailjunky.ai"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/TheNightProject/tnp.web.mailjunky.ai"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "12"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "mcp-registry"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:email",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-3065e94d7a9d9374",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:58.343744+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:github/wh0am123-mcp-kali-server",
+      "name": "MCP-Kali-Server",
+      "version": "",
+      "description": "MCP configuration to connect AI agent to a Linux machine.",
+      "purl": "pkg:github/Wh0am123/wh0am123-mcp-kali-server",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/Wh0am123/MCP-Kali-Server"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/Wh0am123/MCP-Kali-Server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "1"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:github/wh0am123-mcp-kali-server",
+      "name": "MCP-Kali-Server",
+      "version": "",
+      "description": "MCP configuration to connect AI agent to a Linux machine.",
+      "purl": "pkg:github/Wh0am123/wh0am123-mcp-kali-server",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/Wh0am123/MCP-Kali-Server"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/Wh0am123/MCP-Kali-Server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "1"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

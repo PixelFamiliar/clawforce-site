@@ -1,0 +1,108 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-ea94eaddc6783b92",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.779079+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/dhanyyudi-bmkg-id",
+      "name": "BMKG MCP",
+      "version": "",
+      "description": "Access real-time weather forecasts and climate data across Indonesia. Stay informed about recent seismic activity and natural disasters with official government alerts. Plan activities and ensure safe",
+      "purl": "pkg:generic/dhanyyudi-bmkg-id",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/dhanyyudi/bmkg-id"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/dhanyyudi/bmkg-id"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "16"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:execution",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/dhanyyudi-bmkg-id",
+      "name": "BMKG MCP",
+      "version": "",
+      "description": "Access real-time weather forecasts and climate data across Indonesia. Stay informed about recent seismic activity and natural disasters with official government alerts. Plan activities and ensure safe",
+      "purl": "pkg:generic/dhanyyudi-bmkg-id",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/dhanyyudi/bmkg-id"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/dhanyyudi/bmkg-id"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "16"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:execution",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

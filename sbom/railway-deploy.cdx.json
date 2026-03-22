@@ -1,0 +1,92 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-a4daab4810439b21",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.110076+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/railway-deploy",
+      "name": "Railway Deploy",
+      "version": "1.0.0",
+      "description": "This skill should be used when the user wants to push code to Railway, says \"railway up\", \"deploy\", \"deploy to railway\", \"ship\", or \"push\". For initial setup or creating services, use new skill. For D",
+      "purl": "pkg:generic/railway-deploy@1.0.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/dbanys/railway-deploy"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "24"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/railway-deploy",
+      "name": "Railway Deploy",
+      "version": "1.0.0",
+      "description": "This skill should be used when the user wants to push code to Railway, says \"railway up\", \"deploy\", \"deploy to railway\", \"ship\", or \"push\". For initial setup or creating services, use new skill. For D",
+      "purl": "pkg:generic/railway-deploy@1.0.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/dbanys/railway-deploy"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "24"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

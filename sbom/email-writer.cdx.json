@@ -1,0 +1,112 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-5e4ef376735ec086",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.196138+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/email-writer",
+      "name": "Email Writer",
+      "version": "2.0.0",
+      "description": "Email writing assistant. \u90ae\u4ef6\u5199\u4f5c\u3001\u90ae\u4ef6\u52a9\u624b\u3001\u5546\u52a1\u90ae\u4ef6\u3001business email\u3001\u82f1\u6587\u90ae\u4ef6\u3001English email\u3001\u6c42\u804c\u90ae\u4ef6\u3001job application email\u3001\u8ddf\u8fdb\u90ae\u4ef6\u3001follow-up email\u3001\u51b7\u542f\u52a8\u90ae\u4ef6\u3001cold email\u3001\u9053\u6b49\u90ae\u4ef6\u3001apology email.",
+      "purl": "pkg:generic/email-writer@2.0.0",
+      "licenses": [
+        {
+          "license": {
+            "name": "MIT-0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/bytesagain/email-writer"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "9"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:email",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/email-writer",
+      "name": "Email Writer",
+      "version": "2.0.0",
+      "description": "Email writing assistant. \u90ae\u4ef6\u5199\u4f5c\u3001\u90ae\u4ef6\u52a9\u624b\u3001\u5546\u52a1\u90ae\u4ef6\u3001business email\u3001\u82f1\u6587\u90ae\u4ef6\u3001English email\u3001\u6c42\u804c\u90ae\u4ef6\u3001job application email\u3001\u8ddf\u8fdb\u90ae\u4ef6\u3001follow-up email\u3001\u51b7\u542f\u52a8\u90ae\u4ef6\u3001cold email\u3001\u9053\u6b49\u90ae\u4ef6\u3001apology email.",
+      "purl": "pkg:generic/email-writer@2.0.0",
+      "licenses": [
+        {
+          "license": {
+            "name": "MIT-0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/bytesagain/email-writer"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "9"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:email",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

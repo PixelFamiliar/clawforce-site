@@ -1,0 +1,112 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-4b6574aaa214f3a4",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.465581+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:npm/sentry-mcp-server",
+      "name": "@sentry/mcp-server",
+      "version": "0.30.0",
+      "description": "Sentry MCP Server",
+      "purl": "pkg:npm/sentry-mcp-server@0.30.0",
+      "licenses": [
+        {
+          "license": {
+            "name": "FSL-1.1-ALv2"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "ssh://git@github.com/getsentry/sentry-mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://www.npmjs.com/package/@sentry/mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "2"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "npm"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:npm/sentry-mcp-server",
+      "name": "@sentry/mcp-server",
+      "version": "0.30.0",
+      "description": "Sentry MCP Server",
+      "purl": "pkg:npm/sentry-mcp-server@0.30.0",
+      "licenses": [
+        {
+          "license": {
+            "name": "FSL-1.1-ALv2"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "ssh://git@github.com/getsentry/sentry-mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://www.npmjs.com/package/@sentry/mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "2"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "npm"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

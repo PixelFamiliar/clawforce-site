@@ -1,0 +1,116 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-1c3d3217e3deae06",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.226587+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/adamamer20-paper-search-mcp-openai",
+      "name": "Paper Search",
+      "version": "",
+      "description": "Search and download academic papers from arXiv, PubMed, bioRxiv, medRxiv, Google Scholar, Semantic Scholar, and IACR. Fetch PDFs and extract full text to accelerate literature reviews. Get consistent ",
+      "purl": "pkg:generic/adamamer20-paper-search-mcp-openai",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/adamamer20/paper-search-mcp-openai"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/adamamer20/paper-search-mcp-openai"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "12"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:filesystem",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/adamamer20-paper-search-mcp-openai",
+      "name": "Paper Search",
+      "version": "",
+      "description": "Search and download academic papers from arXiv, PubMed, bioRxiv, medRxiv, Google Scholar, Semantic Scholar, and IACR. Fetch PDFs and extract full text to accelerate literature reviews. Get consistent ",
+      "purl": "pkg:generic/adamamer20-paper-search-mcp-openai",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/adamamer20/paper-search-mcp-openai"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/adamamer20/paper-search-mcp-openai"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "12"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:filesystem",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

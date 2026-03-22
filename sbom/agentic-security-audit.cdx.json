@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-8d78ca388b0b658a",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.061075+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/agentic-security-audit",
+      "name": "Agentic Security Audit",
+      "version": "1.0.0",
+      "description": "Audit codebases, infrastructure, AND agentic AI systems for security issues. Covers traditional security (dependencies, secrets, OWASP web top 10, SSL/TLS, f...",
+      "purl": "pkg:generic/agentic-security-audit@1.0.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/kingrubic/agentic-security-audit"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "24"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:credentials",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/agentic-security-audit",
+      "name": "Agentic Security Audit",
+      "version": "1.0.0",
+      "description": "Audit codebases, infrastructure, AND agentic AI systems for security issues. Covers traditional security (dependencies, secrets, OWASP web top 10, SSL/TLS, f...",
+      "purl": "pkg:generic/agentic-security-audit@1.0.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/kingrubic/agentic-security-audit"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "24"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:credentials",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

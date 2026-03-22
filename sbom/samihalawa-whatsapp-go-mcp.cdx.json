@@ -1,0 +1,108 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-cf9e3964be4d8fae",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.776042+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/samihalawa-whatsapp-go-mcp",
+      "name": "WhatsApp Web Server",
+      "version": "",
+      "description": "Scan QR codes and go! No more troublesome autos or APIs! Send text messages, images, links, locations, and contact cards to WhatsApp chats and groups. Automate notifications, alerts, and outreach from",
+      "purl": "pkg:generic/samihalawa-whatsapp-go-mcp",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/samihalawa/whatsapp-go-mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/samihalawa/whatsapp-go-mcp"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "8"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/samihalawa-whatsapp-go-mcp",
+      "name": "WhatsApp Web Server",
+      "version": "",
+      "description": "Scan QR codes and go! No more troublesome autos or APIs! Send text messages, images, links, locations, and contact cards to WhatsApp chats and groups. Automate notifications, alerts, and outreach from",
+      "purl": "pkg:generic/samihalawa-whatsapp-go-mcp",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/samihalawa/whatsapp-go-mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/samihalawa/whatsapp-go-mcp"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "8"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

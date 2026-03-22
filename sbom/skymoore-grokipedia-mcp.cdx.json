@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-3f981804b3e5fb69",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.572221+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/skymoore-grokipedia-mcp",
+      "name": "grokipedia-mcp",
+      "version": "",
+      "description": "Search and retrieve Grokipedia articles with filters, full content, and citations. Explore related pages and extract sections to quickly gather relevant knowledge. Run guided workflows to research top",
+      "purl": "pkg:generic/skymoore-grokipedia-mcp",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/skymoore/grokipedia-mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/skymoore/grokipedia-mcp"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/skymoore-grokipedia-mcp",
+      "name": "grokipedia-mcp",
+      "version": "",
+      "description": "Search and retrieve Grokipedia articles with filters, full content, and citations. Explore related pages and extract sections to quickly gather relevant knowledge. Run guided workflows to research top",
+      "purl": "pkg:generic/skymoore-grokipedia-mcp",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/skymoore/grokipedia-mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/skymoore/grokipedia-mcp"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

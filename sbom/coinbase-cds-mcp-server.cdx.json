@@ -1,0 +1,112 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-260300d5ab1e85f2",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.611768+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:npm/coinbase-cds-mcp-server",
+      "name": "@coinbase/cds-mcp-server",
+      "version": "8.55.0",
+      "description": "Coinbase Design System - MCP Server",
+      "purl": "pkg:npm/coinbase-cds-mcp-server@8.55.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "ssh://git@github.com/coinbase/cds"
+        },
+        {
+          "type": "website",
+          "url": "https://www.npmjs.com/package/@coinbase/cds-mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "0"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "npm"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:npm/coinbase-cds-mcp-server",
+      "name": "@coinbase/cds-mcp-server",
+      "version": "8.55.0",
+      "description": "Coinbase Design System - MCP Server",
+      "purl": "pkg:npm/coinbase-cds-mcp-server@8.55.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "ssh://git@github.com/coinbase/cds"
+        },
+        {
+          "type": "website",
+          "url": "https://www.npmjs.com/package/@coinbase/cds-mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "0"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "npm"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

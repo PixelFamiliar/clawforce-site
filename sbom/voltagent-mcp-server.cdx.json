@@ -1,0 +1,112 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-430d6e9ad2399561",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.710382+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:npm/voltagent-mcp-server",
+      "name": "@voltagent/mcp-server",
+      "version": "2.0.2",
+      "description": "VoltAgent MCP server implementation for exposing agents, tools, and workflows via the Model Context Protocol.",
+      "purl": "pkg:npm/voltagent-mcp-server@2.0.2",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/VoltAgent/voltagent"
+        },
+        {
+          "type": "website",
+          "url": "https://www.npmjs.com/package/@voltagent/mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "0"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "npm"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:npm/voltagent-mcp-server",
+      "name": "@voltagent/mcp-server",
+      "version": "2.0.2",
+      "description": "VoltAgent MCP server implementation for exposing agents, tools, and workflows via the Model Context Protocol.",
+      "purl": "pkg:npm/voltagent-mcp-server@2.0.2",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/VoltAgent/voltagent"
+        },
+        {
+          "type": "website",
+          "url": "https://www.npmjs.com/package/@voltagent/mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "0"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "npm"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

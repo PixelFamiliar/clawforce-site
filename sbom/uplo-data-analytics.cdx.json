@@ -1,0 +1,92 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-c701512886fe111f",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:55.928970+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "2.3.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/uplo-data-analytics",
+      "name": "Uplo Data Analytics",
+      "version": "unknown",
+      "description": "AI-powered data analytics knowledge management. Search data pipeline documentation, dashboard specifications, data governance policies, and reporting standar...",
+      "purl": "pkg:generic/uplo-data-analytics",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/RooJenkins/uplo-data-analytics"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "1"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "2.3.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/uplo-data-analytics",
+      "name": "Uplo Data Analytics",
+      "version": "unknown",
+      "description": "AI-powered data analytics knowledge management. Search data pipeline documentation, dashboard specifications, data governance policies, and reporting standar...",
+      "purl": "pkg:generic/uplo-data-analytics",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/RooJenkins/uplo-data-analytics"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "1"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "2.3.0"
+        }
+      ]
+    }
+  ]
+}

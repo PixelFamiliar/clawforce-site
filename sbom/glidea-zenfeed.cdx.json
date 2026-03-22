@@ -1,0 +1,128 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-6e9b54da283a7aa6",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:58.055900+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:github/glidea-zenfeed",
+      "name": "zenfeed",
+      "version": "",
+      "description": "Make RSS \ud83d\udcf0 great again with AI \ud83e\udde0\u2728!! [\u7f51\u9875\u76d1\u63a7\u5de5\u5177-\u9884\u5b9a\u9001\u4f1a\u5458\uff1ahttps://waitlist.dingding.glidea.app]",
+      "purl": "pkg:github/glidea/glidea-zenfeed",
+      "licenses": [
+        {
+          "license": {
+            "id": "AGPL-3.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/glidea/zenfeed"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/glidea/zenfeed"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "12"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:email",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:github/glidea-zenfeed",
+      "name": "zenfeed",
+      "version": "",
+      "description": "Make RSS \ud83d\udcf0 great again with AI \ud83e\udde0\u2728!! [\u7f51\u9875\u76d1\u63a7\u5de5\u5177-\u9884\u5b9a\u9001\u4f1a\u5458\uff1ahttps://waitlist.dingding.glidea.app]",
+      "purl": "pkg:github/glidea/glidea-zenfeed",
+      "licenses": [
+        {
+          "license": {
+            "id": "AGPL-3.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/glidea/zenfeed"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/glidea/zenfeed"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "12"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:email",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

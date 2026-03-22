@@ -1,0 +1,108 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-a76a1c308c84c66a",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.026485+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/agent-browser-cli",
+      "name": "Agent Browser CLI",
+      "version": "1.0.0",
+      "description": "\u4f7f\u7528 agent-browser CLI \u8fdb\u884c\u6d4f\u89c8\u5668\u81ea\u52a8\u5316\u3002\u7528\u4e8e\u7b7e\u5230\u3001\u586b\u8868\u3001\u622a\u56fe\u3001\u4fe1\u606f\u6293\u53d6\u7b49\u9700\u8981\u63a7\u5236\u6d4f\u89c8\u5668\u7684\u4efb\u52a1\u3002\u89e6\u53d1\u6761\u4ef6\uff1a(1) \u7528\u6237\u8981\u6c42\u81ea\u52a8\u5316\u6d4f\u89c8\u5668\u64cd\u4f5c (2) \u9700\u8981\u7b7e\u5230\u3001\u586b\u8868\u3001\u70b9\u51fb\u6309\u94ae (3) \u9700\u8981\u6293\u53d6\u7f51\u9875\u5185\u5bb9\u4f5c\u4e3a\u7814\u7a76\u7d20\u6750",
+      "purl": "pkg:generic/agent-browser-cli@1.0.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/Joshhuang123/agent-browser-cli"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "35"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:execution",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:browser",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/agent-browser-cli",
+      "name": "Agent Browser CLI",
+      "version": "1.0.0",
+      "description": "\u4f7f\u7528 agent-browser CLI \u8fdb\u884c\u6d4f\u89c8\u5668\u81ea\u52a8\u5316\u3002\u7528\u4e8e\u7b7e\u5230\u3001\u586b\u8868\u3001\u622a\u56fe\u3001\u4fe1\u606f\u6293\u53d6\u7b49\u9700\u8981\u63a7\u5236\u6d4f\u89c8\u5668\u7684\u4efb\u52a1\u3002\u89e6\u53d1\u6761\u4ef6\uff1a(1) \u7528\u6237\u8981\u6c42\u81ea\u52a8\u5316\u6d4f\u89c8\u5668\u64cd\u4f5c (2) \u9700\u8981\u7b7e\u5230\u3001\u586b\u8868\u3001\u70b9\u51fb\u6309\u94ae (3) \u9700\u8981\u6293\u53d6\u7f51\u9875\u5185\u5bb9\u4f5c\u4e3a\u7814\u7a76\u7d20\u6750",
+      "purl": "pkg:generic/agent-browser-cli@1.0.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/Joshhuang123/agent-browser-cli"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "35"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:execution",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:browser",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

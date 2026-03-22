@@ -263,6 +263,25 @@
         .source-tag { font-family: var(--mono); font-size: 0.5rem; font-weight: 700; padding: 1px 5px; border-radius: 2px; text-transform: uppercase; letter-spacing: 0.06em; white-space: nowrap; display: inline-block; margin-right: 4px; vertical-align: middle; }
         .scan-type-source { background: rgba(61, 122, 95, 0.08); color: var(--cyan); border: 1px solid rgba(61, 122, 95, 0.2); font-family: var(--mono); font-size: 0.48rem; font-weight: 700; padding: 1px 4px; border-radius: 2px; text-transform: uppercase; letter-spacing: 0.04em; white-space: nowrap; display: inline-block; }
 
+        /* Expandable detail panel */
+        .detail-row td { padding: 0 !important; border-top: none !important; }
+        .detail-panel { background: var(--bg); border: 1px solid var(--border); border-top: none; margin: 0 0.5rem 0.5rem; border-radius: 0 0 4px 4px; padding: 0.8rem 1rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.6rem; }
+        .detail-section { background: var(--surface); border: 1px solid var(--border); border-radius: 3px; padding: 0.5rem 0.7rem; }
+        .detail-section h4 { font-family: var(--mono); font-size: 0.6rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.4rem; }
+        .detail-item { display: flex; justify-content: space-between; align-items: center; font-size: 0.7rem; padding: 2px 0; border-bottom: 1px solid rgba(255,255,255,0.03); }
+        .detail-item:last-child { border-bottom: none; }
+        .detail-label { color: var(--dim); font-family: var(--mono); font-size: 0.6rem; }
+        .detail-value { color: var(--text); font-family: var(--mono); font-size: 0.65rem; font-weight: 600; }
+        .detail-badge { font-family: var(--mono); font-size: 0.5rem; padding: 1px 5px; border-radius: 2px; font-weight: 700; }
+        .detail-badge.clean { color: var(--cyan); background: rgba(61,122,95,0.1); border: 1px solid rgba(61,122,95,0.2); }
+        .detail-badge.suspicious { color: var(--amber); background: rgba(218,165,32,0.1); border: 1px solid rgba(218,165,32,0.2); }
+        .detail-badge.compromised { color: var(--red); background: rgba(192,57,43,0.1); border: 1px solid rgba(192,57,43,0.2); }
+        .detail-badge.permissive { color: var(--cyan); background: rgba(61,122,95,0.1); border: 1px solid rgba(61,122,95,0.2); }
+        .detail-badge.copyleft { color: var(--amber); background: rgba(218,165,32,0.1); border: 1px solid rgba(218,165,32,0.2); }
+        .detail-badge.missing { color: var(--red); background: rgba(192,57,43,0.1); border: 1px solid rgba(192,57,43,0.2); }
+        .skill-row { cursor: pointer; transition: background 0.15s; }
+        .skill-row:hover { background: rgba(255,255,255,0.02); }
+
         .source-filter-group { display: flex; gap: 0.3rem; margin-left: auto; }
         .source-btn {
             padding: 0.3rem 0.7rem; border-radius: 2px;
@@ -648,6 +667,16 @@
                     llmAssessment: s.llm_assessment || null,
                     scanDate: s.date || '',
                     firstSeen: s.first_seen || '',
+                    code_findings: s.code_findings || [],
+                    dep_scan: s.dep_scan || null,
+                    schema: s.schema || null,
+                    github_signals: s.github_signals || null,
+                    integrity: s.integrity || null,
+                    license_info: s.license_info || null,
+                    dev_trust_score: s.dev_trust_score,
+                    dev_trust_tier: s.dev_trust_tier || '',
+                    github_url: s.github_url || '',
+                    repo: s.repo || '',
                 }));
 
                 // Update stats
@@ -800,7 +829,10 @@
             // Body
             const tbody = document.createElement('tbody');
             for (const skill of filtered) {
-                tbody.appendChild(buildRow(skill));
+                const row = buildRow(skill);
+                tbody.appendChild(row);
+                // Click to expand detail panel
+                row.addEventListener('click', () => toggleDetail(row, skill, tbody));
             }
             table.appendChild(tbody);
 
@@ -942,6 +974,158 @@
             tr.appendChild(tdAction);
 
             return tr;
+        }
+
+        // ━━━ Expandable Detail Panel ━━━
+        function toggleDetail(row, skill, tbody) {
+            const existing = row.nextElementSibling;
+            if (existing && existing.classList.contains('detail-row')) {
+                existing.remove();
+                return;
+            }
+            // Remove any other open detail
+            document.querySelectorAll('.detail-row').forEach(r => r.remove());
+
+            const detailRow = document.createElement('tr');
+            detailRow.className = 'detail-row';
+            const td = document.createElement('td');
+            td.colSpan = 6;
+
+            const panel = document.createElement('div');
+            panel.className = 'detail-panel';
+
+            // Overview section
+            const overview = buildDetailSection('Overview', [
+                ['Risk Score', skill.cfRisk + '/100'],
+                ['Scan Type', skill.scanType || 'metadata'],
+                ['Source', skill.source || ''],
+                ['Developer', skill.developer || 'unknown'],
+                ['License', skill.license || 'none'],
+                ['Version', skill.version || ''],
+            ]);
+            panel.appendChild(overview);
+
+            // Code findings
+            if (skill.code_findings && skill.code_findings.length > 0) {
+                const items = skill.code_findings.map(f => [f.pattern, f.severity + ' — ' + f.desc]);
+                panel.appendChild(buildDetailSection('Code Findings (' + skill.code_findings.length + ')', items));
+            }
+
+            // Dep scan
+            if (skill.dep_scan) {
+                const d = skill.dep_scan;
+                panel.appendChild(buildDetailSection('Dependencies', [
+                    ['Type', d.pkg_type || ''],
+                    ['Count', String(d.dep_count || 0)],
+                    ['Floating', String(d.floating_versions || 0)],
+                    ['Install Scripts', d.has_install_scripts ? '⚠️ YES' : 'no'],
+                    ['Dep Risk', '+' + (d.dep_risk_score || 0)],
+                ]));
+            }
+
+            // Schema validation
+            if (skill.schema) {
+                const s = skill.schema;
+                const items = [
+                    ['Declared Tools', String(s.declared_tools || 0)],
+                    ['Declared Caps', (s.declared_caps || []).join(', ') || 'none'],
+                    ['Actual Caps', (s.actual_caps || []).join(', ') || 'none'],
+                ];
+                if (s.undeclared && s.undeclared.length > 0) {
+                    items.push(['⚠️ Undeclared', s.undeclared.join(', ')]);
+                }
+                items.push(['Schema Risk', '+' + (s.schema_score || 0)]);
+                panel.appendChild(buildDetailSection('MCP Schema', items));
+            }
+
+            // GitHub signals
+            if (skill.github_signals) {
+                const g = skill.github_signals;
+                panel.appendChild(buildDetailSection('GitHub Signals', [
+                    ['Trust Score', g.trust_score + '/100'],
+                    ['Risk Adjust', (g.risk_adjust >= 0 ? '+' : '') + g.risk_adjust],
+                    ['Positive', '+' + g.positive],
+                    ['Negative', '-' + g.negative],
+                    ['Security Policy', g.has_security_policy ? '✅' : '❌'],
+                    ['CI/CD', g.has_ci ? '✅' : '❌'],
+                ]));
+            }
+
+            // Integrity
+            if (skill.integrity) {
+                const i = skill.integrity;
+                const verdict = document.createElement('span');
+                verdict.className = 'detail-badge ' + i.verdict;
+                verdict.textContent = i.verdict.toUpperCase();
+                panel.appendChild(buildDetailSection('Supply Chain', [
+                    ['Verdict', i.verdict.toUpperCase()],
+                    ['Divergent Files', String(i.divergent_files || 0)],
+                    ['npm-Only Files', String(i.npm_only_files || 0)],
+                    ['Integrity Risk', '+' + (i.score || 0)],
+                ]));
+            }
+
+            // License
+            if (skill.license_info) {
+                const l = skill.license_info;
+                panel.appendChild(buildDetailSection('License', [
+                    ['SPDX', l.spdx || 'NONE'],
+                    ['Class', l.classification || 'unknown'],
+                    ['License Risk', '+' + (l.license_score || 0)],
+                ]));
+            }
+
+            // Developer trust
+            if (skill.dev_trust_score !== undefined) {
+                panel.appendChild(buildDetailSection('Developer', [
+                    ['Trust Score', skill.dev_trust_score + '/100'],
+                    ['Tier', skill.dev_trust_tier || ''],
+                ]));
+            }
+
+            // Links
+            const links = [];
+            if (skill.github_url) links.push(['GitHub', skill.github_url]);
+            if (skill.repo) links.push(['Marketplace', skill.repo]);
+            if (links.length > 0) {
+                const linksSection = buildDetailSection('Links', []);
+                for (const [label, url] of links) {
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.target = '_blank';
+                    a.rel = 'noopener';
+                    a.style.cssText = 'color:var(--blue);font-size:0.65rem;font-family:var(--mono);display:block;padding:2px 0;';
+                    a.textContent = label + ' →';
+                    linksSection.appendChild(a);
+                }
+                panel.appendChild(linksSection);
+            }
+
+            td.appendChild(panel);
+            detailRow.appendChild(td);
+            row.after(detailRow);
+        }
+
+        function buildDetailSection(title, items) {
+            const section = document.createElement('div');
+            section.className = 'detail-section';
+            const h4 = document.createElement('h4');
+            h4.textContent = title;
+            section.appendChild(h4);
+            for (const [label, value] of items) {
+                const item = document.createElement('div');
+                item.className = 'detail-item';
+                const l = document.createElement('span');
+                l.className = 'detail-label';
+                l.textContent = label;
+                const v = document.createElement('span');
+                v.className = 'detail-value';
+                v.textContent = value;
+                item.appendChild(l);
+                item.appendChild(v);
+                section.appendChild(item);
+            }
+            return section;
         }
 
         // ━━━ Controls ━━━

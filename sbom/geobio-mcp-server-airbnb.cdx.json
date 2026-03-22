@@ -1,0 +1,108 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-8d4bebc941add564",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.533794+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/geobio-mcp-server-airbnb",
+      "name": "Airbnb Search and Listing Details Server",
+      "version": "",
+      "description": "Search Airbnb listings and retrieve detailed information about specific listings. Get structured JSON data without requiring an API key, while respecting Airbnb's robots.txt rules. Simplify your vacat",
+      "purl": "pkg:generic/geobio-mcp-server-airbnb",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/geobio/mcp-server-airbnb"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/geobio/mcp-server-airbnb"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "7"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/geobio-mcp-server-airbnb",
+      "name": "Airbnb Search and Listing Details Server",
+      "version": "",
+      "description": "Search Airbnb listings and retrieve detailed information about specific listings. Get structured JSON data without requiring an API key, while respecting Airbnb's robots.txt rules. Simplify your vacat",
+      "purl": "pkg:generic/geobio-mcp-server-airbnb",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/geobio/mcp-server-airbnb"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/geobio/mcp-server-airbnb"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "7"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

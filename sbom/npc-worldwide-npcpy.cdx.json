@@ -1,0 +1,128 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-118ce92c6f43cfd2",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:58.110977+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:github/npc-worldwide-npcpy",
+      "name": "npcpy",
+      "version": "",
+      "description": "The python library for research and development in NLP, multimodal LLMs, Agents, ML, Knowledge Graphs, and more.",
+      "purl": "pkg:github/NPC-Worldwide/npc-worldwide-npcpy",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/NPC-Worldwide/npcpy"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/NPC-Worldwide/npcpy"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "16"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:execution",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:database",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:github/npc-worldwide-npcpy",
+      "name": "npcpy",
+      "version": "",
+      "description": "The python library for research and development in NLP, multimodal LLMs, Agents, ML, Knowledge Graphs, and more.",
+      "purl": "pkg:github/NPC-Worldwide/npc-worldwide-npcpy",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/NPC-Worldwide/npcpy"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/NPC-Worldwide/npcpy"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "16"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:execution",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:database",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

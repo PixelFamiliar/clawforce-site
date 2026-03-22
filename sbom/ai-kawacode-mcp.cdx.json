@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-7b45af2ed9d6e520",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.384914+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:mcp-registry/ai-kawacode-mcp",
+      "name": "Kawa Code MCP",
+      "version": "5.0.4",
+      "description": "Intent tracking, decision recording, and team coordination for AI coding assistants",
+      "purl": "pkg:generic/ai-kawacode-mcp@5.0.4",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/codeawareness/kawa.mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://kawacode.ai"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "7"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "mcp-registry"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:mcp-registry/ai-kawacode-mcp",
+      "name": "Kawa Code MCP",
+      "version": "5.0.4",
+      "description": "Intent tracking, decision recording, and team coordination for AI coding assistants",
+      "purl": "pkg:generic/ai-kawacode-mcp@5.0.4",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/codeawareness/kawa.mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://kawacode.ai"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "7"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "mcp-registry"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

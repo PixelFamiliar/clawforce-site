@@ -1,0 +1,104 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-e58ae12976b8d59e",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:55.908914+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/data-analyst-cn",
+      "name": "Data Analyst Cn",
+      "version": "1.0.23",
+      "description": "\u6570\u636e\u5206\u6790\u52a9\u624b - \u6570\u636e\u6e05\u6d17\u3001\u7edf\u8ba1\u5206\u6790\u3001\u53ef\u89c6\u5316\u5efa\u8bae\u3002\u9002\u5408\uff1a\u6570\u636e\u5206\u6790\u5e08\u3001\u4ea7\u54c1\u7ecf\u7406\u3001\u8fd0\u8425\u3002",
+      "purl": "pkg:generic/data-analyst-cn@1.0.23",
+      "licenses": [
+        {
+          "license": {
+            "name": "MIT-0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/yang1002378395-cmyk/data-analyst-cn"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "4"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/data-analyst-cn",
+      "name": "Data Analyst Cn",
+      "version": "1.0.23",
+      "description": "\u6570\u636e\u5206\u6790\u52a9\u624b - \u6570\u636e\u6e05\u6d17\u3001\u7edf\u8ba1\u5206\u6790\u3001\u53ef\u89c6\u5316\u5efa\u8bae\u3002\u9002\u5408\uff1a\u6570\u636e\u5206\u6790\u5e08\u3001\u4ea7\u54c1\u7ecf\u7406\u3001\u8fd0\u8425\u3002",
+      "purl": "pkg:generic/data-analyst-cn@1.0.23",
+      "licenses": [
+        {
+          "license": {
+            "name": "MIT-0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/yang1002378395-cmyk/data-analyst-cn"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "4"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-7c57a9fe01713efd",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:58.469360+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:github/concierge-hq-concierge",
+      "name": "concierge",
+      "version": "",
+      "description": "\ud83d\ude80 Universal SDK for building next-gen MCP servers",
+      "purl": "pkg:github/concierge-hq/concierge-hq-concierge",
+      "licenses": [
+        {
+          "license": {
+            "name": "NOASSERTION"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/concierge-hq/concierge"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/concierge-hq/concierge"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:github/concierge-hq-concierge",
+      "name": "concierge",
+      "version": "",
+      "description": "\ud83d\ude80 Universal SDK for building next-gen MCP servers",
+      "purl": "pkg:github/concierge-hq/concierge-hq-concierge",
+      "licenses": [
+        {
+          "license": {
+            "name": "NOASSERTION"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/concierge-hq/concierge"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/concierge-hq/concierge"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-902b29e787948c07",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.552850+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/aas-ee-open-websearch",
+      "name": "OpenWebSearch",
+      "version": "",
+      "description": "Web search using free multi-engine search (NO API KEYS REQUIRED) \u2014 Supports Bing, Baidu, DuckDuckGo, Brave, Exa, Github, Juejin, and CSDN.",
+      "purl": "pkg:generic/aas-ee-open-websearch",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/Aas-ee/open-websearch"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/Aas-ee/open-websearch"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "7"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/aas-ee-open-websearch",
+      "name": "OpenWebSearch",
+      "version": "",
+      "description": "Web search using free multi-engine search (NO API KEYS REQUIRED) \u2014 Supports Bing, Baidu, DuckDuckGo, Brave, Exa, Github, Juejin, and CSDN.",
+      "purl": "pkg:generic/aas-ee-open-websearch",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/Aas-ee/open-websearch"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/Aas-ee/open-websearch"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "7"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

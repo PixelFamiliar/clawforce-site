@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-7c3c0f1c26ca298b",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.398583+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/agentidx-agentcrawl",
+      "name": "AgentIndex",
+      "version": "",
+      "description": "Discovery platform for AI agents. Find any AI agent by capability \u2014 search 20,000+ indexed agents across GitHub, npm, MCP, and HuggingFace.",
+      "purl": "pkg:generic/agentidx-agentcrawl",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/agentidx/agentcrawl"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/agentidx/agentcrawl"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/agentidx-agentcrawl",
+      "name": "AgentIndex",
+      "version": "",
+      "description": "Discovery platform for AI agents. Find any AI agent by capability \u2014 search 20,000+ indexed agents across GitHub, npm, MCP, and HuggingFace.",
+      "purl": "pkg:generic/agentidx-agentcrawl",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/agentidx/agentcrawl"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/agentidx/agentcrawl"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

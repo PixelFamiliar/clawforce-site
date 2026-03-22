@@ -1,0 +1,108 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-a171ca5db44be7d3",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.540215+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/alxspiker-windows-command-line-mcp-server",
+      "name": "Windows Command Line MCP Server",
+      "version": "",
+      "description": "Enable AI models to interact with Windows command-line functionality securely and efficiently. Execute commands, create projects, and retrieve system information while maintaining strict security prot",
+      "purl": "pkg:generic/alxspiker-windows-command-line-mcp-server",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/alxspiker/Windows-Command-Line-MCP-Server"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/alxspiker/Windows-Command-Line-MCP-Server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "20"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:execution",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/alxspiker-windows-command-line-mcp-server",
+      "name": "Windows Command Line MCP Server",
+      "version": "",
+      "description": "Enable AI models to interact with Windows command-line functionality securely and efficiently. Execute commands, create projects, and retrieve system information while maintaining strict security prot",
+      "purl": "pkg:generic/alxspiker-windows-command-line-mcp-server",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/alxspiker/Windows-Command-Line-MCP-Server"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/alxspiker/Windows-Command-Line-MCP-Server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "20"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:execution",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

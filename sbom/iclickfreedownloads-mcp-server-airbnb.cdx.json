@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-09ef8af182ef6bd0",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.468757+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/iclickfreedownloads-mcp-server-airbnb",
+      "name": "Airbnb Search",
+      "version": "",
+      "description": "Find Airbnb stays by location, dates, guests, and price with precise filters. Get rich listing details, amenities, photos, and direct links to streamline booking decisions. Analyze listing photos and ",
+      "purl": "pkg:generic/iclickfreedownloads-mcp-server-airbnb",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/iclickfreedownloads/mcp-server-airbnb"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/iclickfreedownloads/mcp-server-airbnb"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/iclickfreedownloads-mcp-server-airbnb",
+      "name": "Airbnb Search",
+      "version": "",
+      "description": "Find Airbnb stays by location, dates, guests, and price with precise filters. Get rich listing details, amenities, photos, and direct links to streamline booking decisions. Analyze listing photos and ",
+      "purl": "pkg:generic/iclickfreedownloads-mcp-server-airbnb",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/iclickfreedownloads/mcp-server-airbnb"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/iclickfreedownloads/mcp-server-airbnb"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

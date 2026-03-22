@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-c2d07d79e08aaaa3",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.697539+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/mod_vibes-mod-vibe-server",
+      "name": "MOD Vibe",
+      "version": "",
+      "description": "Share and discover location-specific atmosphere reports, curated reviews, and real-time events through a unique Vibe DNA fingerprint. Interact with community contributions by reacting, commenting, or ",
+      "purl": "pkg:generic/mod_vibes-mod-vibe-server",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/MOD_Vibes/mod-vibe-server"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/MOD_Vibes/mod-vibe-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "1"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/mod_vibes-mod-vibe-server",
+      "name": "MOD Vibe",
+      "version": "",
+      "description": "Share and discover location-specific atmosphere reports, curated reviews, and real-time events through a unique Vibe DNA fingerprint. Interact with community contributions by reacting, commenting, or ",
+      "purl": "pkg:generic/mod_vibes-mod-vibe-server",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/MOD_Vibes/mod-vibe-server"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/MOD_Vibes/mod-vibe-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "1"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

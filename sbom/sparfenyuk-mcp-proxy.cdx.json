@@ -1,0 +1,120 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-7de8a3629ee99759",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:58.010539+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:github/sparfenyuk-mcp-proxy",
+      "name": "mcp-proxy",
+      "version": "",
+      "description": "A bridge between Streamable HTTP and stdio MCP transports",
+      "purl": "pkg:github/sparfenyuk/sparfenyuk-mcp-proxy",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/sparfenyuk/mcp-proxy"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/sparfenyuk/mcp-proxy"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "3"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:github/sparfenyuk-mcp-proxy",
+      "name": "mcp-proxy",
+      "version": "",
+      "description": "A bridge between Streamable HTTP and stdio MCP transports",
+      "purl": "pkg:github/sparfenyuk/sparfenyuk-mcp-proxy",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/sparfenyuk/mcp-proxy"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/sparfenyuk/mcp-proxy"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "3"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-bedb251870719e9c",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.512904+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:npm/agent-infra-mcp-server-filesystem",
+      "name": "@agent-infra/mcp-server-filesystem",
+      "version": "1.2.29",
+      "description": "MCP server for filesystem access",
+      "purl": "pkg:npm/agent-infra-mcp-server-filesystem@1.2.29",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/bytedance/UI-TARS-desktop"
+        },
+        {
+          "type": "website",
+          "url": "https://www.npmjs.com/package/@agent-infra/mcp-server-filesystem"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "0"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "npm"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:npm/agent-infra-mcp-server-filesystem",
+      "name": "@agent-infra/mcp-server-filesystem",
+      "version": "1.2.29",
+      "description": "MCP server for filesystem access",
+      "purl": "pkg:npm/agent-infra-mcp-server-filesystem@1.2.29",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/bytedance/UI-TARS-desktop"
+        },
+        {
+          "type": "website",
+          "url": "https://www.npmjs.com/package/@agent-infra/mcp-server-filesystem"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "0"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "npm"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

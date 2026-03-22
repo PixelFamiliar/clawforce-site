@@ -1,0 +1,120 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-8d08504b7978ea22",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.576758+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:npm/zereight-mcp-gitlab",
+      "name": "@zereight/mcp-gitlab",
+      "version": "2.0.34",
+      "description": "MCP server for using the GitLab API",
+      "purl": "pkg:npm/zereight-mcp-gitlab@2.0.34",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/zereight/gitlab-mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://www.npmjs.com/package/@zereight/mcp-gitlab"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "1"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "npm"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:npm/zereight-mcp-gitlab",
+      "name": "@zereight/mcp-gitlab",
+      "version": "2.0.34",
+      "description": "MCP server for using the GitLab API",
+      "purl": "pkg:npm/zereight-mcp-gitlab@2.0.34",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/zereight/gitlab-mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://www.npmjs.com/package/@zereight/mcp-gitlab"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "1"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "npm"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

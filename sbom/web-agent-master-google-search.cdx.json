@@ -1,0 +1,230 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-d89d8b39ce8ac8f6",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:58.371318+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:github/web-agent-master-google-search",
+      "name": "google-search",
+      "version": "",
+      "description": "A Playwright-based Node.js tool that bypasses search engine anti-scraping mechanisms to execute Google searches. Local alternative to SERP APIs with MCP server integration.",
+      "purl": "pkg:github/web-agent-master/web-agent-master-google-search",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/web-agent-master/google-search"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/web-agent-master/google-search"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "71"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "source"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:execution",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:browser",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:dep_count",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:dep_risk_score",
+          "value": "3"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:github/web-agent-master-google-search",
+      "name": "google-search",
+      "version": "",
+      "description": "A Playwright-based Node.js tool that bypasses search engine anti-scraping mechanisms to execute Google searches. Local alternative to SERP APIs with MCP server integration.",
+      "purl": "pkg:github/web-agent-master/web-agent-master-google-search",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/web-agent-master/google-search"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/web-agent-master/google-search"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "71"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "source"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:execution",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:browser",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:dep_count",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:dep_risk_score",
+          "value": "3"
+        }
+      ]
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "bom-ref": "vuln-f5af001dae7e",
+      "id": "CF-F5AF001DAE7E",
+      "source": {
+        "name": "ClawForce Scanner",
+        "url": "https://clawforce.ca"
+      },
+      "ratings": [
+        {
+          "severity": "low",
+          "method": "other",
+          "source": {
+            "name": "ClawForce Code Scanner"
+          }
+        }
+      ],
+      "description": "Environment variable access",
+      "affects": [
+        {
+          "ref": "pkg:github/web-agent-master-google-search"
+        }
+      ]
+    },
+    {
+      "bom-ref": "vuln-0f4b3d0f392a",
+      "id": "CF-0F4B3D0F392A",
+      "source": {
+        "name": "ClawForce Scanner",
+        "url": "https://clawforce.ca"
+      },
+      "ratings": [
+        {
+          "severity": "critical",
+          "method": "other",
+          "source": {
+            "name": "ClawForce Code Scanner"
+          }
+        }
+      ],
+      "description": "Privilege escalation attempt",
+      "affects": [
+        {
+          "ref": "pkg:github/web-agent-master-google-search"
+        }
+      ]
+    },
+    {
+      "bom-ref": "vuln-bee0ec2a4b08",
+      "id": "CF-BEE0EC2A4B08",
+      "source": {
+        "name": "ClawForce Scanner",
+        "url": "https://clawforce.ca"
+      },
+      "ratings": [
+        {
+          "severity": "high",
+          "method": "other",
+          "source": {
+            "name": "ClawForce Code Scanner"
+          }
+        }
+      ],
+      "description": "Dynamic code/command execution",
+      "affects": [
+        {
+          "ref": "pkg:github/web-agent-master-google-search"
+        }
+      ]
+    },
+    {
+      "bom-ref": "vuln-undeclared-browser",
+      "id": "CF-UNDECLARED-BROWSER",
+      "source": {
+        "name": "ClawForce Schema Validator"
+      },
+      "ratings": [
+        {
+          "severity": "medium",
+          "method": "other"
+        }
+      ],
+      "description": "Undeclared browser capability detected in source but not in MCP tool declarations",
+      "affects": [
+        {
+          "ref": "pkg:github/web-agent-master-google-search"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-370f4c801cdc6f90",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.651554+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/weidwonder-terminal-mcp-server",
+      "name": "Terminal MCP Server",
+      "version": "",
+      "description": "Execute commands on local or remote hosts seamlessly. Leverage a powerful interface to run system commands, manage sessions, and set environment variables effortlessly. Enhance your AI models and appl",
+      "purl": "pkg:generic/weidwonder-terminal-mcp-server",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/weidwonder/terminal-mcp-server"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/weidwonder/terminal-mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "20"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:execution",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/weidwonder-terminal-mcp-server",
+      "name": "Terminal MCP Server",
+      "version": "",
+      "description": "Execute commands on local or remote hosts seamlessly. Leverage a powerful interface to run system commands, manage sessions, and set environment variables effortlessly. Enhance your AI models and appl",
+      "purl": "pkg:generic/weidwonder-terminal-mcp-server",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/weidwonder/terminal-mcp-server"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/weidwonder/terminal-mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "20"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:execution",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

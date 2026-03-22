@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-1d7638df92434486",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.086544+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/huamu668-openclaw-security",
+      "name": "OpenClaw Security Guide (by huamu668)",
+      "version": "1.0.0",
+      "description": "OpenClaw security guide for root-enabled AI agents, covering pre-install audits, runtime permission tightening, hash baselines, risk controls, nightly auto-i...",
+      "purl": "pkg:generic/huamu668-openclaw-security@1.0.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/huamu668/huamu668-openclaw-security"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "28"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:system",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/huamu668-openclaw-security",
+      "name": "OpenClaw Security Guide (by huamu668)",
+      "version": "1.0.0",
+      "description": "OpenClaw security guide for root-enabled AI agents, covering pre-install audits, runtime permission tightening, hash baselines, risk controls, nightly auto-i...",
+      "purl": "pkg:generic/huamu668-openclaw-security@1.0.0",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/huamu668/huamu668-openclaw-security"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "28"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:system",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

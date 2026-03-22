@@ -1,0 +1,112 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-5a8dd3e76b762e3b",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:58.134315+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:github/caol64-wenyan-mcp",
+      "name": "wenyan-mcp",
+      "version": "",
+      "description": "\u6587\u989c MCP Server \u53ef\u4ee5\u8ba9 AI \u81ea\u52a8\u5c06 Markdown \u6587\u7ae0\u6392\u7248\u540e\u53d1\u5e03\u81f3\u5fae\u4fe1\u516c\u4f17\u53f7\u3002",
+      "purl": "pkg:github/caol64/caol64-wenyan-mcp",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/caol64/wenyan-mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/caol64/wenyan-mcp"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "1"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:github/caol64-wenyan-mcp",
+      "name": "wenyan-mcp",
+      "version": "",
+      "description": "\u6587\u989c MCP Server \u53ef\u4ee5\u8ba9 AI \u81ea\u52a8\u5c06 Markdown \u6587\u7ae0\u6392\u7248\u540e\u53d1\u5e03\u81f3\u5fae\u4fe1\u516c\u4f17\u53f7\u3002",
+      "purl": "pkg:github/caol64/caol64-wenyan-mcp",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/caol64/wenyan-mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/caol64/wenyan-mcp"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "1"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

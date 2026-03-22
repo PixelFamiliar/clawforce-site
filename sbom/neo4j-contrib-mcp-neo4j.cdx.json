@@ -1,0 +1,120 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-997b566d14308900",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:58.190281+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:github/neo4j-contrib-mcp-neo4j",
+      "name": "mcp-neo4j",
+      "version": "",
+      "description": "Neo4j Labs Model Context Protocol servers",
+      "purl": "pkg:github/neo4j-contrib/neo4j-contrib-mcp-neo4j",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/neo4j-contrib/mcp-neo4j"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/neo4j-contrib/mcp-neo4j"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:database",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:github/neo4j-contrib-mcp-neo4j",
+      "name": "mcp-neo4j",
+      "version": "",
+      "description": "Neo4j Labs Model Context Protocol servers",
+      "purl": "pkg:github/neo4j-contrib/neo4j-contrib-mcp-neo4j",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/neo4j-contrib/mcp-neo4j"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/neo4j-contrib/mcp-neo4j"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:database",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

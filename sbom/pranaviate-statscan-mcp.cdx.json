@@ -1,0 +1,108 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-34dadf4c228f14fa",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.641803+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/pranaviate-statscan-mcp",
+      "name": "Statistics Canada",
+      "version": "",
+      "description": "Access comprehensive Canadian socio-economic datasets and time series data directly. Search for specific data cubes, retrieve detailed metadata, and monitor the latest statistical releases. Fetch hist",
+      "purl": "pkg:generic/pranaviate-statscan-mcp",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/pranaviate/statscan-mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/pranaviate/statscan-mcp"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "12"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/pranaviate-statscan-mcp",
+      "name": "Statistics Canada",
+      "version": "",
+      "description": "Access comprehensive Canadian socio-economic datasets and time series data directly. Search for specific data cubes, retrieve detailed metadata, and monitor the latest statistical releases. Fetch hist",
+      "purl": "pkg:generic/pranaviate-statscan-mcp",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/pranaviate/statscan-mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/pranaviate/statscan-mcp"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "12"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

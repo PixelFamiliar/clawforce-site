@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-a90fd6a2ffc3bfa2",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.645091+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/aparajithn-agent-utils-mcp-new",
+      "name": "Developer Utilities",
+      "version": "",
+      "description": "Simplify common data manipulation tasks like encoding, hashing, and formatting across various formats. Convert between CSV, JSON, Markdown, and HTML seamlessly to streamline data workflows. Extract in",
+      "purl": "pkg:generic/aparajithn-agent-utils-mcp-new",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/aparajithn/agent-utils-mcp-new"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/aparajithn/agent-utils-mcp-new"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/aparajithn-agent-utils-mcp-new",
+      "name": "Developer Utilities",
+      "version": "",
+      "description": "Simplify common data manipulation tasks like encoding, hashing, and formatting across various formats. Convert between CSV, JSON, Markdown, and HTML seamlessly to streamline data workflows. Extract in",
+      "purl": "pkg:generic/aparajithn-agent-utils-mcp-new",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/aparajithn/agent-utils-mcp-new"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/aparajithn/agent-utils-mcp-new"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

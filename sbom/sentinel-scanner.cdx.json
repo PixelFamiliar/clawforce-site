@@ -1,0 +1,92 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-e8f86d307e7580f1",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:55.516155+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "2.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:unknown/sentinel-scanner",
+      "name": "sentinel-scanner",
+      "version": "unknown",
+      "description": "Static analysis security scanner for agent skill code with 22 vulnerability patterns",
+      "purl": "pkg:generic/sentinel-scanner",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/PixelFamiliar/sentinel-scanner"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "0"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "verified"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": ""
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "2.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:unknown/sentinel-scanner",
+      "name": "sentinel-scanner",
+      "version": "unknown",
+      "description": "Static analysis security scanner for agent skill code with 22 vulnerability patterns",
+      "purl": "pkg:generic/sentinel-scanner",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/PixelFamiliar/sentinel-scanner"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "0"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "verified"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": ""
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "2.0.0"
+        }
+      ]
+    }
+  ]
+}

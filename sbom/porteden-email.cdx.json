@@ -1,0 +1,108 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-828196513d2e3aeb",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.162591+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/porteden-email",
+      "name": "PortEden - secured email (Gmail, Outlook, Exchange) access for OpenClaw",
+      "version": "1.0.4",
+      "description": "Secured Email Mnagement - Gmail, Outlook & Exchange - list, search, read, send, reply, forward, delete, and modify emails across multiple accounts (gog-cli s...",
+      "purl": "pkg:generic/porteden-email@1.0.4",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/porteden/porteden-email"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "26"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:execution",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:email",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/porteden-email",
+      "name": "PortEden - secured email (Gmail, Outlook, Exchange) access for OpenClaw",
+      "version": "1.0.4",
+      "description": "Secured Email Mnagement - Gmail, Outlook & Exchange - list, search, read, send, reply, forward, delete, and modify emails across multiple accounts (gog-cli s...",
+      "purl": "pkg:generic/porteden-email@1.0.4",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/porteden/porteden-email"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "26"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:execution",
+          "value": "inferred"
+        },
+        {
+          "name": "clawforce:permission:email",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

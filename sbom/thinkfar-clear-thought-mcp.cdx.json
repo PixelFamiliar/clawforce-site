@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-bdcda1ca013c5854",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.604417+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/thinkfar-clear-thought-mcp",
+      "name": "Clear Thought Server",
+      "version": "",
+      "description": "Provide systematic thinking, mental models, and debugging approaches to enhance problem-solving capabilities. Enable structured reasoning and decision-making support for complex problems. Facilitate i",
+      "purl": "pkg:generic/thinkfar-clear-thought-mcp",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/ThinkFar/clear-thought-mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/ThinkFar/clear-thought-mcp"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/thinkfar-clear-thought-mcp",
+      "name": "Clear Thought Server",
+      "version": "",
+      "description": "Provide systematic thinking, mental models, and debugging approaches to enhance problem-solving capabilities. Enable structured reasoning and decision-making support for complex problems. Facilitate i",
+      "purl": "pkg:generic/thinkfar-clear-thought-mcp",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/ThinkFar/clear-thought-mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/ThinkFar/clear-thought-mcp"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

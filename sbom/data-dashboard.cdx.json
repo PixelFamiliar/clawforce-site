@@ -1,0 +1,104 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-732436a7dad20fa1",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:55.938777+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/data-dashboard",
+      "name": "Data Dashboard",
+      "version": "1.0.0",
+      "description": "\ud83d\udd25 \u4eba\u4eba\u53ef\u7528\u7684\u5f00\u6e90 BI \u5de5\u5177\uff0c\u6570\u636e\u53ef\u89c6\u5316\u795e\u5668\u3002An open-source BI tool alternative to Tableau. data-dashboard, java, apache-doris, business-intelligence, data-analysis.",
+      "purl": "pkg:generic/data-dashboard@1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "name": "MIT-0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/bytesagain/data-dashboard"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "14"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:clawhub/data-dashboard",
+      "name": "Data Dashboard",
+      "version": "1.0.0",
+      "description": "\ud83d\udd25 \u4eba\u4eba\u53ef\u7528\u7684\u5f00\u6e90 BI \u5de5\u5177\uff0c\u6570\u636e\u53ef\u89c6\u5316\u795e\u5668\u3002An open-source BI tool alternative to Tableau. data-dashboard, java, apache-doris, business-intelligence, data-analysis.",
+      "purl": "pkg:generic/data-dashboard@1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "name": "MIT-0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://clawhub.ai/bytesagain/data-dashboard"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "14"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "clawhub"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

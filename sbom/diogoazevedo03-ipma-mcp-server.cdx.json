@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-4510d12ec74cea0e",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.562457+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/diogoazevedo03-ipma-mcp-server",
+      "name": "IPMA Weather Data Server",
+      "version": "",
+      "description": "Provide real-time and forecast meteorological data for cities across Portugal using natural language queries. Access weather forecasts, seismic data, UV index, and active weather warnings seamlessly. ",
+      "purl": "pkg:generic/diogoazevedo03-ipma-mcp-server",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/DiogoAzevedo03/ipma-mcp-server"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/DiogoAzevedo03/ipma-mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/diogoazevedo03-ipma-mcp-server",
+      "name": "IPMA Weather Data Server",
+      "version": "",
+      "description": "Provide real-time and forecast meteorological data for cities across Portugal using natural language queries. Access weather forecasts, seismic data, UV index, and active weather warnings seamlessly. ",
+      "purl": "pkg:generic/diogoazevedo03-ipma-mcp-server",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/DiogoAzevedo03/ipma-mcp-server"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/DiogoAzevedo03/ipma-mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

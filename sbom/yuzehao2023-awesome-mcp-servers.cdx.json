@@ -1,0 +1,112 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-bb8593f8edbc98a9",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:58.157512+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:github/yuzehao2023-awesome-mcp-servers",
+      "name": "Awesome-MCP-Servers",
+      "version": "",
+      "description": "A curated list of Model Context Protocol (MCP) servers ",
+      "purl": "pkg:github/YuzeHao2023/yuzehao2023-awesome-mcp-servers",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/YuzeHao2023/Awesome-MCP-Servers"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/YuzeHao2023/Awesome-MCP-Servers"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "1"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:github/yuzehao2023-awesome-mcp-servers",
+      "name": "Awesome-MCP-Servers",
+      "version": "",
+      "description": "A curated list of Model Context Protocol (MCP) servers ",
+      "purl": "pkg:github/YuzeHao2023/yuzehao2023-awesome-mcp-servers",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/YuzeHao2023/Awesome-MCP-Servers"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/YuzeHao2023/Awesome-MCP-Servers"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "1"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

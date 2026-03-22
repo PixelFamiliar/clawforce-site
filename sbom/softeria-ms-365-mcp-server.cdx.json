@@ -1,0 +1,120 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-17cd26252d991c17",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:56.879492+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:npm/softeria-ms-365-mcp-server",
+      "name": "@softeria/ms-365-mcp-server",
+      "version": "0.45.2",
+      "description": " A Model Context Protocol (MCP) server for interacting with Microsoft 365 and Office services through the Graph API",
+      "purl": "pkg:npm/softeria-ms-365-mcp-server@0.45.2",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/softeria/ms-365-mcp-server"
+        },
+        {
+          "type": "website",
+          "url": "https://www.npmjs.com/package/@softeria/ms-365-mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "1"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "npm"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:npm/softeria-ms-365-mcp-server",
+      "name": "@softeria/ms-365-mcp-server",
+      "version": "0.45.2",
+      "description": " A Model Context Protocol (MCP) server for interacting with Microsoft 365 and Office services through the Graph API",
+      "purl": "pkg:npm/softeria-ms-365-mcp-server@0.45.2",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/softeria/ms-365-mcp-server"
+        },
+        {
+          "type": "website",
+          "url": "https://www.npmjs.com/package/@softeria/ms-365-mcp-server"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "1"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "npm"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

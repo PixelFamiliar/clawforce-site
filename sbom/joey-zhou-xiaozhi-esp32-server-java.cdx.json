@@ -1,0 +1,120 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-cd4b1d8802fdf3bc",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:58.124631+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:github/joey-zhou-xiaozhi-esp32-server-java",
+      "name": "xiaozhi-esp32-server-java",
+      "version": "",
+      "description": "\u5c0f\u667aESP32\u7684Java\u4f01\u4e1a\u7ea7\u7ba1\u7406\u5e73\u53f0\uff0c\u63d0\u4f9b\u8bbe\u5907\u76d1\u63a7\u3001\u97f3\u8272\u5b9a\u5236\u3001\u89d2\u8272\u5207\u6362\u548c\u5bf9\u8bdd\u8bb0\u5f55\u7ba1\u7406\u7684\u524d\u540e\u7aef\u53ca\u670d\u52a1\u7aef\u4e00\u4f53\u5316\u89e3\u51b3\u65b9\u6848",
+      "purl": "pkg:github/joey-zhou/joey-zhou-xiaozhi-esp32-server-java",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/joey-zhou/xiaozhi-esp32-server-java"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/joey-zhou/xiaozhi-esp32-server-java"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "11"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:execution",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:github/joey-zhou-xiaozhi-esp32-server-java",
+      "name": "xiaozhi-esp32-server-java",
+      "version": "",
+      "description": "\u5c0f\u667aESP32\u7684Java\u4f01\u4e1a\u7ea7\u7ba1\u7406\u5e73\u53f0\uff0c\u63d0\u4f9b\u8bbe\u5907\u76d1\u63a7\u3001\u97f3\u8272\u5b9a\u5236\u3001\u89d2\u8272\u5207\u6362\u548c\u5bf9\u8bdd\u8bb0\u5f55\u7ba1\u7406\u7684\u524d\u540e\u7aef\u53ca\u670d\u52a1\u7aef\u4e00\u4f53\u5316\u89e3\u51b3\u65b9\u6848",
+      "purl": "pkg:github/joey-zhou/joey-zhou-xiaozhi-esp32-server-java",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/joey-zhou/xiaozhi-esp32-server-java"
+        },
+        {
+          "type": "website",
+          "url": "https://github.com/joey-zhou/xiaozhi-esp32-server-java"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "11"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "github"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:execution",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

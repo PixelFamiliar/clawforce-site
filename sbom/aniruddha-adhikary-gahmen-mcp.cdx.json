@@ -1,0 +1,108 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-0a82e06338a74460",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.252361+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/aniruddha-adhikary-gahmen-mcp",
+      "name": "MCP Server for Singapore Government Open Data",
+      "version": "",
+      "description": "Provide seamless access to open datasets and collections from data.gov.sg. Enable searching, metadata retrieval, and filtered dataset downloads for analysis.",
+      "purl": "pkg:generic/aniruddha-adhikary-gahmen-mcp",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/aniruddha-adhikary/gahmen-mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/aniruddha-adhikary/gahmen-mcp"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "14"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:filesystem",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/aniruddha-adhikary-gahmen-mcp",
+      "name": "MCP Server for Singapore Government Open Data",
+      "version": "",
+      "description": "Provide seamless access to open datasets and collections from data.gov.sg. Enable searching, metadata retrieval, and filtered dataset downloads for analysis.",
+      "purl": "pkg:generic/aniruddha-adhikary-gahmen-mcp",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/aniruddha-adhikary/gahmen-mcp"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/aniruddha-adhikary/gahmen-mcp"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "14"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:filesystem",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}

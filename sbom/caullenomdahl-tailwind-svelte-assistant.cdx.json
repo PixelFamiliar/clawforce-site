@@ -1,0 +1,100 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-05810304e09c6648",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:57.339890+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/caullenomdahl-tailwind-svelte-assistant",
+      "name": "Tailwind Svelte Assistant",
+      "version": "",
+      "description": "Provide instant access to SvelteKit and Tailwind CSS documentation along with ready-to-use Svelte component snippets styled with Tailwind. Enable efficient UI development by retrieving relevant docs, ",
+      "purl": "pkg:generic/caullenomdahl-tailwind-svelte-assistant",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/CaullenOmdahl/tailwind-svelte-assistant"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/CaullenOmdahl/tailwind-svelte-assistant"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/caullenomdahl-tailwind-svelte-assistant",
+      "name": "Tailwind Svelte Assistant",
+      "version": "",
+      "description": "Provide instant access to SvelteKit and Tailwind CSS documentation along with ready-to-use Svelte component snippets styled with Tailwind. Enable efficient UI development by retrieving relevant docs, ",
+      "purl": "pkg:generic/caullenomdahl-tailwind-svelte-assistant",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/CaullenOmdahl/tailwind-svelte-assistant"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/CaullenOmdahl/tailwind-svelte-assistant"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "6"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        }
+      ]
+    }
+  ]
+}

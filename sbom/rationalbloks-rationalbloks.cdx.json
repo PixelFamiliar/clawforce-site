@@ -1,0 +1,108 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cf-9992afc7216e9457",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T15:09:58.488603+00:00",
+    "tools": [
+      {
+        "vendor": "ClawForce",
+        "name": "ClawForce Scanner",
+        "version": "5.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:smithery/rationalbloks-rationalbloks",
+      "name": "RationalBloks",
+      "version": "",
+      "description": "By providing a simple JSON configuration file to describe your data structure, the system generates for you:\n\n\u2022 \ud835\uddd9\ud835\uddee\ud835\ude00\ud835\ude01\ud835\uddd4\ud835\udde3\ud835\udddc \ud835\uddd5\ud835\uddee\ud835\uddf0\ud835\uddf8\ud835\uddf2\ud835\uddfb\ud835\uddf1: A full CRUD API implementation based on your JSON schema. \n\u2022 \ud835\udde3\ud835\uddfc\ud835\ude00\ud835\ude01\ud835\uddf4\ud835\uddff\ud835\uddf2\ud835\udde6\ud835\udde4\ud835\udddf",
+      "purl": "pkg:generic/rationalbloks-rationalbloks",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rationalbloks/rationalbloks"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/rationalbloks/rationalbloks"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "7"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:smithery/rationalbloks-rationalbloks",
+      "name": "RationalBloks",
+      "version": "",
+      "description": "By providing a simple JSON configuration file to describe your data structure, the system generates for you:\n\n\u2022 \ud835\uddd9\ud835\uddee\ud835\ude00\ud835\ude01\ud835\uddd4\ud835\udde3\ud835\udddc \ud835\uddd5\ud835\uddee\ud835\uddf0\ud835\uddf8\ud835\uddf2\ud835\uddfb\ud835\uddf1: A full CRUD API implementation based on your JSON schema. \n\u2022 \ud835\udde3\ud835\uddfc\ud835\ude00\ud835\ude01\ud835\uddf4\ud835\uddff\ud835\uddf2\ud835\udde6\ud835\udde4\ud835\udddf",
+      "purl": "pkg:generic/rationalbloks-rationalbloks",
+      "licenses": [],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rationalbloks/rationalbloks"
+        },
+        {
+          "type": "website",
+          "url": "https://smithery.ai/servers/rationalbloks/rationalbloks"
+        }
+      ],
+      "properties": [
+        {
+          "name": "clawforce:risk_score",
+          "value": "7"
+        },
+        {
+          "name": "clawforce:certification_tier",
+          "value": "scanned"
+        },
+        {
+          "name": "clawforce:scan_type",
+          "value": "metadata"
+        },
+        {
+          "name": "clawforce:source",
+          "value": "smithery"
+        },
+        {
+          "name": "clawforce:scanner_version",
+          "value": "5.0.0"
+        },
+        {
+          "name": "clawforce:permission:network",
+          "value": "inferred"
+        }
+      ]
+    }
+  ]
+}
