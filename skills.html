@@ -257,6 +257,9 @@
         .source-clawhub { background: rgba(74, 111, 165, 0.08); color: var(--blue); border: 1px solid rgba(74, 111, 165, 0.2); }
         .source-mcp { background: rgba(139, 92, 246, 0.08); color: #8b5cf6; border: 1px solid rgba(139, 92, 246, 0.2); }
         .source-npm { background: rgba(203, 56, 55, 0.08); color: #cb3837; border: 1px solid rgba(203, 56, 55, 0.2); }
+        .source-smithery { background: rgba(234, 179, 8, 0.08); color: #ca8a04; border: 1px solid rgba(234, 179, 8, 0.2); }
+        .source-pypi { background: rgba(55, 118, 171, 0.08); color: #3776AB; border: 1px solid rgba(55, 118, 171, 0.2); }
+        .source-github { background: rgba(100, 100, 100, 0.08); color: #8b949e; border: 1px solid rgba(100, 100, 100, 0.2); }
         .source-tag { font-family: var(--mono); font-size: 0.5rem; font-weight: 700; padding: 1px 5px; border-radius: 2px; text-transform: uppercase; letter-spacing: 0.06em; white-space: nowrap; display: inline-block; margin-right: 4px; vertical-align: middle; }
         .scan-type-source { background: rgba(61, 122, 95, 0.08); color: var(--cyan); border: 1px solid rgba(61, 122, 95, 0.2); font-family: var(--mono); font-size: 0.48rem; font-weight: 700; padding: 1px 4px; border-radius: 2px; text-transform: uppercase; letter-spacing: 0.04em; white-space: nowrap; display: inline-block; }
 
@@ -490,6 +493,9 @@
                     <button class="source-btn" onclick="setSource('clawhub', this)">ClawHub</button>
                     <button class="source-btn" onclick="setSource('mcp-registry', this)">MCP</button>
                     <button class="source-btn" onclick="setSource('npm', this)">npm</button>
+                    <button class="source-btn" onclick="setSource('smithery', this)">Smithery</button>
+                    <button class="source-btn" onclick="setSource('pypi', this)">PyPI</button>
+                    <button class="source-btn" onclick="setSource('github', this)">GitHub</button>
                 </div>
             </div>
 
@@ -840,9 +846,17 @@
             const tdSource = document.createElement('td');
             const sourceTag = document.createElement('span');
             const sourceCls = skill.source === 'clawhub' ? 'source-clawhub' :
-                             skill.source === 'mcp-registry' ? 'source-mcp' : 'source-npm';
+                             skill.source === 'mcp-registry' ? 'source-mcp' :
+                             skill.source === 'npm' ? 'source-npm' :
+                             skill.source === 'smithery' ? 'source-smithery' :
+                             skill.source === 'pypi' ? 'source-pypi' :
+                             skill.source === 'github' ? 'source-github' : 'source-npm';
             const sourceLabel = skill.source === 'clawhub' ? 'ClawHub' :
-                               skill.source === 'mcp-registry' ? 'MCP' : 'npm';
+                               skill.source === 'mcp-registry' ? 'MCP' :
+                               skill.source === 'npm' ? 'npm' :
+                               skill.source === 'smithery' ? 'Smithery' :
+                               skill.source === 'pypi' ? 'PyPI' :
+                               skill.source === 'github' ? 'GitHub' : skill.source;
             sourceTag.className = 'source-tag ' + sourceCls;
             sourceTag.textContent = sourceLabel;
             tdSource.appendChild(sourceTag);
