@@ -294,6 +294,16 @@
                     scanned codebase layer. If the live code differs from this hash, the certification is invalid.</p>
                 <div class="code-block" id="uiHash">sha256:...</div>
             </section>
+
+            <!-- Badge Embed -->
+            <section style="margin: 3rem 0;" id="uiBadgeSection">
+                <h3 style="font-family: var(--mono); font-size: 0.9rem; font-weight: 700; margin-bottom: 1rem;">Share This Badge</h3>
+                <p style="color: var(--muted); font-size: 0.85rem; margin-bottom: 1rem;">Add a ClawForce badge to your skill's README:</p>
+                <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+                    <img id="uiSkillBadge" src="" alt="ClawForce Badge" style="height:20px;">
+                </div>
+                <div style="background:var(--surface);border:1px solid var(--border);padding:0.8rem 1rem;border-radius:6px;font-family:var(--mono);font-size:0.72rem;color:var(--muted);word-break:break-all;" id="uiBadgeEmbed"></div>
+            </section>
         </div>
     </header>
 
@@ -378,7 +388,11 @@
             document.getElementById('uiSkillName').textContent = name;
             document.getElementById('uiDeveloper').textContent = `by ${dev}`;
             document.getElementById('uiDescription').textContent = desc;
-            document.getElementById('uiRepoLink').href = escapeHtml(skill.repo);
+
+            const repoLink = document.getElementById('uiRepoLink');
+            repoLink.href = escapeHtml(skill.repo);
+            if (skill.source === 'clawhub') repoLink.textContent = 'View on ClawHub ↗';
+
             document.getElementById('uiBadge').src = `https://api.clawforce.ca/v1/badge/${encodeURIComponent(name)}`;
 
             const riskLabel = document.getElementById('uiRiskScore');
@@ -391,6 +405,46 @@
             document.getElementById('uiDate').textContent = escapeHtml(skill.date || skill.scan_timestamp ? skill.scan_timestamp.split('T')[0] : 'Unknown');
             document.getElementById('uiVersion').textContent = escapeHtml(skill.version || 'v1.0.0');
             document.getElementById('uiHash').textContent = hash;
+
+            // Badge embed
+            const badgeUrl = `https://clawforce.ca/badges/${encodeURIComponent(skill.skill_name || skill.name)}.svg`;
+            document.getElementById('uiSkillBadge').src = badgeUrl;
+            document.getElementById('uiBadgeEmbed').textContent = `![ClawForce](${badgeUrl})`;
+
+            // ClawHub verdict + disagreement
+            const verdict = skill.clawhub_verdict;
+            const disagree = skill.verdict_disagree;
+            if (verdict || disagree) {
+                const vs = document.createElement('section');
+                vs.style.cssText = 'margin:2rem 0;';
+                let vh = '<h3 style="font-family:var(--mono);font-size:0.9rem;font-weight:700;margin-bottom:0.8rem;">ClawHub Verdict</h3>';
+                if (verdict === 'clean') vh += '<span style="display:inline-flex;align-items:center;gap:6px;padding:4px 12px;background:var(--cyan);color:white;border-radius:4px;font-family:var(--mono);font-size:0.75rem;font-weight:600;">✓ Clean</span>';
+                else if (verdict === 'suspicious') vh += '<span style="display:inline-flex;align-items:center;gap:6px;padding:4px 12px;background:var(--red);color:white;border-radius:4px;font-family:var(--mono);font-size:0.75rem;font-weight:600;">⚠ Suspicious</span>';
+                else vh += '<span style="padding:4px 12px;border:1px dashed var(--border);border-radius:4px;font-family:var(--mono);font-size:0.75rem;color:var(--dim);">— No verdict</span>';
+                if (disagree) vh += ' <span style="padding:4px 10px;background:var(--red);color:white;border-radius:4px;font-family:var(--mono);font-size:0.65rem;font-weight:700;">⚡ DISAGREE</span>';
+                vs.innerHTML = vh;
+                document.getElementById('uiBadgeSection').insertAdjacentElement('afterend', vs);
+            }
+
+            // LLM assessment
+            if (skill.llm_assessment) {
+                const ls = document.createElement('section');
+                ls.style.cssText = 'margin:2rem 0;';
+                ls.innerHTML = `<h3 style="font-family:var(--mono);font-size:0.9rem;font-weight:700;margin-bottom:0.8rem;">🧠 AI Analysis</h3><div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--cyan);padding:1rem 1.5rem;border-radius:0 8px 8px 0;font-size:0.82rem;color:var(--muted);line-height:1.6;">${escapeHtml(skill.llm_assessment)}</div>`;
+                const prev = document.querySelector('#uiBadgeSection + section') || document.getElementById('uiBadgeSection');
+                prev.insertAdjacentElement('afterend', ls);
+            }
+
+            // First seen NEW badge
+            if (skill.first_seen) {
+                const fs = new Date(skill.first_seen);
+                if ((new Date() - fs) / 86400000 <= 7) {
+                    const nb = document.createElement('span');
+                    nb.style.cssText = 'display:inline-block;padding:2px 8px;background:var(--cyan);color:white;border-radius:3px;font-family:var(--mono);font-size:0.65rem;font-weight:700;margin-left:8px;';
+                    nb.textContent = '🆕 NEW';
+                    document.getElementById('uiSkillName').appendChild(nb);
+                }
+            }
         }
 
         function showError() {

@@ -73,8 +73,20 @@
         <priority>0.7</priority>
     </url>
     <url>
+        <loc>https://clawforce.ca/blog/what-we-found-scanning-194-clawhub-skills.html</loc>
+        <lastmod>2026-03-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://clawforce.ca/blog-index.html</loc>
+        <lastmod>2026-03-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
         <loc>https://clawforce.ca/clawhub.html</loc>
-        <lastmod>2026-03-21</lastmod>
+        <lastmod>2026-03-22</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
