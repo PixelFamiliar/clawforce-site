@@ -267,20 +267,30 @@
                     <div class="stat-value" id="uiRiskScore" style="display:flex;align-items:baseline;gap:4px;">
                         <span>0</span><span style="font-size:0.8rem;color:var(--dim);">/100</span>
                     </div>
+                    <div id="uiRiskBar" style="margin-top:8px;width:100%;height:6px;background:var(--border);border-radius:3px;overflow:hidden;">
+                        <div id="uiRiskFill" style="height:100%;border-radius:3px;transition:width 0.5s;"></div>
+                    </div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-label">Files Scanned</div>
-                    <div class="stat-value" id="uiFilesScanned">0</div>
+                    <div class="stat-label">Permission Scopes</div>
+                    <div class="stat-value" id="uiScopeCount" style="font-size:1.5rem;">0</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-label">Scan Date</div>
                     <div class="stat-value" id="uiDate" style="font-size:1.1rem;">YYYY-MM-DD</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-label">Skill Version</div>
-                    <div class="stat-value" id="uiVersion" style="font-size:1.1rem;">v1.0.0</div>
+                    <div class="stat-label">Scan Type</div>
+                    <div class="stat-value" id="uiScanType" style="font-size:1.1rem;">—</div>
                 </div>
             </div>
+
+            <!-- ━━━ PERMISSION SCOPES ━━━ -->
+            <section id="uiPermSection" style="margin: 3rem 0; display: none;">
+                <h3 style="font-size: 1.1rem; margin-bottom: 1rem; font-weight: 700;">Inferred Permission Scopes</h3>
+                <p style="color: var(--muted); font-size: 0.85rem; margin-bottom: 1rem; line-height: 1.6;">Based on the skill's description, metadata, and declared capabilities. These are the access scopes this skill likely requires.</p>
+                <div id="uiPermBadges" style="display: flex; flex-wrap: wrap; gap: 8px;"></div>
+            </section>
 
             <!-- ━━━ METADATA ━━━ -->
             <section style="margin: 4rem 0;">
@@ -367,26 +377,63 @@
             document.getElementById('uiDescription').textContent = desc;
             const repoUrl = skill.repo ? (skill.repo.startsWith('http') ? skill.repo : 'https://' + skill.repo) : '#';
             document.getElementById('uiRepoLink').href = escapeHtml(repoUrl);
+            // Update button text based on source
+            if (repoUrl.includes('clawhub.ai')) {
+                document.getElementById('uiRepoLink').textContent = 'View on ClawHub \u2197';
+            }
 
-            // Use shields.io badge instead of broken /v1/badge/ API
+            // Badge
             const tier = (skill.certification_tier || 'scanned').toLowerCase();
             const tierColors = { scanned: '10B981', verified: '0EA5E9', certified: 'F59E0B' };
             const tierLabel = tier.charAt(0).toUpperCase() + tier.slice(1);
             document.getElementById('uiBadge').src = `https://img.shields.io/badge/ClawForce-${tierLabel}-${tierColors[tier] || '64748B'}?style=flat-square`;
 
+            // Risk score + bar
+            const r = skill.risk_score || 0;
+            const riskColor = r <= 5 ? 'var(--cyan)' : r <= 20 ? 'var(--amber)' : 'var(--red)';
             const riskLabel = document.getElementById('uiRiskScore');
-            riskLabel.innerHTML = `<span>${skill.risk_score}</span><span style="font-size:0.8rem;color:var(--dim);">/100</span>`;
-            if (skill.risk_score === 0) riskLabel.style.color = 'var(--cyan)';
-            else if (skill.risk_score <= 15) riskLabel.style.color = 'var(--amber)';
-            else riskLabel.style.color = 'var(--red)';
+            riskLabel.innerHTML = `<span>${r}</span><span style="font-size:0.8rem;color:var(--dim);">/100</span>`;
+            riskLabel.style.color = riskColor;
+            document.getElementById('uiRiskFill').style.width = Math.max(r, 3) + '%';
+            document.getElementById('uiRiskFill').style.background = riskColor;
 
-            document.getElementById('uiFilesScanned').textContent = skill.files_scanned || 'N/A';
+            // Scope count
+            const perms = skill.permissions || [];
+            document.getElementById('uiScopeCount').textContent = perms.length;
+
+            // Scan date
             let scanDate = 'Unknown';
             if (skill.date) scanDate = skill.date;
             else if (skill.scan_timestamp && typeof skill.scan_timestamp === 'string') scanDate = skill.scan_timestamp.split('T')[0];
             document.getElementById('uiDate').textContent = escapeHtml(scanDate);
-            document.getElementById('uiVersion').textContent = escapeHtml(skill.version || 'v1.0.0');
+
+            // Scan type
+            const scanType = skill.scan_type || 'unknown';
+            const scanTypeEl = document.getElementById('uiScanType');
+            scanTypeEl.textContent = scanType === 'metadata' ? 'Metadata' : scanType === 'code' ? 'Code' : scanType;
+            scanTypeEl.style.fontSize = '1rem';
+
             document.getElementById('uiHash').textContent = hash;
+
+            // Permission scopes
+            if (perms.length > 0) {
+                const permSection = document.getElementById('uiPermSection');
+                permSection.style.display = 'block';
+                const container = document.getElementById('uiPermBadges');
+                const labels = { network: 'Network Access', filesystem: 'File System', execution: 'Code Execution', credentials: 'Credentials', browser: 'Browser Control', email: 'Email Access', database: 'Database', system: 'System Access' };
+                const icons = { network: '\ud83c\udf10', filesystem: '\ud83d\udcc1', execution: '\u26a0\ufe0f', credentials: '\ud83d\udd11', browser: '\ud83e\udde9', email: '\u2709\ufe0f', database: '\ud83d\uddc4', system: '\u2699\ufe0f' };
+                const riskLevels = { execution: 'high', credentials: 'high', system: 'high', browser: 'medium', filesystem: 'medium', email: 'medium', database: 'medium', network: 'low' };
+                const riskColors = { high: 'var(--red)', medium: 'var(--amber)', low: 'var(--cyan)' };
+
+                for (const p of perms) {
+                    const badge = document.createElement('div');
+                    const rl = riskLevels[p] || 'low';
+                    const rc = riskColors[rl];
+                    badge.style.cssText = 'display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:8px;border:1px solid ' + rc + ';background:rgba(0,0,0,0.2);font-size:0.85rem;font-weight:600;';
+                    badge.innerHTML = '<span>' + (icons[p] || '') + '</span><span style="color:var(--text);">' + (labels[p] || p) + '</span><span style="font-size:0.65rem;color:' + rc + ';text-transform:uppercase;font-weight:700;">' + rl + '</span>';
+                    container.appendChild(badge);
+                }
+            }
         }
 
         function showError() {
