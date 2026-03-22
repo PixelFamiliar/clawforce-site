@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What We Found Scanning 194 ClawHub Skills | ClawForce Blog</title>
+    <meta name="description" content="ClawForce scanned 194 skills from the ClawHub registry. Here's what we found: 56 high-risk skills, 8 permission scopes, and patterns worth knowing about.">
+    <meta property="og:title" content="What We Found Scanning 194 ClawHub Skills">
+    <meta property="og:description" content="56 high-risk skills, credential access in 21% of tools, and patterns you should know about.">
+    <link rel="canonical" href="https://clawforce.ca/blog/what-we-found-scanning-194-clawhub-skills.html">
+    <style>
+        :root {
+            --bg: #0a0a0a; --surface: #111; --card: #161616; --border: #222;
+            --text: #e8e6e3; --muted: #8b8680; --dim: #555;
+            --cyan: #10B981; --blue: #0EA5E9; --amber: #dfb317; --red: #e05d44;
+            --mono: 'JetBrains Mono', monospace;
+            --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--bg); color: var(--text); font-family: var(--sans); line-height: 1.7; }
+        .wrap { max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
+
+        nav { padding: 1rem 0; border-bottom: 1px solid var(--border); position: fixed; top: 0; left: 0; right: 0; background: rgba(10,10,10,0.95); z-index: 100; backdrop-filter: blur(12px); }
+        nav .wrap { display: flex; align-items: center; justify-content: space-between; }
+        .nav-logo { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; }
+        .brand { font-family: var(--mono); color: var(--text); font-weight: 800; font-size: 0.9rem; }
+        .nav-links { list-style: none; display: flex; gap: 1.8rem; align-items: center; }
+        .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.78rem; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--text); }
+        .nav-cta { background: var(--text) !important; color: var(--bg) !important; padding: 0.45rem 1rem; border-radius: 2px; font-family: var(--mono); font-size: 0.72rem !important; font-weight: 700 !important; }
+
+        article { padding-top: 100px; }
+        h1 { font-family: var(--mono); font-size: 2rem; font-weight: 800; line-height: 1.2; margin-bottom: 1rem; }
+        .meta { font-size: 0.8rem; color: var(--dim); margin-bottom: 3rem; font-family: var(--mono); }
+        h2 { font-family: var(--mono); font-size: 1.2rem; margin: 2.5rem 0 1rem; color: var(--text); }
+        p { margin-bottom: 1.5rem; font-size: 0.95rem; color: var(--muted); }
+        strong { color: var(--text); }
+        a { color: var(--cyan); }
+
+        .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 2rem 0; }
+        .stat-box { background: var(--surface); border: 1px solid var(--border); padding: 1.2rem; border-radius: 8px; text-align: center; }
+        .stat-num { font-family: var(--mono); font-size: 1.8rem; font-weight: 800; margin-bottom: 0.3rem; }
+        .stat-label { font-size: 0.7rem; color: var(--dim); text-transform: uppercase; letter-spacing: 0.05em; }
+
+        table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.82rem; }
+        th { padding: 0.6rem 0.8rem; text-align: left; font-family: var(--mono); font-size: 0.68rem; color: var(--dim); text-transform: uppercase; border-bottom: 2px solid var(--border); }
+        td { padding: 0.6rem 0.8rem; border-bottom: 1px solid var(--border); color: var(--muted); }
+        td:first-child { font-family: var(--mono); font-weight: 600; color: var(--text); }
+
+        .scope-bar { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+        .scope-label { font-family: var(--mono); font-size: 0.7rem; color: var(--muted); width: 90px; text-align: right; }
+        .scope-fill { height: 12px; background: var(--border); border-radius: 3px; flex: 1; overflow: hidden; }
+        .scope-fill div { height: 100%; border-radius: 3px; }
+        .scope-pct { font-family: var(--mono); font-size: 0.7rem; color: var(--dim); width: 36px; }
+
+        .callout { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--cyan); padding: 1.2rem 1.5rem; border-radius: 0 8px 8px 0; margin: 2rem 0; font-size: 0.85rem; color: var(--muted); }
+        .callout strong { color: var(--cyan); }
+
+        code { font-family: var(--mono); font-size: 0.82rem; background: var(--surface); padding: 2px 6px; border-radius: 3px; }
+
+        footer { padding: 3rem 0; border-top: 1px solid var(--border); text-align: center; margin-top: 4rem; }
+        footer p { font-size: 0.72rem; color: var(--dim); }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="wrap">
+            <a href="/" class="nav-logo">
+                <img src="/logo.png" alt="ClawForce" style="height:22px;width:22px;">
+                <span class="brand">ClawForce</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/#scan">Scan</a></li>
+                <li><a href="/#pricing">Pricing</a></li>
+                <li><a href="/blog.html" class="active">Blog</a></li>
+                <li><a href="/clawhub.html">ClawHub</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/faq.html">FAQ</a></li>
+                <li><a href="/#scan" class="nav-cta">Scan Now →</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <article>
+        <div class="wrap">
+            <h1>What We Found Scanning 194 ClawHub Skills</h1>
+            <div class="meta">March 22, 2026 · ClawForce Research</div>
+
+            <p>
+                We ran our v2.3.0 scanner across all 194 publicly discoverable skills on <a href="https://clawhub.ai" target="_blank">ClawHub</a>'s registry. For each skill, we analyzed the description, metadata, changelog, and moderation status to infer permission scopes, supply chain signals, and risk scores.
+            </p>
+            <p>
+                This is what we found.
+            </p>
+
+            <div class="stat-grid">
+                <div class="stat-box">
+                    <div class="stat-num" style="color:var(--text);">194</div>
+                    <div class="stat-label">Skills Scanned</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-num" style="color:var(--red);">56</div>
+                    <div class="stat-label">High Risk (>20)</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-num" style="color:var(--amber);">14.2</div>
+                    <div class="stat-label">Average Risk</div>
+                </div>
+            </div>
+
+            <h2>Permission Scope Distribution</h2>
+            <p>
+                We infer 8 permission scopes from skill descriptions. When a skill mentions "HTTP", "API call", or "fetch", we tag it with the <strong>network</strong> scope. When it mentions "execute", "shell", or "subprocess", we tag it with <strong>execution</strong>. Here's how often each scope appeared:
+            </p>
+
+            <div style="margin: 1.5rem 0;">
+                <div class="scope-bar"><span class="scope-label">Network</span><div class="scope-fill"><div style="width:34%;background:var(--cyan);"></div></div><span class="scope-pct">34%</span></div>
+                <div class="scope-bar"><span class="scope-label">Credentials</span><div class="scope-fill"><div style="width:21%;background:var(--red);"></div></div><span class="scope-pct">21%</span></div>
+                <div class="scope-bar"><span class="scope-label">Execution</span><div class="scope-fill"><div style="width:20%;background:var(--red);"></div></div><span class="scope-pct">20%</span></div>
+                <div class="scope-bar"><span class="scope-label">Browser</span><div class="scope-fill"><div style="width:14%;background:var(--amber);"></div></div><span class="scope-pct">14%</span></div>
+                <div class="scope-bar"><span class="scope-label">Filesystem</span><div class="scope-fill"><div style="width:13%;background:var(--amber);"></div></div><span class="scope-pct">13%</span></div>
+                <div class="scope-bar"><span class="scope-label">System</span><div class="scope-fill"><div style="width:12%;background:var(--red);"></div></div><span class="scope-pct">12%</span></div>
+                <div class="scope-bar"><span class="scope-label">Email</span><div class="scope-fill"><div style="width:9%;background:var(--amber);"></div></div><span class="scope-pct">9%</span></div>
+                <div class="scope-bar"><span class="scope-label">Database</span><div class="scope-fill"><div style="width:4%;background:var(--cyan);"></div></div><span class="scope-pct">4%</span></div>
+            </div>
+
+            <p>
+                <strong>One in five skills can execute code.</strong> That's the execution scope appearing in 20% of all scanned skills. Combined with the 21% that handle credentials, a meaningful portion of the ecosystem deals with sensitive operations.
+            </p>
+
+            <h2>The 10 Riskiest Skills</h2>
+            <p>
+                Risk scores range from 0 (minimal surface) to 100 (maximum concern). These are the skills with the highest composite risk from our metadata analysis:
+            </p>
+
+            <table>
+                <thead>
+                    <tr><th>Skill</th><th>Risk</th><th>Scopes</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>react-email-skills</td><td style="color:var(--red);font-weight:700;">50</td><td>exec, cred, email, sys</td></tr>
+                    <tr><td>email-daily-summary</td><td style="color:var(--red);font-weight:700;">41</td><td>exec, cred, browser, email</td></tr>
+                    <tr><td>browser-js</td><td style="color:var(--red);font-weight:700;">40</td><td>exec, cred, browser</td></tr>
+                    <tr><td>security-guardian</td><td style="color:var(--red);font-weight:700;">40</td><td>net, cred, sys</td></tr>
+                    <tr><td>agent-commercial-contract</td><td style="color:var(--red);font-weight:700;">36</td><td>net, exec, cred</td></tr>
+                    <tr><td>agent-security</td><td style="color:var(--red);font-weight:700;">36</td><td>net, fs, cred, sys</td></tr>
+                    <tr><td>security-auditor</td><td style="color:var(--red);font-weight:700;">35</td><td>cred, db, sys</td></tr>
+                    <tr><td>agentic-security-audit</td><td style="color:var(--red);font-weight:700;">34</td><td>cred, sys</td></tr>
+                    <tr><td>camoufox-tools</td><td style="color:var(--red);font-weight:700;">31</td><td>exec, browser</td></tr>
+                    <tr><td>mcp-adapter</td><td style="color:var(--red);font-weight:700;">31</td><td>net, exec, db</td></tr>
+                </tbody>
+            </table>
+
+            <p>
+                <strong>The pattern is clear:</strong> skills that combine execution + credentials + another scope consistently score highest. A skill that can both run code and access your API keys is, by definition, higher risk than one that can only search the web.
+            </p>
+
+            <div class="callout">
+                <strong>Important:</strong> A high risk score doesn't mean a skill is malicious. It means the skill has a broad access surface and warrants closer inspection before deployment. Many legitimate tools need these permissions to function.
+            </div>
+
+            <h2>What This Means for Agent Operators</h2>
+            <p>
+                If you're running an AI agent that installs skills from ClawHub, you should know what each skill can access. The current ecosystem has no mandatory permission declaration. Skills describe what they do in plain text, and operators trust that description. Our scanner infers what a skill likely needs based on that description.
+            </p>
+            <p>
+                The gap between what's described and what's actually required is where risk lives. A skill called "web search" shouldn't need execution or credential scopes, but some do. Those are worth investigating.
+            </p>
+
+            <h2>Methodology</h2>
+            <p>
+                ClawForce Scanner v2.3.0 performs metadata-level analysis. We do <em>not</em> have access to the source code of ClawHub skills (their API doesn't expose it). Our analysis is based on:
+            </p>
+            <ul style="color:var(--muted);margin-bottom:1.5rem;padding-left:1.5rem;">
+                <li>Skill descriptions and changelogs (pattern matching against 33 security signals)</li>
+                <li>Permission scope inference (8 scopes matched against description keywords)</li>
+                <li>Supply chain signal detection (runtime installs, curl|bash patterns)</li>
+                <li>ClawHub moderation verdict cross-referencing</li>
+                <li>Community adoption metrics (downloads, stars, version count)</li>
+            </ul>
+            <p>
+                This is a metadata scan, not a code audit. The risk scores reflect our best assessment of what a skill <em>describes itself</em> as doing. Real code-level analysis would require access to the deployed skill packages.
+            </p>
+
+            <h2>Explore the Data</h2>
+            <p>
+                All 194 skills are browseable on the <a href="/clawhub.html">ClawHub integration page</a>. Each skill has a scan report with permission breakdown, risk bar, and scan type transparency. You can also embed a badge for your skill:
+            </p>
+            <div style="background:var(--surface);border:1px solid var(--border);padding:1rem;border-radius:8px;margin:1rem 0;">
+                <code style="font-size:0.75rem;color:var(--muted);">![ClawForce](https://clawforce.ca/badges/your-skill-name.svg)</code>
+            </div>
+            <p>
+                Badges are available for all 202 registered skills. They update automatically when the scanner runs.
+            </p>
+
+            <div style="margin-top:3rem;padding:1.5rem;background:var(--surface);border:1px solid var(--border);border-radius:8px;text-align:center;">
+                <p style="font-size:0.9rem;color:var(--text);font-weight:600;margin-bottom:0.5rem;">Want your skill scanned?</p>
+                <p style="margin-bottom:1rem;">Submit a scan request or check your current status.</p>
+                <a href="/#scan" style="display:inline-block;padding:0.6rem 1.5rem;background:var(--text);color:var(--bg);text-decoration:none;font-family:var(--mono);font-weight:700;font-size:0.8rem;border-radius:2px;">Scan a Skill →</a>
+            </div>
+
+        </div>
+    </article>
+
+    <footer>
+        <div class="wrap">
+            <p>© 2025-2026 ClawForce · Independent AI Agent Security</p>
+        </div>
+    </footer>
+</body>
+</html>

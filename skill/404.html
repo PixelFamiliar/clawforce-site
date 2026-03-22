@@ -299,6 +299,16 @@
                     scanned codebase layer. If the live code differs from this hash, the certification is invalid.</p>
                 <div class="code-block" id="uiHash">sha256:...</div>
             </section>
+
+            <!-- ━━━ BADGE EMBED ━━━ -->
+            <section style="margin: 3rem 0;" id="uiBadgeSection">
+                <h3 style="font-size: 1.1rem; margin-bottom: 1rem; font-weight: 700;">Share This Badge</h3>
+                <p style="color: var(--muted); font-size: 0.85rem; margin-bottom: 1rem;">Add a ClawForce badge to your skill's README or documentation:</p>
+                <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+                    <img id="uiSkillBadge" src="" alt="ClawForce Badge" style="height:20px;">
+                </div>
+                <div style="background:var(--surface);border:1px solid var(--border);padding:0.8rem 1rem;border-radius:6px;font-family:var(--mono);font-size:0.72rem;color:var(--muted);word-break:break-all;" id="uiBadgeEmbed"></div>
+            </section>
         </div>
     </header>
 
@@ -414,6 +424,11 @@
             scanTypeEl.style.fontSize = '1rem';
 
             document.getElementById('uiHash').textContent = hash;
+
+            // Badge embed
+            const badgeUrl = `https://clawforce.ca/badges/${encodeURIComponent(skill.skill_name || skill.name)}.svg`;
+            document.getElementById('uiSkillBadge').src = badgeUrl;
+            document.getElementById('uiBadgeEmbed').textContent = `![ClawForce](${badgeUrl})`;
 
             // Permission scopes
             if (perms.length > 0) {
