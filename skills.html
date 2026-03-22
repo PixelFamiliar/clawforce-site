@@ -938,6 +938,13 @@
             render();
         }
 
+        function setSource(source, btn) {
+            currentSource = source;
+            document.querySelectorAll('.source-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            render();
+        }
+
         // Search debounce
         let searchTimeout;
         document.getElementById('searchInput')?.addEventListener('input', () => {
