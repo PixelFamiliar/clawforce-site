@@ -744,8 +744,8 @@
                 cfLink.href = '/skill/' + skill.slug;
                 cfLink.textContent = 'CF Report →';
             } else {
-                cfLink.href = '/#scan';
-                cfLink.textContent = 'Request Scan →';
+                cfLink.href = '/?skill=' + encodeURIComponent(skill.slug) + '#scan';
+                cfLink.textContent = 'Scan Now →';
             }
             links.appendChild(cfLink);
 

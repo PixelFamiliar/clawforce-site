@@ -2811,6 +2811,21 @@
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeCheckout();
         });
+        // Auto-scan from query params (e.g., ?skill=brave-search from ClawHub page)
+        (function autoScanFromParams() {
+            const params = new URLSearchParams(window.location.search);
+            const skillSlug = params.get('skill');
+            if (skillSlug) {
+                const scanInput = document.getElementById('githubUrl');
+                const scanSection = document.getElementById('scan');
+                if (scanInput && scanSection) {
+                    const clawhubUrl = 'https://clawhub.ai/skills/' + encodeURIComponent(skillSlug);
+                    scanInput.value = clawhubUrl;
+                    scanSection.scrollIntoView({ behavior: 'smooth' });
+                    setTimeout(() => runDemoScan(), 800);
+                }
+            }
+        })();
 
     </script>
 
