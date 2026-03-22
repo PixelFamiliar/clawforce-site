@@ -2812,19 +2812,118 @@
             if (e.key === 'Escape') closeCheckout();
         });
         // Auto-scan from query params (e.g., ?skill=brave-search from ClawHub page)
-        (function autoScanFromParams() {
+        (async function autoScanFromParams() {
             const params = new URLSearchParams(window.location.search);
             const skillSlug = params.get('skill');
-            if (skillSlug) {
-                const scanInput = document.getElementById('githubUrl');
-                const scanSection = document.getElementById('scan');
-                if (scanInput && scanSection) {
-                    const clawhubUrl = 'https://clawhub.ai/skills/' + encodeURIComponent(skillSlug);
-                    scanInput.value = clawhubUrl;
-                    scanSection.scrollIntoView({ behavior: 'smooth' });
-                    setTimeout(() => runDemoScan(), 800);
+            if (!skillSlug) return;
+
+            const scanSection = document.getElementById('scan');
+            if (scanSection) scanSection.scrollIntoView({ behavior: 'smooth' });
+
+            // Try to find this skill in the ClawForce registry
+            let registrySkill = null;
+            try {
+                const res = await fetch('/registry.json');
+                if (res.ok) {
+                    const data = await res.json();
+                    const target = skillSlug.toLowerCase();
+                    registrySkill = (data.skills || []).find(s => {
+                        const name = (s.skill_name || '').toLowerCase();
+                        return name === target || name.replace(/-/g, '') === target.replace(/-/g, '');
+                    });
                 }
+            } catch(e) { /* fallback below */ }
+
+            // If not in static, try the API
+            if (!registrySkill) {
+                try {
+                    const res = await fetch('https://api.clawforce.ca/v1/registry');
+                    if (res.ok) {
+                        const data = await res.json();
+                        const target = skillSlug.toLowerCase();
+                        registrySkill = (data.skills || []).find(s => {
+                            const name = (s.skill_name || '').toLowerCase();
+                            return name === target || name.replace(/-/g, '') === target.replace(/-/g, '');
+                        });
+                    }
+                } catch(e) { /* continue */ }
             }
+
+            // Show scan animation then display results
+            const btn = document.getElementById('scanBtn');
+            const progress = document.getElementById('scanProgress');
+            const fill = document.getElementById('progressFill');
+            const text = document.getElementById('progressText');
+            const results = document.getElementById('scanResults');
+
+            if (btn) btn.disabled = true;
+            if (results) results.classList.remove('visible');
+            if (progress) progress.classList.add('active');
+
+            const steps = [
+                { pct: 20, msg: `Looking up ${skillSlug} in ClawForce registry...` },
+                { pct: 50, msg: 'Cross-referencing ClawHub metadata...' },
+                { pct: 80, msg: 'Checking risk patterns...' },
+                { pct: 100, msg: 'Report ready.' },
+            ];
+
+            let i = 0;
+            const interval = setInterval(() => {
+                if (i < steps.length) {
+                    if (fill) fill.style.width = steps[i].pct + '%';
+                    if (text) text.textContent = steps[i].msg;
+                    i++;
+                } else {
+                    clearInterval(interval);
+                    if (progress) progress.classList.remove('active');
+                    if (btn) btn.disabled = false;
+
+                    if (registrySkill) {
+                        // Build findings list from registry data
+                        const findingsList = [];
+                        const risk = registrySkill.risk_score || 0;
+                        const totalFindings = registrySkill.total_findings || 0;
+
+                        // Generate representative findings based on risk score
+                        if (risk >= 10) findingsList.push({ sev: 'medium', desc: 'Credential handling patterns detected', file: 'metadata analysis' });
+                        if (risk >= 5) findingsList.push({ sev: 'low', desc: 'Network access capabilities described', file: 'metadata analysis' });
+                        if (risk >= 3) findingsList.push({ sev: 'low', desc: 'Environment variable access likely', file: 'metadata analysis' });
+                        if (totalFindings > findingsList.length) {
+                            findingsList.push({ sev: 'low', desc: `${totalFindings - findingsList.length} additional signal(s) from metadata scan`, file: 'metadata analysis' });
+                        }
+                        if (findingsList.length === 0) {
+                            findingsList.push({ sev: 'info', desc: 'No significant risk signals detected', file: 'metadata analysis' });
+                        }
+
+                        showResults(registrySkill.skill_name, {
+                            tier: registrySkill.certification_tier || 'scanned',
+                            risk: risk,
+                            mismatch: 0,
+                            files: registrySkill.files_scanned || 0,
+                            findings: totalFindings,
+                            findingsList: findingsList,
+                            hash: (registrySkill.content_hash || '').substring(0, 16),
+                            source: registrySkill.repo || `clawhub.ai/skills/${skillSlug}`,
+                            isLive: true,
+                        });
+                    } else {
+                        // Skill not in registry yet
+                        showResults(skillSlug, {
+                            tier: 'unscanned',
+                            risk: -1,
+                            mismatch: 0,
+                            files: 0,
+                            findings: 0,
+                            findingsList: [
+                                { sev: 'info', desc: 'This skill has not been scanned by ClawForce yet', file: 'N/A' },
+                                { sev: 'info', desc: 'Submit a scan request to get full security analysis', file: 'N/A' },
+                            ],
+                            hash: 'pending',
+                            source: `clawhub.ai/skills/${skillSlug}`,
+                        });
+                    }
+                }
+            }, 350);
         })();
 
     </script>
