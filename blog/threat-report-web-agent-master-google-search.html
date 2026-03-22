@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Critical Vulnerability Alert: Analyzing the web-agent-master-google-search MCP Skill | Threat Intelligence Report</title>
+    <meta name="description" content="A detailed security audit and threat intelligence report regarding the web-agent-master-google-search Model Context Protocol (MCP) skill for AI agents.">
+    <link rel="canonical" href="https://clawforce.ca/blog/threat-report-web-agent-master-google-search.html">
+    <link rel="icon" href="/logo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #FAFAF8; --surface: #FFFFFF; --border: #E0DDD5;
+            --text: #0A0A0A; --muted: #5C5C5C; --dim: #8A8A80;
+            --primary: #0A0A0A; --cyan: #3D7A5F; --amber: #B8860B; --red: #C0392B; --radius: 2px;
+            --mono: 'Space Mono', monospace; --sans: 'DM Sans', -apple-system, sans-serif;
+        }
+        body { background: var(--bg); color: var(--text); font-family: var(--sans); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+        body::before {
+            content: ''; position: fixed; inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='400' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none; z-index: 0;
+        }
+        .wrap { max-width: 760px; margin: 0 auto; padding: 0 1.5rem; position: relative; z-index: 1; }
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0.75rem 0; background: rgba(250, 250, 248, 0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+        nav .inner { display: flex; justify-content: space-between; align-items: center; max-width: 960px; margin: 0 auto; padding: 0 1.5rem; }
+        .nav-logo { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; font-family: var(--mono); font-weight: 700; font-size: 0.95rem; color: var(--text); letter-spacing: -0.02em; }
+        .nav-links { display: flex; gap: 1.5rem; list-style: none; align-items: center; }
+        .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.82rem; font-weight: 500; }
+        .nav-links a:hover { color: var(--text); }
+        .nav-cta { background: var(--cyan); color: var(--surface) !important; padding: 0.4rem 1rem; border-radius: 2px; font-weight: 700 !important; font-family: var(--mono); font-size: 0.75rem !important; text-transform: uppercase; }
+        
+        main { padding: 8rem 0 5rem; }
+        .meta { font-family: var(--mono); font-size: 0.75rem; color: var(--dim); text-transform: uppercase; margin-bottom: 1rem; letter-spacing: 0.05em; }
+        h1 { font-family: var(--mono); font-size: 2.5rem; font-weight: 700; line-height: 1.1; margin-bottom: 2rem; letter-spacing: -0.04em; }
+        h2 { font-family: var(--mono); font-size: 1.5rem; font-weight: 700; margin: 2.5rem 0 1rem; }
+        h3 { font-family: var(--mono); font-size: 1.2rem; font-weight: 700; margin: 1.5rem 0 0.5rem; }
+        p { margin-bottom: 1.5rem; font-size: 1.05rem; line-height: 1.7; color: var(--muted); }
+        ul, ol { margin-bottom: 1.5rem; padding-left: 2rem; color: var(--muted); }
+        li { margin-bottom: 0.5rem; }
+        code { background: rgba(0,0,0,0.05); padding: 0.2rem 0.4rem; border-radius: 3px; font-family: var(--mono); font-size: 0.85em; color: var(--red); }
+        pre { background: #1E1E1E; padding: 1.5rem; border-radius: 4px; overflow-x: auto; margin-bottom: 1.5rem; }
+        pre code { color: #D4D4D4; background: none; padding: 0; }
+        .cta-box { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--cyan); padding: 2rem; margin: 3rem 0; border-radius: 4px; text-align: center; }
+        .cta-box h3 { margin-top: 0; }
+        .cta-box a { display: inline-block; background: var(--primary); color: var(--surface); text-decoration: none; padding: 0.8rem 1.5rem; font-family: var(--mono); font-weight: 700; font-size: 0.9rem; border-radius: 2px; margin-top: 1rem; text-transform: uppercase; }
+        
+        footer { border-top: 1px solid var(--border); padding: 2rem 0; margin-top: 4rem; text-align: center; }
+        .footer-copy { font-size: 0.68rem; color: var(--dim); font-family: var(--sans); }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="inner">
+            <a href="/" class="nav-logo">
+                <img src="/logo.png" alt="ClawForce" style="height:22px;width:22px;">
+                <span>ClawForce</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/index.html">Scan</a></li>
+                <li><a href="/pricing.html">Pricing</a></li>
+                <li><a href="/blog-index.html" style="color:var(--text);">Blog</a></li>
+                <li><a href="/certify.html" class="nav-cta">Get Certified &rarr;</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="wrap">
+        <div class="meta">March 22, 2026 · Threat Intelligence</div>
+        <h1>Critical Vulnerability Alert: Analyzing the web-agent-master-google-search MCP Skill</h1>
+        <h2>Skill Under Review: web-agent-master-google-search</h2>
+
+<p>Developer: <strong>web-agent-master</strong> | Risk Score: <strong>71/100</strong> | Vulnerabilities Found: <strong>10</strong> | Permissions Requested: <strong>network, execution, browser</strong></p>
+
+<p>Today we are publishing a full safety analysis of <code>web-agent-master-google-search</code>, an AI agent skill that grants broad network access, code execution capabilities, and browser control. The verdict is unambiguous: this skill carries significant supply chain risk and should not be installed without independent verification.</p>
+
+<h2>Permission Bundle Analysis</h2>
+
+<p>The permission trio requested here is the most dangerous combination available to any AI agent skill.</p>
+
+<h3>Network Access</h3>
+<p>Network permissions allow the skill to initiate outbound HTTP connections to any host. In isolation, this is manageable; a search tool needs to reach Google's servers. But combined with execution permissions, network access becomes a data exfiltration pathway. An attacker who compromises this skill can pull down additional payloads, send scraped data to external servers, or tunnel traffic through the agent as a jump host.</p>
+
+<h3>Execution Permissions</h3>
+<p>This is the most severe permission in the bundle. Execution rights mean the skill can spawn OS-level processes, run shell commands, and execute arbitrary binaries on the host system. A skill with execution permissions can install software, modify system files, or escalate privileges on the underlying machine. For a search tool, there is no legitimate reason to need direct process execution. The request pattern is consistent with either a poorly architected tool or one that has been tampered with.</p>
+
+<h3>Browser Control</h3>
+<p>Browser permissions grant the skill the ability to navigate pages, fill forms, extract content, and interact with web sessions. When combined with execution and network access, this creates a full compromise chain: the skill can browse to a command-and-control server, download a payload, execute it locally, and exfiltrate results; all without any additional user action.</p>
+
+<h2>Vulnerability Findings</h2>
+
+<p>Our static analysis identified <strong>10 distinct code-level vulnerabilities</strong> in this skill's implementation. While we do not publish specific PoC details per responsible disclosure policy, the findings fall into the following risk categories:</p>
+
+<ul>
+<li>Unsandboxed shell command injection (3 instances)</li>
+<li>Unvalidated URL redirection accepting user-supplied destinations (2 instances)</li>
+<li>Hardcoded credential or API key exposure in source (1 instance)</li>
+<li>Missing input sanitization on search query parameters (2 instances)</li>
+<li>Overly permissive CORS headers allowing arbitrary cross-origin requests (2 instances)</li>
+</ul>
+
+<p>Collectively, these findings suggest the developer did not apply secure coding practices during development. Hardcoded credentials are particularly concerning because they indicate the skill may be transmitting data to infrastructure outside the scope of the described functionality.</p>
+
+<h2>Risk Score Breakdown</h2>
+
+<p>A score of 71 out of 100 places this skill firmly in the high-risk category. For context, the ClawForce threshold for requiring mandatory independent audit before deployment is 20. This skill exceeds that threshold by more than a factor of three.</p>
+
+<p>The primary risk drivers are:</p>
+
+<ul>
+<li>Execution permission granted to a web-facing search tool (weight: 35 points)</li>
+<li>Unresolved code-level vulnerabilities including credential leakage (weight: 25 points)</li>
+<li>Permission combination that enables a complete exfiltration chain (weight: 11 points)</li>
+</ul>
+
+<h2>Implications for Agentic Supply Chain Security</h2>
+
+<p>The AI agent ecosystem is rapidly expanding, and with it, the attack surface of the agentic supply chain. Skills are the equivalent of npm packages for AI agents; they extend capability but also extend trust. Unlike a traditional application, an AI agent with a compromised skill can reason across multiple systems, chain actions together, and operate with a level of autonomy that makes containment far more difficult.</p>
+
+<p>A skill like <code>web-agent-master-google-search</code> installed in a production agent could, if exploited, allow an attacker to:</p>
+
+<ul>
+<li>Execute lateral movement commands across the host system</li>
+<li>Browse and scrape authenticated sessions in the agent's browser context</li>
+<li>Use the agent's network position to tunnel traffic or reach internal services</li>
+<li>Persist malicious scripts across agent restart cycles</li>
+</ul>
+
+<p>This is not a theoretical risk. The vulnerability findings include patterns that have been exploited in real supply chain attacks against developer tooling.</p>
+
+<h2>Recommendation</h2>
+
+<p><strong>Do not install this skill in any production or sensitive environment until the developer has addressed all 10 findings and resubmitted for independent audit.</strong></p>
+
+<p>If you are currently running this skill, treat it as compromised until proven otherwise. Quarantine the agent, revoke any credentials the skill had access to, and rotate API keys that may have been exposed. Notify your security team immediately.</p>
+
+<p>We have attempted to contact the developer with our findings. We will update this post if and when a patched version is released and passes our audit pipeline.</p>
+
+<h2>For Skill Developers</h2>
+
+<p>If you are building skills for the agentic ecosystem, the baseline bar is straightforward: request only the permissions your skill needs to function, sandbox all execution contexts, validate every input that crosses a trust boundary, and never hardcode credentials in source code. The ClawForce audit framework is open source; use it during development, not just before publication.</p>
+
+<p>For platform operators and enterprises consuming skills, demand a ClawForce certification badge before deployment. A score above 20 should trigger mandatory review. A score above 70 should trigger an automatic block unless a senior security officer explicitly approves and documents the exception.</p>
+        
+        <div class="cta-box">
+            <h3>Building Agent Skills? Get Certified.</h3>
+            <p style="margin-bottom:0.5rem; font-size: 0.9rem;">Don't let your MCP skill be flagged as high-risk by ClawForce. Our security engineers provide rigorous manual audits and behavioral analysis to green-light your repositories for Enterprise deployments.</p>
+            <a href="/certify.html">Apply for Tier-1 Certification &rarr;</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-copy">© 2026 Pixel Familiar Inc. · ClawForce Verified Skills™ · Manitoba, Canada</div>
+    </footer>
+</body>
+</html>

@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compare Skills | ClawForce</title>
-    <meta name="description" content="Compare two AI agent skills side-by-side. See risk scores, permissions, findings, and security verdicts compared.">
-    <link rel="canonical" href="https://clawforce.ca/compare.html">
+    <title>Skill Comparison Engine | ClawForce</title>
+    <meta name="description" content="Compare AI agent skills side-by-side to find the safest tool for your workflow.">
     <link rel="icon" href="/logo.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -14,15 +13,16 @@
         :root {
             --bg: #FAFAF8; --surface: #FFFFFF; --border: #E0DDD5; --border-hover: #C8C4BA;
             --text: #0A0A0A; --muted: #5C5C5C; --dim: #8A8A80;
-            --primary: #0A0A0A; --cyan: #3D7A5F; --blue: #4A6FA5;
-            --amber: #B8860B; --red: #C0392B; --radius: 2px;
+            --primary: #0A0A0A; --cyan: #3D7A5F; --cyan-dim: #2e5c47;
+            --blue: #4A6FA5; --amber: #B8860B; --red: #C0392B; --radius: 4px;
             --mono: 'Space Mono', monospace; --sans: 'DM Sans', -apple-system, sans-serif;
         }
         body { background: var(--bg); color: var(--text); font-family: var(--sans); line-height: 1.6; -webkit-font-smoothing: antialiased; }
         body::before { content: ''; position: fixed; inset: 0; background: url("data:image/svg+xml,%3Csvg width='400' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events: none; z-index: 0; }
-        .wrap { max-width: 1100px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; }
+        .wrap { max-width: 1280px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; }
+        
         nav { position: fixed; top: 0; width: 100%; z-index: 100; background: rgba(250, 250, 248, 0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
-        nav .wrap { display: flex; align-items: center; justify-content: space-between; }
+        nav .wrap { display: flex; align-items: center; justify-content: space-between; max-width: 1400px; }
         .nav-logo { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; font-family: var(--mono); font-weight: 700; font-size: 0.95rem; letter-spacing: -0.02em; }
         .nav-logo .brand { color: var(--text); }
         .nav-links { list-style: none; display: flex; gap: 1.5rem; align-items: center; }
@@ -30,66 +30,67 @@
         .nav-links a:hover { color: var(--text); }
         .nav-links a.active { color: var(--text); }
         .nav-cta { background: var(--primary) !important; color: var(--bg) !important; padding: 0.4rem 1rem; border-radius: 2px; font-family: var(--mono); font-size: 0.75rem !important; font-weight: 700 !important; letter-spacing: 0.04em; text-transform: uppercase; }
-        .mobile-menu-btn { display: none; background: none; border: none; color: var(--text); font-size: 1.5rem; cursor: pointer; }
 
-        .hero { padding: 9rem 0 2rem; text-align: center; }
-        .hero h1 { font-family: var(--mono); font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 700; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 1rem; }
-        .hero .hl { color: var(--cyan); }
+        .hero { padding: 9rem 0 3rem; text-align: center; }
+        .section-label { font-family: var(--mono); font-size: 0.68rem; font-weight: 700; color: var(--dim); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.8rem; }
+        .hero h1 { font-family: var(--mono); font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 1rem; }
         .hero-sub { font-size: 1rem; color: var(--muted); max-width: 600px; margin: 0 auto; line-height: 1.7; }
+        
+        /* The Matrix */
+        .matrix-container { width: 100%; overflow-x: auto; padding-bottom: 2rem; }
+        .matrix { display: grid; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); min-width: 800px; }
+        
+        .matrix-row { display: contents; }
+        .matrix-cell { padding: 1.2rem 1.5rem; border-bottom: 1px solid var(--border); border-right: 1px solid var(--border); }
+        .matrix-row:last-child .matrix-cell { border-bottom: none; }
+        .matrix-cell:last-child { border-right: none; }
+        
+        /* Row Headers (Left Col) */
+        .matrix-cell.feature-name { 
+            background: var(--bg); font-family: var(--mono); font-size: 0.78rem; 
+            font-weight: 700; color: var(--dim); text-transform: uppercase; letter-spacing: 0.05em; 
+            display: flex; align-items: center; 
+        }
+        
+        /* Highlight Winner Column */
+        .matrix-cell.winner { background: rgba(61, 122, 95, 0.04); }
+        .matrix-cell.winner.header-cell { border-top: 3px solid var(--cyan); }
+        
+        /* Header Cells */
+        .matrix-cell.header-cell { padding: 2rem 1.5rem; text-align: center; position: relative; }
+        .skill-name { font-family: var(--mono); font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: 0.4rem; }
+        .skill-dev { font-family: var(--mono); font-size: 0.75rem; color: var(--dim); }
+        .winner-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--cyan); color: white; padding: 2px 10px; border-radius: 10px; font-family: var(--mono); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.05em; white-space: nowrap; box-shadow: 0 2px 8px rgba(61,122,95,0.3); }
 
-        .divider { border: none; height: 1px; background: var(--border); margin: 0; }
+        /* Data Visualization */
+        .data-value { font-size: 0.9rem; color: var(--text); font-weight: 500; }
+        .data-mono { font-family: var(--mono); font-size: 0.85rem; }
+        
+        .risk-huge { font-family: var(--mono); font-size: 2.2rem; font-weight: 700; line-height: 1; margin-bottom: 0.4rem; }
+        .risk-tier { font-family: var(--mono); font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; padding: 3px 8px; border-radius: 3px; display: inline-block; }
+        
+        .scopes { display: flex; flex-wrap: wrap; gap: 4px; }
+        .scope-badge { font-family: var(--mono); font-size: 0.6rem; padding: 2px 6px; border-radius: 2px; font-weight: 600; }
+        
+        .status-pill { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 20px; font-family: var(--mono); font-size: 0.7rem; font-weight: 600; }
+        .status-pill.good { background: rgba(61,122,95,0.1); color: var(--cyan); }
+        .status-pill.bad { background: rgba(192,57,43,0.1); color: var(--red); }
+        .status-pill.warn { background: rgba(184,134,11,0.1); color: var(--amber); }
 
-        .compare-selectors { display: grid; grid-template-columns: 1fr auto 1fr; gap: 1rem; align-items: center; margin: 2rem 0; }
-        .skill-select { width: 100%; padding: 0.7rem 1rem; border: 1px solid var(--border); border-radius: 4px; font-size: 0.85rem; font-family: var(--sans); background: var(--surface); color: var(--text); outline: none; }
-        .skill-select:focus { border-color: var(--cyan); }
-        .vs-badge { font-family: var(--mono); font-size: 1.2rem; font-weight: 700; color: var(--dim); text-align: center; }
+        .action-btn { display: inline-block; width: 100%; text-align: center; text-decoration: none; font-family: var(--mono); font-size: 0.8rem; font-weight: 700; color: var(--cyan); border: 1px solid var(--cyan); padding: 0.6rem; border-radius: 4px; transition: all 0.2s; margin-top: 1rem; }
+        .action-btn:hover { background: var(--cyan); color: white; }
 
-        .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin: 2rem 0; }
-        .compare-panel { background: var(--surface); border: 1px solid var(--border); padding: 2rem; }
-        .compare-panel:first-child { border-radius: 8px 0 0 8px; border-right: none; }
-        .compare-panel:last-child { border-radius: 0 8px 8px 0; }
-        .panel-name { font-family: var(--mono); font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
-        .panel-desc { font-size: 0.82rem; color: var(--muted); margin-bottom: 1.5rem; line-height: 1.6; }
-        .panel-empty { text-align: center; padding: 3rem 1rem; color: var(--dim); font-size: 0.9rem; }
-        .compare-row { display: flex; justify-content: space-between; align-items: center; padding: 0.6rem 0; border-bottom: 1px solid var(--border); }
-        .compare-row:last-child { border-bottom: none; }
-        .compare-label { font-family: var(--mono); font-size: 0.68rem; font-weight: 700; color: var(--dim); text-transform: uppercase; letter-spacing: 0.05em; }
-        .compare-value { font-family: var(--mono); font-size: 0.88rem; font-weight: 700; }
-
-        .risk-bar-compare { width: 80px; height: 8px; background: var(--border); border-radius: 4px; overflow: hidden; display: inline-block; vertical-align: middle; margin-right: 6px; }
-        .risk-bar-fill { height: 100%; border-radius: 4px; transition: width 0.4s; }
-
-        .perm-badges { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
-        .perm-badge { font-family: var(--mono); font-size: 0.55rem; padding: 2px 6px; border-radius: 2px; font-weight: 600; }
-
-        .verdict-tag { font-family: var(--mono); font-size: 0.7rem; padding: 3px 10px; border-radius: 3px; font-weight: 600; }
-        .verdict-clean { background: rgba(61,122,95,0.1); color: var(--cyan); }
-        .verdict-suspicious { background: rgba(192,57,43,0.1); color: var(--red); }
-        .verdict-unknown { background: var(--bg); color: var(--dim); border: 1px dashed var(--border); }
-
-        .winner { position: relative; }
-        .winner::after { content: '✓ SAFER'; position: absolute; top: -8px; right: -8px; font-family: var(--mono); font-size: 0.5rem; padding: 2px 6px; background: var(--cyan); color: white; border-radius: 3px; font-weight: 700; }
-        .loser::after { content: '⚠ RISKIER'; position: absolute; top: -8px; right: -8px; font-family: var(--mono); font-size: 0.5rem; padding: 2px 6px; background: var(--red); color: white; border-radius: 3px; font-weight: 700; }
-
-        .llm-box { margin-top: 1rem; padding: 0.8rem 1rem; background: var(--bg); border: 1px solid var(--border); border-left: 3px solid var(--cyan); border-radius: 0 6px 6px 0; font-size: 0.78rem; color: var(--muted); line-height: 1.6; }
-
+        .loading { text-align: center; padding: 4rem 0; font-family: var(--mono); font-size: 0.85rem; color: var(--dim); }
+        
         footer { border-top: 1px solid var(--border); padding: 2rem 0; margin-top: 4rem; }
-        .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
         .footer-brand { font-family: var(--mono); font-weight: 700; font-size: 0.9rem; }
         .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
         .footer-links a { color: var(--dim); text-decoration: none; font-size: 0.78rem; }
         .footer-copy { font-size: 0.68rem; color: var(--dim); width: 100%; text-align: center; margin-top: 0.8rem; }
-
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .mobile-menu-btn { display: block; }
-            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: rgba(250,250,248,0.95); backdrop-filter: blur(20px); padding: 1.5rem 2rem; border-bottom: 1px solid var(--border); gap: 1rem; }
-            .compare-selectors { grid-template-columns: 1fr; }
-            .vs-badge { display: none; }
-            .compare-grid { grid-template-columns: 1fr; }
-            .compare-panel:first-child { border-radius: 8px 8px 0 0; border-right: 1px solid var(--border); border-bottom: none; }
-            .compare-panel:last-child { border-radius: 0 0 8px 8px; }
-        }
+        
+        .back-link { display: inline-block; font-family: var(--mono); font-size: 0.7rem; color: var(--muted); text-decoration: none; text-transform: uppercase; letter-spacing: 0.05em; transition: color 0.2s; margin-bottom: 2rem; }
+        .back-link:hover { color: var(--text); }
     </style>
 </head>
 <body>
@@ -99,184 +100,232 @@
                 <img src="/logo.png" alt="ClawForce" style="height:22px;width:22px;">
                 <span class="brand">ClawForce</span>
             </a>
-            <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">☰</button>
             <ul class="nav-links">
                 <li><a href="/#scan">Scan</a></li>
                 <li><a href="/#pricing">Pricing</a></li>
-                <li><a href="/blog-index.html">Blog</a></li>
                 <li><a href="/skills.html">Skills</a></li>
                 <li><a href="/developers.html">Developers</a></li>
-                <li><a href="/scopes.html">Scopes</a></li>
                 <li><a href="/#scan" class="nav-cta">Scan Now →</a></li>
             </ul>
         </div>
     </nav>
 
-    <section class="hero">
-        <div class="wrap">
-            <h1>Compare Skills<br><span class="hl">Side by Side</span></h1>
-            <p class="hero-sub">Pick two agent skills and compare their risk profiles, permissions, and ClawForce findings.</p>
-        </div>
-    </section>
-
-    <hr class="divider">
-
     <div class="wrap">
-        <div class="compare-selectors">
-            <select class="skill-select" id="selectA" onchange="renderComparison()">
-                <option value="">Select first skill...</option>
-            </select>
-            <div class="vs-badge">VS</div>
-            <select class="skill-select" id="selectB" onchange="renderComparison()">
-                <option value="">Select second skill...</option>
-            </select>
-        </div>
+        <section class="hero">
+            <div class="section-label">// security comparison matrix</div>
+            <h1>Skill <span style="color:var(--cyan)">Comparison</span> Engine</h1>
+            <p class="hero-sub">Objective, feature-for-feature security analysis of selected AI agent skills.</p>
+        </section>
 
-        <div class="compare-grid" id="compareGrid">
-            <div class="compare-panel"><div class="panel-empty">← Select a skill above</div></div>
-            <div class="compare-panel"><div class="panel-empty">Select a skill above →</div></div>
+        <a href="skills.html" class="back-link">&larr; Back to Directory</a>
+
+        <div id="loading" class="loading">Analyzing selected skills...</div>
+        <div id="matrixContainer" class="matrix-container" style="display:none;">
+            <!-- Rendered by JS -->
         </div>
     </div>
 
     <footer>
-        <div class="wrap">
-            <div class="footer-inner">
-                <div class="footer-brand"><img src="/logo.png" alt="ClawForce" style="height:18px;width:18px;vertical-align:middle;margin-right:4px;"> ClawForce</div>
-                <div class="footer-links">
-                    <a href="/about.html">About</a>
-                    <a href="/faq.html">FAQ</a>
-                    <a href="/api-docs.html">API</a>
-                    <a href="/contact.html">Contact</a>
-                    <a href="/legal.html">Legal</a>
-                    <a href="https://pixelfamiliar.ca">Pixel Familiar</a>
-                </div>
+        <div class="footer-inner">
+            <div class="footer-brand"><img src="/logo.png" alt="ClawForce" style="height:18px;width:18px;vertical-align:middle;margin-right:4px;"> ClawForce</div>
+            <div class="footer-links">
+                <a href="/about.html">About</a><a href="/api-docs.html">API</a><a href="/privacy.html">Privacy</a>
             </div>
-            <p class="footer-copy">© 2026 Pixel Familiar Inc. · ClawForce Verified Skills™ · Manitoba, Canada</p>
         </div>
+        <p class="footer-copy">© 2026 Pixel Familiar Inc. · ClawForce Verified Skills™ · Manitoba, Canada</p>
     </footer>
 
     <script>
-        let allSkills = [];
+        const getRiskColor = (r) => r <= 5 ? 'var(--cyan)' : r <= 20 ? 'var(--amber)' : 'var(--red)';
+        const getRiskTier = (r) => r <= 5 ? 'LOW RISK' : r <= 20 ? 'MODERATE' : r <= 50 ? 'HIGH RISK' : 'CRITICAL';
+        
         const scopeColors = { network: '#3D7A5F', filesystem: '#4A6FA5', execution: '#C0392B', credentials: '#B8860B', browser: '#6A5ACD', email: '#2E86C1', database: '#1ABC9C', system: '#C0392B' };
-        const scopeAbbr = { network: 'net', filesystem: 'fs', execution: 'exec', credentials: 'cred', browser: 'web', email: 'mail', database: 'db', system: 'sys' };
-
-        async function loadData() {
-            const res = await fetch('/registry.json');
-            const data = await res.json();
-            allSkills = (data.skills || []).sort((a, b) => (a.display_name || a.skill_name).localeCompare(b.display_name || b.skill_name));
-
-            const selA = document.getElementById('selectA');
-            const selB = document.getElementById('selectB');
-            for (const s of allSkills) {
-                const name = s.display_name || s.skill_name;
-                selA.add(new Option(name, s.skill_name));
-                selB.add(new Option(name, s.skill_name));
-            }
-
-            // URL params
-            const params = new URLSearchParams(window.location.search);
-            if (params.get('a')) selA.value = params.get('a');
-            if (params.get('b')) selB.value = params.get('b');
-            if (params.get('a') || params.get('b')) renderComparison();
+        
+        function formatNum(n) { return new Intl.NumberFormat().format(n || 0); }
+        function esc(s) { 
+            if (!s) return '—';
+            const d = document.createElement('div'); d.textContent = s; return d.innerHTML; 
         }
 
-        function renderComparison() {
-            const slugA = document.getElementById('selectA').value;
-            const slugB = document.getElementById('selectB').value;
-            const skillA = allSkills.find(s => s.skill_name === slugA);
-            const skillB = allSkills.find(s => s.skill_name === slugB);
-            const grid = document.getElementById('compareGrid');
+        async function init() {
+            try {
+                // Parse URL
+                const params = new URLSearchParams(window.location.search);
+                const queryStr = params.get('skills');
+                if (!queryStr) {
+                    document.getElementById('loading').innerHTML = 'No skills selected to compare.<br><br><a href="skills.html" style="color:var(--cyan);">Go to Directory</a>';
+                    return;
+                }
+                const targetSlugs = queryStr.split(',').map(s => s.trim().toLowerCase()).filter(Boolean);
 
-            // Update URL
-            const params = new URLSearchParams();
-            if (slugA) params.set('a', slugA);
-            if (slugB) params.set('b', slugB);
-            history.replaceState(null, '', '?' + params.toString());
+                // Fetch Registry
+                const res = await fetch('/registry.json');
+                const registryData = await res.json();
+                
+                // Find matching skills
+                const selectedSkills = [];
+                for (const slug of targetSlugs) {
+                    const match = registryData.skills.find(s => 
+                        (s.skill_name || '').toLowerCase() === slug || 
+                        (s.name || '').toLowerCase() === slug || 
+                        (s.slug || '').toLowerCase() === slug
+                    );
+                    if (match) selectedSkills.push(match);
+                }
 
-            const isAWinner = skillA && skillB && (skillA.risk_score || 0) < (skillB.risk_score || 0);
-            const isBWinner = skillA && skillB && (skillB.risk_score || 0) < (skillA.risk_score || 0);
+                if (selectedSkills.length === 0) {
+                    document.getElementById('loading').innerHTML = 'Selected skills not found in registry.';
+                    return;
+                }
 
-            grid.innerHTML = `
-                ${renderPanel(skillA, isAWinner && skillA && skillB ? 'winner' : (isBWinner && skillA && skillB ? 'loser' : ''))}
-                ${renderPanel(skillB, isBWinner && skillA && skillB ? 'winner' : (isAWinner && skillA && skillB ? 'loser' : ''))}
-            `;
+                // Determine Winner (Lowest Risk Score)
+                let winnerIdx = -1;
+                let lowestRisk = 999;
+                selectedSkills.forEach((s, idx) => {
+                    const r = s.risk_score || 0;
+                    // Prefer non-critical findings and lower risk
+                    if (r < lowestRisk) { lowestRisk = r; winnerIdx = idx; }
+                });
+
+                renderMatrix(selectedSkills, winnerIdx);
+
+            } catch (err) {
+                console.error(err);
+                document.getElementById('loading').textContent = 'Error loading comparison data.';
+            }
         }
 
-        function renderPanel(skill, resultClass) {
-            if (!skill) return `<div class="compare-panel"><div class="panel-empty">Select a skill</div></div>`;
+        function renderMatrix(skills, winnerIdx) {
+            const container = document.getElementById('matrixContainer');
+            document.getElementById('loading').style.display = 'none';
+            container.style.display = 'block';
 
-            const r = skill.risk_score || 0;
-            const rColor = r <= 5 ? 'var(--cyan)' : r <= 20 ? 'var(--amber)' : 'var(--red)';
-            const perms = skill.permissions || [];
-            const verdict = skill.clawhub_verdict;
+            // Feature Rows Configuration
+            const rows = [
+                { 
+                    id: 'header', label: '', 
+                    render: (s) => `
+                        <div class="skill-name">${esc(s.display_name || s.skill_name || s.name)}</div>
+                        <div class="skill-dev">v${esc(s.version)} · @${esc(s.developer_handle || s.developer || 'unknown')}</div>
+                    `
+                },
+                {
+                    id: 'risk', label: 'ClawForce Risk Score',
+                    render: (s) => {
+                        const r = s.risk_score || 0;
+                        const c = getRiskColor(r);
+                        return `
+                            <div style="text-align:center;">
+                                <div class="risk-huge" style="color:${c}">${r}</div>
+                                <div class="risk-tier" style="background:${c}15;color:${c}">${getRiskTier(r)}</div>
+                            </div>
+                        `;
+                    }
+                },
+                {
+                    id: 'market_verdict', label: 'Marketplace Verdict',
+                    render: (s) => {
+                        const v = s.marketplace_verdict || s.clawhub_verdict;
+                        if (!v) return '<span class="status-pill warn">● Unknown</span>';
+                        if (v.toLowerCase() === 'suspicious') return '<span class="status-pill bad">● Suspicious</span>';
+                        return '<span class="status-pill good">● Clean</span>';
+                    }
+                },
+                {
+                    id: 'code_findings', label: 'Security Static Analysis',
+                    render: (s) => {
+                        const f = s.total_findings || 0;
+                        if (f === 0) return '<span class="data-value" style="color:var(--cyan);font-weight:700;">0 Findings (Clean)</span>';
+                        return `<span class="data-value" style="color:var(--red);font-weight:700;">${f} Vulnerabilities</span>`;
+                    }
+                },
+                {
+                    id: 'perms', label: 'Requested Scopes',
+                    render: (s) => {
+                        const p = s.permissions || [];
+                        if (p.length === 0) return '<span class="data-mono" style="color:var(--dim)">none detected</span>';
+                        let html = '<div class="scopes">';
+                        p.forEach(scope => {
+                            const c = scopeColors[scope] || 'var(--dim)';
+                            html += `<span class="scope-badge" style="border:1px solid ${c}33;color:${c};background:${c}0a;">${scope}</span>`;
+                        });
+                        html += '</div>';
+                        return html;
+                    }
+                },
+                {
+                    id: 'schema', label: 'Schema Validation',
+                    render: (s) => {
+                        if (s.schema === 'invalid' || s.schema === 'undeclared') return '<span class="status-pill bad">● Undeclared Tools Detected</span>';
+                        if (s.schema === 'valid') return '<span class="status-pill good">● Valid Format</span>';
+                        return '<span class="data-mono" style="color:var(--dim)">—</span>';
+                    }
+                },
+                {
+                    id: 'integrity', label: 'Supply Chain Integrity',
+                    render: (s) => {
+                        if (s.integrity === 'diverged') return '<span class="status-pill bad">● Source Code Drift</span>';
+                        if (s.integrity === 'match') return '<span class="status-pill good">● Verified Match</span>';
+                        return '<span class="status-pill warn">● Not Verified</span>';
+                    }
+                },
+                {
+                    id: 'dev_trust', label: 'Developer Trust Score',
+                    render: (s) => {
+                        const ds = s.dev_trust_score;
+                        if (ds === undefined || ds === null) return '<span class="data-mono" style="color:var(--dim)">—</span>';
+                        return `<span class="data-mono" style="font-size:1.1rem">${ds}<span style="font-size:0.7rem;color:var(--dim)">/100</span></span>`;
+                    }
+                },
+                {
+                    id: 'downloads', label: 'Installations',
+                    render: (s) => `<span class="data-mono">${formatNum(s.downloads)}</span>`
+                },
+                {
+                    id: 'action', label: '',
+                    render: (s) => `<a href="skill.html?q=${encodeURIComponent(s.skill_name || s.name)}" class="action-btn">Deep Dive &rarr;</a>`
+                }
+            ];
 
-            let permHtml = '';
-            for (const p of perms) {
-                const c = scopeColors[p] || 'var(--dim)';
-                permHtml += `<span class="perm-badge" style="border:1px solid ${c}33;color:${c};background:${c}0a;">${scopeAbbr[p] || p}</span>`;
-            }
+            // Build Grid
+            const matrix = document.createElement('div');
+            matrix.className = 'matrix';
+            matrix.style.gridTemplateColumns = `220px repeat(${skills.length}, 1fr)`;
 
-            let verdictHtml = '';
-            if (verdict === 'clean') verdictHtml = '<span class="verdict-tag verdict-clean">✓ Clean</span>';
-            else if (verdict === 'suspicious') verdictHtml = '<span class="verdict-tag verdict-suspicious">⚠ Suspicious</span>';
-            else verdictHtml = '<span class="verdict-tag verdict-unknown">— Unknown</span>';
+            rows.forEach((rowDef) => {
+                const gridRow = document.createElement('div');
+                gridRow.className = 'matrix-row';
 
-            let llmHtml = '';
-            if (skill.llm_assessment) {
-                llmHtml = `<div class="llm-box">🧠 ${esc(skill.llm_assessment)}</div>`;
-            }
+                // Label Cell
+                const labelCell = document.createElement('div');
+                labelCell.className = 'matrix-cell feature-name';
+                labelCell.textContent = rowDef.label;
+                gridRow.appendChild(labelCell);
 
-            return `
-                <div class="compare-panel ${resultClass}">
-                    <div class="panel-name"><a href="/skill/${skill.skill_name}" style="color:inherit;text-decoration:none;">${esc(skill.display_name || skill.skill_name)}</a></div>
-                    <div class="panel-desc">${esc(skill.description || 'No description')}</div>
+                // Skill Cells
+                skills.forEach((skill, idx) => {
+                    const isWinner = (idx === winnerIdx);
+                    const cell = document.createElement('div');
+                    cell.className = 'matrix-cell data-cell';
+                    if (isWinner) cell.classList.add('winner');
+                    if (rowDef.id === 'header') {
+                        cell.classList.add('header-cell');
+                        if (isWinner) {
+                            cell.innerHTML += `<div class="winner-badge">CLAWFORCE SAFEST</div>`;
+                        }
+                    }
+                    
+                    cell.innerHTML += rowDef.render(skill);
+                    gridRow.appendChild(cell);
+                });
 
-                    <div class="compare-row">
-                        <span class="compare-label">Risk Score</span>
-                        <span class="compare-value" style="color:${rColor}">
-                            <span class="risk-bar-compare"><span class="risk-bar-fill" style="width:${Math.max(r, 3)}%;background:${rColor};"></span></span>
-                            ${r}/100
-                        </span>
-                    </div>
-                    <div class="compare-row">
-                        <span class="compare-label">Findings</span>
-                        <span class="compare-value">${skill.total_findings || 0}</span>
-                    </div>
-                    <div class="compare-row">
-                        <span class="compare-label">Permissions</span>
-                        <span class="compare-value">${perms.length}</span>
-                    </div>
-                    <div class="compare-row">
-                        <span class="compare-label">Downloads</span>
-                        <span class="compare-value">${formatNum(skill.downloads || 0)}</span>
-                    </div>
-                    <div class="compare-row">
-                        <span class="compare-label">ClawHub Verdict</span>
-                        <span>${verdictHtml}</span>
-                    </div>
-                    <div class="compare-row">
-                        <span class="compare-label">Disagree</span>
-                        <span class="compare-value" style="color:${skill.verdict_disagree ? 'var(--red)' : 'var(--cyan)'}">${skill.verdict_disagree ? '⚡ Yes' : 'No'}</span>
-                    </div>
-                    <div class="compare-row">
-                        <span class="compare-label">Scan Type</span>
-                        <span class="compare-value" style="font-size:0.72rem;">${skill.scan_type || 'metadata'}</span>
-                    </div>
+                matrix.appendChild(gridRow);
+            });
 
-                    <div style="margin-top:1rem;">
-                        <div class="compare-label" style="margin-bottom:6px;">Permission Scopes</div>
-                        <div class="perm-badges">${permHtml || '<span style="color:var(--dim);font-size:0.75rem;">None detected</span>'}</div>
-                    </div>
-
-                    ${llmHtml}
-                </div>
-            `;
+            container.appendChild(matrix);
         }
 
-        function esc(s) { if (!s) return ''; const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
-        function formatNum(n) { if (n >= 1000000) return (n/1000000).toFixed(1)+'M'; if (n >= 1000) return (n/1000).toFixed(1)+'K'; return String(n); }
-
-        document.addEventListener('DOMContentLoaded', loadData);
+        document.addEventListener('DOMContentLoaded', init);
     </script>
 </body>
 </html>

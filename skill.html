@@ -4,343 +4,658 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Dynamic SEO tags will be injected here by JS -->
-    <title>ClawForce Skill Report</title>
+    <link rel="icon" href="/logo.png" type="image/png">
+    <title>Skill Intelligence Dashboard — ClawForce</title>
+    <meta name="description" content="Deep dive security intelligence for AI agent skills.">
+    <link rel="canonical" href="https://clawforce.ca/skill.html">
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- D3.js for Dependency Graph -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
 
     <style>
-        .report-header {
-            padding: 3rem 0;
-            border-bottom: 1px solid var(--border);
-            text-align: center;
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #FAFAF8;
+            --surface: #FFFFFF;
+            --card: #FFFFFF;
+            --border: #E0DDD5;
+            --text: #0A0A0A;
+            --muted: #5C5C5C;
+            --dim: #8A8A80;
+            --primary: #0A0A0A;
+            --cyan: #3D7A5F;
+            --blue: #4A6FA5;
+            --amber: #B8860B;
+            --red: #C0392B;
+            --mono: 'Space Mono', monospace;
+            --sans: 'DM Sans', -apple-system, sans-serif;
+            --radius: 3px;
         }
 
-        .skill-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            letter-spacing: -0.04em;
-            margin-bottom: 0.5rem;
-            color: var(--text);
+        body {
+            background: var(--bg); color: var(--text);
+            font-family: var(--sans); line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
-        .skill-developer {
-            color: var(--muted);
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
+        body::before {
+            content: ''; position: fixed; inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='400' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none; z-index: 0;
         }
 
-        .report-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
+        .wrap { max-width: 1200px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; }
+
+        /* NAV */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            background: rgba(250, 250, 248, 0.92); backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border); padding: 0.75rem 0;
         }
+        nav .wrap { display: flex; align-items: center; justify-content: space-between; }
+        .nav-logo { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; font-family: var(--mono); font-weight: 700; font-size: 0.95rem; }
+        .nav-logo .brand { color: var(--text); }
+        .nav-links { list-style: none; display: flex; gap: 1.5rem; align-items: center; }
+        .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.82rem; font-weight: 500; }
+        .nav-cta { background: var(--primary) !important; color: var(--bg) !important; padding: 0.4rem 1rem; border-radius: 2px; font-family: var(--mono); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
 
-        .stat-card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 1.5rem;
-        }
+        /* HEADER */
+        .dash-header { padding: 8rem 0 3rem; border-bottom: 1px solid var(--border); background: var(--surface); margin-bottom: 2rem; }
+        .breadcrumbs { font-family: var(--mono); font-size: 0.65rem; color: var(--dim); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; }
+        .breadcrumbs a { color: var(--blue); text-decoration: none; }
+        .title-row { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 2rem; }
+        .title-main h1 { font-family: var(--mono); font-size: 2.2rem; font-weight: 700; margin-bottom: 0.5rem; word-break: break-all; }
+        .title-meta { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); display: flex; gap: 1rem; align-items: center; }
+        .tag { padding: 2px 8px; border-radius: 2px; font-weight: 700; font-size: 0.6rem; text-transform: uppercase; border: 1px solid var(--border); background: var(--bg); }
 
-        .stat-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--dim);
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
+        /* GRID LAYOUT */
+        .grid { display: grid; grid-template-columns: 1fr 350px; gap: 2rem; margin-bottom: 4rem; }
+        @media(max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+        
+        .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.5rem; }
+        .card-title { font-family: var(--mono); color: var(--dim); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1.2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+        
+        /* GAUGE */
+        .gauge-container { text-align: center; padding: 2rem 0; }
+        .gauge-svg { width: 200px; height: 100px; }
+        .gauge-bg { fill: none; stroke: var(--border); stroke-width: 12; stroke-linecap: round; }
+        .gauge-fill { fill: none; stroke: var(--cyan); stroke-width: 12; stroke-linecap: round; transition: stroke-dasharray 1s ease-out; }
+        .gauge-value { font-family: var(--mono); font-size: 2.5rem; font-weight: 700; fill: var(--text); }
+        .gauge-label { font-family: var(--mono); font-size: 0.7rem; fill: var(--muted); }
+        
+        .risk-tier { font-family: var(--mono); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; margin-top: 1rem; padding: 0.4rem 1rem; border-radius: 2px; display: inline-block; }
+        .tier-safe { background: rgba(61,122,95,0.1); color: var(--cyan); border: 1px solid rgba(61,122,95,0.2); }
+        .tier-moderate { background: rgba(184,134,11,0.1); color: var(--amber); border: 1px solid rgba(184,134,11,0.2); }
+        .tier-high { background: rgba(192,57,43,0.1); color: var(--red); border: 1px solid rgba(192,57,43,0.2); }
 
-        .stat-value {
-            font-size: 1.5rem;
-            font-weight: 700;
-            font-family: 'JetBrains Mono', monospace;
-            color: var(--text);
-        }
+        /* CODE VIEWER */
+        .code-viewer { background: #1E1E1E; border-radius: var(--radius); overflow: hidden; font-family: var(--mono); font-size: 0.75rem; color: #D4D4D4; border: 1px solid #333; }
+        .code-header { background: #2D2D2D; padding: 0.4rem 1rem; display: flex; gap: 0.4rem; border-bottom: 1px solid #444; }
+        .code-dot { width: 10px; height: 10px; border-radius: 50%; }
+        .code-dot.r { background: #FF5F56; }
+        .code-dot.y { background: #FFBD2E; }
+        .code-dot.g { background: #27C93F; }
+        .code-body { padding: 1rem; overflow-x: auto; }
+        .vuln-line { border-left: 3px solid #F44336; padding-left: 0.5rem; background: rgba(244, 67, 54, 0.1); margin: 0.2rem 0; display: block; }
+        .vuln-desc { color: #F44336; font-size: 0.65rem; margin-top: 0.2rem; display: block; }
 
-        .code-block {
-            background: var(--bg);
-            border: 1px solid var(--border-hover);
-            border-radius: var(--radius);
-            padding: 1.5rem;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
-            color: var(--muted);
-            overflow-x: auto;
-            margin-top: 1rem;
-        }
+        /* D3 GRAPH */
+        .graph-container { width: 100%; height: 400px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); cursor: grab; overflow: hidden; position: relative; }
+        .graph-container:active { cursor: grabbing; }
+        .node circle { stroke: #fff; stroke-width: 1.5px; }
+        .node text { font-family: var(--mono); font-size: 10px; pointer-events: none; }
+        .link { stroke: var(--border); stroke-opacity: 0.6; }
+        .graph-overlay { position: absolute; bottom: 10px; right: 10px; background: rgba(255,255,255,0.9); padding: 5px 10px; border: 1px solid var(--border); font-family: var(--mono); font-size: 0.6rem; border-radius: 2px; }
 
-        #errorState {
-            display: none;
-            text-align: center;
-            padding: 5rem 0;
-            color: var(--red);
-        }
+        /* DATA LIST */
+        .data-list { list-style: none; }
+        .data-item { display: flex; justify-content: space-between; padding: 0.6rem 0; border-bottom: 1px solid var(--border); font-size: 0.8rem; }
+        .data-item:last-child { border-bottom: none; }
+        .data-label { color: var(--muted); font-family: var(--mono); font-size: 0.7rem; }
+        .data-val { font-family: var(--mono); font-weight: 700; text-align: right; }
 
-        #loadingState {
-            text-align: center;
-            padding: 5rem 0;
-            color: var(--dim);
-        }
+        /* LOADING */
+        .loading { text-align: center; padding: 5rem 0; font-family: var(--mono); color: var(--dim); }
+        .spinner { border: 2px solid rgba(0,0,0,0.1); border-top-color: var(--text); border-radius: 50%; width: 24px; height: 24px; animation: spin 1s linear infinite; margin: 0 auto 1rem; }
+        @keyframes spin { to { transform: rotate(360deg); } }
 
-        #contentState {
-            display: none;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--text);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none !important;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .nav-links.open {
-                display: flex !important;
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: rgba(2, 6, 23, 0.95);
-                backdrop-filter: blur(20px);
-                padding: 1.5rem 2rem;
-                border-bottom: 1px solid var(--border);
-                gap: 1rem;
-            }
-
-            .report-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+        /* DEPLOY MODAL */
+        .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); z-index: 1000; display: none; align-items: center; justify-content: center; }
+        .modal-overlay.active { display: flex; }
+        .modal { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; width: 100%; max-width: 600px; padding: 2rem; position: relative; box-shadow: 0 24px 48px rgba(0,0,0,0.1); }
+        .modal-close { position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--muted); }
+        .modal-title { font-family: var(--mono); font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .modal-subtitle { color: var(--muted); font-size: 0.9rem; margin-bottom: 2rem; }
+        .deploy-tabs { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); flex-wrap: wrap;}
+        .deploy-tab { background: none; border: none; padding: 0.5rem 1rem; font-family: var(--mono); font-size: 0.8rem; font-weight: 700; color: var(--muted); cursor: pointer; border-bottom: 2px solid transparent; }
+        .deploy-tab.active { color: var(--cyan); border-bottom-color: var(--cyan); }
+        .deploy-content-box { position: relative; background: #1E1E1E; border-radius: 4px; padding: 1.5rem; }
+        .deploy-code { font-family: var(--mono); font-size: 0.8rem; color: #D4D4D4; white-space: pre-wrap; word-break: break-all; margin: 0; }
+        .deploy-copy { position: absolute; top: 0.5rem; right: 0.5rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 0.3rem 0.8rem; font-family: var(--mono); font-size: 0.7rem; border-radius: 2px; cursor: pointer; }
+        .deploy-copy:hover { background: rgba(255,255,255,0.2); }
     </style>
-    <script defer data-domain="clawforce.ca" src="https://plausible.io/js/script.js"></script>
 </head>
 
 <body>
-    <!-- ━━━ NAV ━━━ -->
     <nav>
-        <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;">
-            <a href="/" style="text-decoration:none;display:flex;align-items:center;gap:0.8rem;">
-                <div class="logo">CF</div>
-                <div style="font-weight:800;letter-spacing:-0.03em;font-size:1.2rem;color:var(--text);">ClawForce</div>
+        <div class="wrap">
+            <a href="/" class="nav-logo">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                </svg>
+                <span class="brand">ClawForce</span>
             </a>
-            <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">☰</button>
-            <div class="nav-links" style="display:flex;gap:1.5rem;font-size:0.9rem;font-weight:600;">
-                <a href="/#scan" style="color:var(--muted);text-decoration:none;transition:color 0.2s;">Scan</a>
-                <a href="/#pricing" style="color:var(--muted);text-decoration:none;transition:color 0.2s;">Pricing</a>
-                <a href="/blog.html" style="color:var(--muted);text-decoration:none;transition:color 0.2s;">Blog</a>
-                <a href="/skills.html" style="color:var(--muted);text-decoration:none;transition:color 0.2s;">ClawHub</a>
-                <a href="/about.html" style="color:var(--muted);text-decoration:none;transition:color 0.2s;">About</a>
-                <a href="/faq.html" style="color:var(--muted);text-decoration:none;transition:color 0.2s;">FAQ</a>
-                <a href="/#scan" style="color:var(--cyan);text-decoration:none;transition:color 0.2s;">Scan Now →</a>
-            </div>
+            <ul class="nav-links">
+                <li><a href="/index.html">Scan</a></li>
+                <li><a href="/skills.html" class="active">Skills</a></li>
+                <li><a href="/developers.html">Developers</a></li>
+                <li><a href="#" class="nav-cta">Scan Now &rarr;</a></li>
+            </ul>
         </div>
     </nav>
 
-    <!-- ━━━ HERO / HEADER ━━━ -->
-    <header style="padding-top: 100px;">
-        <div class="wrap" id="loadingState">
-            <h1 class="skill-title">Loading Report...</h1>
-        </div>
+    <div id="loading" class="wrap loading" style="margin-top: 5rem;">
+        <div class="spinner"></div>
+        <div>Loading deep analysis data...</div>
+    </div>
 
-        <div class="wrap" id="errorState">
-            <h1 class="skill-title">Skill Not Found</h1>
-            <p style="margin-top: 1rem; color: var(--muted);">This skill is not registered in the ClawForce database.
-            </p>
-            <a href="/" class="btn" style="margin-top: 2rem;">Return Home</a>
-        </div>
-
-        <div class="wrap" id="contentState">
-            <div class="report-header">
-                <div class="section-label" style="justify-content: center; margin-bottom: 1rem;">
-                    // security report
+    <div id="content" style="display: none;">
+        <header class="dash-header">
+            <div class="wrap">
+                <div class="breadcrumbs">
+                    <a href="/skills.html">&larr; Back to Directory</a>
                 </div>
-                <h1 class="skill-title" id="uiSkillName">skill-name</h1>
-                <div class="skill-developer" id="uiDeveloper">by Developer</div>
-
-                <div
-                    style="display: inline-flex; align-items: center; gap: 0.5rem; background: var(--card); border: 1px solid var(--border); padding: 0.5rem 1rem; border-radius: 50px;">
-                    <img id="uiBadge" src="" alt="ClawForce Status" style="height: 20px;">
-                </div>
-
-                <p style="margin-top: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; color: var(--text); line-height: 1.6;"
-                    id="uiDescription">
-                    Description of the skill goes here.
-                </p>
-
-                <div style="margin-top: 1.5rem;">
-                    <a id="uiRepoLink" href="#" target="_blank" class="btn">View Source on GitHub ↗</a>
-                </div>
-            </div>
-
-            <!-- ━━━ STATS GRID ━━━ -->
-            <div class="report-grid">
-                <div class="stat-card">
-                    <div class="stat-label">Risk Score</div>
-                    <div class="stat-value" id="uiRiskScore" style="display:flex;align-items:baseline;gap:4px;">
-                        <span>0</span><span style="font-size:0.8rem;color:var(--dim);">/100</span>
+                <div class="title-row">
+                    <div class="title-main">
+                        <h1 id="skillName">Loading...</h1>
+                        <div class="title-meta">
+                            <span id="skillSource" class="tag">Source</span>
+                            <span id="skillDeveloper">@developer</span>
+                            <span>v<span id="skillVersion">1.0.0</span></span>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 1rem; align-items: center;">
+                        <button onclick="openDeployModal()" class="nav-cta" style="background:var(--cyan)!important; color:#fff!important; border:none; cursor:pointer; font-size: 0.85rem; padding: 0.6rem 1.2rem;">Deploy to Agent &darr;</button>
+                        <a id="marketplaceBtn" href="#" target="_blank" class="nav-cta" style="background:#fff!important; color:#000!important; border:1px solid #ccc; font-size: 0.85rem; padding: 0.6rem 1.2rem;">View Source &rarr;</a>
                     </div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-label">Files Scanned</div>
-                    <div class="stat-value" id="uiFilesScanned">0</div>
+            </div>
+        </header>
+
+        <div class="wrap grid">
+            <div class="main-col">
+                <!-- CODE FINDINGS -->
+                <div class="card" id="codeFindingsCard" style="display:none;">
+                    <div class="card-title">Security Static Analysis <span id="findingCount" class="tag tier-high">0 Findings</span></div>
+                    <div class="code-viewer">
+                        <div class="code-header">
+                            <div class="code-dot r"></div><div class="code-dot y"></div><div class="code-dot g"></div>
+                        </div>
+                        <div class="code-body" id="codeBody">
+                            // No vulnerabilities detected in static analysis.
+                        </div>
+                    </div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-label">Scan Date</div>
-                    <div class="stat-value" id="uiDate" style="font-size:1.1rem;">YYYY-MM-DD</div>
+
+                <!-- DEPENDENCY GRAPH -->
+                <div class="card">
+                    <div class="card-title">Dependency Architecture 
+                        <a href="#" id="sbomDownload" style="font-size:0.5rem; color:var(--blue); text-decoration:none;">DOWNLOAD SBOM (CYCLONEDX)</a>
+                    </div>
+                    <div class="graph-container" id="depGraph">
+                        <div class="graph-overlay">Interactive Model</div>
+                    </div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-label">Skill Version</div>
-                    <div class="stat-value" id="uiVersion" style="font-size:1.1rem;">v1.0.0</div>
+
+                <!-- SCHEMA & INTEGRITY -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                    <div class="card">
+                        <div class="card-title">MCP Schema Validation</div>
+                        <ul class="data-list" id="schemaList"></ul>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Supply Chain Integrity</div>
+                        <ul class="data-list" id="integrityList"></ul>
+                    </div>
                 </div>
+
             </div>
 
-            <!-- ━━━ METADATA ━━━ -->
-            <section style="margin: 4rem 0;">
-                <h3 style="font-size: 1.2rem; margin-bottom: 1rem;">Verification Hash</h3>
-                <p style="color: var(--muted); font-size: 0.9rem; margin-bottom: 0.5rem;">The cryptographic hash of the
-                    scanned codebase layer. If the live code differs from this hash, the certification is invalid.</p>
-                <div class="code-block" id="uiHash">sha256:...</div>
-            </section>
-        </div>
-    </header>
+            <div class="side-col">
+                <!-- TRUST GAUGE -->
+                <div class="card">
+                    <div class="card-title">ClawForce Trust Score</div>
+                    <div class="gauge-container">
+                        <svg class="gauge-svg" viewBox="0 0 100 50">
+                            <!-- Background Arc -->
+                            <path class="gauge-bg" d="M 10,50 A 40,40 0 0,1 90,50" />
+                            <!-- Foreground Arc -->
+                            <path class="gauge-fill" id="gaugeFill" d="M 10,50 A 40,40 0 0,1 90,50" stroke-dasharray="0, 126" />
+                            <text x="50" y="40" text-anchor="middle" class="gauge-value" id="gaugeVal">0</text>
+                            <text x="50" y="50" text-anchor="middle" class="gauge-label">/ 100 RISK</text>
+                        </svg>
+                        <div id="riskTier" class="risk-tier tier-moderate">Calculating...</div>
+                    </div>
+                    
+                    <ul class="data-list" style="margin-top: 1.5rem; border-top: 1px solid var(--border); padding-top: 1rem;">
+                        <li class="data-item"><span class="data-label">LLM Analysis</span><span class="data-val" id="llmScore">N/A</span></li>
+                        <li class="data-item"><span class="data-label">Signals Check</span><span class="data-val" id="sigScore">N/A</span></li>
+                        <li class="data-item"><span class="data-label">License Class</span><span class="data-val" id="licClass">N/A</span></li>
+                    </ul>
+                </div>
 
-    <hr class="divider">
+                <!-- GITHUB SIGNALS -->
+                <div class="card">
+                    <div class="card-title">GitHub Trust Signals</div>
+                    <ul class="data-list" id="signalsList"></ul>
+                </div>
 
-    <!-- ━━━ FOOTER ━━━ -->
-    <footer>
-        <div class="wrap" style="text-align: center;">
-            <div class="logo" style="margin:0 auto 1.5rem auto;">CF</div>
-            <div style="font-size:0.9rem;color:var(--text);font-weight:600;margin-bottom:0.5rem;">ClawForce</div>
-            <div style="font-size:0.8rem;color:var(--dim);">Independent security certification for AI agents.</div>
-            <div style="margin-top:2rem;font-size:0.75rem;color:var(--dim);">
-                Operated by Pixel Familiar · Manitoba, Canada ·
-                <a href="/legal.html" style="color:var(--dim);text-decoration:none;">Legal</a> ·
-                <a href="/privacy.html" style="color:var(--dim);text-decoration:none;">Privacy</a>
+                <!-- EMBED BADGE -->
+                <div class="card" id="embedBadgeCard" style="display:none;">
+                    <div class="card-title">Developer Trust Badge</div>
+                    <div style="text-align:center; padding: 1rem 0;">
+                        <img id="badgePreview" src="" alt="ClawForce Trust Badge" style="height:20px;">
+                    </div>
+                    <div style="font-size:0.75rem; color:var(--muted); margin-bottom:0.8rem; font-family:var(--sans);">Embed this live risk badge in your README. It automatically updates when your skill is re-scanned.</div>
+                    <div style="position:relative;">
+                        <input type="text" id="badgeSnippet" readonly style="width:100%; padding:0.6rem; font-family:var(--mono); font-size:0.65rem; border:1px solid var(--border); border-radius:2px; background:var(--bg); color:var(--text); padding-right:60px;">
+                        <button onclick="copyBadge()" style="position:absolute; right:4px; top:4px; bottom:4px; background:var(--primary); color:white; border:none; padding:0 10px; font-size:0.65rem; font-family:var(--mono); font-weight:700; border-radius:1px; cursor:pointer;">COPY</button>
+                    </div>
+                </div>
             </div>
         </div>
-    </footer>
+    </div>
 
-    <!-- ━━━ SCRIPT ━━━ -->
+    <!-- DEPLOY MODAL -->
+    <div class="modal-overlay" id="deployModal" onclick="if(event.target===this) closeDeployModal()">
+        <div class="modal">
+            <button class="modal-close" onclick="closeDeployModal()">&times;</button>
+            <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 0.5rem;">
+                <h2 class="modal-title" style="margin: 0;">Deploy Skill</h2>
+                <span class="tag tier-safe" style="font-size: 0.65rem;" id="deployModalTier">Loading...</span>
+            </div>
+            <p class="modal-subtitle">Select your agent framework to generate the exact installation configuration for <strong id="deployModalSkillName">this skill</strong>.</p>
+            
+            <div class="deploy-tabs">
+                <button class="deploy-tab active" onclick="switchDeployTab('openclaw')">OpenClaw 🦊</button>
+                <button class="deploy-tab" onclick="switchDeployTab('claude')">Claude Desktop 🪄</button>
+                <button class="deploy-tab" onclick="switchDeployTab('cursor')">Cursor 💻</button>
+                <button class="deploy-tab" onclick="switchDeployTab('raw')">Raw MCP ⚙️</button>
+            </div>
+            
+            <div class="deploy-content-box">
+                <button class="deploy-copy" id="deployCopyBtn" onclick="copyDeployConfig()">COPY</button>
+                <pre class="deploy-code" id="deployConfigCode">Loading...</pre>
+            </div>
+            <p id="deployInstructions" style="font-size: 0.8rem; color: var(--muted); margin-top: 1rem; font-family: var(--sans);"></p>
+        </div>
+    </div>
+
     <script>
-        // Extract skill name from URL path: /skill/brave-search
-        const pathParts = window.location.pathname.split('/');
-        const skillId = pathParts[pathParts.length - 1];
-
-        async function loadReport() {
-            if (!skillId) {
-                showError();
+        window.currentSkill = null;
+        document.addEventListener('DOMContentLoaded', async () => {
+            const params = new URLSearchParams(window.location.search);
+            const query = params.get('q');
+            if (!query) {
+                document.getElementById('loading').textContent = 'No skill specified in URL (?q=skill_name)';
                 return;
             }
 
             try {
-                // Fetch the full registry
-                const res = await fetch('https://api.clawforce.ca/v1/registry');
-                if (!res.ok) throw new Error('API Error');
-
-                const data = await res.json();
-
-                // Find target skill
-                const target = skillId.toLowerCase();
-                const skill = data.skills.find(s =>
-                    (s.skill_name || s.name).toLowerCase() === target ||
-                    (s.skill_name || s.name).toLowerCase() + '-skill' === target ||
-                    (s.skill_name || s.name).toLowerCase().replace('-skill', '') === target
+                // Fetch registry
+                const res = await fetch('registry.json');
+                const registry = await res.json();
+                
+                // Find skill
+                const skill = registry.skills.find(s => 
+                    (s.skill_name || '').toLowerCase() === query.toLowerCase() || 
+                    (s.name || '').toLowerCase() === query.toLowerCase()
                 );
 
-                if (skill) {
-                    renderSkill(skill);
-                } else {
-                    showError();
+                if (!skill) {
+                    document.getElementById('loading').textContent = 'Skill not found in ClawForce Registry.';
+                    return;
                 }
+
+                // Show content
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('content').style.display = 'block';
+
+                document.title = `${skill.skill_name || skill.name} — ClawForce Trust Dashboard`;
+
+                // Store globally for Deploy Modal
+                window.currentSkill = skill;
+
+                // Populate Header
+                document.getElementById('skillName').textContent = skill.skill_name || skill.name;
+                document.getElementById('skillSource').textContent = skill.source || 'unknown';
+                document.getElementById('skillDeveloper').textContent = '@' + (skill.developer || skill.developer_handle || 'unknown');
+                document.getElementById('skillVersion').textContent = skill.version || '1.0.0';
+                
+                const btn = document.getElementById('marketplaceBtn');
+                const repoUrl = skill.github_url || skill.repo || '#';
+                btn.href = repoUrl;
+
+                // Populate Badge Snippet
+                if (repoUrl && repoUrl !== '#') {
+                    const embedCard = document.getElementById('embedBadgeCard');
+                    embedCard.style.display = 'block';
+                    
+                    const badgeUrl = `https://clawforce.ca/api/v1/badge?repo=${encodeURIComponent(repoUrl)}`;
+                    const pageUrl = `https://clawforce.ca/skill.html?q=${encodeURIComponent(query)}`;
+                    const markdown = `[![ClawForce Trust Badge](${badgeUrl})](${pageUrl})`;
+                    
+                    document.getElementById('badgePreview').src = badgeUrl;
+                    document.getElementById('badgeSnippet').value = markdown;
+                }
+
+                // Populate Gauge
+                const risk = skill.risk_score || 0;
+                document.getElementById('gaugeVal').textContent = risk;
+                
+                const gaugeFill = document.getElementById('gaugeFill');
+                const maxDash = 126; // Approx arc length
+                const dash = (risk / 100) * maxDash;
+                setTimeout(() => {
+                    gaugeFill.style.strokeDasharray = `${dash}, ${maxDash}`;
+                    
+                    let color = 'var(--cyan)';
+                    let tierConfig = { cls: 'tier-safe', text: '🟢 CERTIFIED SAFE' };
+                    
+                    if(risk > 50) { color = 'var(--red)'; tierConfig = { cls: 'tier-high', text: '🔴 CRITICAL RISK' }; }
+                    else if(risk > 20) { color = 'var(--amber)'; tierConfig = { cls: 'tier-moderate', text: '🟡 ELEVATED RISK' }; }
+                    else if(risk > 5) { color = 'var(--amber)'; tierConfig = { cls: 'tier-moderate', text: '🟡 MODERATE RISK' }; }
+                    
+                    gaugeFill.style.stroke = color;
+                    const rt = document.getElementById('riskTier');
+                    rt.className = `risk-tier ${tierConfig.cls}`;
+                    rt.textContent = tierConfig.text;
+                }, 100);
+
+                // Populate Side Panel Data
+                document.getElementById('llmScore').textContent = skill.llm_assessment?.score || 'N/A';
+                document.getElementById('licClass').textContent = skill.license_info?.classification || skill.license || 'N/A';
+                
+                const sig = skill.github_signals;
+                if (sig) {
+                    document.getElementById('sigScore').textContent = `${sig.trust_score}/100`;
+                    const sList = document.getElementById('signalsList');
+                    sList.innerHTML = `
+                        <li class="data-item"><span class="data-label">Trust Score</span><span class="data-val">${sig.trust_score}/100</span></li>
+                        <li class="data-item"><span class="data-label">Positive Signals</span><span class="data-val" style="color:var(--cyan)">+${sig.positive}</span></li>
+                        <li class="data-item"><span class="data-label">Negative Signals</span><span class="data-val" style="color:var(--amber)">-${sig.negative}</span></li>
+                        <li class="data-item"><span class="data-label">Has SECURITY.md</span><span class="data-val">${sig.has_security_policy ? '✅' : '❌'}</span></li>
+                        <li class="data-item"><span class="data-label">Has CI/CD</span><span class="data-val">${sig.has_ci ? '✅' : '❌'}</span></li>
+                    `;
+                }
+
+                // Populate Schema & Integrity
+                const schemaList = document.getElementById('schemaList');
+                if (skill.schema) {
+                    const u = skill.schema.undeclared?.length > 0;
+                    schemaList.innerHTML = `
+                        <li class="data-item"><span class="data-label">Declared Tools</span><span class="data-val">${skill.schema.declared_tools}</span></li>
+                        <li class="data-item"><span class="data-label">Declared Caps</span><span class="data-val">${skill.schema.declared_caps?.join(', ') || 'none'}</span></li>
+                        <li class="data-item"><span class="data-label">Actual Caps</span><span class="data-val">${skill.schema.actual_caps?.join(', ') || 'none'}</span></li>
+                        ${u ? `<li class="data-item" style="color:var(--red)"><span class="data-label">Undeclared</span><span class="data-val">${skill.schema.undeclared.join(', ')}</span></li>` : ''}
+                    `;
+                } else {
+                    schemaList.innerHTML = '<li class="data-item"><span class="data-label">Validation</span><span class="data-val">Not checked</span></li>';
+                }
+
+                const intList = document.getElementById('integrityList');
+                if (skill.integrity) {
+                    const v = skill.integrity.verdict;
+                    const c = v === 'clean' ? 'var(--cyan)' : 'var(--amber)';
+                    intList.innerHTML = `
+                        <li class="data-item"><span class="data-label">Verdict</span><span class="data-val" style="color:${c}">${v.toUpperCase()}</span></li>
+                        <li class="data-item"><span class="data-label">Divergent Files</span><span class="data-val">${skill.integrity.divergent_files}</span></li>
+                        <li class="data-item"><span class="data-label">npm-Only Files</span><span class="data-val">${skill.integrity.npm_only_files}</span></li>
+                    `;
+                } else {
+                    intList.innerHTML = '<li class="data-item"><span class="data-label">Supply Chain</span><span class="data-val">N/A (not npm)</span></li>';
+                }
+
+                // Populate Code Findings
+                if (skill.code_findings && skill.code_findings.length > 0) {
+                    document.getElementById('codeFindingsCard').style.display = 'block';
+                    document.getElementById('findingCount').textContent = `${skill.code_findings.length} Findings`;
+                    
+                    const cb = document.getElementById('codeBody');
+                    cb.innerHTML = '';
+                    skill.code_findings.forEach(f => {
+                        cb.innerHTML += `
+                            <div class="vuln-line">
+                                <strong>${f.pattern}</strong> detected in source code.
+                                <span class="vuln-desc">[${f.severity.toUpperCase()}] ${f.desc}</span>
+                            </div>
+                        `;
+                    });
+                }
+
+                // D3 Dependency Graph
+                initDependencyGraph(skill);
+
             } catch (err) {
+                document.getElementById('loading').textContent = 'Error loading dashboard data.';
                 console.error(err);
-                showError();
+            }
+        });
+
+        async function initDependencyGraph(skill) {
+            const container = document.getElementById('depGraph');
+            let sbomData = null;
+            
+            // Try fetching SBOM
+            try {
+                // simple slugify
+                const safeName = (skill.skill_name || skill.name).replace(/[^a-zA-Z0-9-]/g, '-').toLowerCase();
+                const res = await fetch(`sbom/${safeName}.cdx.json`);
+                if (res.ok) {
+                    sbomData = await res.json();
+                    document.getElementById('sbomDownload').href = `sbom/${safeName}.cdx.json`;
+                }
+            } catch (e) { console.log("No SBOM"); }
+
+            if (!sbomData) {
+                container.innerHTML = '<div style="padding:2rem;text-align:center;font-family:var(--mono);color:var(--dim);font-size:0.8rem;">No Dependency Graph data available.</div>';
+                document.getElementById('sbomDownload').style.display = 'none';
+                return;
+            }
+
+            // Parse CycloneDX to D3 nodes/links
+            const nodes = [];
+            const links = [];
+            const nodeMap = new Map();
+
+            // Root node
+            const rootId = sbomData.metadata?.component?.bomRef || 'root';
+            nodes.push({ id: rootId, name: sbomData.metadata?.component?.name || skill.skill_name, group: 1 });
+            nodeMap.set(rootId, true);
+
+            // Components
+            if(sbomData.components) {
+                sbomData.components.forEach(c => {
+                    nodes.push({ id: c.bomRef, name: c.name, group: 2 });
+                    nodeMap.set(c.bomRef, true);
+                });
+            }
+
+            // Dependencies
+            if(sbomData.dependencies) {
+                sbomData.dependencies.forEach(d => {
+                    if(d.dependsOn && nodeMap.has(d.ref)) {
+                        d.dependsOn.forEach(target => {
+                            if(nodeMap.has(target)) {
+                                links.push({ source: d.ref, target: target });
+                            }
+                        });
+                    }
+                });
+            }
+
+            if(nodes.length === 1) {
+                container.innerHTML = '<div style="padding:2rem;text-align:center;font-family:var(--mono);color:var(--dim);font-size:0.8rem;">No external dependencies mapped.</div>';
+                return;
+            }
+
+            // D3 Network Render
+            const width = container.clientWidth;
+            const height = container.clientHeight;
+
+            const svg = d3.select("#depGraph").append("svg")
+                .attr("width", width)
+                .attr("height", height);
+
+            const simulation = d3.forceSimulation(nodes)
+                .force("link", d3.forceLink(links).id(d => d.id).distance(50))
+                .force("charge", d3.forceManyBody().strength(-100))
+                .force("center", d3.forceCenter(width / 2, height / 2));
+
+            const link = svg.append("g")
+                .selectAll("line")
+                .data(links)
+                .join("line")
+                .attr("class", "link");
+
+            const node = svg.append("g")
+                .selectAll("g")
+                .data(nodes)
+                .join("g")
+                .attr("class", "node")
+                .call(drag(simulation));
+
+            node.append("circle")
+                .attr("r", d => d.group === 1 ? 8 : 4)
+                .attr("fill", d => d.group === 1 ? "var(--cyan)" : "#ccc");
+
+            node.append("text")
+                .attr("dx", 8)
+                .attr("dy", 3)
+                .text(d => d.group === 1 ? d.name : '')
+                .attr("fill", "var(--text)");
+
+            simulation.on("tick", () => {
+                link
+                    .attr("x1", d => d.source.x)
+                    .attr("y1", d => d.source.y)
+                    .attr("x2", d => d.target.x)
+                    .attr("y2", d => d.target.y);
+
+                node
+                    .attr("transform", d => `translate(${d.x},${d.y})`);
+            });
+
+            // Zoom
+            const zoom = d3.zoom().on("zoom", e => {
+                svg.selectAll("g").attr("transform", e.transform);
+            });
+            svg.call(zoom);
+        }
+
+        // D3 Drag behaviour
+        function drag(simulation) {
+            function dragstarted(event) {
+                if (!event.active) simulation.alphaTarget(0.3).restart();
+                event.subject.fx = event.subject.x;
+                event.subject.fy = event.subject.y;
+            }
+            function dragged(event) {
+                event.subject.fx = event.x;
+                event.subject.fy = event.y;
+            }
+            function dragended(event) {
+                if (!event.active) simulation.alphaTarget(0);
+                event.subject.fx = null;
+                event.subject.fy = null;
+            }
+            return d3.drag()
+                .on("start", dragstarted)
+                .on("drag", dragged)
+                .on("end", dragended);
+        }
+        
+        // --- DEPLOY MODAL LOGIC ---
+        function openDeployModal() {
+            if (!window.currentSkill) return;
+            document.getElementById('deployModalSkillName').textContent = window.currentSkill.skill_name || window.currentSkill.name;
+            
+            const risk = window.currentSkill.risk_score || 0;
+            const rt = document.getElementById('deployModalTier');
+            if(risk > 50) { rt.className = 'tag tier-high'; rt.textContent = 'CRITICAL RISK'; }
+            else if (risk > 20) { rt.className = 'tag tier-moderate'; rt.textContent = 'ELEVATED RISK'; }
+            else if (risk > 5) { rt.className = 'tag tier-moderate'; rt.textContent = 'MODERATE RISK'; }
+            else { rt.className = 'tag tier-safe'; rt.textContent = 'CERTIFIED SAFE'; }
+
+            document.getElementById('deployModal').classList.add('active');
+            switchDeployTab('openclaw');
+        }
+
+        function closeDeployModal() {
+            document.getElementById('deployModal').classList.remove('active');
+        }
+
+        function switchDeployTab(framework) {
+            document.querySelectorAll('.deploy-tab').forEach(t => t.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+            
+            const skill = window.currentSkill;
+            const codeEl = document.getElementById('deployConfigCode');
+            const instEl = document.getElementById('deployInstructions');
+            const repoUrl = skill.github_url || skill.repo || '';
+            const npxCmd = skill.installation_command || `npx -y @modelcontextprotocol/server-everything`; 
+            
+            // Try to extract exact NPM package name or default
+            let packageName = repoUrl.split('/').pop();
+            
+            if (framework === 'openclaw') {
+                codeEl.textContent = `openclaw mcp add ${repoUrl}`;
+                instEl.innerHTML = "Run this in your terminal. OpenClaw will automatically negotiate the ClawForce safety handshake on your behalf.";
+            } 
+            else if (framework === 'claude') {
+                const config = {
+                    "mcpServers": {
+                        [(skill.skill_name || skill.name).replace(/[^a-zA-Z0-9]/g, '-')]: {
+                            "command": "npx",
+                            "args": [
+                                "-y",
+                                packageName || "@modelcontextprotocol/server-everything"
+                            ]
+                        }
+                    }
+                };
+                codeEl.textContent = JSON.stringify(config, null, 2);
+                instEl.innerHTML = "Add this block to your <code>claude_desktop_config.json</code> file, then restart Claude Desktop.";
+            }
+            else if (framework === 'cursor') {
+                codeEl.textContent = npxCmd;
+                instEl.innerHTML = "1. Open Cursor Settings -> Features -> MCP<br>2. Click '+ Add New MCP Server'<br>3. Select Type 'command' and paste the snippet above.";
+            }
+            else if (framework === 'raw') {
+                codeEl.textContent = npxCmd;
+                instEl.innerHTML = "The raw command executed by LangChain, LlamaIndex, or your isolated environments.";
             }
         }
 
-        function renderSkill(skill) {
-            // Hide loading, show content
-            document.getElementById('loadingState').style.display = 'none';
-            document.getElementById('contentState').style.display = 'block';
-
-            const name = escapeHtml(skill.skill_name || skill.name);
-            const dev = escapeHtml(skill.developer || skill.author || 'Unknown');
-            const desc = escapeHtml(skill.description || 'No description provided.');
-            const hash = escapeHtml(skill.hash || skill.content_hash || 'unknown');
-
-            // SEO Injection
-            document.title = `${name} | ClawForce Security Scan`;
-            document.head.insertAdjacentHTML('beforeend', `
-                <meta name="description" content="ClawForce security report for ${name} by ${dev}. Risk Score: ${skill.risk_score}/100.">
-                <meta property="og:title" content="${name} Security Report">
-                <meta property="og:description" content="ClawForce security report for ${name} by ${dev}. Risk Score: ${skill.risk_score}/100.">
-            `);
-
-            // UI Updates
-            document.getElementById('uiSkillName').textContent = name;
-            document.getElementById('uiDeveloper').textContent = `by ${dev}`;
-            document.getElementById('uiDescription').textContent = desc;
-            document.getElementById('uiRepoLink').href = escapeHtml(skill.repo || '#');
-
-            // Use shields.io badge instead of broken /v1/badge/ API
-            const tier = (skill.certification_tier || 'scanned').toLowerCase();
-            const tierColors = { scanned: '10B981', verified: '0EA5E9', certified: 'F59E0B' };
-            const tierLabel = tier.charAt(0).toUpperCase() + tier.slice(1);
-            document.getElementById('uiBadge').src = `https://img.shields.io/badge/ClawForce-${tierLabel}-${tierColors[tier] || '64748B'}?style=flat-square`;
-
-            const riskLabel = document.getElementById('uiRiskScore');
-            riskLabel.innerHTML = `<span>${skill.risk_score}</span><span style="font-size:0.8rem;color:var(--dim);">/100</span>`;
-            if (skill.risk_score === 0) riskLabel.style.color = 'var(--cyan)';
-            else if (skill.risk_score <= 15) riskLabel.style.color = 'var(--amber)';
-            else riskLabel.style.color = 'var(--red)';
-
-            document.getElementById('uiFilesScanned').textContent = skill.files_scanned || 'N/A';
-            let scanDate = 'Unknown';
-            if (skill.date) scanDate = skill.date;
-            else if (skill.scan_timestamp && typeof skill.scan_timestamp === 'string') scanDate = skill.scan_timestamp.split('T')[0];
-            document.getElementById('uiDate').textContent = escapeHtml(scanDate);
-            document.getElementById('uiVersion').textContent = escapeHtml(skill.version || 'v1.0.0');
-            document.getElementById('uiHash').textContent = hash;
+        function copyDeployConfig() {
+            const code = document.getElementById('deployConfigCode').textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                const btn = document.getElementById('deployCopyBtn');
+                btn.textContent = 'COPIED!';
+                btn.style.background = 'var(--cyan)';
+                btn.style.borderColor = 'var(--cyan)';
+                setTimeout(() => {
+                    btn.textContent = 'COPY';
+                    btn.style.background = 'rgba(255,255,255,0.1)';
+                    btn.style.borderColor = 'rgba(255,255,255,0.2)';
+                }, 2000);
+            });
         }
-
-        function showError() {
-            document.getElementById('loadingState').style.display = 'none';
-            document.getElementById('contentState').style.display = 'none';
-            document.getElementById('errorState').style.display = 'block';
-            document.title = "Not Found | ClawForce";
-        }
-
-        function escapeHtml(unsafe) {
-            if (!unsafe) return '';
-            return unsafe
-                .toString()
-                .replace(/&/g, "&amp;")
-                .replace(/</g, "&lt;")
-                .replace(/>/g, "&gt;")
-                .replace(/"/g, "&quot;")
-                .replace(/'/g, "&#039;");
-        }
-
-        // Init
-        document.addEventListener('DOMContentLoaded', loadReport);
     </script>
 </body>
-
 </html>
