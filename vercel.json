@@ -7,5 +7,12 @@
             "source": "/skill/:name",
             "destination": "/skill.html"
         }
+    ],
+    "redirects": [
+        {
+            "source": "/clawhub.html",
+            "destination": "/skills.html",
+            "statusCode": 301
+        }
     ]
 }

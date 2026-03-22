@@ -1520,7 +1520,7 @@
                 <li><a href="#scan">Scan</a></li>
                 <li><a href="#pricing">Pricing</a></li>
                 <li><a href="/blog.html">Blog</a></li>
-                <li><a href="/clawhub.html">ClawHub</a></li>
+                <li><a href="/skills.html">Skills</a></li>
                 <li><a href="/about.html">About</a></li>
                 <li><a href="/faq.html">FAQ</a></li>
                 <li><a href="#scan" class="nav-cta">Scan Now →</a></li>
@@ -2830,7 +2830,7 @@
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeCheckout();
         });
-        // Auto-scan from query params (e.g., ?skill=brave-search from ClawHub page)
+        // Auto-scan from query params (e.g., ?skill=brave-search from Skills page)
         (async function autoScanFromParams() {
             const params = new URLSearchParams(window.location.search);
             const skillSlug = params.get('skill');
@@ -2881,7 +2881,7 @@
 
             const steps = [
                 { pct: 20, msg: `Looking up ${skillSlug} in ClawForce registry...` },
-                { pct: 50, msg: 'Cross-referencing ClawHub metadata...' },
+                { pct: 50, msg: 'Cross-referencing marketplace metadata...' },
                 { pct: 80, msg: 'Checking risk patterns...' },
                 { pct: 100, msg: 'Report ready.' },
             ];
