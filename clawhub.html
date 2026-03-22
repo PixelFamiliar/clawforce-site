@@ -620,12 +620,15 @@
                         displayName: item.displayName || item.slug,
                         summary: item.summary || null,
                         owner: null,
-                        downloads: 0,
+                        downloads: cfMatch ? (cfMatch.downloads || 0) : 0,
                         version: item.version || null,
                         updatedAt: item.updatedAt || 0,
                         hubVerdict: null,
                         cfTier: cfMatch ? (cfMatch.certification_tier || 'scanned') : null,
                         cfRisk: cfMatch ? cfMatch.risk_score : null,
+                        cfPermissions: cfMatch ? (cfMatch.permissions || []) : [],
+                        cfFindings: cfMatch ? (cfMatch.total_findings || 0) : 0,
+                        cfScanDate: cfMatch ? (cfMatch.date || '') : '',
                     };
                 });
 
@@ -709,9 +712,10 @@
             const cols = [
                 { key: 'name', label: 'Skill' },
                 { key: 'verdict', label: 'ClawHub' },
-                { key: 'cf', label: 'ClawForce' },
+                { key: 'cf', label: 'Risk' },
+                { key: null, label: 'Permissions' },
                 { key: 'downloads', label: 'Downloads' },
-                { key: null, label: 'Action' },
+                { key: null, label: '' },
             ];
             for (const col of cols) {
                 const th = document.createElement('th');
@@ -800,31 +804,55 @@
             tdVerdict.appendChild(vTag);
             tr.appendChild(tdVerdict);
 
-            // ClawForce cert
-            const tdCF = document.createElement('td');
-            const cfTag = document.createElement('span');
-            cfTag.className = 'meta-tag';
-            if (skill.cfTier === 'certified') {
-                cfTag.classList.add('cf-certified');
-                cfTag.textContent = '🟡 Certified';
-            } else if (skill.cfTier === 'verified') {
-                cfTag.classList.add('cf-verified');
-                cfTag.textContent = '🔵 Verified';
-            } else if (skill.cfTier === 'scanned') {
-                cfTag.classList.add('cf-scanned');
-                cfTag.textContent = '🟢 Scanned';
-            } else {
-                cfTag.classList.add('cf-none');
-                cfTag.textContent = '—';
-            }
-            tdCF.appendChild(cfTag);
+            // Risk column (with bar visualization)
+            const tdRisk = document.createElement('td');
             if (skill.cfRisk !== null && skill.cfRisk !== undefined) {
-                const risk = document.createElement('div');
-                risk.style.cssText = 'font-family:var(--mono);font-size:0.55rem;color:var(--dim);margin-top:2px;';
-                risk.textContent = 'Risk: ' + skill.cfRisk + '/100';
-                tdCF.appendChild(risk);
+                const riskWrap = document.createElement('div');
+                riskWrap.style.cssText = 'display:flex;align-items:center;gap:6px;';
+
+                const bar = document.createElement('div');
+                bar.style.cssText = 'width:40px;height:6px;background:var(--border);border-radius:3px;overflow:hidden;flex-shrink:0;';
+                const fill = document.createElement('div');
+                const r = skill.cfRisk;
+                fill.style.cssText = 'height:100%;border-radius:3px;transition:width 0.3s;width:' + Math.max(r, 3) + '%;background:' + (r <= 5 ? 'var(--cyan)' : r <= 20 ? 'var(--amber)' : 'var(--red)') + ';';
+                bar.appendChild(fill);
+                riskWrap.appendChild(bar);
+
+                const num = document.createElement('span');
+                num.style.cssText = 'font-family:var(--mono);font-size:0.68rem;color:' + (r <= 5 ? 'var(--cyan)' : r <= 20 ? 'var(--amber)' : 'var(--red)') + ';font-weight:700;';
+                num.textContent = r;
+                riskWrap.appendChild(num);
+
+                tdRisk.appendChild(riskWrap);
+            } else {
+                tdRisk.style.cssText = 'color:var(--dim);font-size:0.72rem;';
+                tdRisk.textContent = '—';
             }
-            tr.appendChild(tdCF);
+            tr.appendChild(tdRisk);
+
+            // Permissions column
+            const tdPerms = document.createElement('td');
+            if (skill.cfPermissions && skill.cfPermissions.length > 0) {
+                const permWrap = document.createElement('div');
+                permWrap.style.cssText = 'display:flex;flex-wrap:wrap;gap:3px;';
+                const abbrevs = { network: 'net', filesystem: 'fs', execution: 'exec', credentials: 'cred', browser: 'web', email: 'mail', database: 'db', system: 'sys' };
+                const colors = { network: '#3D7A5F', filesystem: '#4A6FA5', execution: '#C0392B', credentials: '#B8860B', browser: '#6A5ACD', email: '#2E86C1', database: '#1ABC9C', system: '#C0392B' };
+                for (const perm of skill.cfPermissions.slice(0, 4)) {
+                    const badge = document.createElement('span');
+                    const c = colors[perm] || 'var(--dim)';
+                    badge.style.cssText = 'font-family:var(--mono);font-size:0.55rem;padding:1px 5px;border-radius:2px;border:1px solid ' + c + '33;color:' + c + ';background:' + c + '0a;white-space:nowrap;font-weight:600;';
+                    badge.textContent = abbrevs[perm] || perm;
+                    permWrap.appendChild(badge);
+                }
+                tdPerms.appendChild(permWrap);
+            } else if (skill.cfTier) {
+                tdPerms.style.cssText = 'color:var(--dim);font-size:0.6rem;font-family:var(--mono);';
+                tdPerms.textContent = 'none detected';
+            } else {
+                tdPerms.style.cssText = 'color:var(--dim);font-size:0.72rem;';
+                tdPerms.textContent = '—';
+            }
+            tr.appendChild(tdPerms);
 
             // Downloads
             const tdDl = document.createElement('td');
@@ -837,13 +865,13 @@
             const actionLink = document.createElement('a');
             actionLink.className = 'action-link';
             if (skill.cfTier) {
-                actionLink.classList.add('report');
-                actionLink.href = '/skill/' + skill.slug;
-                actionLink.textContent = 'Report →';
+                actionLink.classList.add('scan');
+                actionLink.href = '/?skill=' + encodeURIComponent(skill.slug) + '#scan';
+                actionLink.textContent = 'View →';
             } else {
                 actionLink.classList.add('scan');
                 actionLink.href = '/?skill=' + encodeURIComponent(skill.slug) + '#scan';
-                actionLink.textContent = 'Scan Now →';
+                actionLink.textContent = 'Scan →';
             }
             tdAction.appendChild(actionLink);
             tr.appendChild(tdAction);

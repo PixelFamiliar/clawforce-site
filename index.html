@@ -2464,6 +2464,24 @@
                     ${data.isLive ? '<span style="color:var(--cyan);"> ✦ LIVE SCAN</span>' : ''}
                 </div>` : '';
 
+            // Permission scope breakdown
+            const perms = data.permissions || [];
+            let permHtml = '';
+            if (perms.length > 0) {
+                const abbrevs = { network: 'NET', filesystem: 'FS', execution: 'EXEC', credentials: 'CRED', browser: 'WEB', email: 'MAIL', database: 'DB', system: 'SYS' };
+                const colors = { network: '#3D7A5F', filesystem: '#4A6FA5', execution: '#C0392B', credentials: '#B8860B', browser: '#6A5ACD', email: '#2E86C1', database: '#1ABC9C', system: '#C0392B' };
+                let badges = '';
+                for (const p of perms) {
+                    const c = colors[p] || '#64748B';
+                    badges += `<span style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;padding:2px 6px;border-radius:3px;border:1px solid ${c}33;color:${c};background:${c}0a;font-weight:700;">${abbrevs[p] || p.toUpperCase()}</span> `;
+                }
+                permHtml = `
+                    <div style="margin-top:12px;padding:10px 14px;background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:8px;">
+                        <div style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:var(--dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;font-weight:600;">Inferred Permission Scopes</div>
+                        <div style="display:flex;flex-wrap:wrap;gap:4px;">${badges}</div>
+                    </div>`;
+            }
+
             results.innerHTML = `
                 <div class="result-header">
                     <span class="result-badge ${escapeHtml(data.tier)}">${tierIcons[data.tier] || ''} ${tierLabels[data.tier] || escapeHtml(data.tier)}</span>
@@ -2475,8 +2493,8 @@
                         <div class="metric-label">Risk Score</div>
                     </div>
                     <div class="metric">
-                        <div class="metric-value">${data.mismatch}</div>
-                        <div class="metric-label">Mismatch</div>
+                        <div class="metric-value">${perms.length}</div>
+                        <div class="metric-label">Scopes</div>
                     </div>
                     <div class="metric">
                         <div class="metric-value">${data.files}</div>
@@ -2487,6 +2505,7 @@
                         <div class="metric-label">Findings</div>
                     </div>
                 </div>
+                ${permHtml}
                 ${findingsHtml ? `<div class="findings-list">${findingsHtml}</div>` : ''}
                 ${upgradeHtml}
                 ${hashHtml}
@@ -2879,17 +2898,29 @@
                     if (btn) btn.disabled = false;
 
                     if (registrySkill) {
-                        // Build findings list from registry data
+                        // Build findings list from actual permission data
                         const findingsList = [];
                         const risk = registrySkill.risk_score || 0;
                         const totalFindings = registrySkill.total_findings || 0;
+                        const perms = registrySkill.permissions || [];
 
-                        // Generate representative findings based on risk score
-                        if (risk >= 10) findingsList.push({ sev: 'medium', desc: 'Credential handling patterns detected', file: 'metadata analysis' });
-                        if (risk >= 5) findingsList.push({ sev: 'low', desc: 'Network access capabilities described', file: 'metadata analysis' });
-                        if (risk >= 3) findingsList.push({ sev: 'low', desc: 'Environment variable access likely', file: 'metadata analysis' });
-                        if (totalFindings > findingsList.length) {
-                            findingsList.push({ sev: 'low', desc: `${totalFindings - findingsList.length} additional signal(s) from metadata scan`, file: 'metadata analysis' });
+                        // Add scope-based findings
+                        const scopeDescs = {
+                            network: 'Network access capability (outbound HTTP)',
+                            filesystem: 'Filesystem read/write access',
+                            execution: 'Command/code execution capability',
+                            credentials: 'Handles credentials or secrets',
+                            browser: 'Browser automation capability',
+                            email: 'Email/messaging access',
+                            database: 'Database access',
+                            system: 'System-level access'
+                        };
+                        const scopeSevs = { execution: 'medium', credentials: 'medium', system: 'medium', browser: 'low', filesystem: 'low', email: 'low', database: 'low', network: 'info' };
+                        for (const p of perms) {
+                            findingsList.push({ sev: scopeSevs[p] || 'info', desc: scopeDescs[p] || `Scope: ${p}`, file: 'permission analysis' });
+                        }
+                        if (registrySkill.supply_chain_findings > 0) {
+                            findingsList.push({ sev: 'medium', desc: `${registrySkill.supply_chain_findings} supply chain signal(s) detected`, file: 'supply chain' });
                         }
                         if (findingsList.length === 0) {
                             findingsList.push({ sev: 'info', desc: 'No significant risk signals detected', file: 'metadata analysis' });
@@ -2902,6 +2933,7 @@
                             files: registrySkill.files_scanned || 0,
                             findings: totalFindings,
                             findingsList: findingsList,
+                            permissions: perms,
                             hash: (registrySkill.content_hash || '').substring(0, 16),
                             source: registrySkill.repo || `clawhub.ai/skills/${skillSlug}`,
                             isLive: true,
