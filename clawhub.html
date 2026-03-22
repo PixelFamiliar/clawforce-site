@@ -464,8 +464,10 @@
                 <input type="text" class="search-input" id="searchInput" placeholder="Search by name or description...">
                 <div class="filter-group">
                     <button class="filter-btn active" data-filter="all" onclick="setFilter('all', this)">All</button>
-                    <button class="filter-btn" data-filter="cf-yes" onclick="setFilter('cf-yes', this)">CF Certified</button>
-                    <button class="filter-btn" data-filter="cf-no" onclick="setFilter('cf-no', this)">Uncertified</button>
+                    <button class="filter-btn" data-filter="cf-yes" onclick="setFilter('cf-yes', this)">CF Scanned</button>
+                    <button class="filter-btn" data-filter="high-risk" onclick="setFilter('high-risk', this)">High Risk</button>
+                    <button class="filter-btn" data-filter="disagree" onclick="setFilter('disagree', this)">⚡ Disagrees</button>
+                    <button class="filter-btn" data-filter="cf-no" onclick="setFilter('cf-no', this)">Unscanned</button>
                 </div>
             </div>
 
@@ -639,7 +641,8 @@
                         downloads: cfMatch ? (cfMatch.downloads || 0) : 0,
                         version: item.version || null,
                         updatedAt: item.updatedAt || 0,
-                        hubVerdict: null,
+                        hubVerdict: cfMatch ? (cfMatch.clawhub_verdict || null) : null,
+                        verdictDisagree: cfMatch ? (cfMatch.verdict_disagree || false) : false,
                         cfTier: cfMatch ? (cfMatch.certification_tier || 'scanned') : null,
                         cfRisk: cfMatch ? cfMatch.risk_score : null,
                         cfPermissions: cfMatch ? (cfMatch.permissions || []) : [],
@@ -650,7 +653,8 @@
 
                 document.getElementById('statTotal').textContent = allSkills.length;
                 document.getElementById('statCertified').textContent = allSkills.filter(s => s.cfTier).length;
-                document.getElementById('statClean').textContent = '—';
+                const disagreeCount = allSkills.filter(s => s.verdictDisagree).length;
+                document.getElementById('statClean').textContent = disagreeCount > 0 ? disagreeCount + ' disagree' : '—';
 
                 // Risk distribution chart
                 const scanned = allSkills.filter(s => s.cfRisk !== null && s.cfRisk !== undefined);
@@ -740,6 +744,8 @@
             let filtered = allSkills.filter(s => {
                 if (currentFilter === 'cf-yes' && !s.cfTier) return false;
                 if (currentFilter === 'cf-no' && s.cfTier) return false;
+                if (currentFilter === 'high-risk' && (s.cfRisk === null || s.cfRisk <= 20)) return false;
+                if (currentFilter === 'disagree' && !s.verdictDisagree) return false;
                 if (searchTerm) {
                     const haystack = (s.displayName + ' ' + (s.summary || '') + ' ' + s.slug).toLowerCase();
                     return haystack.includes(searchTerm);
@@ -868,6 +874,14 @@
                 vTag.textContent = '— Unscanned';
             }
             tdVerdict.appendChild(vTag);
+
+            // Disagreement indicator
+            if (skill.verdictDisagree) {
+                const disagree = document.createElement('div');
+                disagree.style.cssText = 'font-family:var(--mono);font-size:0.5rem;color:var(--red);font-weight:700;margin-top:2px;';
+                disagree.textContent = '⚡ DISAGREE';
+                tdVerdict.appendChild(disagree);
+            }
             tr.appendChild(tdVerdict);
 
             // Risk column (with bar visualization)
