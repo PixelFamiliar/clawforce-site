@@ -254,6 +254,23 @@
         .cf-scanned { background: var(--green-bg); color: var(--cyan); border: 1px solid rgba(61, 122, 95, 0.2); }
         .cf-none { background: transparent; color: var(--dim); border: 1px dashed var(--border); }
 
+        .source-clawhub { background: rgba(74, 111, 165, 0.08); color: var(--blue); border: 1px solid rgba(74, 111, 165, 0.2); }
+        .source-mcp { background: rgba(139, 92, 246, 0.08); color: #8b5cf6; border: 1px solid rgba(139, 92, 246, 0.2); }
+        .source-npm { background: rgba(203, 56, 55, 0.08); color: #cb3837; border: 1px solid rgba(203, 56, 55, 0.2); }
+        .source-tag { font-family: var(--mono); font-size: 0.5rem; font-weight: 700; padding: 1px 5px; border-radius: 2px; text-transform: uppercase; letter-spacing: 0.06em; white-space: nowrap; display: inline-block; margin-right: 4px; vertical-align: middle; }
+        .scan-type-source { background: rgba(61, 122, 95, 0.08); color: var(--cyan); border: 1px solid rgba(61, 122, 95, 0.2); font-family: var(--mono); font-size: 0.48rem; font-weight: 700; padding: 1px 4px; border-radius: 2px; text-transform: uppercase; letter-spacing: 0.04em; white-space: nowrap; display: inline-block; }
+
+        .source-filter-group { display: flex; gap: 0.3rem; margin-left: auto; }
+        .source-btn {
+            padding: 0.3rem 0.7rem; border-radius: 2px;
+            border: 1px solid var(--border); background: var(--surface);
+            color: var(--muted); font-family: var(--mono);
+            font-size: 0.62rem; font-weight: 700; cursor: pointer;
+            transition: all 0.2s; letter-spacing: 0.03em;
+        }
+        .source-btn:hover { border-color: var(--border-hover); color: var(--text); }
+        .source-btn.active { background: var(--text); color: var(--bg); border-color: var(--text); }
+
         .dl-count {
             font-family: var(--mono); font-size: 0.7rem; font-weight: 700;
             color: var(--dim); white-space: nowrap;
@@ -461,13 +478,18 @@
             </div>
 
             <div class="controls fade-up">
-                <input type="text" class="search-input" id="searchInput" placeholder="Search by name or description...">
+                <input type="text" class="search-input" id="searchInput" placeholder="Search by name, description, or developer...">
                 <div class="filter-group">
                     <button class="filter-btn active" data-filter="all" onclick="setFilter('all', this)">All</button>
-                    <button class="filter-btn" data-filter="cf-yes" onclick="setFilter('cf-yes', this)">CF Scanned</button>
                     <button class="filter-btn" data-filter="high-risk" onclick="setFilter('high-risk', this)">High Risk</button>
+                    <button class="filter-btn" data-filter="source-scanned" onclick="setFilter('source-scanned', this)">🔍 Code Scanned</button>
                     <button class="filter-btn" data-filter="disagree" onclick="setFilter('disagree', this)">⚡ Disagrees</button>
-                    <button class="filter-btn" data-filter="cf-no" onclick="setFilter('cf-no', this)">Unscanned</button>
+                </div>
+                <div class="source-filter-group">
+                    <button class="source-btn active" onclick="setSource('all', this)">All</button>
+                    <button class="source-btn" onclick="setSource('clawhub', this)">ClawHub</button>
+                    <button class="source-btn" onclick="setSource('mcp-registry', this)">MCP</button>
+                    <button class="source-btn" onclick="setSource('npm', this)">npm</button>
                 </div>
             </div>
 
@@ -580,84 +602,63 @@
         // ━━━ State ━━━
         let allSkills = [];
         let currentFilter = 'all';
-        let currentSort = 'name';
-        let sortAsc = true;
+        let currentSource = 'all';
+        let currentSort = 'risk';
+        let sortAsc = false;
 
-        // ━━━ Fetch & Merge ━━━
+        // ━━━ Init: Load from registry.json ━━━
         async function init() {
             try {
-                const searchQueries = ['search', 'agent', 'tool', 'code', 'api', 'web', 'file', 'data', 'git', 'browser'];
-                const searchPromises = searchQueries.map(q =>
-                    fetch(`https://clawhub.ai/api/v1/search?q=${encodeURIComponent(q)}&limit=15`)
-                        .then(r => r.json())
-                        .then(d => d.results || [])
-                        .catch(() => [])
-                );
+                const resp = await fetch('/registry.json');
+                if (!resp.ok) throw new Error('Failed to load registry');
+                const data = await resp.json();
 
-                const cfPromise = fetch('/registry.json')
-                    .then(r => r.ok ? r.json() : Promise.reject('static failed'))
-                    .catch(() => fetch('https://api.clawforce.ca/v1/registry').then(r => r.json()))
-                    .catch(() => null);
-
-                const [searchResults, clawforceData] = await Promise.all([
-                    Promise.all(searchPromises),
-                    cfPromise,
-                ]);
-
-                const slugMap = new Map();
-                for (const results of searchResults) {
-                    for (const item of results) {
-                        if (item.slug && !slugMap.has(item.slug)) {
-                            slugMap.set(item.slug, item);
-                        }
-                    }
-                }
-
-                const uniqueItems = Array.from(slugMap.values());
-                if (uniqueItems.length === 0) {
-                    showEmpty('Could not load skills. The API may be temporarily unavailable.');
+                if (!data.skills || data.skills.length === 0) {
+                    showEmpty('No skills found in registry.');
                     return;
                 }
 
-                const cfMap = new Map();
-                if (clawforceData && clawforceData.skills) {
-                    for (const s of clawforceData.skills) {
-                        const name = (s.skill_name || s.name || '').toLowerCase().trim();
-                        cfMap.set(name, s);
-                        if (name.endsWith('-skill')) cfMap.set(name.replace(/-skill$/, ''), s);
-                        if (!name.endsWith('-skill')) cfMap.set(name + '-skill', s);
-                    }
-                }
+                allSkills = data.skills.map(s => ({
+                    slug: s.skill_name || '',
+                    displayName: s.display_name || s.skill_name || '',
+                    description: s.description || '',
+                    developer: s.developer || 'unknown',
+                    developerHandle: s.developer_handle || '',
+                    source: s.source || 'unknown',
+                    scanType: s.scan_type || 'metadata',
+                    downloads: s.downloads || 0,
+                    version: s.version || '',
+                    license: s.license || '',
+                    githubUrl: s.github_url || '',
+                    repoUrl: s.repo || '',
+                    cfRisk: s.risk_score ?? null,
+                    cfTier: s.certification_tier || 'scanned',
+                    cfPermissions: s.permissions || [],
+                    cfFindings: s.total_findings || 0,
+                    codeFindings: s.code_findings || [],
+                    filesScanned: s.files_scanned || 0,
+                    marketplaceVerdict: s.marketplace_verdict || s.clawhub_verdict || null,
+                    verdictDisagree: s.verdict_disagree || false,
+                    llmAssessment: s.llm_assessment || null,
+                    scanDate: s.date || '',
+                    firstSeen: s.first_seen || '',
+                }));
 
-                allSkills = uniqueItems.map(item => {
-                    const slug = (item.slug || '').toLowerCase();
-                    const cfMatch = cfMap.get(slug) || null;
+                // Update stats
+                const total = allSkills.length;
+                const bySource = {};
+                allSkills.forEach(s => { bySource[s.source] = (bySource[s.source] || 0) + 1; });
 
-                    return {
-                        slug: item.slug,
-                        displayName: item.displayName || item.slug,
-                        summary: item.summary || null,
-                        owner: null,
-                        downloads: cfMatch ? (cfMatch.downloads || 0) : 0,
-                        version: item.version || null,
-                        updatedAt: item.updatedAt || 0,
-                        hubVerdict: cfMatch ? (cfMatch.clawhub_verdict || null) : null,
-                        verdictDisagree: cfMatch ? (cfMatch.verdict_disagree || false) : false,
-                        cfTier: cfMatch ? (cfMatch.certification_tier || 'scanned') : null,
-                        cfRisk: cfMatch ? cfMatch.risk_score : null,
-                        cfPermissions: cfMatch ? (cfMatch.permissions || []) : [],
-                        cfFindings: cfMatch ? (cfMatch.total_findings || 0) : 0,
-                        cfScanDate: cfMatch ? (cfMatch.date || '') : '',
-                    };
-                });
-
-                document.getElementById('statTotal').textContent = allSkills.length;
-                document.getElementById('statCertified').textContent = allSkills.filter(s => s.cfTier).length;
-                const disagreeCount = allSkills.filter(s => s.verdictDisagree).length;
-                document.getElementById('statClean').textContent = disagreeCount > 0 ? disagreeCount + ' disagree' : '—';
+                document.getElementById('statTotal').textContent = total;
+                document.getElementById('statCertified').textContent =
+                    (bySource['clawhub'] || 0) + ' ClawHub · ' +
+                    (bySource['mcp-registry'] || 0) + ' MCP · ' +
+                    (bySource['npm'] || 0) + ' npm';
+                const codeScanned = allSkills.filter(s => s.scanType === 'source').length;
+                document.getElementById('statClean').textContent = codeScanned > 0 ? codeScanned + ' code-scanned' : '—';
 
                 // Risk distribution chart
-                const scanned = allSkills.filter(s => s.cfRisk !== null && s.cfRisk !== undefined);
+                const scanned = allSkills.filter(s => s.cfRisk !== null);
                 if (scanned.length > 0) {
                     document.getElementById('riskDistSection').style.display = 'block';
                     const buckets = [
@@ -687,14 +688,14 @@
                     // Scope frequency
                     const scopeCounts = {};
                     for (const s of scanned) {
-                        for (const p of (s.cfPermissions || [])) {
+                        for (const p of s.cfPermissions) {
                             scopeCounts[p] = (scopeCounts[p] || 0) + 1;
                         }
                     }
                     const sortedScopes = Object.entries(scopeCounts).sort((a, b) => b[1] - a[1]);
                     const scopeLabels = { network: 'Network', filesystem: 'Filesystem', execution: 'Execution', credentials: 'Credentials', browser: 'Browser', email: 'Email', database: 'Database', system: 'System' };
                     const scopeEl = document.getElementById('scopeStats');
-                    for (const [scope, count] of sortedScopes) {
+                    for (const [scope, count] of sortedScopes.slice(0, 5)) { // Top 5 scopes
                         const pct = Math.round((count / scanned.length) * 100);
                         scopeEl.innerHTML += `<div style="display:flex;align-items:center;gap:8px;">
                             <span style="font-family:var(--mono);font-size:0.65rem;color:var(--muted);width:80px;text-align:right;">${scopeLabels[scope] || scope}</span>
@@ -707,34 +708,10 @@
                 }
 
                 render();
-
-                // Lazy enrich top 10 for downloads and moderation data
-                lazyEnrich(allSkills.slice(0, 10));
             } catch (err) {
                 console.error('Init error:', err);
                 showEmpty('Failed to load skills. Please refresh the page.');
             }
-        }
-
-        async function lazyEnrich(skills) {
-            for (const skill of skills) {
-                try {
-                    const res = await fetch(`https://clawhub.ai/api/v1/skills/${encodeURIComponent(skill.slug)}`);
-                    if (!res.ok) continue;
-                    const detail = await res.json();
-                    if (detail && detail.skill) {
-                        skill.downloads = detail.skill.stats?.downloads || 0;
-                        skill.owner = detail.owner || null;
-                        skill.hubVerdict = detail.moderation?.verdict || null;
-                        skill.version = detail.latestVersion?.version || skill.version;
-                    }
-                } catch (e) { /* skip */ }
-                await new Promise(r => setTimeout(r, 600));
-            }
-            allSkills.sort((a, b) => b.downloads - a.downloads);
-            const totalClean = allSkills.filter(s => s.hubVerdict === 'clean').length;
-            if (totalClean > 0) document.getElementById('statClean').textContent = totalClean;
-            render();
         }
 
         // ━━━ Render ━━━
@@ -742,12 +719,15 @@
             const searchTerm = (document.getElementById('searchInput')?.value || '').toLowerCase().trim();
 
             let filtered = allSkills.filter(s => {
-                if (currentFilter === 'cf-yes' && !s.cfTier) return false;
-                if (currentFilter === 'cf-no' && s.cfTier) return false;
+                // Source filter
+                if (currentSource !== 'all' && s.source !== currentSource) return false;
+                // Type filter
                 if (currentFilter === 'high-risk' && (s.cfRisk === null || s.cfRisk <= 20)) return false;
+                if (currentFilter === 'source-scanned' && s.scanType !== 'source') return false;
                 if (currentFilter === 'disagree' && !s.verdictDisagree) return false;
+                // Search
                 if (searchTerm) {
-                    const haystack = (s.displayName + ' ' + (s.summary || '') + ' ' + s.slug).toLowerCase();
+                    const haystack = (s.displayName + ' ' + s.description + ' ' + s.slug + ' ' + s.developer).toLowerCase();
                     return haystack.includes(searchTerm);
                 }
                 return true;
@@ -757,9 +737,9 @@
             filtered.sort((a, b) => {
                 let cmp = 0;
                 if (currentSort === 'name') cmp = (a.displayName || '').localeCompare(b.displayName || '');
+                else if (currentSort === 'risk') cmp = (a.cfRisk || 0) - (b.cfRisk || 0);
                 else if (currentSort === 'downloads') cmp = (a.downloads || 0) - (b.downloads || 0);
-                else if (currentSort === 'verdict') cmp = (a.hubVerdict || '').localeCompare(b.hubVerdict || '');
-                else if (currentSort === 'cf') cmp = (a.cfTier || '').localeCompare(b.cfTier || '');
+                else if (currentSort === 'source') cmp = (a.source || '').localeCompare(b.source || '');
                 return sortAsc ? cmp : -cmp;
             });
 
@@ -771,10 +751,8 @@
                 return;
             }
 
-            // Build table
             const wrap = document.createElement('div');
             wrap.className = 'table-wrap';
-
             const table = document.createElement('table');
             table.className = 'skills-table';
 
@@ -783,8 +761,8 @@
             const headerRow = document.createElement('tr');
             const cols = [
                 { key: 'name', label: 'Skill' },
-                { key: 'verdict', label: 'Verdict' },
-                { key: 'cf', label: 'Risk' },
+                { key: 'source', label: 'Source' },
+                { key: 'risk', label: 'Risk' },
                 { key: null, label: 'Permissions' },
                 { key: 'downloads', label: 'Downloads' },
                 { key: null, label: '' },
@@ -802,7 +780,7 @@
                     }
                     th.addEventListener('click', () => {
                         if (currentSort === col.key) { sortAsc = !sortAsc; }
-                        else { currentSort = col.key; sortAsc = true; }
+                        else { currentSort = col.key; sortAsc = col.key === 'name' || col.key === 'source'; }
                         render();
                     });
                 } else {
@@ -832,59 +810,52 @@
 
         function buildRow(skill) {
             const tr = document.createElement('tr');
-            const ownerHandle = skill.owner?.handle || skill.owner?.displayName || '';
 
             // Name cell
             const tdName = document.createElement('td');
             const nameLink = document.createElement('a');
             nameLink.className = 'skill-name-link';
-            nameLink.href = 'https://clawhub.ai/' + (ownerHandle ? ownerHandle + '/' : '') + skill.slug;
+            nameLink.href = skill.repoUrl || skill.githubUrl || '#';
             nameLink.target = '_blank';
             nameLink.rel = 'noopener';
             nameLink.textContent = skill.displayName || skill.slug;
             tdName.appendChild(nameLink);
 
-            if (ownerHandle) {
+            if (skill.developer && skill.developer !== 'unknown') {
                 const owner = document.createElement('div');
                 owner.className = 'skill-owner-text';
-                owner.textContent = '@' + ownerHandle;
+                owner.textContent = '@' + skill.developer;
                 tdName.appendChild(owner);
             }
 
-            if (skill.summary) {
+            if (skill.description) {
                 const summary = document.createElement('div');
                 summary.className = 'skill-summary-text';
-                summary.textContent = skill.summary;
+                summary.textContent = skill.description;
                 tdName.appendChild(summary);
             }
             tr.appendChild(tdName);
 
-            // ClawHub verdict
-            const tdVerdict = document.createElement('td');
-            const vTag = document.createElement('span');
-            vTag.className = 'meta-tag';
-            if (skill.hubVerdict === 'clean') {
-                vTag.classList.add('verdict-clean');
-                vTag.textContent = '✓ Clean';
-            } else if (skill.hubVerdict === 'suspicious') {
-                vTag.classList.add('verdict-suspicious');
-                vTag.textContent = '⚠ Flag';
-            } else {
-                vTag.classList.add('verdict-unknown');
-                vTag.textContent = '— Unscanned';
+            // Source cell
+            const tdSource = document.createElement('td');
+            const sourceTag = document.createElement('span');
+            const sourceCls = skill.source === 'clawhub' ? 'source-clawhub' :
+                             skill.source === 'mcp-registry' ? 'source-mcp' : 'source-npm';
+            const sourceLabel = skill.source === 'clawhub' ? 'ClawHub' :
+                               skill.source === 'mcp-registry' ? 'MCP' : 'npm';
+            sourceTag.className = 'source-tag ' + sourceCls;
+            sourceTag.textContent = sourceLabel;
+            tdSource.appendChild(sourceTag);
+            if (skill.scanType === 'source') {
+                const codeTag = document.createElement('span');
+                codeTag.className = 'scan-type-source';
+                codeTag.textContent = '🔍 CODE';
+                codeTag.title = skill.filesScanned + ' files scanned';
+                tdSource.appendChild(codeTag);
             }
-            tdVerdict.appendChild(vTag);
+            tr.appendChild(tdSource);
 
-            // Disagreement indicator
-            if (skill.verdictDisagree) {
-                const disagree = document.createElement('div');
-                disagree.style.cssText = 'font-family:var(--mono);font-size:0.5rem;color:var(--red);font-weight:700;margin-top:2px;';
-                disagree.textContent = '⚡ DISAGREE';
-                tdVerdict.appendChild(disagree);
-            }
-            tr.appendChild(tdVerdict);
-
-            // Risk column (with bar visualization)
+            // Risk cell
             const tdRisk = document.createElement('td');
             if (skill.cfRisk !== null && skill.cfRisk !== undefined) {
                 const riskWrap = document.createElement('div');
