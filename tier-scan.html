@@ -2,11 +2,224 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>ClawForce — Redirecting</title>
-    <meta http-equiv="refresh" content="0;url=/">
-    <link rel="canonical" href="https://clawforce.ca/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scanned Tier — Free Automated Security Scan | ClawForce</title>
+    <meta name="description" content="ClawForce Scanned Tier: free automated security analysis for AI agent skills. Detect prompt injection, malware signatures, and unsafe data handling instantly.">
+    <link rel="canonical" href="https://clawforce.ca/tier-scan.html">
+    <link rel="icon" href="/logo.png" type="image/png">
+    <meta property="og:title" content="ClawForce Scanned Tier — Free Automated Security Scan">
+    <meta property="og:description" content="Free automated security scanning for AI agent skills. Prompt injection detection, malware signatures, and data handling analysis.">
+    <meta property="og:url" content="https://clawforce.ca/tier-scan.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ClawForce">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #FAFAF8; --surface: #FFFFFF; --card: #FFFFFF; --card-hover: #F5F5F0;
+            --border: #E0DDD5; --border-hover: #C8C4BA;
+            --text: #0A0A0A; --muted: #5C5C5C; --dim: #8A8A80;
+            --primary: #0A0A0A; --cyan: #3D7A5F; --cyan-dim: #2D5A45;
+            --blue: #4A6FA5; --amber: #B8860B; --red: #C0392B;
+            --green-bg: rgba(61, 122, 95, 0.06);
+            --radius: 2px; --mono: 'Space Mono', monospace; --sans: 'DM Sans', -apple-system, sans-serif;
+        }
+        body { background: var(--bg); color: var(--text); font-family: var(--sans); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+        body::before { content: ''; position: fixed; inset: 0; background: url("data:image/svg+xml,%3Csvg width='400' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events: none; z-index: 0; }
+        .wrap { max-width: 760px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; }
+        .wrap-wide { max-width: 1100px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; }
+
+        /* Nav */
+        nav { position: fixed; top: 0; width: 100%; z-index: 100; background: rgba(250,250,248,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
+        nav .wrap-wide { display: flex; align-items: center; justify-content: space-between; }
+        .nav-logo { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; font-family: var(--mono); font-weight: 700; font-size: 0.95rem; color: var(--text); letter-spacing: -0.02em; }
+        .nav-links { list-style: none; display: flex; gap: 1.5rem; align-items: center; }
+        .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.82rem; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text); }
+        .nav-cta { background: var(--primary); color: #FAFAF8 !important; padding: 0.4rem 1rem; border-radius: 2px; font-family: var(--mono); font-size: 0.75rem !important; font-weight: 700 !important; text-transform: uppercase; letter-spacing: 0.04em; }
+
+        /* Main */
+        main { padding: 7rem 0 4rem; }
+        .tier-badge { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.35rem 0.8rem; border-radius: 2px; font-family: var(--mono); font-weight: 700; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; background: var(--green-bg); color: var(--cyan); border: 1px solid rgba(61, 122, 95, 0.2); margin-bottom: 1rem; }
+        h1 { font-family: var(--mono); font-size: 2.2rem; font-weight: 700; line-height: 1.15; letter-spacing: -0.04em; margin-bottom: 1rem; }
+        h1 .hl { color: var(--cyan); }
+        .subtitle { font-size: 1.05rem; color: var(--muted); line-height: 1.7; margin-bottom: 2.5rem; max-width: 560px; }
+        .price-tag { font-family: var(--mono); font-size: 2.8rem; font-weight: 700; color: var(--cyan); margin-bottom: 0.3rem; }
+        .price-note { font-family: var(--mono); font-size: 0.75rem; color: var(--dim); margin-bottom: 2rem; }
+
+        h2 { font-family: var(--mono); font-size: 1.3rem; font-weight: 700; margin: 3rem 0 1rem; letter-spacing: -0.02em; }
+        h3 { font-family: var(--mono); font-size: 1rem; font-weight: 700; margin: 2rem 0 0.6rem; }
+        p { color: var(--muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.2rem; }
+        ul { list-style: none; margin-bottom: 1.5rem; }
+        ul li { font-size: 0.88rem; color: var(--muted); padding: 0.4rem 0; display: flex; align-items: flex-start; gap: 0.6rem; }
+        ul li::before { content: '—'; font-weight: 700; color: var(--cyan); flex-shrink: 0; margin-top: 1px; }
+
+        /* Feature grid */
+        .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 2rem 0; }
+        .feature-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; transition: background 0.3s; }
+        .feature-card:hover { background: var(--card-hover); }
+        .feature-icon { font-size: 1.5rem; margin-bottom: 0.6rem; }
+        .feature-name { font-family: var(--mono); font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.4rem; }
+        .feature-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+
+        /* Terminal */
+        .terminal { background: #0C0C0C; border: 1px solid #2A2A2A; border-radius: var(--radius); overflow: hidden; margin: 2rem 0; }
+        .terminal-bar { display: flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1rem; border-bottom: 1px solid #2A2A2A; background: #111111; }
+        .terminal-dot { width: 10px; height: 10px; border-radius: 50%; }
+        .terminal-dot.r { background: #FF5F57; } .terminal-dot.y { background: #FEBC2E; } .terminal-dot.g { background: #28C840; }
+        .terminal-title { margin-left: 0.5rem; font-family: var(--mono); font-size: 0.65rem; color: #666; }
+        .terminal-body { padding: 1.2rem 1.5rem; font-family: var(--mono); font-size: 0.72rem; line-height: 1.9; color: #999; }
+        .terminal-body .cmd { color: #6ECF8A; font-weight: 700; }
+        .terminal-body .ok { color: #6ECF8A; }
+        .terminal-body .warn { color: #E8C547; }
+        .terminal-body .dim { color: #555; }
+
+        /* CTA */
+        .cta-section { margin-top: 3rem; padding: 2.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); text-align: center; }
+        .cta-section h3 { margin-top: 0; }
+        .btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.75rem 1.5rem; border-radius: 2px; font-family: var(--mono); font-size: 0.8rem; font-weight: 700; text-decoration: none; transition: all 0.25s; letter-spacing: 0.02em; text-transform: uppercase; }
+        .btn-primary { background: var(--primary); color: var(--bg); }
+        .btn-primary:hover { transform: translateY(-1px); box-shadow: 4px 4px 0 rgba(0,0,0,0.15); }
+        .btn-outline { border: 2px solid var(--text); color: var(--text); background: transparent; }
+        .btn-outline:hover { background: var(--text); color: var(--bg); }
+        .cta-buttons { display: flex; gap: 1rem; justify-content: center; margin-top: 1.2rem; flex-wrap: wrap; }
+
+        /* Tier nav */
+        .tier-nav { display: flex; gap: 0; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; margin-bottom: 2.5rem; }
+        .tier-nav a { flex: 1; text-align: center; padding: 0.8rem 1rem; font-family: var(--mono); font-size: 0.72rem; font-weight: 700; text-decoration: none; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; border-right: 1px solid var(--border); transition: all 0.2s; }
+        .tier-nav a:last-child { border-right: none; }
+        .tier-nav a:hover { background: var(--card-hover); color: var(--text); }
+        .tier-nav a.active { background: var(--green-bg); color: var(--cyan); }
+
+        /* Footer */
+        footer { border-top: 1px solid var(--border); padding: 2rem 0; text-align: center; font-size: 0.68rem; color: var(--dim); margin-top: 4rem; }
+
+        @media (max-width: 768px) {
+            .feature-grid { grid-template-columns: 1fr; }
+            h1 { font-size: 1.6rem; }
+            .nav-links { display: none; }
+            .tier-nav { flex-direction: column; }
+            .tier-nav a { border-right: none; border-bottom: 1px solid var(--border); }
+            .tier-nav a:last-child { border-bottom: none; }
+        }
+    </style>
+    <script defer data-domain="clawforce.ca" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
-    <p>This page has moved. <a href="/">Go to ClawForce homepage</a>.</p>
+    <nav>
+        <div class="wrap-wide">
+            <a href="/" class="nav-logo"><img src="/logo.png" alt="ClawForce" style="height:22px;width:22px;"><span>ClawForce</span></a>
+            <ul class="nav-links">
+                <li><a href="/#how-it-works">How It Works</a></li>
+                <li><a href="/#pricing">Pricing</a></li>
+                <li><a href="/registry.html">Registry</a></li>
+                <li><a href="/blog-index.html">Blog</a></li>
+                <li><a href="/developers.html">Developers</a></li>
+                <li><a href="/#waitlist" class="nav-cta">Join Waitlist &rarr;</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="wrap">
+            <!-- Tier Navigation -->
+            <div class="tier-nav">
+                <a href="/tier-scan.html" class="active">🔬 Scanned</a>
+                <a href="/tier-verified.html">🛡️ Verified</a>
+                <a href="/tier-certified.html">🏆 Certified</a>
+            </div>
+
+            <div class="tier-badge">🔬 Scanned Tier</div>
+            <h1>Free Automated <span class="hl">Security Scan</span></h1>
+            <p class="subtitle">Every skill in the ClawForce registry gets a baseline security analysis. Automated, instant, and completely free. No account required.</p>
+
+            <div class="price-tag">$0</div>
+            <div class="price-note">Free forever · No account required</div>
+
+            <a href="/" class="btn btn-primary">Scan a Skill Now →</a>
+
+            <h2>What Gets Scanned</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <div class="feature-name">Prompt Injection</div>
+                    <div class="feature-desc">Detects direct injection attempts, roleplay/pretend patterns, context clearing, and token smuggling in skill definitions.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🦠</div>
+                    <div class="feature-name">Malware Signatures</div>
+                    <div class="feature-desc">Scans for data exfiltration patterns, arbitrary code execution, shell injection, reverse shells, and crypto wallet theft.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔑</div>
+                    <div class="feature-name">Data Handling</div>
+                    <div class="feature-desc">Identifies hardcoded secrets, sensitive data logging, API token leaks, and private key exposure in the codebase.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📋</div>
+                    <div class="feature-name">Permission Analysis</div>
+                    <div class="feature-desc">Maps requested capabilities (filesystem, network, execution) and flags overly broad permission scopes.</div>
+                </div>
+            </div>
+
+            <h2>Sample Scan Output</h2>
+            <div class="terminal">
+                <div class="terminal-bar">
+                    <div class="terminal-dot r"></div>
+                    <div class="terminal-dot y"></div>
+                    <div class="terminal-dot g"></div>
+                    <span class="terminal-title">clawforce scan</span>
+                </div>
+                <div class="terminal-body">
+                    <span class="cmd">$ clawforce scan ./my-weather-skill</span><br>
+                    <br>
+                    <span class="dim">Scanning 12 files...</span><br>
+                    <span class="ok">✓</span> Prompt injection check <span class="dim">...... passed</span><br>
+                    <span class="ok">✓</span> Malware signature scan <span class="dim">.... passed</span><br>
+                    <span class="ok">✓</span> Data handling audit <span class="dim">....... passed</span><br>
+                    <span class="ok">✓</span> Permission scope analysis <span class="dim">.. 2 scopes declared</span><br>
+                    <br>
+                    <span class="dim">────────────────────────────────────</span><br>
+                    <span class="ok">RESULT: PASS</span> · Risk Score: <span class="ok">4/100</span><br>
+                    <span class="dim">Tier:</span> Scanned · <span class="dim">Findings:</span> 0 critical, 0 high<br>
+                    <span class="dim">Hash:</span> cf_a7b3e91f2d4c<br>
+                </div>
+            </div>
+
+            <h2>What You Get</h2>
+            <ul>
+                <li>Risk score from 0-100 based on static analysis</li>
+                <li>Registry listing in the ClawForce Verified Skills database</li>
+                <li>SVG trust badge you can embed in your README</li>
+                <li>CycloneDX SBOM (Software Bill of Materials) for the skill</li>
+                <li>Content hash for identity verification</li>
+                <li>Public scan results anyone can verify</li>
+            </ul>
+
+            <h2>Limitations</h2>
+            <p>The Scanned tier is fully automated. It catches common attack patterns but does not include:</p>
+            <ul>
+                <li>Manual code review by security engineers</li>
+                <li>Behavioral analysis or runtime testing</li>
+                <li>Supply chain dependency auditing</li>
+                <li>Enterprise compliance documentation</li>
+            </ul>
+            <p>For deeper analysis, consider the <a href="/tier-verified.html" style="color:var(--blue);font-weight:600;">Verified</a> or <a href="/tier-certified.html" style="color:var(--amber);font-weight:600;">Certified</a> tiers.</p>
+
+            <div class="cta-section">
+                <h3>Ready to Scan Your Skill?</h3>
+                <p style="margin-bottom:0.5rem;">Paste a ClawHub skill slug or upload your SKILL.md on the homepage scanner.</p>
+                <div class="cta-buttons">
+                    <a href="/" class="btn btn-primary">Open Scanner →</a>
+                    <a href="/certify.html" class="btn btn-outline">Get Certified Instead</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="wrap">&copy; 2026 ClawForce, a product of <a href="https://pixelfamiliar.ca" style="color:var(--dim);text-decoration:underline;">Pixel Familiar Inc.</a></div>
+    </footer>
 </body>
 </html>

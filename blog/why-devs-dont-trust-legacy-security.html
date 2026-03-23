@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Developers Don't Trust Legacy Security | ClawForce</title>
+    <meta name="description" content="Legacy security tools optimize for compliance, not developers. False positives, hidden pricing, and enterprise friction are why the industry needs a reset.">
+    <link rel="canonical" href="https://clawforce.ca/blog/why-devs-dont-trust-legacy-security.html">
+    <link rel="icon" href="/logo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{--bg:#FAFAF8;--surface:#FFF;--border:#E0DDD5;--text:#0A0A0A;--muted:#5C5C5C;--dim:#8A8A80;--primary:#0A0A0A;--cyan:#3D7A5F;--red:#C0392B;--radius:2px;--mono:'Space Mono',monospace;--sans:'DM Sans',-apple-system,sans-serif}
+        body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+        body::before{content:'';position:fixed;inset:0;background:url("data:image/svg+xml,%3Csvg width='400' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
+        .wrap{max-width:760px;margin:0 auto;padding:0 1.5rem;position:relative;z-index:1}
+        nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0.75rem 0;background:rgba(250,250,248,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+        nav .inner{display:flex;justify-content:space-between;align-items:center;max-width:960px;margin:0 auto;padding:0 1.5rem}
+        .nav-logo{display:flex;align-items:center;gap:0.5rem;text-decoration:none;font-family:var(--mono);font-weight:700;font-size:0.95rem;color:var(--text)}
+        .nav-links{display:flex;gap:1.5rem;list-style:none;align-items:center}
+        .nav-links a{color:var(--muted);text-decoration:none;font-size:0.82rem;font-weight:500}
+        .nav-links a:hover{color:var(--text)}
+        .nav-cta{background:var(--primary);color:#FAFAF8!important;padding:0.4rem 1rem;border-radius:2px;font-weight:700!important;font-family:var(--mono);font-size:0.75rem!important;text-transform:uppercase}
+        main{padding:8rem 0 5rem}
+        .meta{font-family:var(--mono);font-size:0.75rem;color:var(--dim);text-transform:uppercase;margin-bottom:1rem;letter-spacing:0.05em}
+        h1{font-family:var(--mono);font-size:2.2rem;font-weight:700;line-height:1.15;margin-bottom:2rem;letter-spacing:-0.04em}
+        h2{font-family:var(--mono);font-size:1.4rem;font-weight:700;margin:2.5rem 0 1rem}
+        h3{font-family:var(--mono);font-size:1.1rem;font-weight:700;margin:1.5rem 0 0.5rem}
+        p{margin-bottom:1.5rem;font-size:1.05rem;line-height:1.7;color:var(--muted)}
+        ul,ol{margin-bottom:1.5rem;padding-left:2rem;color:var(--muted)}
+        li{margin-bottom:0.5rem}
+        strong{color:var(--text)}
+        code{background:rgba(0,0,0,0.05);padding:0.2rem 0.4rem;border-radius:3px;font-family:var(--mono);font-size:0.85em;color:var(--red)}
+        pre{background:#1E1E1E;padding:1.5rem;border-radius:4px;overflow-x:auto;margin-bottom:1.5rem}
+        pre code{color:#D4D4D4;background:none;padding:0}
+        table{width:100%;border-collapse:collapse;margin-bottom:1.5rem;font-size:0.88rem}
+        th{font-family:var(--mono);font-size:0.75rem;text-transform:uppercase;padding:0.6rem;text-align:left;border-bottom:2px solid var(--border);color:var(--dim)}
+        td{padding:0.5rem 0.6rem;border-bottom:1px solid var(--border);color:var(--muted)}
+        .cta-box{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--cyan);padding:2rem;margin:3rem 0;border-radius:4px;text-align:center}
+        .cta-box h3{margin-top:0}
+        .cta-box a{display:inline-block;background:var(--primary);color:var(--surface);text-decoration:none;padding:0.8rem 1.5rem;font-family:var(--mono);font-weight:700;font-size:0.9rem;border-radius:2px;margin-top:1rem;text-transform:uppercase}
+        footer{border-top:1px solid var(--border);padding:2rem 0;margin-top:4rem;text-align:center}
+        .footer-copy{font-size:0.68rem;color:var(--dim)}
+        @media(max-width:768px){h1{font-size:1.6rem}.nav-links{display:none}}
+    </style>
+    <script defer data-domain="clawforce.ca" src="https://plausible.io/js/script.js"></script>
+</head>
+<body>
+    <nav><div class="inner">
+        <a href="/" class="nav-logo"><img src="/logo.png" alt="ClawForce" style="height:22px;width:22px;"><span>ClawForce</span></a>
+        <ul class="nav-links">
+            <li><a href="/">Scan</a></li>
+            <li><a href="/certify.html">Certification</a></li>
+            <li><a href="/blog-index.html" style="color:var(--text);">Blog</a></li>
+            <li><a href="/certify.html" class="nav-cta">Get Certified &rarr;</a></li>
+        </ul>
+    </div></nav>
+
+    <main class="wrap">
+        <div class="meta">March 2026 · Developer Experience</div>
+        <h1>Why Developers Don't Trust Legacy Security (And Shouldn't)</h1>
+
+        <h2>The Trust Deficit</h2>
+        <p>Every developer has been burned by security tooling. You know the feeling:</p>
+        <ul>
+            <li><strong>False positives flooding your CI</strong> — 47 issues, 46 are noise, 1 is a real bug you already knew about</li>
+            <li><strong>"Enterprise" UX that wastes your time</strong> — 47 clicks to configure a scanner that takes 5 minutes to run</li>
+            <li><strong>Pricing designed to hide the real cost</strong> — $10K/year "platform" that actually charges per-scan, per-user, per-feature</li>
+            <li><strong>No integration with your workflow</strong> — Tools that exist in their own universe, forcing constant context switching</li>
+        </ul>
+        <p>This isn't security. This is security theater.</p>
+
+        <h2>What Legacy Security Gets Wrong</h2>
+
+        <h3>1. They Optimize for Compliance, Not Security</h3>
+        <p>Legacy vendors want to check boxes for CISO dashboards. That's why you get scanning reports with 500 "critical" findings (none are critical), compliance frameworks that look good in screenshots, and checklists that prove nothing except that you ran a tool.</p>
+        <p>The actual security outcome? Unchanged.</p>
+
+        <h3>2. They Treat Developers as the Problem</h3>
+        <p>"Your code is the vulnerability" is the foundational wrong assumption. "Don't write bugs" (impossible). "Learn security" (not your job). "Use our tool" (expensive, slow).</p>
+        <p>The better approach: help developers write secure code, don't audit them after the fact.</p>
+
+        <h3>3. They Monetize Complexity</h3>
+        <p>Security has become the enterprise software equivalent of "call us for pricing." Actual models from legacy vendors: per-scan pricing, per-repo pricing, per-seat pricing, and the "Enterprise tier" that unlocks actually useful features.</p>
+
+        <h2>What Developers Actually Want</h2>
+        <table>
+            <thead><tr><th>Want</th><th>Legacy Response</th><th>What Works</th></tr></thead>
+            <tbody>
+                <tr><td>Fast feedback</td><td>"Scan runs in 2 min"</td><td>&lt;30 seconds in CI</td></tr>
+                <tr><td>Actionable findings</td><td>"Here are 47 issues"</td><td>Top 3, with context</td></tr>
+                <tr><td>IDE integration</td><td>"We have a plugin"</td><td>VSCode-native, no context switch</td></tr>
+                <tr><td>Transparent pricing</td><td>"Contact sales"</td><td>Per-repo, flat, predictable</td></tr>
+                <tr><td>Own your data</td><td>"Data stays in your org"</td><td>Can be self-hosted</td></tr>
+            </tbody>
+        </table>
+
+        <h2>Developer-Native Security</h2>
+        <p>Developer-native security means:</p>
+        <ol>
+            <li><strong>Installs like a dev tool</strong> — <code>npm install</code>, <code>brew install</code>, <code>go get</code></li>
+            <li><strong>Runs in your environment</strong> — CLI-first, pipeline-ready, IDE integrated</li>
+            <li><strong>Transparent pricing</strong> — Flat rate, per-repo, no hidden multipliers</li>
+            <li><strong>Focuses on signal</strong> — Not 500 issues, but the 5 that matter</li>
+            <li><strong>Respects your workflow</strong> — Doesn't demand you change how you work</li>
+            <li><strong>No enterprise friction</strong> — No sales calls, no "demo," just works</li>
+        </ol>
+
+        <h2>The Developer Security Bill of Rights</h2>
+        <p>You deserve security tooling that:</p>
+        <ul>
+            <li>✅ Doesn't require a sales call to learn the price</li>
+            <li>✅ Integrates without forcing you into a platform</li>
+            <li>✅ Returns results in seconds, not minutes</li>
+            <li>✅ Tells you what's actually wrong, not just what's "detected"</li>
+            <li>✅ Doesn't assume you're the enemy</li>
+            <li>✅ Respects that your job is shipping code, not filling out security forms</li>
+        </ul>
+        <p>Legacy security has had 20 years to get this right. They chose not to. We're building the alternative.</p>
+
+        <div class="cta-box">
+            <h3>Try Developer-Native Security</h3>
+            <p style="margin-bottom:0.5rem;font-size:0.9rem;">ClawForce: transparent pricing, CLI-first workflow, results in seconds. Free scan, no account required.</p>
+            <a href="/">Scan a Skill &rarr;</a>
+        </div>
+    </main>
+
+    <footer><div class="footer-copy">&copy; 2026 Pixel Familiar Inc. · ClawForce Verified Skills™ · Manitoba, Canada</div></footer>
+</body>
+</html>

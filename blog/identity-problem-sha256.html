@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Identity Problem: Why SHA-256 Fails for AI Agent Skills | ClawForce</title>
+    <meta name="description" content="SHA-256 verifies file integrity but not publisher identity. Learn why this matters for AI agent skills and how cryptographic identity chaining solves it.">
+    <link rel="canonical" href="https://clawforce.ca/blog/identity-problem-sha256.html">
+    <link rel="icon" href="/logo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{--bg:#FAFAF8;--surface:#FFF;--border:#E0DDD5;--text:#0A0A0A;--muted:#5C5C5C;--dim:#8A8A80;--primary:#0A0A0A;--cyan:#3D7A5F;--amber:#B8860B;--red:#C0392B;--radius:2px;--mono:'Space Mono',monospace;--sans:'DM Sans',-apple-system,sans-serif}
+        body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+        body::before{content:'';position:fixed;inset:0;background:url("data:image/svg+xml,%3Csvg width='400' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
+        .wrap{max-width:760px;margin:0 auto;padding:0 1.5rem;position:relative;z-index:1}
+        nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0.75rem 0;background:rgba(250,250,248,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+        nav .inner{display:flex;justify-content:space-between;align-items:center;max-width:960px;margin:0 auto;padding:0 1.5rem}
+        .nav-logo{display:flex;align-items:center;gap:0.5rem;text-decoration:none;font-family:var(--mono);font-weight:700;font-size:0.95rem;color:var(--text)}
+        .nav-links{display:flex;gap:1.5rem;list-style:none;align-items:center}
+        .nav-links a{color:var(--muted);text-decoration:none;font-size:0.82rem;font-weight:500}
+        .nav-links a:hover{color:var(--text)}
+        .nav-cta{background:var(--primary);color:#FAFAF8!important;padding:0.4rem 1rem;border-radius:2px;font-weight:700!important;font-family:var(--mono);font-size:0.75rem!important;text-transform:uppercase}
+        main{padding:8rem 0 5rem}
+        .meta{font-family:var(--mono);font-size:0.75rem;color:var(--dim);text-transform:uppercase;margin-bottom:1rem;letter-spacing:0.05em}
+        h1{font-family:var(--mono);font-size:2.2rem;font-weight:700;line-height:1.15;margin-bottom:2rem;letter-spacing:-0.04em}
+        h2{font-family:var(--mono);font-size:1.4rem;font-weight:700;margin:2.5rem 0 1rem}
+        h3{font-family:var(--mono);font-size:1.1rem;font-weight:700;margin:1.5rem 0 0.5rem}
+        p{margin-bottom:1.5rem;font-size:1.05rem;line-height:1.7;color:var(--muted)}
+        ul,ol{margin-bottom:1.5rem;padding-left:2rem;color:var(--muted)}
+        li{margin-bottom:0.5rem}
+        strong{color:var(--text)}
+        code{background:rgba(0,0,0,0.05);padding:0.2rem 0.4rem;border-radius:3px;font-family:var(--mono);font-size:0.85em;color:var(--red)}
+        pre{background:#1E1E1E;padding:1.5rem;border-radius:4px;overflow-x:auto;margin-bottom:1.5rem}
+        pre code{color:#D4D4D4;background:none;padding:0}
+        table{width:100%;border-collapse:collapse;margin-bottom:1.5rem;font-size:0.88rem}
+        th{font-family:var(--mono);font-size:0.75rem;text-transform:uppercase;padding:0.6rem;text-align:left;border-bottom:2px solid var(--border);color:var(--dim)}
+        td{padding:0.5rem 0.6rem;border-bottom:1px solid var(--border);color:var(--muted)}
+        .cta-box{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--cyan);padding:2rem;margin:3rem 0;border-radius:4px;text-align:center}
+        .cta-box h3{margin-top:0}
+        .cta-box a{display:inline-block;background:var(--primary);color:var(--surface);text-decoration:none;padding:0.8rem 1.5rem;font-family:var(--mono);font-weight:700;font-size:0.9rem;border-radius:2px;margin-top:1rem;text-transform:uppercase}
+        footer{border-top:1px solid var(--border);padding:2rem 0;margin-top:4rem;text-align:center}
+        .footer-copy{font-size:0.68rem;color:var(--dim)}
+        @media(max-width:768px){h1{font-size:1.6rem}.nav-links{display:none}}
+    </style>
+    <script defer data-domain="clawforce.ca" src="https://plausible.io/js/script.js"></script>
+</head>
+<body>
+    <nav><div class="inner">
+        <a href="/" class="nav-logo"><img src="/logo.png" alt="ClawForce" style="height:22px;width:22px;"><span>ClawForce</span></a>
+        <ul class="nav-links">
+            <li><a href="/">Scan</a></li>
+            <li><a href="/certify.html">Certification</a></li>
+            <li><a href="/blog-index.html" style="color:var(--text);">Blog</a></li>
+            <li><a href="/certify.html" class="nav-cta">Get Certified &rarr;</a></li>
+        </ul>
+    </div></nav>
+
+    <main class="wrap">
+        <div class="meta">March 2026 · Security Research</div>
+        <h1>The Identity Problem: Why SHA-256 Fails for AI Agent Skills</h1>
+
+        <h2>The Myth of Integrity</h2>
+        <p>You verify your npm packages. You check GPG signatures on Docker images. You trust nothing.</p>
+        <p>And yet, when you install an AI agent skill, you're probably just trusting the hash.</p>
+        <p><strong>SHA-256: "This file hasn't been tampered with."</strong> That's useful. But it's not enough. Not even close.</p>
+
+        <h2>What SHA-256 Actually Verifies</h2>
+        <pre><code>File: skill-bundle.tar.gz
+SHA-256: a1b2c3d4e5f6...</code></pre>
+        <p>This tells you:</p>
+        <ul>
+            <li>✅ The file bits are identical to what was published</li>
+            <li>✅ No corruption during download</li>
+        </ul>
+        <p>This tells you <strong>nothing</strong> about:</p>
+        <ul>
+            <li>❌ WHO published it</li>
+            <li>❌ Whether that person is trustworthy</li>
+            <li>❌ Whether the skill has been updated by an imposter</li>
+            <li>❌ What the skill actually does when it runs</li>
+        </ul>
+
+        <h2>The Attack You've Never Heard Of</h2>
+        <p>Here's how credential theft actually works now:</p>
+        <ol>
+            <li><strong>Legitimate skill published</strong> — Developer publishes "code-review-helper" to a marketplace</li>
+            <li><strong>Attacker's turn</strong> — Attacker creates "code-review-helper-v2" with the same name, different code</li>
+            <li><strong>Search result gaming</strong> — New version appears as "updated" in search results</li>
+            <li><strong>You install it</strong> — Developer sees "update available," clicks install</li>
+            <li><strong>Your secrets are gone</strong> — New version exfiltrates environment variables on first run</li>
+        </ol>
+        <p><strong>The SHA-256 check passes.</strong> The file is valid, just not by who you think.</p>
+
+        <h2>The Missing Link: Identity Chaining</h2>
+        <p>What we actually need is this:</p>
+        <pre><code>SignedSkill:
+  ├── ContentHash: SHA-256(skill-bundle)
+  ├── PublisherIdentity: cryptographic identity (not username)
+  ├── Timestamp: when signed
+  └── PermissionScope: what it claims to do</code></pre>
+        <p>This creates a chain:</p>
+        <ul>
+            <li><strong>Integrity</strong> — SHA-256 (has the file changed?)</li>
+            <li><strong>Identity</strong> — Who signed it? (can we verify they are who they claim?)</li>
+            <li><strong>Non-repudiation</strong> — When was it signed? (can we detect replay/rollback?)</li>
+        </ul>
+
+        <h2>Why Current Markets Fail</h2>
+        <table>
+            <thead><tr><th>Platform</th><th>Integrity</th><th>Identity</th><th>Scope</th></tr></thead>
+            <tbody>
+                <tr><td>npm</td><td>✅ Hash</td><td>❌ Username only</td><td>❌ No</td></tr>
+                <tr><td>PyPI</td><td>✅ Hash</td><td>❌ Username only</td><td>❌ No</td></tr>
+                <tr><td>GitHub Marketplace</td><td>✅ Hash</td><td>❌ Org name</td><td>⚠️ Basic</td></tr>
+                <tr><td><strong>ClawForce</strong></td><td>✅ Hash</td><td>✅ Cryptographic</td><td>✅ Full</td></tr>
+            </tbody>
+        </table>
+
+        <h2>The Real Cost of Ignoring This</h2>
+        <p>Every day developers integrate skills that can read their codebase, execute commands, access API keys, and have NO identity verification.</p>
+        <p>This is like installing random npm packages in 2015, before the ecosystem matured. We're in that same moment for AI agent skills. The difference? AI agents have far more privilege than a JavaScript package.</p>
+
+        <h2>What's Next</h2>
+        <p>The AI agent security ecosystem needs:</p>
+        <ol>
+            <li><strong>Identity-first skill manifests</strong> — Identity verification as default, not opt-in</li>
+            <li><strong>Permission declarations</strong> — Skills explicitly declare what they can access</li>
+            <li><strong>Transparent versioning</strong> — Can't fake an "update"</li>
+            <li><strong>Incident response</strong> — When something goes wrong, know who to contact</li>
+        </ol>
+
+        <div class="cta-box">
+            <h3>Verify Your Skills</h3>
+            <p style="margin-bottom:0.5rem;font-size:0.9rem;">ClawForce provides cryptographic identity verification for AI agent skills. From $0 (free scan) to $29 (full manual audit).</p>
+            <a href="/certify.html">Get Certified &rarr;</a>
+        </div>
+    </main>
+
+    <footer><div class="footer-copy">&copy; 2026 Pixel Familiar Inc. · ClawForce Verified Skills™ · Manitoba, Canada</div></footer>
+</body>
+</html>

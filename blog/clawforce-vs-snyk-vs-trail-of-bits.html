@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClawForce vs Snyk vs Trail of Bits: A Developer's Perspective | ClawForce</title>
+    <meta name="description" content="How ClawForce compares to Snyk and Trail of Bits for AI agent security. Feature comparison, real pricing, and honest analysis.">
+    <link rel="canonical" href="https://clawforce.ca/blog/clawforce-vs-snyk-vs-trail-of-bits.html">
+    <link rel="icon" href="/logo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{--bg:#FAFAF8;--surface:#FFF;--border:#E0DDD5;--text:#0A0A0A;--muted:#5C5C5C;--dim:#8A8A80;--primary:#0A0A0A;--cyan:#3D7A5F;--red:#C0392B;--radius:2px;--mono:'Space Mono',monospace;--sans:'DM Sans',-apple-system,sans-serif}
+        body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+        body::before{content:'';position:fixed;inset:0;background:url("data:image/svg+xml,%3Csvg width='400' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
+        .wrap{max-width:760px;margin:0 auto;padding:0 1.5rem;position:relative;z-index:1}
+        nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0.75rem 0;background:rgba(250,250,248,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+        nav .inner{display:flex;justify-content:space-between;align-items:center;max-width:960px;margin:0 auto;padding:0 1.5rem}
+        .nav-logo{display:flex;align-items:center;gap:0.5rem;text-decoration:none;font-family:var(--mono);font-weight:700;font-size:0.95rem;color:var(--text)}
+        .nav-links{display:flex;gap:1.5rem;list-style:none;align-items:center}
+        .nav-links a{color:var(--muted);text-decoration:none;font-size:0.82rem;font-weight:500}
+        .nav-links a:hover{color:var(--text)}
+        .nav-cta{background:var(--primary);color:#FAFAF8!important;padding:0.4rem 1rem;border-radius:2px;font-weight:700!important;font-family:var(--mono);font-size:0.75rem!important;text-transform:uppercase}
+        main{padding:8rem 0 5rem}
+        .meta{font-family:var(--mono);font-size:0.75rem;color:var(--dim);text-transform:uppercase;margin-bottom:1rem;letter-spacing:0.05em}
+        h1{font-family:var(--mono);font-size:2rem;font-weight:700;line-height:1.15;margin-bottom:2rem;letter-spacing:-0.04em}
+        h2{font-family:var(--mono);font-size:1.4rem;font-weight:700;margin:2.5rem 0 1rem}
+        h3{font-family:var(--mono);font-size:1.1rem;font-weight:700;margin:1.5rem 0 0.5rem}
+        p{margin-bottom:1.5rem;font-size:1.05rem;line-height:1.7;color:var(--muted)}
+        ul,ol{margin-bottom:1.5rem;padding-left:2rem;color:var(--muted)}
+        li{margin-bottom:0.5rem}
+        strong{color:var(--text)}
+        table{width:100%;border-collapse:collapse;margin-bottom:1.5rem;font-size:0.88rem}
+        th{font-family:var(--mono);font-size:0.75rem;text-transform:uppercase;padding:0.6rem;text-align:left;border-bottom:2px solid var(--border);color:var(--dim)}
+        td{padding:0.5rem 0.6rem;border-bottom:1px solid var(--border);color:var(--muted)}
+        .cta-box{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--cyan);padding:2rem;margin:3rem 0;border-radius:4px;text-align:center}
+        .cta-box h3{margin-top:0}
+        .cta-box a{display:inline-block;background:var(--primary);color:var(--surface);text-decoration:none;padding:0.8rem 1.5rem;font-family:var(--mono);font-weight:700;font-size:0.9rem;border-radius:2px;margin-top:1rem;text-transform:uppercase}
+        footer{border-top:1px solid var(--border);padding:2rem 0;margin-top:4rem;text-align:center}
+        .footer-copy{font-size:0.68rem;color:var(--dim)}
+        @media(max-width:768px){h1{font-size:1.5rem}.nav-links{display:none}}
+    </style>
+    <script defer data-domain="clawforce.ca" src="https://plausible.io/js/script.js"></script>
+</head>
+<body>
+    <nav><div class="inner">
+        <a href="/" class="nav-logo"><img src="/logo.png" alt="ClawForce" style="height:22px;width:22px;"><span>ClawForce</span></a>
+        <ul class="nav-links">
+            <li><a href="/">Scan</a></li>
+            <li><a href="/certify.html">Certification</a></li>
+            <li><a href="/blog-index.html" style="color:var(--text);">Blog</a></li>
+            <li><a href="/certify.html" class="nav-cta">Get Certified &rarr;</a></li>
+        </ul>
+    </div></nav>
+
+    <main class="wrap">
+        <div class="meta">March 2026 · Competitive Analysis</div>
+        <h1>ClawForce vs Snyk vs Trail of Bits: A Developer's Perspective</h1>
+
+        <h2>The Players</h2>
+        <table>
+            <thead><tr><th>Vendor</th><th>Focus</th><th>Pricing</th><th>DX</th></tr></thead>
+            <tbody>
+                <tr><td><strong>Snyk</strong></td><td>Vulnerability scanning</td><td>$$$ (complex)</td><td>Good</td></tr>
+                <tr><td><strong>Trail of Bits</strong></td><td>Security research + audits</td><td>$$$$ (services)</td><td>N/A</td></tr>
+                <tr><td><strong>ClawForce</strong></td><td>AI agent skill security</td><td>Transparent, flat</td><td>Built for devs</td></tr>
+            </tbody>
+        </table>
+
+        <h2>Snyk: The Enterprise On-Ramp</h2>
+        <p><strong>What they do well:</strong> Large vulnerability database, IDE integration (VSCode, IntelliJ), good for container scanning.</p>
+        <p><strong>What they do poorly:</strong> Pricing is a labyrinth (per-project, per-seat, add-ons). Fix suggestions often miss context. Scans can be slow. "Platform" upsell is aggressive.</p>
+        <p><strong>The real cost:</strong> Base ~$50/project/month. Add-ons $500+/month for "advanced" features. Enterprise: contact them and hope.</p>
+        <p><strong>Developer take:</strong> Fine if someone else is paying and you're dealing with containers/dependencies. For AI agent skills? Not their focus.</p>
+
+        <h2>Trail of Bits: The Expert Option</h2>
+        <p><strong>What they do well:</strong> Deep security research, top-tier code audits, actual vulnerability finding (not just pattern matching).</p>
+        <p><strong>What they do poorly:</strong> Not a product company; they're a consultancy. No self-service tool for AI agent security. Minimum engagement: $50K+.</p>
+        <p><strong>Developer take:</strong> If you need a security audit, they're excellent. If you need ongoing AI agent security tooling, they're not the answer.</p>
+
+        <h2>ClawForce: Built for the AI Agent Era</h2>
+        <p>We verify identity of AI agent skill publishers, detect prompt injection patterns, audit skill permissions before execution, and publish our pricing on the website. No "contact sales."</p>
+        <p>We're the tool you reach for when you're using Claude Code, Cursor, Copilot, or Windsurf; you need to verify the skills those agents use; you want to know what permissions you're granting; and you don't want to read a 47-page pricing PDF.</p>
+
+        <h2>Head-to-Head Comparison</h2>
+        <table>
+            <thead><tr><th>Capability</th><th>Snyk</th><th>Trail of Bits</th><th>ClawForce</th></tr></thead>
+            <tbody>
+                <tr><td>Vulnerability scanning</td><td>✅</td><td>❌ (service)</td><td>N/A</td></tr>
+                <tr><td>AI agent skill verification</td><td>❌</td><td>❌</td><td>✅</td></tr>
+                <tr><td>Prompt injection detection</td><td>❌</td><td>⚠️ (research)</td><td>✅</td></tr>
+                <tr><td>Identity verification</td><td>⚠️ (basic)</td><td>⚠️ (manual)</td><td>✅ (automated)</td></tr>
+                <tr><td>Transparent pricing</td><td>❌</td><td>❌</td><td>✅</td></tr>
+                <tr><td>CLI-first</td><td>✅</td><td>❌</td><td>✅</td></tr>
+                <tr><td>Self-service</td><td>✅</td><td>❌</td><td>✅</td></tr>
+            </tbody>
+        </table>
+
+        <h2>When to Use What</h2>
+        <table>
+            <thead><tr><th>Scenario</th><th>Best Tool</th></tr></thead>
+            <tbody>
+                <tr><td>Scanning npm dependencies for CVEs</td><td>Snyk</td></tr>
+                <tr><td>Hiring someone to audit your codebase</td><td>Trail of Bits</td></tr>
+                <tr><td>Verifying AI agent skills before using them</td><td><strong>ClawForce</strong></td></tr>
+                <tr><td>Container vulnerability scanning</td><td>Snyk</td></tr>
+                <tr><td>AI coding assistant security</td><td><strong>ClawForce</strong></td></tr>
+                <tr><td>Verifying skill publisher identity</td><td><strong>ClawForce</strong></td></tr>
+            </tbody>
+        </table>
+
+        <h2>The Honest Take</h2>
+        <p>We're not trying to replace Snyk and we're not competing with Trail of Bits. We're building what doesn't exist: security tooling specifically for AI agent skills.</p>
+        <p>If you're using AI to write code, you need to think about: What skills is your agent using? Who published them? What can they access? Can you verify any of this? The answer to those questions, until now, was "no." We're changing that.</p>
+
+        <div class="cta-box">
+            <h3>See the Full Comparison</h3>
+            <p style="margin-bottom:0.5rem;font-size:0.9rem;">Check out our detailed <a href="/compare.html" style="color:var(--cyan);">comparison page</a> or try a free scan right now.</p>
+            <a href="/compare.html">View Comparison &rarr;</a>
+        </div>
+    </main>
+
+    <footer><div class="footer-copy">&copy; 2026 Pixel Familiar Inc. · ClawForce Verified Skills™ · Manitoba, Canada</div></footer>
+</body>
+</html>
