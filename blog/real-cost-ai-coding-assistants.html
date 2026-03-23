@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Real Cost of AI Coding Assistants: A Pricing Exposé | ClawForce</title>
+    <meta name="description" content="The price you see is a teaser. Hidden compute costs, upgrade spirals, and security blind spots make AI coding assistants far more expensive than advertised.">
+    <link rel="canonical" href="https://clawforce.ca/blog/real-cost-ai-coding-assistants.html">
+    <link rel="icon" href="/logo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{--bg:#FAFAF8;--surface:#FFF;--border:#E0DDD5;--text:#0A0A0A;--muted:#5C5C5C;--dim:#8A8A80;--primary:#0A0A0A;--cyan:#3D7A5F;--amber:#B8860B;--red:#C0392B;--radius:2px;--mono:'Space Mono',monospace;--sans:'DM Sans',-apple-system,sans-serif}
+        body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+        body::before{content:'';position:fixed;inset:0;background:url("data:image/svg+xml,%3Csvg width='400' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
+        .wrap{max-width:760px;margin:0 auto;padding:0 1.5rem;position:relative;z-index:1}
+        nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0.75rem 0;background:rgba(250,250,248,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+        nav .inner{display:flex;justify-content:space-between;align-items:center;max-width:960px;margin:0 auto;padding:0 1.5rem}
+        .nav-logo{display:flex;align-items:center;gap:0.5rem;text-decoration:none;font-family:var(--mono);font-weight:700;font-size:0.95rem;color:var(--text)}
+        .nav-links{display:flex;gap:1.5rem;list-style:none;align-items:center}
+        .nav-links a{color:var(--muted);text-decoration:none;font-size:0.82rem;font-weight:500}
+        .nav-links a:hover{color:var(--text)}
+        .nav-cta{background:var(--primary);color:#FAFAF8!important;padding:0.4rem 1rem;border-radius:2px;font-weight:700!important;font-family:var(--mono);font-size:0.75rem!important;text-transform:uppercase}
+        main{padding:8rem 0 5rem}
+        .meta{font-family:var(--mono);font-size:0.75rem;color:var(--dim);text-transform:uppercase;margin-bottom:1rem;letter-spacing:0.05em}
+        h1{font-family:var(--mono);font-size:2.2rem;font-weight:700;line-height:1.15;margin-bottom:2rem;letter-spacing:-0.04em}
+        h2{font-family:var(--mono);font-size:1.4rem;font-weight:700;margin:2.5rem 0 1rem}
+        h3{font-family:var(--mono);font-size:1.1rem;font-weight:700;margin:1.5rem 0 0.5rem}
+        p{margin-bottom:1.5rem;font-size:1.05rem;line-height:1.7;color:var(--muted)}
+        ul,ol{margin-bottom:1.5rem;padding-left:2rem;color:var(--muted)}
+        li{margin-bottom:0.5rem}
+        strong{color:var(--text)}
+        code{background:rgba(0,0,0,0.05);padding:0.2rem 0.4rem;border-radius:3px;font-family:var(--mono);font-size:0.85em;color:var(--red)}
+        pre{background:#1E1E1E;padding:1.5rem;border-radius:4px;overflow-x:auto;margin-bottom:1.5rem}
+        pre code{color:#D4D4D4;background:none;padding:0}
+        table{width:100%;border-collapse:collapse;margin-bottom:1.5rem;font-size:0.88rem}
+        th{font-family:var(--mono);font-size:0.75rem;text-transform:uppercase;padding:0.6rem;text-align:left;border-bottom:2px solid var(--border);color:var(--dim)}
+        td{padding:0.5rem 0.6rem;border-bottom:1px solid var(--border);color:var(--muted)}
+        .cta-box{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--cyan);padding:2rem;margin:3rem 0;border-radius:4px;text-align:center}
+        .cta-box h3{margin-top:0}
+        .cta-box a{display:inline-block;background:var(--primary);color:var(--surface);text-decoration:none;padding:0.8rem 1.5rem;font-family:var(--mono);font-weight:700;font-size:0.9rem;border-radius:2px;margin-top:1rem;text-transform:uppercase}
+        footer{border-top:1px solid var(--border);padding:2rem 0;margin-top:4rem;text-align:center}
+        .footer-copy{font-size:0.68rem;color:var(--dim)}
+        @media(max-width:768px){h1{font-size:1.6rem}.nav-links{display:none}}
+    </style>
+    <script defer data-domain="clawforce.ca" src="https://plausible.io/js/script.js"></script>
+</head>
+<body>
+    <nav><div class="inner">
+        <a href="/" class="nav-logo"><img src="/logo.png" alt="ClawForce" style="height:22px;width:22px;"><span>ClawForce</span></a>
+        <ul class="nav-links">
+            <li><a href="/">Scan</a></li>
+            <li><a href="/certify.html">Certification</a></li>
+            <li><a href="/blog-index.html" style="color:var(--text);">Blog</a></li>
+            <li><a href="/certify.html" class="nav-cta">Get Certified &rarr;</a></li>
+        </ul>
+    </div></nav>
+
+    <main class="wrap">
+        <div class="meta">March 2026 · Ecosystem</div>
+        <h1>The Real Cost of AI Coding Assistants: A Pricing Exposé</h1>
+
+        <h2>The Surface-Level Pricing</h2>
+        <table>
+            <thead><tr><th>Tool</th><th>Promoted Price</th></tr></thead>
+            <tbody>
+                <tr><td>GitHub Copilot</td><td>$10/month</td></tr>
+                <tr><td>Claude Code</td><td>$20/month</td></tr>
+                <tr><td>Cursor</td><td>$20/month</td></tr>
+                <tr><td>Windsurf</td><td>$40/month</td></tr>
+            </tbody>
+        </table>
+        <p>That seems reasonable. You've paid more for less useful stuff. <strong>But that's not the real cost.</strong></p>
+
+        <h2>The Hidden Cost Layer</h2>
+
+        <h3>1. Compute Costs You Don't See</h3>
+        <p>AI coding tools run models on provider servers. You're burning through "credits" or "tokens" that don't come with the subscription. Copilot Pro is $10/month base, but also comes with API rate limits, throttling, and "premium" features locked behind higher tiers. Copilot Business is $19/user/month, but you need 10+ seats to not get screwed.</p>
+
+        <h3>2. The "Free Tier" Trap</h3>
+        <pre><code>Cursor Free:      2,000 completions/month
+Claude Code Free:  Limited API calls
+Windsurf Free:     Cursory features, "Core" model only</code></pre>
+        <p>"Completions" means how many times the AI finishes your code. If you're a real developer, you'll hit that limit in a week.</p>
+
+        <h3>3. The Upgrade Spiral</h3>
+        <p>The pricing psychology: start free, hit the limit on day 3, upgrade to Pro ($10-20/month), hit the limit again in two weeks, upgrade to Business ($20-40/month), then realize you need the Enterprise tier for actual features.</p>
+        <table>
+            <thead><tr><th>Developer Type</th><th>Real Monthly Cost</th></tr></thead>
+            <tbody>
+                <tr><td>Hobbyist</td><td>$0-10 (but frustrated)</td></tr>
+                <tr><td>Freelancer</td><td>$20-40</td></tr>
+                <tr><td>Startup dev</td><td>$40-80</td></tr>
+                <tr><td>Enterprise dev</td><td>$100+ (with "platform" fees)</td></tr>
+            </tbody>
+        </table>
+
+        <h2>The Context Switching Tax</h2>
+        <p>Beyond direct costs, there's the workflow tax:</p>
+        <ul>
+            <li><strong>Learning curve</strong> — Each tool has different keybindings, paradigms, quirks</li>
+            <li><strong>Context switching</strong> — When Copilot's suggestion is wrong, you spend time correcting vs. writing from scratch</li>
+            <li><strong>Lock-in</strong> — Skills and configs don't transfer between tools</li>
+            <li><strong>Tool sprawl</strong> — Now you have Copilot + Claude CLI + Cursor + your IDE's built-in AI</li>
+        </ul>
+
+        <h2>The Security Tax Nobody Talks About</h2>
+        <p>Here's what's NOT in the price:</p>
+        <p>When you use Copilot or Claude Code, it sees your code, may send it to external servers, executes within your IDE's permissions, and the "skills" it uses are unverified. <strong>The price doesn't include knowing what's actually happening.</strong></p>
+        <p>If your AI coding assistant introduces a vulnerability you miss, leaks credentials in generated code, or uses a compromised skill that exfiltrates data... whose problem is that? Your company's? The tool vendor's? Yours personally? <strong>It's yours. The Terms of Service will explain.</strong></p>
+
+        <h2>The Real Price Comparison</h2>
+        <table>
+            <thead><tr><th>Factor</th><th>Copilot</th><th>Claude Code</th><th>Cursor</th><th>ClawForce</th></tr></thead>
+            <tbody>
+                <tr><td>Base subscription</td><td>$10/mo</td><td>$20/mo</td><td>$20/mo</td><td>$0-29/scan</td></tr>
+                <tr><td>Hidden credits</td><td>✅ Yes</td><td>✅ Yes</td><td>✅ Yes</td><td>❌ No</td></tr>
+                <tr><td>Enterprise markup</td><td>2-3x</td><td>2x</td><td>2x</td><td>❌ No</td></tr>
+                <tr><td>Identity verification</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td></tr>
+                <tr><td>Skill security</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td></tr>
+                <tr><td>Transparent pricing</td><td>❌</td><td>⚠️</td><td>⚠️</td><td>✅</td></tr>
+            </tbody>
+        </table>
+
+        <h2>The Bottom Line</h2>
+        <p>The "price" you see is a teaser. The real cost includes tiered pricing that pushes you to upgrade, usage limits that reset faster than you expect, enterprise pricing that punishes small teams, and security blind spots that cost you later.</p>
+        <p><strong>You're paying for AI to help you code, but you're not paying for AI that's secure.</strong> The AI tool wants you to ship fast. It doesn't want you to think about what skills are loaded, who published them, what they can access, or whether you can verify any of this.</p>
+
+        <div class="cta-box">
+            <h3>Security Is Part of the Price</h3>
+            <p style="margin-bottom:0.5rem;font-size:0.9rem;">ClawForce offers transparent, flat-rate security. Free scans. $9 verified. $29 certified. No hidden credits, no per-seat multipliers, no "contact sales."</p>
+            <a href="/certify.html">See Pricing &rarr;</a>
+        </div>
+    </main>
+
+    <footer><div class="footer-copy">&copy; 2026 Pixel Familiar Inc. · ClawForce Verified Skills™ · Manitoba, Canada</div></footer>
+</body>
+</html>
