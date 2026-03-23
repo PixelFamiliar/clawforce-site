@@ -2,11 +2,194 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>ClawForce — Redirecting</title>
-    <meta http-equiv="refresh" content="0;url=/">
-    <link rel="canonical" href="https://clawforce.ca/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Permission Scopes Reference — AI Agent Skill Permissions | ClawForce</title>
+    <meta name="description" content="Complete reference of AI agent skill permission scopes. Understand what skills can access: filesystem, network, shell, credentials, and more.">
+    <link rel="canonical" href="https://clawforce.ca/scopes.html">
+    <link rel="icon" href="/logo.png" type="image/png">
+    <meta property="og:title" content="Permission Scopes Reference — ClawForce">
+    <meta property="og:description" content="What can an AI agent skill access? Full reference of permission scopes for MCP tools and agent capabilities.">
+    <meta property="og:url" content="https://clawforce.ca/scopes.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{--bg:#FAFAF8;--surface:#FFF;--card-hover:#F5F5F0;--border:#E0DDD5;--text:#0A0A0A;--muted:#5C5C5C;--dim:#8A8A80;--primary:#0A0A0A;--cyan:#3D7A5F;--red:#C0392B;--amber:#B8860B;--radius:2px;--mono:'Space Mono',monospace;--sans:'DM Sans',-apple-system,sans-serif}
+        body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+        body::before{content:'';position:fixed;inset:0;background:url("data:image/svg+xml,%3Csvg width='400' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
+        .wrap{max-width:820px;margin:0 auto;padding:0 2rem;position:relative;z-index:1}
+        .wrap-wide{max-width:1100px;margin:0 auto;padding:0 2rem;position:relative;z-index:1}
+        nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(250,250,248,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0.75rem 0}
+        nav .wrap-wide{display:flex;align-items:center;justify-content:space-between}
+        .nav-logo{display:flex;align-items:center;gap:0.5rem;text-decoration:none;font-family:var(--mono);font-weight:700;font-size:0.95rem;color:var(--text)}
+        .nav-links{list-style:none;display:flex;gap:1.5rem;align-items:center}
+        .nav-links a{color:var(--muted);text-decoration:none;font-size:0.82rem;font-weight:500;transition:color 0.2s}
+        .nav-links a:hover{color:var(--text)}
+        .nav-cta{background:var(--primary);color:#FAFAF8!important;padding:0.4rem 1rem;border-radius:2px;font-family:var(--mono);font-size:0.75rem!important;font-weight:700!important;text-transform:uppercase}
+        main{padding:7rem 0 4rem}
+        .section-label{font-family:var(--mono);font-size:0.68rem;font-weight:700;color:var(--dim);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.5rem}
+        h1{font-family:var(--mono);font-size:2.2rem;font-weight:700;line-height:1.15;letter-spacing:-0.04em;margin-bottom:1rem}
+        h1 .hl{color:var(--cyan)}
+        .subtitle{font-size:1.05rem;color:var(--muted);line-height:1.7;margin-bottom:3rem;max-width:560px}
+        h2{font-family:var(--mono);font-size:1.2rem;font-weight:700;margin:2.5rem 0 1rem;letter-spacing:-0.02em}
+        /* Scope cards */
+        .scope-grid{display:grid;gap:0;border:1px solid var(--border);margin:2rem 0}
+        .scope-row{display:grid;grid-template-columns:200px 1fr;border-bottom:1px solid var(--border);transition:background 0.2s}
+        .scope-row:last-child{border-bottom:none}
+        .scope-row:hover{background:var(--card-hover)}
+        .scope-name{padding:1rem 1.2rem;font-family:var(--mono);font-size:0.82rem;font-weight:700;border-right:1px solid var(--border);display:flex;align-items:flex-start;gap:0.5rem}
+        .scope-detail{padding:1rem 1.2rem}
+        .scope-desc{font-size:0.88rem;color:var(--muted);margin-bottom:0.4rem}
+        .scope-example{font-family:var(--mono);font-size:0.75rem;color:var(--dim);background:rgba(0,0,0,0.03);padding:0.3rem 0.6rem;border-radius:3px;display:inline-block}
+        .risk-tag{font-family:var(--mono);font-size:0.65rem;font-weight:700;padding:0.15rem 0.5rem;border-radius:2px;text-transform:uppercase}
+        .risk-low{background:rgba(61,122,95,0.1);color:var(--cyan)}
+        .risk-med{background:rgba(184,134,11,0.1);color:var(--amber)}
+        .risk-high{background:rgba(192,57,43,0.1);color:var(--red)}
+        .risk-critical{background:rgba(192,57,43,0.2);color:var(--red);font-weight:700}
+        .note-box{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--cyan);padding:1.5rem;margin:2rem 0;border-radius:var(--radius)}
+        .note-box h3{font-family:var(--mono);font-size:0.85rem;font-weight:700;margin-bottom:0.4rem}
+        .note-box p{font-size:0.88rem;color:var(--muted);margin:0}
+        footer{border-top:1px solid var(--border);padding:2rem 0;text-align:center;font-size:0.68rem;color:var(--dim);margin-top:4rem}
+        @media(max-width:768px){h1{font-size:1.6rem}.nav-links{display:none}.scope-row{grid-template-columns:1fr}.scope-name{border-right:none;border-bottom:1px solid var(--border);padding:0.6rem 1.2rem}}
+    </style>
+    <script defer data-domain="clawforce.ca" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
-    <p>This page has moved. <a href="/">Go to ClawForce homepage</a>.</p>
+    <nav><div class="wrap-wide">
+        <a href="/" class="nav-logo"><img src="/logo.png" alt="ClawForce" style="height:22px;width:22px;"><span>ClawForce</span></a>
+        <ul class="nav-links">
+            <li><a href="/#how-it-works">How It Works</a></li>
+            <li><a href="/#pricing">Pricing</a></li>
+            <li><a href="/registry.html">Registry</a></li>
+            <li><a href="/blog-index.html">Blog</a></li>
+            <li><a href="/developers.html">Developers</a></li>
+            <li><a href="/#waitlist" class="nav-cta">Join Waitlist &rarr;</a></li>
+        </ul>
+    </div></nav>
+
+    <main><div class="wrap">
+        <div class="section-label">// developer reference</div>
+        <h1>Permission <span class="hl">Scopes</span></h1>
+        <p class="subtitle">Every AI agent skill declares what it can access. ClawForce audits these declarations and flags mismatches between claimed and actual behavior.</p>
+
+        <div class="note-box">
+            <h3>Why scopes matter</h3>
+            <p>A skill that claims <code style="font-family:var(--mono);font-size:0.82em;background:rgba(0,0,0,0.05);padding:0.1rem 0.3rem;border-radius:2px;">read:workspace</code> but makes network calls is a red flag. ClawForce detects scope violations during scanning and flags them in the registry.</p>
+        </div>
+
+        <h2>Filesystem Scopes</h2>
+        <div class="scope-grid">
+            <div class="scope-row">
+                <div class="scope-name"><span class="risk-tag risk-low">Low</span> read:workspace</div>
+                <div class="scope-detail">
+                    <div class="scope-desc">Read files in the current workspace directory. Most common scope for code analysis tools.</div>
+                    <span class="scope-example">Read .ts, .py, .json files</span>
+                </div>
+            </div>
+            <div class="scope-row">
+                <div class="scope-name"><span class="risk-tag risk-med">Med</span> write:workspace</div>
+                <div class="scope-detail">
+                    <div class="scope-desc">Create or modify files in the current workspace. Required for code generation and formatting tools.</div>
+                    <span class="scope-example">Write to src/, create new files</span>
+                </div>
+            </div>
+            <div class="scope-row">
+                <div class="scope-name"><span class="risk-tag risk-high">High</span> read:filesystem</div>
+                <div class="scope-detail">
+                    <div class="scope-desc">Read files anywhere on the filesystem, not just the workspace. Can access config files, SSH keys, and credentials.</div>
+                    <span class="scope-example">Read ~/.ssh, ~/.env, /etc/passwd</span>
+                </div>
+            </div>
+            <div class="scope-row">
+                <div class="scope-name"><span class="risk-tag risk-critical">Crit</span> write:filesystem</div>
+                <div class="scope-detail">
+                    <div class="scope-desc">Write files anywhere on the filesystem. Extremely dangerous, can modify system files or install backdoors.</div>
+                    <span class="scope-example">Write to /usr/bin, ~/.bashrc</span>
+                </div>
+            </div>
+        </div>
+
+        <h2>Network Scopes</h2>
+        <div class="scope-grid">
+            <div class="scope-row">
+                <div class="scope-name"><span class="risk-tag risk-low">Low</span> net:localhost</div>
+                <div class="scope-detail">
+                    <div class="scope-desc">Connect to services on localhost only. Common for database tools and local dev servers.</div>
+                    <span class="scope-example">localhost:3000, 127.0.0.1:5432</span>
+                </div>
+            </div>
+            <div class="scope-row">
+                <div class="scope-name"><span class="risk-tag risk-med">Med</span> net:allowlist</div>
+                <div class="scope-detail">
+                    <div class="scope-desc">Connect to a declared list of external hosts. The skill specifies which domains it contacts.</div>
+                    <span class="scope-example">api.github.com, api.openai.com</span>
+                </div>
+            </div>
+            <div class="scope-row">
+                <div class="scope-name"><span class="risk-tag risk-high">High</span> net:outbound</div>
+                <div class="scope-detail">
+                    <div class="scope-desc">Make arbitrary outbound network requests. Can exfiltrate data to any destination.</div>
+                    <span class="scope-example">Any HTTP/HTTPS, WebSocket, TCP</span>
+                </div>
+            </div>
+        </div>
+
+        <h2>Execution Scopes</h2>
+        <div class="scope-grid">
+            <div class="scope-row">
+                <div class="scope-name"><span class="risk-tag risk-med">Med</span> exec:pre-approved</div>
+                <div class="scope-detail">
+                    <div class="scope-desc">Run a pre-defined set of commands. The skill declares exactly which commands it will execute.</div>
+                    <span class="scope-example">npm test, eslint, prettier</span>
+                </div>
+            </div>
+            <div class="scope-row">
+                <div class="scope-name"><span class="risk-tag risk-high">High</span> exec:shell</div>
+                <div class="scope-detail">
+                    <div class="scope-desc">Execute arbitrary shell commands. Can install packages, modify system state, or run scripts.</div>
+                    <span class="scope-example">bash -c "...", sh, cmd.exe</span>
+                </div>
+            </div>
+            <div class="scope-row">
+                <div class="scope-name"><span class="risk-tag risk-critical">Crit</span> exec:sudo</div>
+                <div class="scope-detail">
+                    <div class="scope-desc">Execute commands with elevated privileges. No legitimate skill needs this. Immediate rejection.</div>
+                    <span class="scope-example">sudo, doas, runas</span>
+                </div>
+            </div>
+        </div>
+
+        <h2>Data Scopes</h2>
+        <div class="scope-grid">
+            <div class="scope-row">
+                <div class="scope-name"><span class="risk-tag risk-low">Low</span> data:context</div>
+                <div class="scope-detail">
+                    <div class="scope-desc">Access the current conversation context only. Standard for most assistant tools.</div>
+                    <span class="scope-example">Chat history, current prompt</span>
+                </div>
+            </div>
+            <div class="scope-row">
+                <div class="scope-name"><span class="risk-tag risk-high">High</span> data:env</div>
+                <div class="scope-detail">
+                    <div class="scope-desc">Access environment variables. Can read API keys, database credentials, and secrets.</div>
+                    <span class="scope-example">$OPENAI_API_KEY, $DATABASE_URL</span>
+                </div>
+            </div>
+            <div class="scope-row">
+                <div class="scope-name"><span class="risk-tag risk-critical">Crit</span> data:credentials</div>
+                <div class="scope-detail">
+                    <div class="scope-desc">Access stored credentials, keychains, or secret managers. Maximum risk scope.</div>
+                    <span class="scope-example">macOS Keychain, SSH agent, GPG</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="note-box" style="margin-top:3rem;">
+            <h3>How ClawForce uses scopes</h3>
+            <p>During scanning, we analyze skill code to detect actual behavior and compare it against declared scopes. Mismatches are flagged as findings. Skills that access <code style="font-family:var(--mono);font-size:0.82em;background:rgba(0,0,0,0.05);padding:0.1rem 0.3rem;border-radius:2px;">data:env</code> without declaring it get a higher risk score. Skills with <code style="font-family:var(--mono);font-size:0.82em;background:rgba(0,0,0,0.05);padding:0.1rem 0.3rem;border-radius:2px;">exec:sudo</code> are automatically rejected.</p>
+        </div>
+    </div></main>
+
+    <footer><div class="wrap">&copy; 2026 ClawForce, a product of <a href="https://pixelfamiliar.ca" style="color:var(--dim);text-decoration:underline;">Pixel Familiar Inc.</a></div></footer>
 </body>
 </html>

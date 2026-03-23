@@ -2,11 +2,186 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>ClawForce — Redirecting</title>
-    <meta http-equiv="refresh" content="0;url=/">
-    <link rel="canonical" href="https://clawforce.ca/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Detail — ClawForce</title>
+    <meta name="description" content="View security scan results, risk score, and SBOM for an AI agent skill.">
+    <link rel="icon" href="/logo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{--bg:#0a0a0a;--surface:#141414;--surface-2:#1a1a1a;--border:#222;--border-hover:#333;--text:#e5e5e5;--dim:#666;--muted:#444;--accent:#10b981;--accent-dim:rgba(16,185,129,0.1);--red:#ef4444;--yellow:#eab308;--blue:#3b82f6;--mono:'Space Mono',monospace;--sans:'DM Sans',sans-serif}
+        body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:100vh}
+        a{color:var(--accent);text-decoration:none}
+        a:hover{text-decoration:underline}
+        nav{position:sticky;top:0;z-index:100;background:rgba(10,10,10,0.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+        nav .wrap{max-width:1200px;margin:0 auto;padding:0.75rem 1.5rem;display:flex;align-items:center;justify-content:space-between}
+        .nav-logo{display:flex;align-items:center;gap:0.5rem;text-decoration:none;color:var(--text)}
+        .brand{font-family:var(--mono);font-weight:700;font-size:0.9rem}
+        .nav-links{list-style:none;display:flex;gap:1.5rem;align-items:center}
+        .nav-links a{color:var(--dim);font-size:0.85rem;font-weight:500;transition:color 0.2s}
+        .nav-links a:hover{color:var(--text);text-decoration:none}
+        .nav-cta{background:var(--accent)!important;color:#000!important;padding:0.4rem 1rem;border-radius:6px;font-weight:600!important}
+        .content{max-width:800px;margin:0 auto;padding:3rem 1.5rem}
+        .breadcrumb{font-family:var(--mono);font-size:0.75rem;color:var(--dim);margin-bottom:1.5rem}
+        .breadcrumb a{color:var(--dim)}
+        .breadcrumb a:hover{color:var(--accent)}
+        h1{font-family:var(--mono);font-size:1.8rem;font-weight:700;margin-bottom:0.5rem}
+        .desc{color:var(--dim);font-size:0.95rem;line-height:1.6;margin-bottom:1.5rem}
+        .meta-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:0.75rem;margin-bottom:2rem}
+        .meta-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem}
+        .meta-label{font-size:0.68rem;font-family:var(--mono);color:var(--dim);text-transform:uppercase;letter-spacing:0.04em;margin-bottom:0.2rem}
+        .meta-val{font-family:var(--mono);font-size:1.2rem;font-weight:700}
+        .tag{font-size:0.65rem;font-family:var(--mono);padding:0.2rem 0.5rem;border-radius:4px;font-weight:600}
+        .tag-verified{background:rgba(16,185,129,0.15);color:#10b981;border:1px solid rgba(16,185,129,0.2)}
+        .tag-scanned{background:rgba(59,130,246,0.1);color:#60a5fa;border:1px solid rgba(59,130,246,0.15)}
+        .risk-low{color:#10b981}
+        .risk-med{color:#eab308}
+        .risk-high{color:#ef4444}
+        .section-title{font-family:var(--mono);font-size:1rem;font-weight:700;margin:2rem 0 1rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border)}
+        .findings-list{list-style:none}
+        .findings-list li{display:flex;gap:0.75rem;padding:0.8rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;margin-bottom:0.5rem;font-size:0.85rem;align-items:flex-start}
+        .finding-severity{font-family:var(--mono);font-size:0.7rem;font-weight:700;padding:0.15rem 0.5rem;border-radius:3px;flex-shrink:0}
+        .sev-high{background:rgba(239,68,68,0.15);color:var(--red)}
+        .sev-med{background:rgba(234,179,8,0.15);color:var(--yellow)}
+        .sev-low{background:rgba(16,185,129,0.15);color:var(--accent)}
+        .sev-info{background:rgba(59,130,246,0.1);color:var(--blue)}
+        .links-row{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.5rem}
+        .links-row a{display:inline-flex;align-items:center;gap:0.4rem;font-family:var(--mono);font-size:0.8rem;padding:0.5rem 0.8rem;border:1px solid var(--border);border-radius:4px;color:var(--dim);transition:all 0.2s}
+        .links-row a:hover{border-color:var(--accent);color:var(--accent);text-decoration:none}
+        .empty-state{text-align:center;padding:4rem 1rem;color:var(--muted);font-family:var(--mono)}
+        .empty-state .icon{font-size:2.5rem;margin-bottom:0.5rem}
+        .loading{text-align:center;padding:4rem 1rem;color:var(--dim);font-family:var(--mono);font-size:0.9rem}
+        footer{border-top:1px solid var(--border);padding:2rem 1.5rem;text-align:center}
+        footer p{font-size:0.75rem;color:var(--muted)}
+        @media(max-width:640px){.nav-links{display:none}h1{font-size:1.3rem}.meta-grid{grid-template-columns:1fr 1fr}}
+    </style>
+    <script defer data-domain="clawforce.ca" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
-    <p>This page has moved. <a href="/">Go to ClawForce homepage</a>.</p>
+    <nav>
+        <div class="wrap">
+            <a href="/" class="nav-logo"><img src="/logo.png" alt="ClawForce" style="height:22px;width:22px;"><span class="brand">ClawForce</span></a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/registry.html">Registry</a></li>
+                <li><a href="/blog-index.html">Blog</a></li>
+                <li><a href="/developers.html">Developers</a></li>
+                <li><a href="/#waitlist" class="nav-cta">Join Waitlist &rarr;</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="content" id="content">
+        <div class="loading" id="loading">Loading skill data...</div>
+    </div>
+
+    <footer><p>&copy; 2026 ClawForce by Pixel Familiar Inc.</p></footer>
+
+    <script>
+    function slugify(name) {
+        return (name || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+    }
+
+    function riskClass(score) {
+        if (score <= 10) return 'low';
+        if (score <= 30) return 'med';
+        return 'high';
+    }
+
+    function riskLabel(score) {
+        const cls = riskClass(score);
+        return cls === 'low' ? 'Low Risk' : cls === 'med' ? 'Medium Risk' : 'High Risk';
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    const skillSlug = params.get('name') || params.get('slug') || '';
+
+    if (!skillSlug) {
+        document.getElementById('content').innerHTML = `
+            <div class="empty-state">
+                <div class="icon">🔍</div>
+                <p>No skill specified. <a href="/registry.html">Browse the registry</a> to find a skill.</p>
+            </div>`;
+    } else {
+        fetch('/registry.json')
+            .then(r => r.json())
+            .then(data => {
+                const skills = data.skills || [];
+                const skill = skills.find(s => slugify(s.skill_name) === skillSlug);
+                if (!skill) {
+                    document.getElementById('content').innerHTML = `
+                        <div class="empty-state">
+                            <div class="icon">∅</div>
+                            <p>Skill "${skillSlug}" not found. <a href="/registry.html">Browse the registry</a>.</p>
+                        </div>`;
+                    return;
+                }
+
+                const rc = riskClass(skill.risk_score || 0);
+                const tier = skill.certification_tier || 'scanned';
+                const tierTag = tier === 'verified'
+                    ? '<span class="tag tag-verified">✓ VERIFIED</span>'
+                    : '<span class="tag tag-scanned">SCANNED</span>';
+
+                // Build findings list
+                const findings = skill.findings || [];
+                let findingsHtml = '';
+                if (findings.length > 0) {
+                    findingsHtml = '<ul class="findings-list">' + findings.map(f => {
+                        const sev = (f.severity || 'info').toLowerCase();
+                        return `<li>
+                            <span class="finding-severity sev-${sev}">${sev.toUpperCase()}</span>
+                            <span>${f.title || f.description || 'Finding detected'}</span>
+                        </li>`;
+                    }).join('') + '</ul>';
+                } else {
+                    findingsHtml = '<p style="color:var(--dim);font-size:0.88rem;">No findings detected.</p>';
+                }
+
+                document.title = `${skill.skill_name} — ClawForce`;
+                document.getElementById('content').innerHTML = `
+                    <div class="breadcrumb"><a href="/registry.html">Registry</a> / ${skill.skill_name}</div>
+                    <h1>${skill.skill_name} ${tierTag}</h1>
+                    <p class="desc">${skill.description || 'No description available.'}</p>
+
+                    <div class="meta-grid">
+                        <div class="meta-card">
+                            <div class="meta-label">Risk Score</div>
+                            <div class="meta-val risk-${rc}">${skill.risk_score || 0}</div>
+                        </div>
+                        <div class="meta-card">
+                            <div class="meta-label">Risk Level</div>
+                            <div class="meta-val risk-${rc}">${riskLabel(skill.risk_score || 0)}</div>
+                        </div>
+                        <div class="meta-card">
+                            <div class="meta-label">Findings</div>
+                            <div class="meta-val">${skill.total_findings || 0}</div>
+                        </div>
+                        <div class="meta-card">
+                            <div class="meta-label">Tier</div>
+                            <div class="meta-val">${tier.charAt(0).toUpperCase() + tier.slice(1)}</div>
+                        </div>
+                    </div>
+
+                    <div class="links-row">
+                        <a href="/badges/${slugify(skill.skill_name)}.svg" target="_blank">⭐ View Badge</a>
+                        <a href="/sbom/${slugify(skill.skill_name)}.cdx.json" target="_blank">📋 Download SBOM</a>
+                        ${skill.repo ? `<a href="${skill.repo}" target="_blank" rel="noopener">📂 Source Repo</a>` : ''}
+                    </div>
+
+                    <div class="section-title">Security Findings</div>
+                    ${findingsHtml}
+                `;
+            })
+            .catch(err => {
+                document.getElementById('content').innerHTML = `
+                    <div class="empty-state">
+                        <div class="icon">⚠</div>
+                        <p>Failed to load skill data. <a href="/registry.html">Return to registry</a>.</p>
+                    </div>`;
+            });
+    }
+    </script>
 </body>
 </html>

@@ -2,11 +2,171 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>ClawForce — Redirecting</title>
-    <meta http-equiv="refresh" content="0;url=/">
-    <link rel="canonical" href="https://clawforce.ca/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Agent Skill Security Checklist | ClawForce</title>
+    <meta name="description" content="Interactive security checklist for AI agent skills. Pre-integration verification, runtime monitoring, update security, and supply chain audit steps.">
+    <link rel="canonical" href="https://clawforce.ca/checklist.html">
+    <link rel="icon" href="/logo.png" type="image/png">
+    <meta property="og:title" content="AI Agent Skill Security Checklist">
+    <meta property="og:description" content="Free interactive security checklist for auditing AI agent skills before integration.">
+    <meta property="og:url" content="https://clawforce.ca/checklist.html">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{--bg:#FAFAF8;--surface:#FFF;--card-hover:#F5F5F0;--border:#E0DDD5;--text:#0A0A0A;--muted:#5C5C5C;--dim:#8A8A80;--primary:#0A0A0A;--cyan:#3D7A5F;--blue:#4A6FA5;--green-bg:rgba(61,122,95,0.06);--radius:2px;--mono:'Space Mono',monospace;--sans:'DM Sans',-apple-system,sans-serif}
+        body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+        body::before{content:'';position:fixed;inset:0;background:url("data:image/svg+xml,%3Csvg width='400' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
+        .wrap{max-width:760px;margin:0 auto;padding:0 2rem;position:relative;z-index:1}
+        .wrap-wide{max-width:1100px;margin:0 auto;padding:0 2rem;position:relative;z-index:1}
+        nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(250,250,248,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0.75rem 0}
+        nav .wrap-wide{display:flex;align-items:center;justify-content:space-between}
+        .nav-logo{display:flex;align-items:center;gap:0.5rem;text-decoration:none;font-family:var(--mono);font-weight:700;font-size:0.95rem;color:var(--text)}
+        .nav-links{list-style:none;display:flex;gap:1.5rem;align-items:center}
+        .nav-links a{color:var(--muted);text-decoration:none;font-size:0.82rem;font-weight:500;transition:color 0.2s}
+        .nav-links a:hover{color:var(--text)}
+        .nav-cta{background:var(--primary);color:#FAFAF8!important;padding:0.4rem 1rem;border-radius:2px;font-family:var(--mono);font-size:0.75rem!important;font-weight:700!important;text-transform:uppercase}
+        main{padding:7rem 0 4rem}
+        .section-label{font-family:var(--mono);font-size:0.68rem;font-weight:700;color:var(--dim);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.5rem}
+        h1{font-family:var(--mono);font-size:2.2rem;font-weight:700;line-height:1.15;letter-spacing:-0.04em;margin-bottom:1rem}
+        h1 .hl{color:var(--cyan)}
+        .subtitle{font-size:1.05rem;color:var(--muted);line-height:1.7;margin-bottom:2.5rem;max-width:560px}
+        h2{font-family:var(--mono);font-size:1.2rem;font-weight:700;margin:2.5rem 0 1rem;letter-spacing:-0.02em;display:flex;align-items:center;gap:0.5rem}
+        .progress-bar{background:var(--border);height:6px;border-radius:3px;margin-bottom:2.5rem;overflow:hidden}
+        .progress-fill{height:100%;background:var(--cyan);border-radius:3px;transition:width 0.4s ease}
+        .progress-label{font-family:var(--mono);font-size:0.75rem;color:var(--dim);margin-bottom:0.5rem;display:flex;justify-content:space-between}
+        /* Checklist */
+        .checklist-section{margin-bottom:2rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+        .section-header{padding:1rem 1.5rem;font-family:var(--mono);font-size:0.85rem;font-weight:700;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:0.6rem;cursor:pointer;transition:background 0.2s}
+        .section-header:hover{background:var(--card-hover)}
+        .section-header .icon{font-size:1.1rem}
+        .section-count{margin-left:auto;font-size:0.7rem;color:var(--dim);font-weight:400}
+        .check-item{display:flex;align-items:flex-start;gap:0.8rem;padding:0.8rem 1.5rem;border-bottom:1px solid var(--border);transition:background 0.2s;cursor:pointer}
+        .check-item:last-child{border-bottom:none}
+        .check-item:hover{background:var(--card-hover)}
+        .check-item input[type="checkbox"]{margin-top:3px;accent-color:var(--cyan);width:16px;height:16px;flex-shrink:0;cursor:pointer}
+        .check-item label{font-size:0.88rem;color:var(--muted);cursor:pointer;flex:1}
+        .check-item.checked label{text-decoration:line-through;color:var(--dim)}
+        .btn{display:inline-flex;align-items:center;gap:0.4rem;padding:0.75rem 1.5rem;border-radius:2px;font-family:var(--mono);font-size:0.8rem;font-weight:700;text-decoration:none;transition:all 0.25s;text-transform:uppercase;border:none;cursor:pointer}
+        .btn-primary{background:var(--primary);color:var(--bg)}
+        .btn-primary:hover{transform:translateY(-1px);box-shadow:4px 4px 0 rgba(0,0,0,0.15)}
+        .btn-outline{border:2px solid var(--text);color:var(--text);background:transparent}
+        .btn-outline:hover{background:var(--text);color:var(--bg)}
+        .cta-section{margin-top:3rem;padding:2.5rem;background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--cyan);border-radius:var(--radius);text-align:center}
+        .cta-section h3{margin-top:0;font-family:var(--mono);font-size:1rem;font-weight:700;margin-bottom:0.6rem}
+        .cta-section p{color:var(--muted);font-size:0.9rem}
+        .cta-buttons{display:flex;gap:1rem;justify-content:center;margin-top:1.2rem;flex-wrap:wrap}
+        footer{border-top:1px solid var(--border);padding:2rem 0;text-align:center;font-size:0.68rem;color:var(--dim);margin-top:4rem}
+        @media(max-width:768px){h1{font-size:1.6rem}.nav-links{display:none}}
+    </style>
+    <script defer data-domain="clawforce.ca" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
-    <p>This page has moved. <a href="/">Go to ClawForce homepage</a>.</p>
+    <nav><div class="wrap-wide">
+        <a href="/" class="nav-logo"><img src="/logo.png" alt="ClawForce" style="height:22px;width:22px;"><span>ClawForce</span></a>
+        <ul class="nav-links">
+            <li><a href="/#how-it-works">How It Works</a></li>
+            <li><a href="/#pricing">Pricing</a></li>
+            <li><a href="/registry.html">Registry</a></li>
+            <li><a href="/blog-index.html">Blog</a></li>
+            <li><a href="/developers.html">Developers</a></li>
+            <li><a href="/#waitlist" class="nav-cta">Join Waitlist &rarr;</a></li>
+        </ul>
+    </div></nav>
+
+    <main><div class="wrap">
+        <div class="section-label">// security checklist</div>
+        <h1>Agent Skill <span class="hl">Security Checklist</span></h1>
+        <p class="subtitle">25 checks across 5 categories. Use this before integrating any AI agent skill into your workflow. Interactive: track your progress as you go.</p>
+
+        <div class="progress-label"><span>Progress</span><span id="progress-text">0 / 25</span></div>
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+
+        <div class="checklist-section">
+            <div class="section-header"><span class="icon">🔍</span> Pre-Integration Verification <span class="section-count">5 items</span></div>
+            <div class="check-item"><input type="checkbox" id="c1" onchange="updateProgress()"><label for="c1">Verify skill bundle integrity via SHA-256 hash comparison</label></div>
+            <div class="check-item"><input type="checkbox" id="c2" onchange="updateProgress()"><label for="c2">Review permission scope (files, network, commands)</label></div>
+            <div class="check-item"><input type="checkbox" id="c3" onchange="updateProgress()"><label for="c3">Audit prompt template for injection vectors</label></div>
+            <div class="check-item"><input type="checkbox" id="c4" onchange="updateProgress()"><label for="c4">Check skill manifest for version pinning</label></div>
+            <div class="check-item"><input type="checkbox" id="c5" onchange="updateProgress()"><label for="c5">Validate third-party dependencies against known vulnerabilities</label></div>
+        </div>
+
+        <div class="checklist-section">
+            <div class="section-header"><span class="icon">📡</span> Runtime Monitoring <span class="section-count">5 items</span></div>
+            <div class="check-item"><input type="checkbox" id="c6" onchange="updateProgress()"><label for="c6">Log all skill-executed commands</label></div>
+            <div class="check-item"><input type="checkbox" id="c7" onchange="updateProgress()"><label for="c7">Track file system access patterns</label></div>
+            <div class="check-item"><input type="checkbox" id="c8" onchange="updateProgress()"><label for="c8">Monitor network calls made by agents</label></div>
+            <div class="check-item"><input type="checkbox" id="c9" onchange="updateProgress()"><label for="c9">Alert on permission escalation attempts</label></div>
+            <div class="check-item"><input type="checkbox" id="c10" onchange="updateProgress()"><label for="c10">Verify skill version matches manifest at runtime</label></div>
+        </div>
+
+        <div class="checklist-section">
+            <div class="section-header"><span class="icon">🔄</span> Skill Update Security <span class="section-count">5 items</span></div>
+            <div class="check-item"><input type="checkbox" id="c11" onchange="updateProgress()"><label for="c11">Quarantine new skill versions before rollout</label></div>
+            <div class="check-item"><input type="checkbox" id="c12" onchange="updateProgress()"><label for="c12">Compare new version against known-good baseline</label></div>
+            <div class="check-item"><input type="checkbox" id="c13" onchange="updateProgress()"><label for="c13">Review changelog for permission scope changes</label></div>
+            <div class="check-item"><input type="checkbox" id="c14" onchange="updateProgress()"><label for="c14">Test in isolated environment before production</label></div>
+            <div class="check-item"><input type="checkbox" id="c15" onchange="updateProgress()"><label for="c15">Maintain rollback capability for every update</label></div>
+        </div>
+
+        <div class="checklist-section">
+            <div class="section-header"><span class="icon">📋</span> Post-Execution Audit <span class="section-count">5 items</span></div>
+            <div class="check-item"><input type="checkbox" id="c16" onchange="updateProgress()"><label for="c16">Review command execution logs</label></div>
+            <div class="check-item"><input type="checkbox" id="c17" onchange="updateProgress()"><label for="c17">Verify file modifications match stated intent</label></div>
+            <div class="check-item"><input type="checkbox" id="c18" onchange="updateProgress()"><label for="c18">Check for unexpected outbound network calls</label></div>
+            <div class="check-item"><input type="checkbox" id="c19" onchange="updateProgress()"><label for="c19">Confirm skill version in audit trail</label></div>
+            <div class="check-item"><input type="checkbox" id="c20" onchange="updateProgress()"><label for="c20">Document any anomalies for incident response</label></div>
+        </div>
+
+        <div class="checklist-section">
+            <div class="section-header"><span class="icon">🔗</span> Supply Chain <span class="section-count">5 items</span></div>
+            <div class="check-item"><input type="checkbox" id="c21" onchange="updateProgress()"><label for="c21">Verify publisher identity (not just username)</label></div>
+            <div class="check-item"><input type="checkbox" id="c22" onchange="updateProgress()"><label for="c22">Check skill signing certificates are valid</label></div>
+            <div class="check-item"><input type="checkbox" id="c23" onchange="updateProgress()"><label for="c23">Review publisher reputation and history</label></div>
+            <div class="check-item"><input type="checkbox" id="c24" onchange="updateProgress()"><label for="c24">Validate full dependency tree (transitive deps)</label></div>
+            <div class="check-item"><input type="checkbox" id="c25" onchange="updateProgress()"><label for="c25">Enable auto-revoke for compromised skills</label></div>
+        </div>
+
+        <div class="cta-section">
+            <h3>Automate This Checklist</h3>
+            <p>ClawForce scans cover items 1-5, 21-25 automatically. Get a free scan or upgrade to Certified for full coverage.</p>
+            <div class="cta-buttons">
+                <a href="/" class="btn btn-primary">Free Scan →</a>
+                <a href="/certify.html" class="btn btn-outline">Get Certified</a>
+            </div>
+        </div>
+    </div></main>
+
+    <footer><div class="wrap">&copy; 2026 ClawForce, a product of <a href="https://pixelfamiliar.ca" style="color:var(--dim);text-decoration:underline;">Pixel Familiar Inc.</a></div></footer>
+
+    <script>
+        function updateProgress() {
+            const total = 25;
+            const checked = document.querySelectorAll('.check-item input:checked').length;
+            document.getElementById('progress-text').textContent = checked + ' / ' + total;
+            document.getElementById('progress-fill').style.width = ((checked / total) * 100) + '%';
+            document.querySelectorAll('.check-item').forEach(item => {
+                const cb = item.querySelector('input');
+                if (cb.checked) item.classList.add('checked');
+                else item.classList.remove('checked');
+            });
+            // Save to localStorage
+            const state = {};
+            for (let i = 1; i <= total; i++) {
+                state['c' + i] = document.getElementById('c' + i).checked;
+            }
+            localStorage.setItem('clawforce-checklist', JSON.stringify(state));
+        }
+        // Restore from localStorage
+        try {
+            const saved = JSON.parse(localStorage.getItem('clawforce-checklist') || '{}');
+            Object.entries(saved).forEach(([id, val]) => {
+                const el = document.getElementById(id);
+                if (el) el.checked = val;
+            });
+            updateProgress();
+        } catch(e) {}
+    </script>
 </body>
 </html>
