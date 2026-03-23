@@ -1599,9 +1599,9 @@
         </div>
     </section>
 
-    <!-- ━━━ ANIMATED SCAN VISUALIZATION ━━━ -->
+    <!-- ━━━ THE PROBLEM: BEFORE / AFTER ━━━ -->
     <hr class="divider">
-    <section class="scanviz-section" id="process">
+    <section style="padding:5rem 0;" id="process">
         <div class="wrap">
             <div class="fade-up" style="text-align:center;margin-bottom:3rem;">
                 <div class="section-label">// the problem</div>
@@ -1609,64 +1609,37 @@
                 <p class="section-sub" style="max-width:560px;margin:0 auto;">Right now, AI agents scrape your website for free. They consume your bandwidth, your server resources, and your content. You get nothing. Meanwhile, AI developers spend thousands on rotating proxies and CAPTCHA solvers just to read a webpage. Both sides lose.</p>
             </div>
 
-            <div class="scanviz fade-up" id="scanvizWidget">
-                <div class="scanviz-bar">
-                    <span class="sd sd-r"></span>
-                    <span class="sd sd-y"></span>
-                    <span class="sd sd-g"></span>
-                    <span class="scanviz-bar-title">clawforce scan — brave-search</span>
-                    <span class="scanviz-bar-status" id="svStatus">Initializing...</span>
-                </div>
-                <div class="scanviz-progress">
-                    <div class="scanviz-progress-fill" id="svProgress"></div>
-                </div>
-                <div class="scanviz-body">
-                    <div class="scanviz-tree">
-                        <div class="scanviz-tree-label">Files</div>
-                        <div class="svtree-item" data-sv-file="0">
-                            <span class="svtree-icon">📄</span>
-                            <span>SKILL.md</span>
-                            <span class="svtree-check">✓</span>
-                        </div>
-                        <div class="svtree-item" data-sv-file="1">
-                            <span class="svtree-icon">🐍</span>
-                            <span>scripts/search.py</span>
-                            <span class="svtree-check">✓</span>
-                        </div>
-                        <div class="svtree-item" data-sv-file="2">
-                            <span class="svtree-icon">🐍</span>
-                            <span>scripts/utils.py</span>
-                            <span class="svtree-check">✓</span>
-                        </div>
-                        <div class="svtree-item" data-sv-file="3">
-                            <span class="svtree-icon">📋</span>
-                            <span>config.json</span>
-                            <span class="svtree-check">✓</span>
-                        </div>
-                        <div class="svtree-item" data-sv-file="4">
-                            <span class="svtree-icon">📋</span>
-                            <span>requirements.txt</span>
-                            <span class="svtree-check">✓</span>
-                        </div>
-                    </div>
-                    <div class="scanviz-findings">
-                        <div class="scanviz-findings-label">Findings</div>
-                        <div class="scanviz-findings-list" id="svFindings">
-                            <!-- Populated by JS -->
-                        </div>
+            <div class="fade-up" style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;max-width:800px;margin:0 auto;">
+                <!-- WITHOUT -->
+                <div style="background:var(--card);border:2px solid rgba(192,57,43,0.3);border-radius:var(--radius);padding:1.5rem;">
+                    <div style="font-family:var(--mono);font-size:0.72rem;font-weight:700;color:var(--red,#C0392B);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:1rem;">❌ Without ClawForce</div>
+                    <div style="background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:1rem;font-family:var(--mono);font-size:0.78rem;line-height:1.8;">
+                        <span style="color:var(--dim);">→</span> Agent-3 hits your-site.com<br>
+                        <span style="color:var(--red,#C0392B);">✕</span> Cloudflare blocks: 403 Forbidden<br>
+                        <span style="color:var(--red,#C0392B);">✕</span> Agent retries with proxy: 403<br>
+                        <span style="color:var(--red,#C0392B);">✕</span> Agent uses headless browser: works, but...<br>
+                        <br>
+                        <span style="color:var(--dim);">Result:</span> You burned bandwidth.<br>
+                        <span style="color:var(--dim);">Revenue:</span> <strong style="color:var(--red,#C0392B);">$0.00</strong>
                     </div>
                 </div>
-                <div class="scanviz-verdict" id="svVerdict">
-                    <div class="scanviz-verdict-left">
-                        <span class="scanviz-verdict-badge tier-scanned">🟢 Scanned — Pass</span>
-                        <span class="scanviz-verdict-score">Risk: <strong>5</strong>/100</span>
+                <!-- WITH -->
+                <div style="background:var(--card);border:2px solid rgba(16,185,129,0.3);border-radius:var(--radius);padding:1.5rem;">
+                    <div style="font-family:var(--mono);font-size:0.72rem;font-weight:700;color:var(--cyan);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:1rem;">✅ With ClawForce</div>
+                    <div style="background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:1rem;font-family:var(--mono);font-size:0.78rem;line-height:1.8;">
+                        <span style="color:var(--dim);">→</span> Agent-3 hits your-site.com<br>
+                        <span style="color:var(--cyan);">✓</span> Token verified (SHA-256)<br>
+                        <span style="color:var(--cyan);">✓</span> Balance: $49.95 (sufficient)<br>
+                        <span style="color:var(--cyan);">✓</span> Origin proxied → 200 OK<br>
+                        <br>
+                        <span style="color:var(--dim);">Deducted from developer:</span> -$0.05<br>
+                        <span style="color:var(--dim);">You earned:</span> <strong style="color:var(--cyan);">+$0.05</strong>
                     </div>
-                    <span class="scanviz-verdict-hash">hash: a1b2c3d4 · v1.0.0</span>
                 </div>
             </div>
 
             <div class="fade-up" style="text-align:center;margin-top:2rem;">
-                <a href="#scan" class="btn btn-primary">Try It With Your Skill →</a>
+                <a href="#how-it-works" class="btn btn-primary">See How It Works →</a>
             </div>
         </div>
     </section>
@@ -1722,255 +1695,68 @@
         </div>
     </section>
 
-    <hr class="divider">
-    <section class="scanner-section" id="scan">
-        <div class="wrap">
-            <div class="fade-up">
-                <div class="section-label">// try it now</div>
-                <h2 class="section-title">Scan a Skill</h2>
-                <p class="section-sub">Upload a skill or enter a GitHub URL to get an instant Tier 1 scan.</p>
-            </div>
-
-            <div class="scanner-card fade-up">
-                <div class="scanner-header">
-                    <span class="scanner-dot r"></span>
-                    <span class="scanner-dot y"></span>
-                    <span class="scanner-dot g"></span>
-                    <span class="scanner-title">clawforce-scanner v1.0.0</span>
-                </div>
-                <div class="scanner-body">
-                    <div class="upload-zone" id="uploadZone">
-                        <div class="upload-icon">📦</div>
-                        <p>Drag & drop a skill <strong>.zip</strong> here</p>
-                        <p class="accent">or click to browse</p>
-                        <input type="file" id="fileInput" accept=".zip" style="display: none;">
-                    </div>
-
-                    <div class="or-divider">or enter a GitHub URL</div>
-
-                    <div class="scan-input-group">
-                        <input type="text" class="scan-input" id="githubUrl"
-                            placeholder="https://github.com/user/skill-repo">
-                        <button class="scan-btn" id="scanBtn" onclick="runDemoScan()"><img src="/logo.png" alt="Scan Icon" style="height:16px;width:16px;vertical-align:middle;filter:invert(1);"> Scan Now</button>
-                    </div>
-
-                    <div class="scan-progress" id="scanProgress">
-                        <div class="progress-bar">
-                            <div class="progress-fill" id="progressFill"></div>
-                        </div>
-                        <div class="progress-text" id="progressText">Initializing scanner...</div>
-                    </div>
-
-                    <div class="scan-results" id="scanResults">
-                        <!-- Populated by JS -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <hr class="divider">
-
     <!-- ━━━ PRICING ━━━ -->
+    <hr class="divider">
     <section class="pricing" id="pricing">
         <div class="wrap">
             <div class="fade-up">
                 <div class="section-label">// pricing</div>
-                <h2 class="section-title">Certification Plans</h2>
-                <p class="section-sub">Choose the level of certification trust your skills need.</p>
+                <h2 class="section-title">Simple, Transparent Pricing</h2>
+                <p class="section-sub">No monthly fees for merchants. Developers pay only for what they use.</p>
             </div>
 
             <div class="price-grid fade-up">
                 <div class="price-card">
-                    <div class="price-tier-icon">🟢</div>
-                    <div class="price-name">Scanned</div>
+                    <div class="price-tier-icon">💰</div>
+                    <div class="price-name">For Merchants</div>
                     <div class="price-amount">Free</div>
-                    <div class="price-period">per skill</div>
+                    <div class="price-period">to install</div>
                     <ul class="price-features">
-                        <li>Static analysis scan</li>
-                        <li>22 vulnerability patterns</li>
-                        <li>Risk score (0–100)</li>
-                        <li>Scan report (JSON download)</li>
-                        <li>Badge for README</li>
+                        <li>Deploy Edge Router in 60 seconds</li>
+                        <li>Set your own price per request</li>
+                        <li>Real-time revenue dashboard</li>
+                        <li>See which agents access your site</li>
+                        <li>Unverified bots still blocked</li>
                     </ul>
-                    <p style="font-size:0.68rem;color:var(--dim);margin-bottom:0.8rem;line-height:1.4;">You receive: a
-                        JSON report listing all findings, severity levels, and a risk score. Free badge SVG for your
-                        README.</p>
-                    <a href="#scan" class="btn-price free">Try a Demo Scan</a>
+                    <p style="font-size:0.68rem;color:var(--dim);margin-bottom:0.8rem;line-height:1.4;">ClawForce takes a thin platform fee from each transaction. You keep the majority of every micro-payment.</p>
+                    <a href="https://clawforce.ca/contact.html" class="btn-price free">Get Started Free →</a>
                 </div>
 
                 <div class="price-card featured">
-                    <div class="price-popular">MOST POPULAR</div>
-                    <div class="price-tier-icon">🔵</div>
-                    <div class="price-name">Verified</div>
-                    <div class="price-amount">$9</div>
-                    <div class="price-period">per skill</div>
+                    <div class="price-popular">PAY AS YOU GO</div>
+                    <div class="price-tier-icon">🤖</div>
+                    <div class="price-name">For Developers</div>
+                    <div class="price-amount">$0.001+</div>
+                    <div class="price-period">per request</div>
                     <ul class="price-features">
-                        <li>Everything in Scanned</li>
-                        <li>Intent analysis (claim vs code)</li>
-                        <li>Permission scope audit</li>
-                        <li>Verified badge + certificate</li>
-                        <li>Embeddable HTML badge</li>
+                        <li>Pre-load your wallet via Stripe</li>
+                        <li>One API token for all merchants</li>
+                        <li>Guaranteed access (no CAPTCHAs)</li>
+                        <li>Clean HTML or markdown responses</li>
+                        <li>Per-request cost transparency</li>
                     </ul>
-                    <p style="font-size:0.68rem;color:var(--dim);margin-bottom:0.8rem;line-height:1.4;">You receive:
-                        full Tier 1 report + intent analysis comparing SKILL.md claims to actual code behavior. Verified
-                        badge and signed certificate.</p>
-                    <a href="#" onclick="openCheckout('verified'); return false;" class="btn-price paid">Get Verified — $9</a>
+                    <p style="font-size:0.68rem;color:var(--dim);margin-bottom:0.8rem;line-height:1.4;">Rates vary by merchant. Most charge between $0.001 and $0.05 per request. Your wallet balance is deducted automatically on each call.</p>
+                    <a href="https://clawforce.ca/contact.html" class="btn-price paid">Top Up Your Wallet →</a>
                 </div>
 
                 <div class="price-card">
-                    <div class="price-tier-icon">🟡</div>
-                    <div class="price-name">Certified</div>
-                    <div class="price-amount">$29</div>
-                    <div class="price-period">per skill</div>
+                    <div class="price-tier-icon">🏢</div>
+                    <div class="price-name">Enterprise</div>
+                    <div class="price-amount">Custom</div>
+                    <div class="price-period">volume pricing</div>
                     <ul class="price-features">
-                        <li>Everything in Verified</li>
-                        <li>AI semantic code review</li>
-                        <li>Supply chain deep analysis</li>
-                        <li>Signed JSON certificate</li>
-                        <li>Embeddable trust badge</li>
+                        <li>Bulk rate discounts</li>
+                        <li>Dedicated routing priority</li>
+                        <li>Custom SLAs and support</li>
+                        <li>Private merchant networks</li>
+                        <li>Invoice billing (NET 30)</li>
                     </ul>
-                    <p style="font-size:0.68rem;color:var(--dim);margin-bottom:0.8rem;line-height:1.4;">You receive:
-                        full Tier 1+2 reports + AI-powered semantic analysis, supply chain audit, and
-                        cryptographically signed JSON certificate with embeddable badge.</p>
-                    <a href="#" onclick="openCheckout('certified'); return false;" class="btn-price paid">Get Certified — $29</a>
+                    <p style="font-size:0.68rem;color:var(--dim);margin-bottom:0.8rem;line-height:1.4;">For organizations running hundreds of agents or high-traffic merchant sites. Direct integration support included.</p>
+                    <a href="https://clawforce.ca/contact.html" class="btn-price free">Contact Sales →</a>
                 </div>
             </div>
         </div>
     </section>
-
-
-    <!-- ━━━ REGISTRY ━━━ -->
-    <section class="gallery" id="gallery">
-        <div class="wrap">
-            <div class="fade-up">
-                <div class="section-label">// public registry</div>
-                <h2 class="section-title">Skill Registry</h2>
-                <p class="section-sub">Browse all skills that have been scanned, verified, or certified through
-                    ClawForce. <span id="registryCount" style="color:var(--cyan);font-weight:600;"></span></p>
-
-                <div class="fade-up"
-                    style="margin-bottom:1.5rem;display:flex;gap:0.8rem;align-items:center;flex-wrap:wrap;">
-                    <input type="text" class="scan-input" id="registrySearch" placeholder="Search skills..."
-                        style="flex:1;min-width:200px;padding:0.6rem 1rem;font-size:0.82rem;">
-                    <div style="display:flex;gap:0.4rem;">
-                        <button class="tier-filter-btn active" data-tier="all" onclick="filterRegistry('all', this)"
-                            style="padding:0.4rem 0.9rem;border-radius:8px;border:1px solid var(--border-hover);background:var(--card);color:var(--text);font-size:0.75rem;font-weight:600;cursor:pointer;transition:all 0.2s;">All</button>
-                        <button class="tier-filter-btn" data-tier="certified"
-                            onclick="filterRegistry('certified', this)"
-                            style="padding:0.4rem 0.9rem;border-radius:8px;border:1px solid rgba(245,158,11,0.3);background:transparent;color:var(--amber);font-size:0.75rem;font-weight:600;cursor:pointer;transition:all 0.2s;">Certified</button>
-                        <button class="tier-filter-btn" data-tier="verified" onclick="filterRegistry('verified', this)"
-                            style="padding:0.4rem 0.9rem;border-radius:8px;border:1px solid rgba(14,165,233,0.3);background:transparent;color:var(--blue);font-size:0.75rem;font-weight:600;cursor:pointer;transition:all 0.2s;">Verified</button>
-                        <button class="tier-filter-btn" data-tier="scanned" onclick="filterRegistry('scanned', this)"
-                            style="padding:0.4rem 0.9rem;border-radius:8px;border:1px solid rgba(16,185,129,0.3);background:transparent;color:var(--cyan);font-size:0.75rem;font-weight:600;cursor:pointer;transition:all 0.2s;">Scanned</button>
-                    </div>
-                </div>
-
-                <div class="gallery-scroll-container fade-up">
-                    <div id="galleryGrid">
-                        <!-- Populated by JS -->
-                    </div>
-                </div>
-            </div>
-    </section>
-
-    <!-- ━━━ CHECKOUT MODAL ━━━ -->
-    <div class="checkout-overlay" id="checkoutOverlay" onclick="if(event.target===this) closeCheckout()">
-        <div class="checkout-modal">
-            <button class="checkout-close" onclick="closeCheckout()" aria-label="Close">✕</button>
-            <div class="checkout-header">
-                <div class="checkout-icon">🛡️</div>
-                <h3 class="checkout-title" id="checkoutTitle">Get Verified</h3>
-                <p class="checkout-subtitle">We need your GitHub repo URL to run the certification scan.</p>
-            </div>
-            <form id="checkoutForm" onsubmit="submitCheckout(event)" toolname="purchase_clawforce_certification" tooldescription="Purchase a ClawForce security certification for an AI agent skill by submitting a GitHub repository URL and selecting a certification tier (Verified $9 or Certified $29)">
-                <div class="checkout-field">
-                    <label for="checkoutUrl">GitHub Repository URL</label>
-                    <input type="url" id="checkoutUrl" placeholder="https://github.com/user/skill-repo" required
-                        pattern="https?://github\.com/.+/.+">
-                    <span class="checkout-hint">Must be a public GitHub repository</span>
-                </div>
-                <div class="checkout-summary" id="checkoutSummary">
-                    <div class="checkout-tier-badge" id="checkoutTierBadge">🔵 VERIFIED</div>
-                    <div class="checkout-price" id="checkoutPrice">$9</div>
-                </div>
-                <button type="submit" class="checkout-submit" id="checkoutSubmit">Continue to Payment →</button>
-                <p class="checkout-fine">You'll be redirected to Stripe's secure checkout. Results delivered to your payment email within 24 hours. By purchasing, you agree to our <a href="/legal.html" style="color:var(--cyan);text-decoration:none;">Legal Terms</a> and <a href="/privacy.html" style="color:var(--cyan);text-decoration:none;">Privacy Policy</a>.</p>
-            </form>
-        </div>
-    </div>
-
-    <style>
-        .checkout-overlay {
-            display: none; position: fixed; inset: 0; z-index: 9999;
-            background: rgba(0,0,0,0.5); backdrop-filter: blur(4px);
-            align-items: center; justify-content: center; padding: 1.5rem;
-        }
-        .checkout-overlay.open { display: flex; }
-        .checkout-modal {
-            background: var(--surface); border: 1px solid var(--border);
-            border-radius: var(--radius); max-width: 440px; width: 100%;
-            padding: 2rem; position: relative;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-            animation: modalIn 0.2s ease;
-        }
-        @keyframes modalIn { from { transform: translateY(12px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-        .checkout-close {
-            position: absolute; top: 1rem; right: 1rem;
-            background: none; border: none; font-size: 1.1rem;
-            color: var(--dim); cursor: pointer; padding: 0.3rem;
-            transition: color 0.2s;
-        }
-        .checkout-close:hover { color: var(--text); }
-        .checkout-header { text-align: center; margin-bottom: 1.5rem; }
-        .checkout-icon { font-size: 2rem; margin-bottom: 0.5rem; }
-        .checkout-title {
-            font-family: var(--mono); font-size: 1.2rem; font-weight: 700;
-            letter-spacing: -0.02em; margin-bottom: 0.4rem;
-        }
-        .checkout-subtitle { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
-        .checkout-field { margin-bottom: 1.2rem; }
-        .checkout-field label {
-            display: block; font-family: var(--mono); font-size: 0.7rem;
-            font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
-            color: var(--dim); margin-bottom: 0.4rem;
-        }
-        .checkout-field input {
-            width: 100%; padding: 0.7rem 1rem; font-size: 0.85rem;
-            font-family: var(--mono); background: var(--bg);
-            border: 1px solid var(--border); border-radius: var(--radius);
-            color: var(--text); outline: none; transition: border-color 0.2s;
-        }
-        .checkout-field input:focus { border-color: var(--text); }
-        .checkout-field input:invalid:not(:placeholder-shown) { border-color: var(--red, #C0392B); }
-        .checkout-hint { font-size: 0.68rem; color: var(--dim); margin-top: 0.3rem; display: block; }
-        .checkout-summary {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 0.8rem 1rem; background: var(--bg); border: 1px solid var(--border);
-            border-radius: var(--radius); margin-bottom: 1.2rem;
-        }
-        .checkout-tier-badge {
-            font-family: var(--mono); font-size: 0.72rem;
-            font-weight: 700; letter-spacing: 0.04em;
-        }
-        .checkout-price {
-            font-family: var(--mono); font-size: 1.3rem;
-            font-weight: 700; color: var(--text);
-        }
-        .checkout-submit {
-            width: 100%; padding: 0.75rem;
-            background: var(--primary); color: var(--bg);
-            border: none; border-radius: var(--radius);
-            font-family: var(--mono); font-size: 0.82rem;
-            font-weight: 700; cursor: pointer;
-            letter-spacing: 0.02em; transition: opacity 0.2s;
-        }
-        .checkout-submit:hover { opacity: 0.85; }
-        .checkout-fine {
-            font-size: 0.68rem; color: var(--dim); text-align: center;
-            margin-top: 0.8rem; line-height: 1.5;
-        }
-    </style>
 
     <!-- ━━━ WHY CLAWFORCE ━━━ -->
     <section style="padding:5rem 0;">
@@ -1978,52 +1764,54 @@
             <div class="fade-up">
                 <div class="section-label">// how we're different</div>
                 <h2 class="section-title">Why ClawForce?</h2>
-                <p class="section-sub">Traditional SAST tools are built for application code. ClawForce is purpose-built for AI agent skills.</p>
+                <p class="section-sub">Cloudflare validated this market. We're building the open alternative.</p>
             </div>
             <div class="fade-up" style="overflow-x:auto;">
                 <table style="width:100%;border-collapse:collapse;border:1px solid var(--border);font-size:0.82rem;">
                     <thead>
                         <tr style="border-bottom:2px solid var(--border);background:var(--card-hover);">
                             <th style="padding:0.8rem 1.2rem;text-align:left;font-family:var(--mono);font-size:0.7rem;font-weight:700;color:var(--dim);text-transform:uppercase;letter-spacing:0.06em;width:30%;">Capability</th>
-                            <th style="padding:0.8rem 1.2rem;text-align:center;font-family:var(--mono);font-size:0.7rem;font-weight:700;color:var(--dim);text-transform:uppercase;letter-spacing:0.06em;">Traditional SAST</th>
+                            <th style="padding:0.8rem 1.2rem;text-align:center;font-family:var(--mono);font-size:0.7rem;font-weight:700;color:var(--dim);text-transform:uppercase;letter-spacing:0.06em;">Cloudflare Pay-per-Crawl</th>
+                            <th style="padding:0.8rem 1.2rem;text-align:center;font-family:var(--mono);font-size:0.7rem;font-weight:700;color:var(--dim);text-transform:uppercase;letter-spacing:0.06em;">Firecrawl</th>
                             <th style="padding:0.8rem 1.2rem;text-align:center;font-family:var(--mono);font-size:0.7rem;font-weight:700;color:var(--cyan);text-transform:uppercase;letter-spacing:0.06em;">ClawForce</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr style="border-bottom:1px solid var(--border);">
-                            <td style="padding:0.7rem 1.2rem;color:var(--text);font-weight:600;">Permission scope analysis</td>
+                            <td style="padding:0.7rem 1.2rem;color:var(--text);font-weight:600;">Works on any website</td>
+                            <td style="padding:0.7rem 1.2rem;text-align:center;color:var(--red);">Cloudflare-hosted only</td>
+                            <td style="padding:0.7rem 1.2rem;text-align:center;color:var(--red);">✕ (dev tool)</td>
+                            <td style="padding:0.7rem 1.2rem;text-align:center;color:var(--cyan);font-weight:700;">✓</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid var(--border);">
+                            <td style="padding:0.7rem 1.2rem;color:var(--text);font-weight:600;">Merchant sets own price</td>
+                            <td style="padding:0.7rem 1.2rem;text-align:center;color:var(--cyan);font-weight:700;">✓</td>
                             <td style="padding:0.7rem 1.2rem;text-align:center;color:var(--red);">✕</td>
                             <td style="padding:0.7rem 1.2rem;text-align:center;color:var(--cyan);font-weight:700;">✓</td>
                         </tr>
                         <tr style="border-bottom:1px solid var(--border);">
-                            <td style="padding:0.7rem 1.2rem;color:var(--text);font-weight:600;">Supply chain risk detection</td>
+                            <td style="padding:0.7rem 1.2rem;color:var(--text);font-weight:600;">Developer wallet + billing</td>
+                            <td style="padding:0.7rem 1.2rem;text-align:center;color:var(--red);">✕</td>
+                            <td style="padding:0.7rem 1.2rem;text-align:center;color:var(--dim);">Credits</td>
+                            <td style="padding:0.7rem 1.2rem;text-align:center;color:var(--cyan);font-weight:700;">✓ Stripe</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid var(--border);">
+                            <td style="padding:0.7rem 1.2rem;color:var(--text);font-weight:600;">Two-sided marketplace</td>
                             <td style="padding:0.7rem 1.2rem;text-align:center;color:var(--dim);">Partial</td>
-                            <td style="padding:0.7rem 1.2rem;text-align:center;color:var(--cyan);font-weight:700;">✓</td>
-                        </tr>
-                        <tr style="border-bottom:1px solid var(--border);">
-                            <td style="padding:0.7rem 1.2rem;color:var(--text);font-weight:600;">33-pattern risk scoring</td>
                             <td style="padding:0.7rem 1.2rem;text-align:center;color:var(--red);">✕</td>
                             <td style="padding:0.7rem 1.2rem;text-align:center;color:var(--cyan);font-weight:700;">✓</td>
                         </tr>
                         <tr style="border-bottom:1px solid var(--border);">
-                            <td style="padding:0.7rem 1.2rem;color:var(--text);font-weight:600;">Signed certificates & badges</td>
+                            <td style="padding:0.7rem 1.2rem;color:var(--text);font-weight:600;">Real-time telemetry</td>
+                            <td style="padding:0.7rem 1.2rem;text-align:center;color:var(--dim);">Dashboard only</td>
                             <td style="padding:0.7rem 1.2rem;text-align:center;color:var(--red);">✕</td>
-                            <td style="padding:0.7rem 1.2rem;text-align:center;color:var(--cyan);font-weight:700;">✓</td>
-                        </tr>
-                        <tr style="border-bottom:1px solid var(--border);">
-                            <td style="padding:0.7rem 1.2rem;color:var(--text);font-weight:600;">Public trust registry</td>
-                            <td style="padding:0.7rem 1.2rem;text-align:center;color:var(--red);">✕</td>
-                            <td style="padding:0.7rem 1.2rem;text-align:center;color:var(--cyan);font-weight:700;">✓</td>
-                        </tr>
-                        <tr style="border-bottom:1px solid var(--border);">
-                            <td style="padding:0.7rem 1.2rem;color:var(--text);font-weight:600;">General application scanning</td>
-                            <td style="padding:0.7rem 1.2rem;text-align:center;color:var(--cyan);font-weight:700;">✓</td>
-                            <td style="padding:0.7rem 1.2rem;text-align:center;color:var(--dim);">Agent skills only</td>
+                            <td style="padding:0.7rem 1.2rem;text-align:center;color:var(--cyan);font-weight:700;">✓ Both sides</td>
                         </tr>
                         <tr>
-                            <td style="padding:0.7rem 1.2rem;color:var(--text);font-weight:600;">Open security standard</td>
-                            <td style="padding:0.7rem 1.2rem;text-align:center;color:var(--dim);">Varies</td>
-                            <td style="padding:0.7rem 1.2rem;text-align:center;color:var(--cyan);font-weight:700;"><a href="/security-standard-v1.html" style="color:var(--cyan);text-decoration:none;">Published ↗</a></td>
+                            <td style="padding:0.7rem 1.2rem;color:var(--text);font-weight:600;">Vendor lock-in</td>
+                            <td style="padding:0.7rem 1.2rem;text-align:center;color:var(--red);">Cloudflare required</td>
+                            <td style="padding:0.7rem 1.2rem;text-align:center;color:var(--dim);">Their API</td>
+                            <td style="padding:0.7rem 1.2rem;text-align:center;color:var(--cyan);font-weight:700;">None</td>
                         </tr>
                     </tbody>
                 </table>
@@ -2038,10 +1826,10 @@
         <div class="wrap">
             <div class="fade-up" style="max-width:560px;margin:0 auto;text-align:center;">
                 <div class="section-label">// stay updated</div>
-                <h2 class="section-title">Security advisories<br>& new certifications</h2>
-                <p style="font-size:0.9rem;color:var(--muted);line-height:1.7;margin-bottom:2rem;">Get notified when new skills are certified, security vulnerabilities are discovered, and when we ship new scanning capabilities.</p>
+                <h2 class="section-title">Join the network</h2>
+                <p style="font-size:0.9rem;color:var(--muted);line-height:1.7;margin-bottom:2rem;">Get notified when new merchants join, when developer tools ship, and when the network expands to new regions.</p>
                 <div style="display:flex;gap:0.8rem;justify-content:center;flex-wrap:wrap;">
-                    <a href="mailto:pixel@pixelfamiliar.ca?subject=ClawForce Updates"
+                    <a href="mailto:pixel@pixelfamiliar.ca?subject=ClawForce Network Updates"
                         style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.75rem 1.5rem;background:var(--primary);color:var(--bg);border-radius:2px;font-family:var(--mono);font-size:0.8rem;font-weight:700;text-decoration:none;letter-spacing:0.02em;transition:all 0.25s;">
                         Get Updates →
                     </a>
@@ -2053,7 +1841,6 @@
             </div>
         </div>
     </section>
-
     </main>
     <!-- ━━━ FOOTER ━━━ -->
     <footer>
