@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/logo.png" type="image/png">
+    <title>Verified Skills Registry — ClawForce</title>
+    <meta name="description" content="885 AI agent skills scanned, scored, and verified by ClawForce. Search the registry to find safe MCP tools and agent capabilities.">
+    <meta property="og:title" content="Verified Skills Registry — ClawForce">
+    <meta property="og:description" content="885 AI agent skills scanned and scored. The trust layer for the agent economy.">
+    <meta property="og:url" content="https://clawforce.ca/registry.html">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://clawforce.ca/registry.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a; --surface: #141414; --surface-2: #1a1a1a;
+            --border: #222; --border-hover: #333;
+            --text: #e5e5e5; --dim: #666; --muted: #444;
+            --accent: #10b981; --accent-dim: rgba(16,185,129,0.1);
+            --red: #ef4444; --yellow: #eab308; --blue: #3b82f6;
+            --mono: 'Space Mono', monospace; --sans: 'DM Sans', sans-serif;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { background:var(--bg); color:var(--text); font-family:var(--sans); min-height:100vh; }
+        a { color:var(--accent); text-decoration:none; }
+        a:hover { text-decoration:underline; }
+
+        /* Nav */
+        nav { position:sticky; top:0; z-index:100; background:rgba(10,10,10,0.85); backdrop-filter:blur(16px); border-bottom:1px solid var(--border); }
+        nav .wrap { max-width:1200px; margin:0 auto; padding:0.75rem 1.5rem; display:flex; align-items:center; justify-content:space-between; }
+        .nav-logo { display:flex; align-items:center; gap:0.5rem; text-decoration:none; color:var(--text); }
+        .brand { font-family:var(--mono); font-weight:700; font-size:0.9rem; }
+        .nav-links { list-style:none; display:flex; gap:1.5rem; align-items:center; }
+        .nav-links a { color:var(--dim); font-size:0.85rem; font-weight:500; transition:color 0.2s; }
+        .nav-links a:hover { color:var(--text); text-decoration:none; }
+        .nav-cta { background:var(--accent)!important; color:#000!important; padding:0.4rem 1rem; border-radius:6px; font-weight:600!important; }
+        .mobile-menu-btn { display:none; background:none; border:none; color:var(--text); font-size:1.2rem; cursor:pointer; }
+
+        /* Hero */
+        .hero { max-width:1200px; margin:0 auto; padding:3rem 1.5rem 2rem; }
+        .hero h1 { font-family:var(--mono); font-size:2rem; font-weight:700; margin-bottom:0.5rem; }
+        .hero h1 span { color:var(--accent); }
+        .hero p { color:var(--dim); font-size:0.95rem; max-width:600px; line-height:1.6; }
+
+        /* Stats bar */
+        .stats-bar { max-width:1200px; margin:0 auto 1.5rem; padding:0 1.5rem; display:flex; gap:1rem; flex-wrap:wrap; }
+        .stat-card { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:1rem 1.25rem; flex:1; min-width:140px; }
+        .stat-card .val { font-family:var(--mono); font-size:1.5rem; font-weight:700; color:var(--text); }
+        .stat-card .label { font-size:0.72rem; color:var(--dim); text-transform:uppercase; letter-spacing:0.05em; margin-top:0.15rem; }
+
+        /* Controls */
+        .controls { max-width:1200px; margin:0 auto 1.5rem; padding:0 1.5rem; display:flex; gap:0.75rem; flex-wrap:wrap; align-items:center; }
+        .search-box { flex:1; min-width:200px; padding:0.6rem 1rem; border-radius:8px; border:1px solid var(--border); background:var(--surface); color:var(--text); font-size:0.85rem; font-family:var(--sans); outline:none; transition:border 0.2s; }
+        .search-box:focus { border-color:var(--accent); }
+        .search-box::placeholder { color:var(--muted); }
+        .filter-btn { padding:0.5rem 0.9rem; border-radius:6px; border:1px solid var(--border); background:var(--surface); color:var(--dim); font-size:0.75rem; font-family:var(--mono); cursor:pointer; transition:all 0.2s; }
+        .filter-btn:hover, .filter-btn.active { border-color:var(--accent); color:var(--accent); background:var(--accent-dim); }
+        .result-count { font-size:0.75rem; color:var(--muted); font-family:var(--mono); margin-left:auto; }
+
+        /* Grid */
+        .grid { max-width:1200px; margin:0 auto; padding:0 1.5rem 3rem; display:grid; grid-template-columns:repeat(auto-fill, minmax(340px, 1fr)); gap:0.75rem; }
+        .skill-card { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:1.25rem; transition:border-color 0.2s, transform 0.15s; cursor:default; position:relative; overflow:hidden; }
+        .skill-card:hover { border-color:var(--border-hover); transform:translateY(-1px); }
+        .skill-card .name { font-family:var(--mono); font-size:0.85rem; font-weight:700; color:var(--text); margin-bottom:0.35rem; display:flex; align-items:center; gap:0.5rem; }
+        .skill-card .desc { font-size:0.78rem; color:var(--dim); line-height:1.5; margin-bottom:0.75rem; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+        .skill-card .meta-row { display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap; }
+        .tag { font-size:0.65rem; font-family:var(--mono); padding:0.2rem 0.5rem; border-radius:4px; font-weight:600; }
+        .tag-verified { background:rgba(16,185,129,0.15); color:#10b981; border:1px solid rgba(16,185,129,0.2); }
+        .tag-scanned { background:rgba(59,130,246,0.1); color:#60a5fa; border:1px solid rgba(59,130,246,0.15); }
+        .risk-low { background:rgba(16,185,129,0.1); color:#10b981; }
+        .risk-med { background:rgba(234,179,8,0.1); color:#eab308; }
+        .risk-high { background:rgba(239,68,68,0.1); color:#ef4444; }
+        .risk-bar { height:3px; border-radius:2px; position:absolute; bottom:0; left:0; transition:width 0.3s; }
+        .risk-bar-low { background:var(--accent); }
+        .risk-bar-med { background:var(--yellow); }
+        .risk-bar-high { background:var(--red); }
+        .badge-link { display:inline-flex; align-items:center; gap:0.3rem; font-size:0.7rem; color:var(--dim); margin-left:auto; }
+        .badge-link:hover { color:var(--accent); }
+        .findings-count { font-size:0.65rem; font-family:var(--mono); color:var(--dim); }
+
+        /* Empty state */
+        .empty { text-align:center; padding:4rem 1rem; color:var(--muted); font-family:var(--mono); font-size:0.9rem; }
+        .empty span { display:block; font-size:2rem; margin-bottom:0.5rem; }
+
+        /* Footer */
+        footer { border-top:1px solid var(--border); padding:2rem 1.5rem; text-align:center; }
+        footer p { font-size:0.75rem; color:var(--muted); }
+
+        /* Loading skeleton */
+        .skeleton { background:linear-gradient(90deg, var(--surface) 25%, var(--surface-2) 50%, var(--surface) 75%); background-size:200% 100%; animation:shimmer 1.5s infinite; border-radius:6px; }
+        @keyframes shimmer { 0%{background-position:200%} 100%{background-position:-200%} }
+
+        @media (max-width:640px) {
+            .mobile-menu-btn { display:block; }
+            .nav-links { display:none; flex-direction:column; position:absolute; top:100%; left:0; right:0; background:var(--bg); border-bottom:1px solid var(--border); padding:1rem; gap:0.75rem; }
+            .nav-links.open { display:flex; }
+            .hero h1 { font-size:1.4rem; }
+            .grid { grid-template-columns:1fr; }
+            .stats-bar { flex-direction:column; }
+            .stat-card { min-width:0; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="wrap">
+            <a href="/" class="nav-logo">
+                <img src="/logo.png" alt="ClawForce" style="height:22px;width:22px;">
+                <span class="brand">ClawForce</span>
+            </a>
+            <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">☰</button>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/registry.html" style="color:var(--accent)">Registry</a></li>
+                <li><a href="/blog-index.html">Blog</a></li>
+                <li><a href="/developers.html">Developers</a></li>
+                <li><a href="/#waitlist" class="nav-cta">Join Waitlist &rarr;</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <h1>Verified Skills <span>Registry</span></h1>
+        <p>885 AI agent skills scanned, scored, and cataloged by ClawForce. Every skill gets a risk assessment, dependency audit, and CycloneDX SBOM. Agents running verified skills earn higher trust through the Tollbooth.</p>
+    </div>
+
+    <div class="stats-bar" id="stats-bar">
+        <div class="stat-card"><div class="val" id="stat-total">—</div><div class="label">Skills Scanned</div></div>
+        <div class="stat-card"><div class="val" id="stat-verified">—</div><div class="label">Verified</div></div>
+        <div class="stat-card"><div class="val" id="stat-sources">—</div><div class="label">Sources</div></div>
+        <div class="stat-card"><div class="val" id="stat-avg-risk">—</div><div class="label">Avg Risk Score</div></div>
+        <div class="stat-card"><div class="val" id="stat-sbom">—</div><div class="label">SBOMs Generated</div></div>
+    </div>
+
+    <div class="controls">
+        <input type="text" class="search-box" id="search" placeholder="Search skills by name, description, or repo..." autocomplete="off">
+        <button class="filter-btn active" data-filter="all" onclick="setFilter('all', this)">All</button>
+        <button class="filter-btn" data-filter="verified" onclick="setFilter('verified', this)">✓ Verified</button>
+        <button class="filter-btn" data-filter="low" onclick="setFilter('low', this)">Low Risk</button>
+        <button class="filter-btn" data-filter="med" onclick="setFilter('med', this)">Medium</button>
+        <button class="filter-btn" data-filter="high" onclick="setFilter('high', this)">High Risk</button>
+        <span class="result-count" id="result-count"></span>
+    </div>
+
+    <div class="grid" id="grid">
+        <!-- Skeleton loaders -->
+        <div class="skill-card"><div class="skeleton" style="height:16px;width:60%;margin-bottom:8px"></div><div class="skeleton" style="height:12px;width:90%;margin-bottom:4px"></div><div class="skeleton" style="height:12px;width:70%"></div></div>
+        <div class="skill-card"><div class="skeleton" style="height:16px;width:55%;margin-bottom:8px"></div><div class="skeleton" style="height:12px;width:85%;margin-bottom:4px"></div><div class="skeleton" style="height:12px;width:75%"></div></div>
+        <div class="skill-card"><div class="skeleton" style="height:16px;width:50%;margin-bottom:8px"></div><div class="skeleton" style="height:12px;width:80%;margin-bottom:4px"></div><div class="skeleton" style="height:12px;width:65%"></div></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 ClawForce by Pixel Familiar Inc. &middot; Scanner v5.0.0 &middot; <a href="/blog/what-we-found-scanning-194-clawhub-skills.html">What We Found Scanning ClawHub</a></p>
+    </footer>
+
+    <script>
+    let allSkills = [];
+    let currentFilter = 'all';
+
+    function slugify(name) {
+        return (name || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+    }
+
+    function riskClass(score) {
+        if (score <= 10) return 'low';
+        if (score <= 30) return 'med';
+        return 'high';
+    }
+
+    function riskLabel(score) {
+        const cls = riskClass(score);
+        return cls === 'low' ? 'Low' : cls === 'med' ? 'Medium' : 'High';
+    }
+
+    function renderCard(s) {
+        const slug = slugify(s.skill_name);
+        const rc = riskClass(s.risk_score || 0);
+        const tier = s.certification_tier || 'scanned';
+        const tierTag = tier === 'verified'
+            ? '<span class="tag tag-verified">✓ VERIFIED</span>'
+            : '<span class="tag tag-scanned">SCANNED</span>';
+        const riskTag = `<span class="tag risk-${rc}">${riskLabel(s.risk_score || 0)} (${s.risk_score || 0})</span>`;
+        const desc = s.description || 'No description available.';
+        const findings = s.total_findings || 0;
+        const barW = Math.min(100, ((s.risk_score || 0) / 71) * 100);
+
+        return `<div class="skill-card" data-tier="${tier}" data-risk="${rc}">
+            <div class="name">
+                ${s.skill_name || 'Unknown'}
+            </div>
+            <div class="desc">${desc}</div>
+            <div class="meta-row">
+                ${tierTag}
+                ${riskTag}
+                <span class="findings-count">${findings} finding${findings !== 1 ? 's' : ''}</span>
+                <a href="/badges/${slug}.svg" target="_blank" class="badge-link" title="View badge">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    Badge
+                </a>
+            </div>
+            <div class="risk-bar risk-bar-${rc}" style="width:${barW}%"></div>
+        </div>`;
+    }
+
+    function render(skills) {
+        const grid = document.getElementById('grid');
+        if (skills.length === 0) {
+            grid.innerHTML = '<div class="empty"><span>∅</span>No skills match your search.</div>';
+        } else {
+            grid.innerHTML = skills.map(renderCard).join('');
+        }
+        document.getElementById('result-count').textContent = `${skills.length} of ${allSkills.length}`;
+    }
+
+    function applyFilters() {
+        const q = document.getElementById('search').value.toLowerCase().trim();
+        let filtered = allSkills;
+
+        if (currentFilter === 'verified') {
+            filtered = filtered.filter(s => s.certification_tier === 'verified');
+        } else if (currentFilter === 'low') {
+            filtered = filtered.filter(s => riskClass(s.risk_score || 0) === 'low');
+        } else if (currentFilter === 'med') {
+            filtered = filtered.filter(s => riskClass(s.risk_score || 0) === 'med');
+        } else if (currentFilter === 'high') {
+            filtered = filtered.filter(s => riskClass(s.risk_score || 0) === 'high');
+        }
+
+        if (q) {
+            filtered = filtered.filter(s => {
+                const name = (s.skill_name || '').toLowerCase();
+                const desc = (s.description || '').toLowerCase();
+                const repo = (s.repo || '').toLowerCase();
+                return name.includes(q) || desc.includes(q) || repo.includes(q);
+            });
+        }
+
+        // Sort: verified first, then by risk score ascending
+        filtered.sort((a, b) => {
+            if (a.certification_tier === 'verified' && b.certification_tier !== 'verified') return -1;
+            if (b.certification_tier === 'verified' && a.certification_tier !== 'verified') return 1;
+            return (a.risk_score || 0) - (b.risk_score || 0);
+        });
+
+        render(filtered);
+    }
+
+    function setFilter(f, btn) {
+        currentFilter = f;
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        applyFilters();
+    }
+
+    // Debounced search
+    let searchTimeout;
+    document.getElementById('search').addEventListener('input', () => {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(applyFilters, 200);
+    });
+
+    // Load data
+    fetch('./registry.json')
+        .then(r => r.json())
+        .then(data => {
+            allSkills = data.skills || [];
+            const meta = data.meta || {};
+
+            // Stats
+            document.getElementById('stat-total').textContent = meta.total_skills || allSkills.length;
+            const verified = allSkills.filter(s => s.certification_tier === 'verified').length;
+            document.getElementById('stat-verified').textContent = verified;
+            document.getElementById('stat-sources').textContent = (meta.sources || []).length;
+            const avgRisk = allSkills.reduce((a, s) => a + (s.risk_score || 0), 0) / allSkills.length;
+            document.getElementById('stat-avg-risk').textContent = avgRisk.toFixed(1);
+            document.getElementById('stat-sbom').textContent = meta.total_skills || allSkills.length;
+
+            applyFilters();
+        })
+        .catch(err => {
+            document.getElementById('grid').innerHTML = '<div class="empty"><span>⚠</span>Failed to load registry data.</div>';
+        });
+    </script>
+</body>
+</html>
