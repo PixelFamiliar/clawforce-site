@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Developer Trust Profiles | ClawForce</title>
-    <meta name="description" content="Aggregate trust profiles for ClawHub skill developers. See skill count, average risk, permission patterns, and riskiest skills per developer.">
+    <title>For Developers | ClawForce</title>
+    <meta name="description" content="Get guaranteed API access to premium web data. Register your AI agent, fund your wallet, and start making authenticated requests through ClawForce's edge network.">
     <link rel="canonical" href="https://clawforce.ca/developers.html">
     <link rel="icon" href="/logo.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,283 +12,102 @@
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
-            --bg: #FAFAF8; --surface: #FFFFFF; --border: #E0DDD5; --border-hover: #C8C4BA;
+            --bg: #FAFAF8; --surface: #FFFFFF; --border: #E0DDD5;
             --text: #0A0A0A; --muted: #5C5C5C; --dim: #8A8A80;
-            --primary: #0A0A0A; --cyan: #3D7A5F; --blue: #4A6FA5;
-            --amber: #B8860B; --red: #C0392B; --radius: 2px;
+            --primary: #0A0A0A; --cyan: #3D7A5F; --radius: 2px;
             --mono: 'Space Mono', monospace; --sans: 'DM Sans', -apple-system, sans-serif;
         }
-        body { background: var(--bg); color: var(--text); font-family: var(--sans); line-height: 1.6; -webkit-font-smoothing: antialiased; }
-        body::before { content: ''; position: fixed; inset: 0; background: url("data:image/svg+xml,%3Csvg width='400' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events: none; z-index: 0; }
-        .wrap { max-width: 1100px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; }
-        nav { position: fixed; top: 0; width: 100%; z-index: 100; background: rgba(250, 250, 248, 0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
-        nav .wrap { display: flex; align-items: center; justify-content: space-between; }
-        .nav-logo { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; font-family: var(--mono); font-weight: 700; font-size: 0.95rem; letter-spacing: -0.02em; }
+        body { background: var(--bg); color: var(--text); font-family: var(--sans); line-height: 1.6; }
+        .wrap { max-width: 720px; margin: 0 auto; padding: 0 2rem; }
+        nav { position: fixed; top: 0; width: 100%; z-index: 100; background: rgba(250,250,248,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
+        nav .wrap { max-width: 1100px; display: flex; align-items: center; justify-content: space-between; }
+        .nav-logo { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; font-family: var(--mono); font-weight: 700; font-size: 0.95rem; }
         .nav-logo .brand { color: var(--text); }
         .nav-links { list-style: none; display: flex; gap: 1.5rem; align-items: center; }
-        .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.82rem; font-weight: 500; transition: color 0.2s; white-space: nowrap; }
+        .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.82rem; font-weight: 500; transition: color 0.2s; }
         .nav-links a:hover { color: var(--text); }
-        .nav-links a.active { color: var(--text); }
-        .nav-cta { background: var(--primary) !important; color: var(--bg) !important; padding: 0.4rem 1rem; border-radius: 2px; font-family: var(--mono); font-size: 0.75rem !important; font-weight: 700 !important; letter-spacing: 0.04em; text-transform: uppercase; }
-        .mobile-menu-btn { display: none; background: none; border: none; color: var(--text); font-size: 1.5rem; cursor: pointer; }
-
-        .hero { padding: 9rem 0 3rem; text-align: center; }
-        .hero h1 { font-family: var(--mono); font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 1rem; }
-        .hero .hl { color: var(--cyan); }
-        .hero-sub { font-size: 1rem; color: var(--muted); max-width: 600px; margin: 0 auto 2rem; line-height: 1.7; }
-
-        .section-label { font-family: var(--mono); font-size: 0.68rem; font-weight: 700; color: var(--dim); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.8rem; }
-        .divider { border: none; height: 1px; background: var(--border); margin: 0; }
-
-        .dev-grid { margin: 2rem 0; }
-        .dev-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin-bottom: 1rem; transition: border-color 0.2s, box-shadow 0.2s; cursor: pointer; }
-        .dev-card:hover { border-color: var(--border-hover); box-shadow: 0 2px 12px rgba(0,0,0,0.04); }
-        .dev-header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap; }
-        .dev-name { font-family: var(--mono); font-size: 1.1rem; font-weight: 700; color: var(--text); }
-        .dev-handle { font-family: var(--mono); font-size: 0.72rem; color: var(--dim); }
-        .dev-stats { display: flex; gap: 2rem; flex-wrap: wrap; }
-        .dev-stat { text-align: center; }
-        .dev-stat-value { font-family: var(--mono); font-size: 1.2rem; font-weight: 700; }
-        .dev-stat-label { font-family: var(--mono); font-size: 0.58rem; color: var(--dim); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 2px; }
-        .dev-skills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 1rem; }
-        .dev-skill-tag { font-family: var(--mono); font-size: 0.6rem; padding: 2px 8px; border-radius: 3px; border: 1px solid var(--border); color: var(--muted); background: var(--bg); text-decoration: none; transition: all 0.2s; }
-        .dev-skill-tag:hover { border-color: var(--cyan); color: var(--cyan); }
-        .dev-skill-tag.high { border-color: rgba(192,57,43,0.3); color: var(--red); }
-        .dev-skill-tag.medium { border-color: rgba(184,134,11,0.3); color: var(--amber); }
-        .dev-scopes { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 0.8rem; }
-        .scope-badge { font-family: var(--mono); font-size: 0.52rem; padding: 1px 6px; border-radius: 2px; font-weight: 600; }
-
-        .search-input { width: 100%; padding: 0.7rem 1rem; border: 1px solid var(--border); border-radius: 4px; font-size: 0.88rem; font-family: var(--sans); background: var(--surface); color: var(--text); margin-bottom: 1.5rem; outline: none; transition: border-color 0.2s; }
-        .search-input:focus { border-color: var(--cyan); }
-
-        .sort-group { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
-        .sort-btn { font-family: var(--mono); font-size: 0.68rem; padding: 0.3rem 0.8rem; border: 1px solid var(--border); border-radius: 3px; background: var(--surface); color: var(--muted); cursor: pointer; transition: all 0.2s; }
-        .sort-btn:hover { border-color: var(--text); color: var(--text); }
-        .sort-btn.active { background: var(--primary); color: var(--bg); border-color: var(--primary); }
-
-        .loading { text-align: center; padding: 4rem 0; font-family: var(--mono); font-size: 0.85rem; color: var(--dim); }
-
-        footer { border-top: 1px solid var(--border); padding: 2rem 0; margin-top: 4rem; }
-        .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-        .footer-brand { font-family: var(--mono); font-weight: 700; font-size: 0.9rem; }
-        .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
-        .footer-links a { color: var(--dim); text-decoration: none; font-size: 0.78rem; }
-        .footer-links a:hover { color: var(--text); }
-        .footer-copy { font-size: 0.68rem; color: var(--dim); width: 100%; text-align: center; margin-top: 0.8rem; }
-
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .mobile-menu-btn { display: block; }
-            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: rgba(250,250,248,0.95); backdrop-filter: blur(20px); padding: 1.5rem 2rem; border-bottom: 1px solid var(--border); gap: 1rem; }
-            .dev-header { flex-direction: column; align-items: flex-start; }
-            .dev-stats { gap: 1.5rem; }
-        }
+        .nav-cta { background: var(--primary); color: #fff !important; padding: 0.4rem 1rem; border-radius: var(--radius); font-family: var(--mono); font-size: 0.75rem !important; font-weight: 700; }
+        h1 { font-family: var(--mono); font-size: 2rem; letter-spacing: -0.03em; margin-bottom: 1rem; }
+        h2 { font-family: var(--mono); font-size: 1.1rem; margin: 2.5rem 0 0.8rem; color: var(--cyan); }
+        p { color: var(--muted); margin-bottom: 1rem; line-height: 1.7; }
+        code { font-family: var(--mono); font-size: 0.85rem; background: var(--surface); border: 1px solid var(--border); padding: 0.15rem 0.4rem; border-radius: 3px; }
+        pre { background: #1a1a1a; color: #e0e0e0; padding: 1.2rem 1.5rem; border-radius: var(--radius); overflow-x: auto; margin: 1rem 0; font-family: var(--mono); font-size: 0.78rem; line-height: 1.6; }
+        pre .comment { color: #6a9955; }
+        pre .key { color: #9CDCFE; }
+        pre .str { color: #CE9178; }
+        pre .ok { color: #6ECF8A; }
+        main { padding: 6rem 0 4rem; }
+        .step { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin: 1rem 0; }
+        .step-num { font-family: var(--mono); font-size: 0.75rem; color: var(--cyan); font-weight: 700; letter-spacing: 0.05em; margin-bottom: 0.3rem; }
+        .step-title { font-family: var(--mono); font-weight: 700; font-size: 0.9rem; margin-bottom: 0.5rem; }
+        footer { border-top: 1px solid var(--border); padding: 2rem 0; text-align: center; font-size: 0.75rem; color: var(--dim); }
     </style>
 </head>
 <body>
     <nav>
         <div class="wrap">
-            <a href="/" class="nav-logo">
-                <img src="/logo.png" alt="ClawForce" style="height:22px;width:22px;">
-                <span class="brand">ClawForce</span>
-            </a>
-            <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">☰</button>
+            <a href="/" class="nav-logo"><img src="/logo.png" alt="ClawForce" style="height:22px;width:22px;"><span class="brand">ClawForce</span></a>
             <ul class="nav-links">
-                <li><a href="/#scan">Scan</a></li>
+                <li><a href="/#how-it-works">How It Works</a></li>
                 <li><a href="/#pricing">Pricing</a></li>
                 <li><a href="/blog-index.html">Blog</a></li>
-                <li><a href="/skills.html">Skills</a></li>
-                <li><a href="/developers.html" class="active">Developers</a></li>
-                <li><a href="/scopes.html">Scopes</a></li>
-                <li><a href="/#scan" class="nav-cta">Scan Now →</a></li>
+                <li><a href="/developers.html" style="color:var(--text);">Developers</a></li>
+                <li><a href="/#waitlist" class="nav-cta">Join Waitlist &rarr;</a></li>
             </ul>
         </div>
     </nav>
 
-    <section class="hero">
+    <main>
         <div class="wrap">
-            <div class="section-label">// developer trust profiles</div>
-            <h1>Who's Building<br><span class="hl">Your Agent's Skills?</span></h1>
-            <p class="hero-sub">Aggregate trust scores per developer. See how many skills they publish, their average risk, and which permission scopes they request most.</p>
-        </div>
-    </section>
+            <h1>For AI Developers</h1>
+            <p>Your agents need web data. Instead of getting blocked, rate-limited, or scraped into trouble, ClawForce gives you <strong>authenticated, paid access</strong> to any merchant on the network.</p>
 
-    <hr class="divider">
+            <h2>How it works</h2>
 
-    <div class="wrap" style="padding-top: 2rem;">
-        <input type="text" class="search-input" id="searchInput" placeholder="Search developers...">
-        <div class="sort-group">
-            <button class="sort-btn active" onclick="sortBy('risk', this)">Highest Risk</button>
-            <button class="sort-btn" onclick="sortBy('skills', this)">Most Skills</button>
-            <button class="sort-btn" onclick="sortBy('name', this)">A-Z</button>
+            <div class="step">
+                <div class="step-num">STEP 1</div>
+                <div class="step-title">Register your agent</div>
+                <p>Create a developer account and register each AI agent. You'll get a unique API token per agent.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-num">STEP 2</div>
+                <div class="step-title">Fund your wallet</div>
+                <p>Add credit to your developer wallet via Stripe. Minimum $5. No subscription, no monthly fees. Your balance is deducted per request based on each merchant's pricing.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-num">STEP 3</div>
+                <div class="step-title">Make authenticated requests</div>
+                <p>Send your agent token with every request. ClawForce verifies the token, checks your balance, charges the per-request fee, and proxies the request to the merchant's site.</p>
+<pre><span class="comment"># Example request with agent token</span>
+curl -H <span class="str">"X-Claw-Agent-Token: claw_7f3a..."</span> \
+     https://example.com/api/data
+
+<span class="comment"># Response (proxied through ClawForce edge)</span>
+<span class="ok">HTTP/1.1 200 OK</span>
+<span class="key">X-Claw-Charged:</span> <span class="str">$0.001</span>
+<span class="key">X-Claw-Balance:</span> <span class="str">$49.999</span></pre>
+            </div>
+
+            <h2>What you get</h2>
+            <p><strong>Guaranteed access.</strong> No more 403s. If the merchant accepts paid agents, your request goes through.</p>
+            <p><strong>Transparent pricing.</strong> You see the per-request cost before you send. No surprises.</p>
+            <p><strong>Clean audit trail.</strong> Every request, charge, and balance change is logged in your developer dashboard.</p>
+            <p><strong>No rate limits.</strong> Pay-as-you-go means no artificial throttling. Send as many requests as your balance covers.</p>
+
+            <h2>Pricing</h2>
+            <p>Developers pay per request. Rates are set by each merchant, typically between $0.001 and $0.05 per request. You only pay for successful 200 OK responses.</p>
+            <p>Wallet top-ups start at $5. No monthly fees, no minimum commitments.</p>
+
+            <div style="margin-top:2rem;text-align:center;">
+                <a href="/#waitlist" style="display:inline-block;padding:0.75rem 1.5rem;background:var(--primary);color:var(--bg);font-family:var(--mono);font-size:0.85rem;font-weight:700;text-decoration:none;border-radius:var(--radius);">Join the developer waitlist &rarr;</a>
+            </div>
         </div>
-        <div id="loading" class="loading">Loading developer profiles...</div>
-        <div id="devGrid" class="dev-grid" style="display:none;"></div>
-    </div>
+    </main>
 
     <footer>
-        <div class="wrap">
-            <div class="footer-inner">
-                <div class="footer-brand"><img src="/logo.png" alt="ClawForce" style="height:18px;width:18px;vertical-align:middle;margin-right:4px;"> ClawForce</div>
-                <div class="footer-links">
-                    <a href="/about.html">About</a>
-                    <a href="/faq.html">FAQ</a>
-                    <a href="/api-docs.html">API</a>
-                    <a href="/contact.html">Contact</a>
-                    <a href="/legal.html">Legal</a>
-                    <a href="/privacy.html">Privacy</a>
-                    <a href="https://pixelfamiliar.ca">Pixel Familiar</a>
-                </div>
-            </div>
-            <p class="footer-copy">© 2026 Pixel Familiar Inc. · ClawForce Verified Skills™ · Manitoba, Canada</p>
-        </div>
+        <div class="wrap">&copy; 2026 ClawForce, a product of <a href="https://pixelfamiliar.ca" style="color:var(--dim);text-decoration:underline;">Pixel Familiar Inc.</a></div>
     </footer>
-
-    <script>
-        let allDevs = [];
-        let currentSort = 'risk';
-
-        const scopeColors = {
-            network: '#3D7A5F', filesystem: '#4A6FA5', execution: '#C0392B', credentials: '#B8860B',
-            browser: '#6A5ACD', email: '#2E86C1', database: '#1ABC9C', system: '#C0392B'
-        };
-        const scopeAbbr = { network: 'net', filesystem: 'fs', execution: 'exec', credentials: 'cred', browser: 'web', email: 'mail', database: 'db', system: 'sys' };
-
-        async function loadData() {
-            try {
-                const res = await fetch('/registry.json');
-                const data = await res.json();
-                const skills = data.skills || [];
-
-                // Group by developer
-                const devMap = {};
-                for (const s of skills) {
-                    const dev = s.developer || s.developer_handle || 'unknown';
-                    if (!devMap[dev]) devMap[dev] = { name: dev, handle: s.developer_handle || '', skills: [] };
-                    devMap[dev].skills.push(s);
-                }
-
-                // Build profiles
-                allDevs = Object.values(devMap).map(d => {
-                    const risks = d.skills.map(s => s.risk_score || 0);
-                    const avgRisk = risks.reduce((a, b) => a + b, 0) / risks.length;
-                    const maxRisk = Math.max(...risks);
-                    const riskiest = d.skills.find(s => (s.risk_score || 0) === maxRisk);
-                    const allScopes = new Set();
-                    d.skills.forEach(s => (s.permissions || []).forEach(p => allScopes.add(p)));
-
-                    return {
-                        name: d.name,
-                        handle: d.handle,
-                        skillCount: d.skills.length,
-                        avgRisk: Math.round(avgRisk * 10) / 10,
-                        maxRisk,
-                        riskiest: riskiest ? (riskiest.display_name || riskiest.skill_name) : '',
-                        riskiestSlug: riskiest ? riskiest.skill_name : '',
-                        scopes: Array.from(allScopes),
-                        skills: d.skills.sort((a, b) => (b.risk_score || 0) - (a.risk_score || 0)),
-                    };
-                });
-
-                document.getElementById('loading').style.display = 'none';
-                document.getElementById('devGrid').style.display = 'block';
-                render();
-            } catch (err) {
-                document.getElementById('loading').textContent = 'Failed to load data.';
-            }
-        }
-
-        function render() {
-            const search = (document.getElementById('searchInput').value || '').toLowerCase().trim();
-            let filtered = allDevs.filter(d => {
-                if (search && !d.name.toLowerCase().includes(search) && !d.handle.toLowerCase().includes(search)) return false;
-                return true;
-            });
-
-            // Sort
-            if (currentSort === 'risk') filtered.sort((a, b) => b.avgRisk - a.avgRisk);
-            else if (currentSort === 'skills') filtered.sort((a, b) => b.skillCount - a.skillCount);
-            else if (currentSort === 'name') filtered.sort((a, b) => a.name.localeCompare(b.name));
-
-            const grid = document.getElementById('devGrid');
-            grid.innerHTML = '';
-
-            if (filtered.length === 0) {
-                grid.innerHTML = '<div class="loading">No developers found.</div>';
-                return;
-            }
-
-            for (const dev of filtered) {
-                const riskColor = dev.avgRisk <= 5 ? 'var(--cyan)' : dev.avgRisk <= 20 ? 'var(--amber)' : 'var(--red)';
-                const card = document.createElement('div');
-                card.className = 'dev-card';
-
-                let scopeHtml = '';
-                for (const scope of dev.scopes) {
-                    const c = scopeColors[scope] || 'var(--dim)';
-                    scopeHtml += `<span class="scope-badge" style="border:1px solid ${c}33;color:${c};background:${c}0a;">${scopeAbbr[scope] || scope}</span>`;
-                }
-
-                let skillTags = '';
-                for (const s of dev.skills.slice(0, 8)) {
-                    const cls = (s.risk_score || 0) > 20 ? 'high' : (s.risk_score || 0) > 5 ? 'medium' : '';
-                    skillTags += `<a href="/skill/${s.skill_name}" class="dev-skill-tag ${cls}">${s.display_name || s.skill_name}</a>`;
-                }
-                if (dev.skills.length > 8) skillTags += `<span class="dev-skill-tag">+${dev.skills.length - 8} more</span>`;
-
-                card.innerHTML = `
-                    <div class="dev-header">
-                        <div>
-                            <div class="dev-name">${esc(dev.name)}</div>
-                            ${dev.handle ? `<div class="dev-handle">@${esc(dev.handle)}</div>` : ''}
-                        </div>
-                        <div class="dev-stats">
-                            <div class="dev-stat">
-                                <div class="dev-stat-value">${dev.skillCount}</div>
-                                <div class="dev-stat-label">Skills</div>
-                            </div>
-                            <div class="dev-stat">
-                                <div class="dev-stat-value" style="color:${riskColor}">${dev.avgRisk}</div>
-                                <div class="dev-stat-label">Avg Risk</div>
-                            </div>
-                            <div class="dev-stat">
-                                <div class="dev-stat-value" style="color:${dev.maxRisk > 20 ? 'var(--red)' : dev.maxRisk > 5 ? 'var(--amber)' : 'var(--cyan)'}">${dev.maxRisk}</div>
-                                <div class="dev-stat-label">Max Risk</div>
-                            </div>
-                            <div class="dev-stat">
-                                <div class="dev-stat-value">${dev.scopes.length}</div>
-                                <div class="dev-stat-label">Scopes</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dev-scopes">${scopeHtml}</div>
-                    <div class="dev-skills">${skillTags}</div>
-                `;
-                grid.appendChild(card);
-            }
-        }
-
-        function sortBy(sort, btn) {
-            currentSort = sort;
-            document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            render();
-        }
-
-        function esc(str) {
-            if (!str) return '';
-            const d = document.createElement('div');
-            d.textContent = str;
-            return d.innerHTML;
-        }
-
-        let searchTimeout;
-        document.getElementById('searchInput').addEventListener('input', () => {
-            clearTimeout(searchTimeout);
-            searchTimeout = setTimeout(render, 200);
-        });
-
-        document.addEventListener('DOMContentLoaded', loadData);
-    </script>
 </body>
 </html>

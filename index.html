@@ -37,7 +37,7 @@
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "ClawForce",
-        "alternateName": "ClawForce Verified Skills™",
+        "alternateName": "The Agent Tollbooth",
         "url": "https://clawforce.ca",
         "description": "The economic layer for the AI web. ClawForce turns autonomous agent traffic into a revenue stream for website owners while giving AI developers guaranteed, paid access to premium data.",
         "foundingDate": "2026",
@@ -66,16 +66,16 @@
     {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
-        "name": "ClawForce Skill Scanner",
-        "applicationCategory": "SecurityApplication",
+        "name": "ClawForce Edge Router",
+        "applicationCategory": "BusinessApplication",
         "operatingSystem": "All",
         "offers": {
             "@type": "Offer",
             "price": "0",
             "priceCurrency": "USD",
-            "description": "Free Tier 1 static analysis scan"
+            "description": "Free for merchants. Developers pay per request."
         },
-        "description": "Three-tier security certification pipeline: static analysis, intent verification, and AI semantic code review for OpenClaw agent skills."
+        "description": "Edge proxy that sits in front of any website, verifying AI agent tokens and collecting micro-payments per request on behalf of website owners."
     }
     </script>
     <script type="application/ld+json">
@@ -90,10 +90,10 @@
     {
         "@context": "https://schema.org",
         "@type": "Service",
-        "name": "Security Certification",
-        "description": "Three-tier security verification pipeline for OpenClaw agent skills: static analysis, intent validation, and AI semantic code review.",
+        "name": "Agent Tollbooth",
+        "description": "Pay-per-request monetization layer for websites. AI agents pay micro-fees to access content through ClawForce's edge network, generating revenue for site owners.",
         "provider": {"@type": "Organization", "name": "ClawForce"},
-        "serviceType": "Security Certification"
+        "serviceType": "API Monetization"
     }
     </script>
     <style>
@@ -1517,12 +1517,11 @@
             </a>
             <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">☰</button>
             <ul class="nav-links">
-                <li><a href="#scan">Scan</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
                 <li><a href="#pricing">Pricing</a></li>
                 <li><a href="/blog-index.html">Blog</a></li>
-                <li><a href="/skills.html">Skills</a></li>
                 <li><a href="/developers.html">Developers</a></li>
-                <li><a href="/certify.html" class="nav-cta" style="background:var(--cyan)!important; color:#fff!important;">Get Certified &rarr;</a></li>
+                <li><a href="#waitlist" class="nav-cta">Join Waitlist &rarr;</a></li>
             </ul>
         </div>
     </nav>
@@ -1831,7 +1830,7 @@
     <hr class="divider">
 
     <!-- ━━━ EMAIL CAPTURE ━━━ -->
-    <section style="padding:4rem 0;">
+    <section style="padding:4rem 0;" id="waitlist">
         <div class="wrap">
             <div class="fade-up" style="max-width:560px;margin:0 auto;text-align:center;">
                 <div class="section-label">// early access</div>

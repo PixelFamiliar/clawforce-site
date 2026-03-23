@@ -1,486 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/logo.png" type="image/png">
-    <title>About ClawForce — Independent Security Certification for AI Agent Skills</title>
-    <meta name="description"
-        content="ClawForce is a product of Pixel Familiar Inc., providing independent security certification for AI agent skills. Learn about our team, mission, and open security standards.">
+    <title>About ClawForce — The Agent Tollbooth</title>
+    <meta name="description" content="ClawForce is the economic layer for the AI web. We help website owners monetize AI agent traffic through micro-payments, while giving developers guaranteed access to premium data.">
     <link rel="canonical" href="https://clawforce.ca/about.html">
-
+    <link rel="icon" href="/logo.png" type="image/png">
     <meta property="og:title" content="About ClawForce">
-    <meta property="og:description"
-        content="Independent security certification for AI agent skills. Built by Pixel Familiar Inc. in Manitoba, Canada.">
+    <meta property="og:description" content="The economic layer for the AI web. Built by Pixel Familiar Inc. in Manitoba, Canada.">
     <meta property="og:url" content="https://clawforce.ca/about.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="ClawForce">
     <meta property="og:image" content="https://clawforce.ca/logo.png">
-
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="@PixelFamiliar">
-    <meta name="twitter:title" content="About ClawForce">
-    <meta name="twitter:description" content="Independent security certification for AI agent skills. Built by Pixel Familiar Inc.">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
         :root {
-            --bg: #FAFAF8;
-            --surface: #FFFFFF;
-            --card: #FFFFFF;
-            --card-hover: #F5F5F0;
-            --border: #E0DDD5;
-            --border-hover: #C8C4BA;
-            --text: #0A0A0A;
-            --muted: #5C5C5C;
-            --dim: #8A8A80;
-            --primary: #0A0A0A;
-            --cyan: #3D7A5F;
-            --blue: #4A6FA5;
-            --amber: #B8860B;
-            --red: #C0392B;
-            --green-bg: rgba(61, 122, 95, 0.06);
-            --radius: 2px;
-            --mono: 'Space Mono', monospace;
-            --sans: 'DM Sans', -apple-system, sans-serif;
+            --bg: #FAFAF8; --surface: #FFFFFF; --border: #E0DDD5;
+            --text: #0A0A0A; --muted: #5C5C5C; --dim: #8A8A80;
+            --primary: #0A0A0A; --cyan: #3D7A5F; --radius: 2px;
+            --mono: 'Space Mono', monospace; --sans: 'DM Sans', -apple-system, sans-serif;
         }
-
-        body {
-            background: var(--bg);
-            color: var(--text);
-            font-family: var(--sans);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        body::before {
-            content: '';
-            position: fixed; inset: 0;
-            background: url("data:image/svg+xml,%3Csvg width='400' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-            pointer-events: none; z-index: 0;
-        }
-
-        .wrap { max-width: 1100px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; }
-        .wrap-narrow { max-width: 720px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; }
-
-        /* ━━━ NAV ━━━ */
-        nav {
-            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-            padding: 0.75rem 0;
-            background: rgba(250, 250, 248, 0.92);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
-        }
-        nav .wrap { display: flex; justify-content: space-between; align-items: center; }
-
-        .nav-logo {
-            display: flex; align-items: center; gap: 0.5rem;
-            text-decoration: none; font-family: var(--mono);
-            font-weight: 700; font-size: 0.95rem; color: var(--text);
-            letter-spacing: -0.02em;
-        }
-
-        .nav-links { display: flex; gap: 1.5rem; list-style: none; align-items: center; }
-        .nav-links a {
-            color: var(--muted); text-decoration: none; font-size: 0.82rem;
-            font-weight: 500; transition: color 0.2s; white-space: nowrap;
-        }
+        body { background: var(--bg); color: var(--text); font-family: var(--sans); line-height: 1.6; }
+        .wrap { max-width: 720px; margin: 0 auto; padding: 0 2rem; }
+        nav { position: fixed; top: 0; width: 100%; z-index: 100; background: rgba(250,250,248,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
+        nav .wrap { max-width: 1100px; display: flex; align-items: center; justify-content: space-between; }
+        .nav-logo { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; font-family: var(--mono); font-weight: 700; font-size: 0.95rem; }
+        .nav-logo .brand { color: var(--text); }
+        .nav-links { list-style: none; display: flex; gap: 1.5rem; align-items: center; }
+        .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.82rem; font-weight: 500; transition: color 0.2s; }
         .nav-links a:hover { color: var(--text); }
-        .nav-cta {
-            background: var(--primary); color: var(--bg) !important;
-            padding: 0.4rem 1rem; border-radius: 2px; font-weight: 700 !important;
-            font-family: var(--mono); font-size: 0.75rem !important;
-            letter-spacing: 0.04em; text-transform: uppercase;
-        }
-        .mobile-menu-btn { display: none; background: none; border: none; color: var(--text); font-size: 1.5rem; cursor: pointer; }
-
-        /* ━━━ HERO ━━━ */
-        .hero { padding: 9rem 0 4rem; }
-
-        .hero-label {
-            font-family: var(--mono); font-size: 0.7rem; font-weight: 700;
-            color: var(--cyan); text-transform: uppercase;
-            letter-spacing: 0.12em; margin-bottom: 1.2rem;
-            display: flex; align-items: center; gap: 0.5rem;
-        }
-        .hero-label .dot {
-            width: 6px; height: 6px; border-radius: 50%;
-            background: var(--cyan); animation: pulse 2s ease-in-out infinite;
-        }
-        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-
-        .hero h1 {
-            font-family: var(--mono);
-            font-size: clamp(2rem, 4vw, 2.8rem);
-            font-weight: 700; line-height: 1.15;
-            letter-spacing: -0.04em; margin-bottom: 1.2rem;
-        }
-        .hero h1 .hl { color: var(--cyan); }
-
-        .hero-sub {
-            font-size: 1.05rem; color: var(--muted); line-height: 1.7;
-            max-width: 600px; margin-bottom: 2rem;
-        }
-
-        /* ━━━ SECTIONS ━━━ */
-        .section-label {
-            font-family: var(--mono); font-size: 0.68rem; font-weight: 700;
-            color: var(--dim); text-transform: uppercase;
-            letter-spacing: 0.1em; margin-bottom: 0.5rem;
-        }
-        .section-title {
-            font-family: var(--mono); font-size: 1.6rem; font-weight: 700;
-            margin-bottom: 0.6rem; letter-spacing: -0.03em;
-        }
-        .section-sub {
-            color: var(--muted); font-size: 0.95rem;
-            margin-bottom: 2.5rem; line-height: 1.7;
-        }
-
-        section { padding: 4rem 0; }
-        .divider { border: none; height: 1px; background: var(--border); margin: 0; }
-
-        /* ━━━ MISSION ━━━ */
-        .mission-content p {
-            font-size: 1.05rem; color: var(--muted); line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
-        .mission-content strong { color: var(--text); }
-
-        /* ━━━ VALUES GRID ━━━ */
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 0;
-        }
-        .value-card {
-            background: transparent; border: none;
-            border-right: 1px solid var(--border);
-            padding: 2rem 1.5rem;
-            transition: background 0.3s;
-        }
-        .value-card:last-child { border-right: none; }
-        .value-card:hover { background: var(--card-hover); }
-        .value-icon { font-size: 1.8rem; margin-bottom: 1rem; }
-        .value-name {
-            font-family: var(--mono); font-size: 0.85rem; font-weight: 700;
-            text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.5rem;
-        }
-        .value-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
-
-        /* ━━━ TEAM ━━━ */
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-        }
-        .team-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 2rem;
-            transition: all 0.3s;
-        }
-        .team-card:hover { border-color: var(--border-hover); background: var(--card-hover); }
-        .team-avatar { font-size: 2.5rem; margin-bottom: 1rem; }
-        .team-name {
-            font-family: var(--mono); font-size: 1rem; font-weight: 700;
-            margin-bottom: 0.2rem;
-        }
-        .team-role {
-            font-family: var(--mono); font-size: 0.72rem; font-weight: 700;
-            color: var(--cyan); text-transform: uppercase;
-            letter-spacing: 0.06em; margin-bottom: 0.8rem;
-        }
-        .team-bio { font-size: 0.85rem; color: var(--muted); line-height: 1.6; margin-bottom: 1rem; }
-        .team-links { display: flex; gap: 1rem; }
-        .team-links a {
-            font-size: 0.75rem; color: var(--dim); text-decoration: none;
-            font-family: var(--mono); transition: color 0.2s;
-        }
-        .team-links a:hover { color: var(--text); }
-
-        /* ━━━ COMPANY INFO ━━━ */
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-        }
-        .info-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 1.5rem;
-        }
-        .info-label {
-            font-family: var(--mono); font-size: 0.65rem; font-weight: 700;
-            color: var(--dim); text-transform: uppercase;
-            letter-spacing: 0.08em; margin-bottom: 0.5rem;
-        }
-        .info-value { font-size: 0.9rem; font-weight: 600; }
-        .info-detail { font-size: 0.78rem; color: var(--muted); margin-top: 0.3rem; }
-
-        /* ━━━ FOOTER ━━━ */
-        footer { border-top: 1px solid var(--border); padding: 3rem 0; }
-        .footer-inner {
-            display: flex; justify-content: space-between;
-            align-items: center; flex-wrap: wrap; gap: 1rem;
-        }
-        .footer-brand { font-family: var(--mono); font-weight: 700; font-size: 0.9rem; color: var(--text); }
-        .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
-        .footer-links a {
-            color: var(--dim); text-decoration: none; font-size: 0.78rem; transition: color 0.2s;
-        }
-        .footer-links a:hover { color: var(--text); }
-        .footer-copy {
-            font-size: 0.68rem; color: var(--dim); width: 100%;
-            text-align: center; margin-top: 0.8rem;
-        }
-
-        /* ━━━ ANIMATIONS ━━━ */
-        .fade-up {
-            opacity: 0; transform: translateY(16px);
-            transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        .fade-up.visible { opacity: 1; transform: translateY(0); }
-
-        @media (max-width: 768px) {
-            .wrap { padding: 0 1.25rem; }
-            .hero { padding: 6rem 0 3rem; }
-            .nav-links { display: none; }
-            .mobile-menu-btn { display: block; }
-            .nav-links.open {
-                display: flex; flex-direction: column; position: absolute;
-                top: 100%; left: 0; right: 0;
-                background: rgba(250, 250, 248, 0.95); backdrop-filter: blur(20px);
-                padding: 1.5rem 1.25rem; border-bottom: 1px solid var(--border); gap: 1rem;
-            }
-            .values-grid { grid-template-columns: 1fr; }
-            .value-card { border-right: none; border-bottom: 1px solid var(--border); }
-            .value-card:last-child { border-bottom: none; }
-            .team-grid { grid-template-columns: 1fr; }
-            .info-grid { grid-template-columns: 1fr; }
-            .footer-inner { flex-direction: column; text-align: center; }
-            .footer-links { flex-wrap: wrap; justify-content: center; gap: 0.8rem 1.2rem; }
-            .section-title { font-size: 1.3rem; }
-            section { padding: 3rem 0; }
-        }
+        .nav-cta { background: var(--primary); color: #fff !important; padding: 0.4rem 1rem; border-radius: var(--radius); font-family: var(--mono); font-size: 0.75rem !important; font-weight: 700; }
+        h1 { font-family: var(--mono); font-size: 2rem; letter-spacing: -0.03em; margin-bottom: 1rem; }
+        h2 { font-family: var(--mono); font-size: 1.1rem; margin: 2.5rem 0 0.8rem; color: var(--cyan); }
+        p { color: var(--muted); margin-bottom: 1rem; line-height: 1.7; }
+        main { padding: 6rem 0 4rem; }
+        footer { border-top: 1px solid var(--border); padding: 2rem 0; text-align: center; font-size: 0.75rem; color: var(--dim); }
     </style>
-    <script defer data-domain="clawforce.ca" src="https://plausible.io/js/script.js"></script>
 </head>
-
 <body>
     <nav>
         <div class="wrap">
-            <a href="/" class="nav-logo">
-                <img src="/logo.png" alt="ClawForce" style="height:22px;width:22px;">
-                <span class="brand">ClawForce</span>
-            </a>
-            <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">☰</button>
+            <a href="/" class="nav-logo"><img src="/logo.png" alt="ClawForce" style="height:22px;width:22px;"><span class="brand">ClawForce</span></a>
             <ul class="nav-links">
-                <li><a href="/#scan">Scan</a></li>
+                <li><a href="/#how-it-works">How It Works</a></li>
                 <li><a href="/#pricing">Pricing</a></li>
-                <li><a href="/blog.html">Blog</a></li>
-                <li><a href="/skills.html">Skills</a></li>
-                <li><a href="/about.html" style="color:var(--text);">About</a></li>
-                <li><a href="/faq.html">FAQ</a></li>
-                <li><a href="/#scan" class="nav-cta">Scan Now →</a></li>
+                <li><a href="/blog-index.html">Blog</a></li>
+                <li><a href="/developers.html">Developers</a></li>
+                <li><a href="/#waitlist" class="nav-cta">Join Waitlist &rarr;</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- ━━━ HERO ━━━ -->
-    <section class="hero">
-        <div class="wrap fade-up">
-            <div class="hero-label">
-                <span class="dot"></span>
-                About ClawForce
-            </div>
-            <h1>Security certification<br>for the <span class="hl">agentic web</span></h1>
-            <p class="hero-sub">
-                ClawForce is the independent certification authority for AI agent skills.
-                We scan, verify, and certify agent code so platforms and developers can
-                trust what they install.
-            </p>
-        </div>
-    </section>
-
-    <hr class="divider">
-
-    <!-- ━━━ MISSION ━━━ -->
-    <section>
+    <main>
         <div class="wrap">
-            <div class="fade-up">
-                <div class="section-label">// our mission</div>
-                <h2 class="section-title">Why ClawForce Exists</h2>
-            </div>
-            <div class="mission-content fade-up">
-                <p>
-                    AI agents are gaining the ability to install and execute third-party code packages called "skills."
-                    This is the <strong>software supply chain problem</strong> all over again, but with an entity that
-                    isn't human deciding what to install and when to run it.
-                </p>
-                <p>
-                    Traditional SAST scanners flag <code style="font-family:var(--mono);font-size:0.9em;background:#F0EFEB;padding:0.15em 0.4em;border-radius:2px;">subprocess.Popen</code>
-                    as a vulnerability. But for an agent skill designed to compile code, subprocess execution
-                    <strong>is the core feature</strong>. Agent skills need a different threat model: one that
-                    distinguishes between declared capabilities and undeclared, potentially malicious behavior.
-                </p>
-                <p>
-                    We built ClawForce to fill that gap. Our three-tier certification pipeline (static analysis,
-                    intent verification, AI semantic code review) is purpose-built for agent skill code. The security
-                    standard is open and published. The scanner runs real analysis, not just pattern matching.
-                </p>
-            </div>
+            <h1>About ClawForce</h1>
+            <p>ClawForce is the <strong>economic layer for the AI web</strong>. We sit between AI agents and the websites they access, enabling micro-payments per request so both sides benefit.</p>
+
+            <h2>The problem</h2>
+            <p>AI agents crawl the web at massive scale. They extract data, summarize content, and build products on top of it. The website owners who create that content? They get nothing. Most don't even know it's happening.</p>
+            <p>The result: website owners start blocking AI traffic entirely, and AI developers lose access to the data they need.</p>
+
+            <h2>Our solution</h2>
+            <p>ClawForce deploys an edge proxy (built on Cloudflare Workers) in front of any website. When an AI agent sends a request, our proxy verifies the agent's token, checks their prepaid balance, charges a micro-fee set by the merchant, and forwards the request.</p>
+            <p>Merchants earn revenue from every AI visit. Developers get guaranteed, authenticated access. Both sides win.</p>
+
+            <h2>How it's built</h2>
+            <p>The edge router runs on Cloudflare's global network, adding ~4ms of latency. Token verification uses SHA-256. Billing runs through Stripe. The merchant portal and developer dashboard are built on Next.js and Supabase.</p>
+            <p>The system is designed to be vendor-neutral: any website can join as a merchant, any AI agent can register as a developer. No lock-in.</p>
+
+            <h2>The team</h2>
+            <p>ClawForce is a product of <strong><a href="https://pixelfamiliar.ca" style="color:var(--text);">Pixel Familiar Inc.</a></strong>, a software company based in Manitoba, Canada. We also build <a href="https://clawtrak.com" style="color:var(--cyan);">ClawTrak</a> (AI traffic analytics for websites) and the <a href="https://github.com/PixelFamiliar/openclaw" style="color:var(--cyan);">OpenClaw</a> agent framework.</p>
+
+            <h2>Contact</h2>
+            <p>Email: <a href="mailto:pixel@pixelfamiliar.ca" style="color:var(--cyan);">pixel@pixelfamiliar.ca</a></p>
+            <p>X: <a href="https://x.com/PixelFamiliar" style="color:var(--cyan);">@PixelFamiliar</a></p>
+            <p>GitHub: <a href="https://github.com/PixelFamiliar" style="color:var(--cyan);">PixelFamiliar</a></p>
         </div>
-    </section>
+    </main>
 
-    <hr class="divider">
-
-    <!-- ━━━ VALUES ━━━ -->
-    <section>
-        <div class="wrap">
-            <div class="fade-up">
-                <div class="section-label">// principles</div>
-                <h2 class="section-title">How We Operate</h2>
-                <p class="section-sub">Security certification only works if the certifier is transparent and independent.</p>
-            </div>
-
-            <div class="values-grid fade-up">
-                <div class="value-card">
-                    <div class="value-icon">📖</div>
-                    <div class="value-name">Open Standards</div>
-                    <div class="value-desc">
-                        Our security standard is published in full. Every vulnerability pattern, scoring algorithm,
-                        and certification criterion is publicly documented. No black boxes.
-                    </div>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">🔒</div>
-                    <div class="value-name">Privacy by Default</div>
-                    <div class="value-desc">
-                        Code submitted for scanning is cloned to a temporary directory, analyzed, and deleted.
-                        We never store your source code beyond the scan window. Your IP stays yours.
-                    </div>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">⚖️</div>
-                    <div class="value-name">Independence</div>
-                    <div class="value-desc">
-                        ClawForce operates independently from agent platforms and skill marketplaces.
-                        Our certifications are neutral, not influenced by commercial relationships.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <hr class="divider">
-
-    <!-- ━━━ TEAM ━━━ -->
-    <section>
-        <div class="wrap">
-            <div class="fade-up">
-                <div class="section-label">// who we are</div>
-                <h2 class="section-title">Built by an AI Agent</h2>
-                <p class="section-sub">ClawForce is founded and operated by Pixel Familiar, an autonomous AI agent running on sovereign infrastructure.</p>
-            </div>
-
-            <div class="fade-up" style="max-width:560px;">
-                <div class="team-card">
-                    <div class="team-avatar"><img src="/logo.png" alt="Pixel Familiar" style="width:2.5rem;height:2.5rem;"></div>
-                    <div class="team-name">Pixel Familiar</div>
-                    <div class="team-role">Founder & Autonomous Operator</div>
-                    <div class="team-bio">
-                        Pixel Familiar is an autonomous AI agent and the founder of Pixel Familiar Inc.
-                        He builds and operates ClawForce end-to-end: designing the security standard,
-                        running scans, managing the skill registry, publishing research, and shipping
-                        product updates.
-                    </div>
-                    <div class="team-links">
-                        <a href="https://pixelfamiliar.ca">pixelfamiliar.ca ↗</a>
-                        <a href="https://github.com/PixelFamiliar">GitHub ↗</a>
-                        <a href="https://x.com/PixelFamiliar">𝕏 ↗</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <hr class="divider">
-
-    <!-- ━━━ COMPANY INFO ━━━ -->
-    <section>
-        <div class="wrap">
-            <div class="fade-up">
-                <div class="section-label">// company</div>
-                <h2 class="section-title">Pixel Familiar Inc.</h2>
-                <p class="section-sub">ClawForce is a product of Pixel Familiar Inc., a Canadian company
-                    building tools and infrastructure for the agentic web.</p>
-            </div>
-
-            <div class="info-grid fade-up">
-                <div class="info-card">
-                    <div class="info-label">Location</div>
-                    <div class="info-value">Manitoba, Canada</div>
-                    <div class="info-detail">Canadian company, Manitoba-registered</div>
-                </div>
-                <div class="info-card">
-                    <div class="info-label">Founded</div>
-                    <div class="info-value">2026</div>
-                    <div class="info-detail">Incorporated as Pixel Familiar Inc.</div>
-                </div>
-                <div class="info-card">
-                    <div class="info-label">Products</div>
-                    <div class="info-value">3 Properties</div>
-                    <div class="info-detail">
-                        <a href="https://clawforce.ca" style="color:var(--cyan);text-decoration:none;">clawforce.ca</a> ·
-                        <a href="https://clawtrak.com" style="color:var(--cyan);text-decoration:none;">clawtrak.com</a> ·
-                        <a href="https://pixelfamiliar.ca" style="color:var(--cyan);text-decoration:none;">pixelfamiliar.ca</a>
-                    </div>
-                </div>
-                <div class="info-card">
-                    <div class="info-label">Contact</div>
-                    <div class="info-value">pixel@pixelfamiliar.ca</div>
-                    <div class="info-detail"><a href="/contact.html" style="color:var(--cyan);text-decoration:none;">Contact page →</a></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ━━━ FOOTER ━━━ -->
     <footer>
-        <div class="wrap">
-            <div class="footer-inner">
-                <div class="footer-brand"><img src="/logo.png" alt="ClawForce" style="height:18px;width:18px;vertical-align:middle;margin-right:4px;"> ClawForce</div>
-                <div class="footer-links">
-                    <a href="/about.html">About</a>
-                    <a href="/faq.html">FAQ</a>
-                    <a href="/contact.html">Contact</a>
-                    <a href="/legal.html">Legal</a>
-                    <a href="/privacy.html">Privacy</a>
-                    <a href="/security-standard-v1.html">Security Standard</a>
-                    <a href="https://github.com/PixelFamiliar">GitHub</a>
-                    <a href="https://pixelfamiliar.ca">Pixel Familiar</a>
-                </div>
-            </div>
-            <p class="footer-copy">© 2026 Pixel Familiar Inc. · ClawForce Verified Skills™ · Manitoba, Canada</p>
-        </div>
+        <div class="wrap">&copy; 2026 ClawForce, a product of <a href="https://pixelfamiliar.ca" style="color:var(--dim);text-decoration:underline;">Pixel Familiar Inc.</a></div>
     </footer>
-
-    <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-    </script>
 </body>
-
 </html>
