@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Agent Code Audit — Automated Security Scanning | ClawForce</title>
+    <meta name="description" content="Run automated code audits on AI agent skills. ClawForce scans for prompt injection, malware, credential leaks, and supply chain risks in MCP tools and agent plugins.">
+    <link rel="canonical" href="https://clawforce.ca/ai-agent-code-audit.html">
+    <link rel="icon" href="/logo.png" type="image/png">
+    <meta property="og:title" content="AI Agent Code Audit — ClawForce">
+    <meta property="og:description" content="Automated security audits for AI agent skills. Scan for 22+ vulnerability patterns in seconds.">
+    <meta property="og:url" content="https://clawforce.ca/ai-agent-code-audit.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{--bg:#FAFAF8;--surface:#FFF;--card-hover:#F5F5F0;--border:#E0DDD5;--text:#0A0A0A;--muted:#5C5C5C;--dim:#8A8A80;--primary:#0A0A0A;--cyan:#3D7A5F;--red:#C0392B;--amber:#B8860B;--radius:2px;--mono:'Space Mono',monospace;--sans:'DM Sans',-apple-system,sans-serif}
+        body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+        body::before{content:'';position:fixed;inset:0;background:url("data:image/svg+xml,%3Csvg width='400' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
+        .wrap{max-width:760px;margin:0 auto;padding:0 2rem;position:relative;z-index:1}
+        .wrap-wide{max-width:1100px;margin:0 auto;padding:0 2rem;position:relative;z-index:1}
+        nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(250,250,248,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0.75rem 0}
+        nav .wrap-wide{display:flex;align-items:center;justify-content:space-between}
+        .nav-logo{display:flex;align-items:center;gap:0.5rem;text-decoration:none;font-family:var(--mono);font-weight:700;font-size:0.95rem;color:var(--text)}
+        .nav-links{list-style:none;display:flex;gap:1.5rem;align-items:center}
+        .nav-links a{color:var(--muted);text-decoration:none;font-size:0.82rem;font-weight:500;transition:color 0.2s}
+        .nav-links a:hover{color:var(--text)}
+        .nav-cta{background:var(--primary);color:#FAFAF8!important;padding:0.4rem 1rem;border-radius:2px;font-family:var(--mono);font-size:0.75rem!important;font-weight:700!important;text-transform:uppercase}
+        main{padding:7rem 0 4rem}
+        .section-label{font-family:var(--mono);font-size:0.68rem;font-weight:700;color:var(--dim);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.5rem}
+        h1{font-family:var(--mono);font-size:2.2rem;font-weight:700;line-height:1.15;letter-spacing:-0.04em;margin-bottom:1rem}
+        h1 .hl{color:var(--cyan)}
+        .subtitle{font-size:1.05rem;color:var(--muted);line-height:1.7;margin-bottom:2.5rem;max-width:600px}
+        h2{font-family:var(--mono);font-size:1.2rem;font-weight:700;margin:2.5rem 0 1rem;letter-spacing:-0.02em}
+        p{font-size:0.95rem;color:var(--muted);line-height:1.7;margin-bottom:1.2rem}
+        .audit-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;margin:2rem 0}
+        .audit-card{background:var(--surface);border:1px solid var(--border);padding:1.2rem;transition:border-color 0.2s}
+        .audit-card:hover{border-color:var(--text)}
+        .audit-icon{font-size:1.5rem;margin-bottom:0.5rem}
+        .audit-title{font-family:var(--mono);font-size:0.82rem;font-weight:700;margin-bottom:0.3rem}
+        .audit-desc{font-size:0.82rem;color:var(--dim);line-height:1.5}
+        .terminal{background:#0a0a0a;color:#10b981;font-family:var(--mono);font-size:0.8rem;padding:1.5rem;border-radius:var(--radius);margin:2rem 0;overflow-x:auto;line-height:1.8}
+        .terminal .comment{color:#555}
+        .terminal .cmd{color:#e5e5e5}
+        .cta-section{margin-top:3rem;padding:2.5rem;background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--cyan);text-align:center}
+        .cta-section h3{font-family:var(--mono);font-size:1rem;font-weight:700;margin-bottom:0.6rem}
+        .cta-section p{color:var(--muted);font-size:0.9rem;margin-bottom:1rem}
+        .btn{display:inline-flex;align-items:center;gap:0.4rem;padding:0.75rem 1.5rem;border-radius:2px;font-family:var(--mono);font-size:0.8rem;font-weight:700;text-decoration:none;transition:all 0.25s;text-transform:uppercase}
+        .btn-primary{background:var(--primary);color:var(--bg)}
+        .btn-primary:hover{transform:translateY(-1px);box-shadow:4px 4px 0 rgba(0,0,0,0.15)}
+        .note-box{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--cyan);padding:1.5rem;margin:2rem 0}
+        .note-box p{margin:0}
+        footer{border-top:1px solid var(--border);padding:2rem 0;text-align:center;font-size:0.68rem;color:var(--dim);margin-top:4rem}
+        @media(max-width:768px){h1{font-size:1.6rem}.nav-links{display:none}.audit-grid{grid-template-columns:1fr}}
+    </style>
+    <script defer data-domain="clawforce.ca" src="https://plausible.io/js/script.js"></script>
+</head>
+<body>
+    <nav><div class="wrap-wide">
+        <a href="/" class="nav-logo"><img src="/logo.png" alt="ClawForce" style="height:22px;width:22px;"><span>ClawForce</span></a>
+        <ul class="nav-links">
+            <li><a href="/#how-it-works">How It Works</a></li>
+            <li><a href="/#pricing">Pricing</a></li>
+            <li><a href="/registry.html">Registry</a></li>
+            <li><a href="/blog-index.html">Blog</a></li>
+            <li><a href="/developers.html">Developers</a></li>
+            <li><a href="/#waitlist" class="nav-cta">Free Scan &rarr;</a></li>
+        </ul>
+    </div></nav>
+
+    <main><div class="wrap">
+        <div class="section-label">// ai agent code audit</div>
+        <h1>Automated <span class="hl">Code Audits</span> for AI Agent Skills</h1>
+        <p class="subtitle">Traditional SAST tools miss agent-specific threats: prompt injection, scope violations, behavioral drift. ClawForce scans what others can't.</p>
+
+        <h2>What Gets Audited</h2>
+        <div class="audit-grid">
+            <div class="audit-card">
+                <div class="audit-icon">🔍</div>
+                <div class="audit-title">Prompt Injection</div>
+                <div class="audit-desc">Direct injection, roleplay patterns, context clearing, token smuggling</div>
+            </div>
+            <div class="audit-card">
+                <div class="audit-icon">🦠</div>
+                <div class="audit-title">Malware Signatures</div>
+                <div class="audit-desc">Data exfiltration, reverse shells, crypto wallet theft, arbitrary execution</div>
+            </div>
+            <div class="audit-card">
+                <div class="audit-icon">🔑</div>
+                <div class="audit-title">Credential Leaks</div>
+                <div class="audit-desc">Hardcoded secrets, API keys in source, private key exposure, token logging</div>
+            </div>
+            <div class="audit-card">
+                <div class="audit-icon">📦</div>
+                <div class="audit-title">Dependency Analysis</div>
+                <div class="audit-desc">Full transitive dep tree, known CVEs, abandoned packages, version pinning</div>
+            </div>
+            <div class="audit-card">
+                <div class="audit-icon">🔒</div>
+                <div class="audit-title">Permission Scope</div>
+                <div class="audit-desc">Declared vs actual behavior. Catches skills that do more than they claim</div>
+            </div>
+            <div class="audit-card">
+                <div class="audit-icon">📋</div>
+                <div class="audit-title">SBOM Generation</div>
+                <div class="audit-desc">CycloneDX SBOM for every scan. Full supply chain transparency</div>
+            </div>
+        </div>
+
+        <h2>Run Your First Audit</h2>
+        <div class="terminal">
+            <span class="comment"># Install the CLI</span><br>
+            <span class="cmd">$ npm install -g @clawforce/cli</span><br><br>
+            <span class="comment"># Scan a skill directory</span><br>
+            <span class="cmd">$ clawforce scan ./my-agent-skill</span><br><br>
+            <span class="comment"># Or submit a GitHub URL</span><br>
+            <span class="cmd">$ clawforce scan https://github.com/user/skill-repo</span><br><br>
+            <span class="comment"># Generate a full security report</span><br>
+            <span class="cmd">$ clawforce report ./my-agent-skill --output report.json</span>
+        </div>
+
+        <h2>Why Not Just Use Snyk or Semgrep?</h2>
+        <p>Traditional security scanners analyze packages and source code for known CVEs. That's necessary, but not sufficient for agent skills. Agent skills have unique attack surfaces that commodity tools miss entirely:</p>
+        <div class="note-box">
+            <p><strong>Prompt templates</strong> can contain injection vectors that bypass the agent's guardrails. No SAST tool checks for this.<br><br>
+            <strong>Permission scopes</strong> are specific to agent runtimes. A skill that claims read-only but makes network calls is a supply chain risk.<br><br>
+            <strong>Behavioral analysis</strong> requires actually running the skill in a sandbox. Static analysis alone can't catch runtime exfiltration patterns.</p>
+        </div>
+        <p>ClawForce handles all three. Our Certified tier ($29) includes sandboxed execution with behavioral monitoring, something no other tool offers for agent skills.</p>
+
+        <div class="cta-section">
+            <h3>Start Auditing for Free</h3>
+            <p>Free Tier 1 scans cover 22 vulnerability patterns. No signup required.</p>
+            <a href="/" class="btn btn-primary">Scan a Skill &rarr;</a>
+        </div>
+    </div></main>
+
+    <footer><div class="wrap">&copy; 2026 ClawForce, a product of <a href="https://pixelfamiliar.ca" style="color:var(--dim);text-decoration:underline;">Pixel Familiar Inc.</a></div></footer>
+</body>
+</html>

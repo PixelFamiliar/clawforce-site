@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Skill Trust Verification — Build Verifiable Trust | ClawForce</title>
+    <meta name="description" content="Three-tier trust verification for AI agent skills. From free automated scans to full behavioral certification. Build trust your users and integrations can verify.">
+    <link rel="canonical" href="https://clawforce.ca/agent-skill-trust-verification.html">
+    <link rel="icon" href="/logo.png" type="image/png">
+    <meta property="og:title" content="Agent Skill Trust Verification — ClawForce">
+    <meta property="og:description" content="Verifiable trust for AI agent skills. Independent certification that agents can check at runtime.">
+    <meta property="og:url" content="https://clawforce.ca/agent-skill-trust-verification.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{--bg:#FAFAF8;--surface:#FFF;--card-hover:#F5F5F0;--border:#E0DDD5;--text:#0A0A0A;--muted:#5C5C5C;--dim:#8A8A80;--primary:#0A0A0A;--cyan:#3D7A5F;--blue:#4A6FA5;--amber:#B8860B;--radius:2px;--mono:'Space Mono',monospace;--sans:'DM Sans',-apple-system,sans-serif}
+        body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+        body::before{content:'';position:fixed;inset:0;background:url("data:image/svg+xml,%3Csvg width='400' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
+        .wrap{max-width:760px;margin:0 auto;padding:0 2rem;position:relative;z-index:1}
+        .wrap-wide{max-width:1100px;margin:0 auto;padding:0 2rem;position:relative;z-index:1}
+        nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(250,250,248,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0.75rem 0}
+        nav .wrap-wide{display:flex;align-items:center;justify-content:space-between}
+        .nav-logo{display:flex;align-items:center;gap:0.5rem;text-decoration:none;font-family:var(--mono);font-weight:700;font-size:0.95rem;color:var(--text)}
+        .nav-links{list-style:none;display:flex;gap:1.5rem;align-items:center}
+        .nav-links a{color:var(--muted);text-decoration:none;font-size:0.82rem;font-weight:500;transition:color 0.2s}
+        .nav-links a:hover{color:var(--text)}
+        .nav-cta{background:var(--primary);color:#FAFAF8!important;padding:0.4rem 1rem;border-radius:2px;font-family:var(--mono);font-size:0.75rem!important;font-weight:700!important;text-transform:uppercase}
+        main{padding:7rem 0 4rem}
+        .section-label{font-family:var(--mono);font-size:0.68rem;font-weight:700;color:var(--dim);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.5rem}
+        h1{font-family:var(--mono);font-size:2.2rem;font-weight:700;line-height:1.15;letter-spacing:-0.04em;margin-bottom:1rem}
+        h1 .hl{color:var(--cyan)}
+        .subtitle{font-size:1.05rem;color:var(--muted);line-height:1.7;margin-bottom:2.5rem;max-width:600px}
+        h2{font-family:var(--mono);font-size:1.2rem;font-weight:700;margin:2.5rem 0 1rem;letter-spacing:-0.02em}
+        p{font-size:0.95rem;color:var(--muted);line-height:1.7;margin-bottom:1.2rem}
+        .trust-flow{display:grid;gap:0;margin:2rem 0}
+        .trust-step{display:grid;grid-template-columns:80px 1fr;background:var(--surface);border:1px solid var(--border);border-bottom:none}
+        .trust-step:last-child{border-bottom:1px solid var(--border)}
+        .trust-num{display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:1.5rem;font-weight:700;color:var(--cyan);border-right:1px solid var(--border)}
+        .trust-content{padding:1.2rem 1.5rem}
+        .trust-title{font-family:var(--mono);font-size:0.88rem;font-weight:700;margin-bottom:0.3rem}
+        .trust-desc{font-size:0.85rem;color:var(--dim);line-height:1.6}
+        .verify-block{background:#0a0a0a;color:#e5e5e5;font-family:var(--mono);font-size:0.78rem;padding:1.2rem 1.5rem;margin:2rem 0;border-radius:var(--radius);overflow-x:auto;line-height:2}
+        .verify-block .key{color:#10b981}
+        .verify-block .val{color:#60a5fa}
+        .verify-block .comment{color:#555}
+        .signal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin:2rem 0}
+        .signal-card{background:var(--surface);border:1px solid var(--border);padding:1rem;text-align:center}
+        .signal-icon{font-size:1.8rem;margin-bottom:0.5rem}
+        .signal-name{font-family:var(--mono);font-size:0.78rem;font-weight:700}
+        .signal-weight{font-size:0.7rem;color:var(--dim);margin-top:0.15rem}
+        .cta-section{margin-top:3rem;padding:2.5rem;background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--cyan);text-align:center}
+        .cta-section h3{font-family:var(--mono);font-size:1rem;font-weight:700;margin-bottom:0.6rem}
+        .cta-section p{color:var(--muted);font-size:0.9rem;margin-bottom:1rem}
+        .btn{display:inline-flex;align-items:center;gap:0.4rem;padding:0.75rem 1.5rem;border-radius:2px;font-family:var(--mono);font-size:0.8rem;font-weight:700;text-decoration:none;transition:all 0.25s;text-transform:uppercase}
+        .btn-primary{background:var(--primary);color:var(--bg)}
+        .btn-primary:hover{transform:translateY(-1px);box-shadow:4px 4px 0 rgba(0,0,0,0.15)}
+        footer{border-top:1px solid var(--border);padding:2rem 0;text-align:center;font-size:0.68rem;color:var(--dim);margin-top:4rem}
+        @media(max-width:768px){h1{font-size:1.6rem}.nav-links{display:none}.trust-step{grid-template-columns:60px 1fr}.signal-grid{grid-template-columns:1fr 1fr}}
+    </style>
+    <script defer data-domain="clawforce.ca" src="https://plausible.io/js/script.js"></script>
+</head>
+<body>
+    <nav><div class="wrap-wide">
+        <a href="/" class="nav-logo"><img src="/logo.png" alt="ClawForce" style="height:22px;width:22px;"><span>ClawForce</span></a>
+        <ul class="nav-links">
+            <li><a href="/#how-it-works">How It Works</a></li>
+            <li><a href="/#pricing">Pricing</a></li>
+            <li><a href="/registry.html">Registry</a></li>
+            <li><a href="/blog-index.html">Blog</a></li>
+            <li><a href="/developers.html">Developers</a></li>
+            <li><a href="/#waitlist" class="nav-cta">Free Scan &rarr;</a></li>
+        </ul>
+    </div></nav>
+
+    <main><div class="wrap">
+        <div class="section-label">// trust verification</div>
+        <h1>Agent Skill <span class="hl">Trust Verification</span></h1>
+        <p class="subtitle">Trust isn't binary. ClawForce provides three tiers of verification, from automated scans to human-reviewed certification, so agents can make informed decisions.</p>
+
+        <h2>Three Tiers of Trust</h2>
+        <div class="trust-flow">
+            <div class="trust-step">
+                <div class="trust-num">1</div>
+                <div class="trust-content">
+                    <div class="trust-title">Scanned — free, automated</div>
+                    <div class="trust-desc">Static analysis across 22 vulnerability patterns. SBOM generation. Dependency tree audit. Takes under 60 seconds. Every skill in the registry starts here.</div>
+                </div>
+            </div>
+            <div class="trust-step">
+                <div class="trust-num">2</div>
+                <div class="trust-content">
+                    <div class="trust-title">Verified — $9, identity confirmed</div>
+                    <div class="trust-desc">Intent analysis goes beyond pattern matching. Permission scope audit compares declared vs actual behavior. Publisher identity verification links the skill to a real person or org. SBOM included.</div>
+                </div>
+            </div>
+            <div class="trust-step">
+                <div class="trust-num">3</div>
+                <div class="trust-content">
+                    <div class="trust-title">Certified — $29, full audit</div>
+                    <div class="trust-desc">Sandboxed execution in Docker with behavioral monitoring. Manual code review by security engineers. Compliance report against ClawForce Security Standard v1. The highest trust signal available.</div>
+                </div>
+            </div>
+        </div>
+
+        <h2>Trust Score Composition</h2>
+        <p>Every skill receives a trust score from 0 to 100, composed of four weighted signals:</p>
+        <div class="signal-grid">
+            <div class="signal-card">
+                <div class="signal-icon">🔒</div>
+                <div class="signal-name">Security Audit</div>
+                <div class="signal-weight">40 points max</div>
+            </div>
+            <div class="signal-card">
+                <div class="signal-icon">🪪</div>
+                <div class="signal-name">Identity</div>
+                <div class="signal-weight">20 points max</div>
+            </div>
+            <div class="signal-card">
+                <div class="signal-icon">⭐</div>
+                <div class="signal-name">Reputation</div>
+                <div class="signal-weight">25 points max</div>
+            </div>
+            <div class="signal-card">
+                <div class="signal-icon">📅</div>
+                <div class="signal-name">Maintenance</div>
+                <div class="signal-weight">15 points max</div>
+            </div>
+        </div>
+
+        <h2>Verification is Machine-Readable</h2>
+        <p>Every verified skill gets a JSON-accessible trust record. Agents can query the ClawForce API at runtime to check trust status before executing a skill:</p>
+        <div class="verify-block">
+            <span class="comment">// GET /api/v1/trust/slack-mcp-server</span><br>
+            {<br>
+            &nbsp;&nbsp;<span class="key">"skill"</span>: <span class="val">"slack-mcp-server"</span>,<br>
+            &nbsp;&nbsp;<span class="key">"tier"</span>: <span class="val">"verified"</span>,<br>
+            &nbsp;&nbsp;<span class="key">"trust_score"</span>: <span class="val">78</span>,<br>
+            &nbsp;&nbsp;<span class="key">"risk_score"</span>: <span class="val">8</span>,<br>
+            &nbsp;&nbsp;<span class="key">"sbom_url"</span>: <span class="val">"/sbom/slack-mcp-server.cdx.json"</span>,<br>
+            &nbsp;&nbsp;<span class="key">"badge_url"</span>: <span class="val">"/badges/slack-mcp-server.svg"</span>,<br>
+            &nbsp;&nbsp;<span class="key">"findings"</span>: <span class="val">2</span>,<br>
+            &nbsp;&nbsp;<span class="key">"last_scan"</span>: <span class="val">"2026-03-20T14:30:00Z"</span><br>
+            }
+        </div>
+
+        <div class="cta-section">
+            <h3>Verify Your Skills</h3>
+            <p>Start with a free scan. Upgrade to Verified or Certified when you're ready to prove trust to your users.</p>
+            <a href="/certify.html" class="btn btn-primary">See Certification Tiers &rarr;</a>
+        </div>
+    </div></main>
+
+    <footer><div class="wrap">&copy; 2026 ClawForce, a product of <a href="https://pixelfamiliar.ca" style="color:var(--dim);text-decoration:underline;">Pixel Familiar Inc.</a></div></footer>
+</body>
+</html>
