@@ -1529,57 +1529,56 @@
 
     <main>
     <!-- ━━━ HERO ━━━ -->
-    <section class="hero">
-        <div class="wrap fade-up">
-            <div class="hero-grid">
-                <div class="hero-text">
-                    <div class="hero-label">
-                        <span class="dot"></span>
-                        The Agent Tollbooth
-                    </div>
-                    <h1>The economic layer<br>for <span class="hl">the AI Web</span></h1>
-                    <p class="hero-sub">
-                        ClawForce turns autonomous agent traffic into a revenue stream. Set your own API price, and we deposit cash directly into your account every time an AI visits.
-                    </p>
-                    <p style="margin-top:0.5rem;font-size:0.78rem;color:var(--dim);">Also: <a href="https://clawtrak.com" style="color:var(--dim);text-decoration:underline;text-underline-offset:3px;">Track global AI traffic metrics with ClawTrak →</a></p>
-                    <div class="hero-cta">
-                        <a href="#how-it-works" class="btn btn-primary">Monetize Your Data →</a>
-                        <a href="#developers" class="btn btn-outline">For AI Developers</a>
-                    </div>
-                    <p style="margin-top:1.2rem;font-size:0.72rem;color:var(--dim);font-family:var(--mono);letter-spacing:0.02em;">Operated by <a href="/about.html" style="color:var(--dim);text-decoration:underline;text-underline-offset:3px;">Pixel Familiar Inc.</a> · Manitoba, Canada · <a href="/security-standard-v1.html" style="color:var(--dim);text-decoration:underline;text-underline-offset:3px;">Open Security Standard</a></p>
-                </div>
-                <div class="hero-terminal" style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:2rem 1.5rem;">
-                    <div style="display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;gap:0.8rem;text-align:center;">
-                        <!-- AI Agent -->
-                        <div>
-                            <div style="font-size:2.2rem;margin-bottom:0.5rem;">🤖</div>
-                            <div style="font-family:var(--mono);font-size:0.75rem;font-weight:700;letter-spacing:0.03em;">AI Agent</div>
-                            <div style="font-size:0.7rem;color:var(--muted);margin-top:0.3rem;line-height:1.4;">Sends token<br>+ pre-paid credit</div>
-                            <div style="margin-top:0.5rem;display:inline-block;padding:0.2rem 0.5rem;background:rgba(192,57,43,0.1);border:1px solid rgba(192,57,43,0.2);border-radius:4px;font-family:var(--mono);font-size:0.7rem;font-weight:700;color:var(--red,#C0392B);">-$0.001</div>
-                        </div>
-                        <!-- Arrow 1 -->
-                        <div style="font-size:1.4rem;color:var(--dim);line-height:1;">→</div>
-                        <!-- Edge Router -->
-                        <div>
-                            <div style="font-size:2.2rem;margin-bottom:0.5rem;">🛡️</div>
-                            <div style="font-family:var(--mono);font-size:0.75rem;font-weight:700;letter-spacing:0.03em;color:var(--cyan);">Edge Router</div>
-                            <div style="font-size:0.7rem;color:var(--muted);margin-top:0.3rem;line-height:1.4;">Verify · Charge · Proxy</div>
-                            <div style="margin-top:0.5rem;font-family:var(--mono);font-size:0.65rem;color:var(--cyan);line-height:1.6;">✓ Token OK<br>✓ Balance OK<br>✓ 200 OK</div>
-                        </div>
-                        <!-- Arrow 2 -->
-                        <div style="font-size:1.4rem;color:var(--dim);line-height:1;">→</div>
-                        <!-- Your Website -->
-                        <div>
-                            <div style="font-size:2.2rem;margin-bottom:0.5rem;">🌐</div>
-                            <div style="font-family:var(--mono);font-size:0.75rem;font-weight:700;letter-spacing:0.03em;">Your Website</div>
-                            <div style="font-size:0.7rem;color:var(--muted);margin-top:0.3rem;line-height:1.4;">Serves content<br>earns revenue</div>
-                            <div style="margin-top:0.5rem;display:inline-block;padding:0.2rem 0.5rem;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.2);border-radius:4px;font-family:var(--mono);font-size:0.7rem;font-weight:700;color:var(--cyan);">+$0.001</div>
-                        </div>
-                    </div>
-                    <div style="text-align:center;margin-top:1rem;font-family:var(--mono);font-size:0.65rem;color:var(--dim);letter-spacing:0.02em;">~4ms globally · Cloudflare edge network · SHA-256 token verification</div>
-                </div>
+    <section class="hero" style="padding:5rem 0 3rem;">
+        <div class="wrap fade-up" style="text-align:center;max-width:720px;margin:0 auto;">
+            <div class="hero-label" style="justify-content:center;">
+                <span class="dot"></span>
+                The Agent Tollbooth
+            </div>
+            <h1 style="margin-top:1.5rem;">The economic layer<br>for <span class="hl">the AI Web</span></h1>
+            <p class="hero-sub" style="max-width:520px;margin:1.5rem auto 0;font-size:1.05rem;line-height:1.7;">
+                AI agents hit your website thousands of times a day. Right now, you get nothing. ClawForce lets you set a price per request and get paid automatically.
+            </p>
+            <div class="hero-cta" style="justify-content:center;margin-top:2rem;">
+                <a href="#how-it-works" class="btn btn-primary">How It Works →</a>
+                <a href="#pricing" class="btn btn-outline">See Pricing</a>
             </div>
         </div>
+
+        <!-- Full-width infographic below the text -->
+        <div class="wrap fade-up" style="margin-top:3rem;">
+            <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:2.5rem 2rem;max-width:700px;margin:0 auto;">
+                <div style="display:flex;align-items:center;justify-content:center;gap:2rem;flex-wrap:wrap;">
+                    <!-- AI Agent -->
+                    <div style="text-align:center;min-width:120px;">
+                        <div style="font-size:3rem;margin-bottom:0.6rem;">🤖</div>
+                        <div style="font-family:var(--mono);font-size:0.85rem;font-weight:700;">AI Agent</div>
+                        <div style="font-size:0.75rem;color:var(--muted);margin-top:0.4rem;">Sends request<br>+ API token</div>
+                        <div style="margin-top:0.6rem;display:inline-block;padding:0.3rem 0.7rem;background:rgba(192,57,43,0.08);border:1px solid rgba(192,57,43,0.15);border-radius:6px;font-family:var(--mono);font-size:0.78rem;font-weight:700;color:#C0392B;">-$0.001</div>
+                    </div>
+                    <!-- Arrow 1 -->
+                    <div style="font-size:2rem;color:var(--dim);">→</div>
+                    <!-- Edge Router -->
+                    <div style="text-align:center;min-width:140px;">
+                        <div style="font-size:3rem;margin-bottom:0.6rem;">🛡️</div>
+                        <div style="font-family:var(--mono);font-size:0.85rem;font-weight:700;color:var(--cyan);">ClawForce</div>
+                        <div style="font-size:0.75rem;color:var(--muted);margin-top:0.4rem;">Verify · Charge · Proxy</div>
+                        <div style="margin-top:0.6rem;font-family:var(--mono);font-size:0.72rem;color:var(--cyan);line-height:1.7;">✓ Token<br>✓ Balance<br>✓ 200 OK</div>
+                    </div>
+                    <!-- Arrow 2 -->
+                    <div style="font-size:2rem;color:var(--dim);">→</div>
+                    <!-- Your Website -->
+                    <div style="text-align:center;min-width:120px;">
+                        <div style="font-size:3rem;margin-bottom:0.6rem;">🌐</div>
+                        <div style="font-family:var(--mono);font-size:0.85rem;font-weight:700;">Your Website</div>
+                        <div style="font-size:0.75rem;color:var(--muted);margin-top:0.4rem;">Serves content<br>earns revenue</div>
+                        <div style="margin-top:0.6rem;display:inline-block;padding:0.3rem 0.7rem;background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.15);border-radius:6px;font-family:var(--mono);font-size:0.78rem;font-weight:700;color:var(--cyan);">+$0.001</div>
+                    </div>
+                </div>
+                <div style="text-align:center;margin-top:1.2rem;padding-top:1rem;border-top:1px solid var(--border);font-family:var(--mono);font-size:0.7rem;color:var(--dim);letter-spacing:0.02em;">~4ms globally · Cloudflare edge · SHA-256 token verification</div>
+            </div>
+        </div>
+        <p style="text-align:center;margin-top:1.5rem;font-size:0.72rem;color:var(--dim);font-family:var(--mono);letter-spacing:0.02em;">Operated by <a href="/about.html" style="color:var(--dim);text-decoration:underline;text-underline-offset:3px;">Pixel Familiar Inc.</a> · Manitoba, Canada</p>
     </section>
 
     <!-- ━━━ WHO IT'S FOR ━━━ -->
