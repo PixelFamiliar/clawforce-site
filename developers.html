@@ -146,6 +146,32 @@ cd clawforce-vscode
                 <p style="font-size:0.82rem;margin-top:0.5rem;">Source: <a href="https://github.com/PixelFamiliar/clawforce-vscode" style="color:var(--cyan);">github.com/PixelFamiliar/clawforce-vscode</a></p>
             </div>
 
+            <div class="step">
+                <div class="step-num">SDKs</div>
+                <div class="step-title">Programmatic API access from any language</div>
+                <p>Zero-dependency client libraries for Node.js and Python. TypeScript types included.</p>
+<pre><span class="comment"># Node.js</span>
+npm install @clawforce/sdk
+
+<span class="comment"># Python</span>
+pip install clawforce</pre>
+<pre><span class="comment">// Node.js usage</span>
+const { ClawForce } = require('@clawforce/sdk');
+const client = new ClawForce();
+const result = await client.scan('user/my-skill');
+console.log(result.risk_score);  <span class="comment">// 12</span>
+
+<span class="comment"># Python usage</span>
+from clawforce import ClawForce
+client = ClawForce()
+result = client.scan('user/my-skill')
+print(result.risk_score)  <span class="comment"># 12</span></pre>
+                <p style="font-size:0.82rem;margin-top:0.5rem;">
+                    <a href="https://github.com/PixelFamiliar/clawforce-sdk-node" style="color:var(--cyan);">Node.js SDK</a> ·
+                    <a href="https://github.com/PixelFamiliar/clawforce-sdk-python" style="color:var(--cyan);">Python SDK</a>
+                </p>
+            </div>
+
             <h2>Developer Resources</h2>
             <p><a href="/api-docs.html" style="color:var(--cyan);">API Documentation</a> — REST API for scan, verify, badge, and trust endpoints.</p>
             <p><a href="/guide-verify-skills.html" style="color:var(--cyan);">Skill Verification Guide</a> — 5-step framework for vetting agent skills.</p>
