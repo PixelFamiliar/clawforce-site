@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started — Secure Your AI Agent Skills in 5 Minutes | ClawForce</title>
+    <meta name="description" content="Get started with ClawForce in under 5 minutes. Install the CLI, scan your first skill, add CI/CD scanning, and get certified.">
+    <link rel="canonical" href="https://clawforce.ca/getting-started.html">
+    <link rel="icon" href="/logo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{--bg:#FAFAF8;--surface:#FFF;--border:#E0DDD5;--text:#0A0A0A;--muted:#5C5C5C;--dim:#8A8A80;--primary:#0A0A0A;--cyan:#3D7A5F;--radius:2px;--mono:'Space Mono',monospace;--sans:'DM Sans',-apple-system,sans-serif}
+        body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+        body::before{content:'';position:fixed;inset:0;background:url("data:image/svg+xml,%3Csvg width='400' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
+        .wrap{max-width:760px;margin:0 auto;padding:0 2rem;position:relative;z-index:1}
+        .wrap-wide{max-width:1100px;margin:0 auto;padding:0 2rem;position:relative;z-index:1}
+        nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(250,250,248,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0.75rem 0}
+        nav .wrap-wide{display:flex;align-items:center;justify-content:space-between}
+        .nav-logo{display:flex;align-items:center;gap:0.5rem;text-decoration:none;font-family:var(--mono);font-weight:700;font-size:0.95rem;color:var(--text)}
+        .nav-links{list-style:none;display:flex;gap:1.5rem;align-items:center}
+        .nav-links a{color:var(--muted);text-decoration:none;font-size:0.82rem;font-weight:500;transition:color 0.2s}
+        .nav-links a:hover{color:var(--text)}
+        .nav-cta{background:var(--primary);color:#FAFAF8!important;padding:0.4rem 1rem;border-radius:2px;font-family:var(--mono);font-size:0.75rem!important;font-weight:700!important;text-transform:uppercase}
+        main{padding:7rem 0 4rem}
+        .section-label{font-family:var(--mono);font-size:0.68rem;font-weight:700;color:var(--dim);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.5rem}
+        h1{font-family:var(--mono);font-size:2.2rem;font-weight:700;line-height:1.15;letter-spacing:-0.04em;margin-bottom:1rem}
+        h1 .hl{color:var(--cyan)}
+        .subtitle{font-size:1.05rem;color:var(--muted);line-height:1.7;margin-bottom:2.5rem;max-width:600px}
+        h2{font-family:var(--mono);font-size:1.1rem;font-weight:700;margin:2.5rem 0 0.8rem;color:var(--cyan)}
+        p{color:var(--muted);margin-bottom:1rem;line-height:1.7}
+        code{font-family:var(--mono);font-size:0.85rem;background:var(--surface);border:1px solid var(--border);padding:0.15rem 0.4rem;border-radius:3px}
+        pre{background:#1a1a1a;color:#e0e0e0;padding:1.2rem 1.5rem;border-radius:var(--radius);overflow-x:auto;margin:1rem 0;font-family:var(--mono);font-size:0.78rem;line-height:1.6}
+        pre .comment{color:#6a9955}
+        pre .str{color:#CE9178}
+        pre .ok{color:#6ECF8A}
+        pre .key{color:#9CDCFE}
+        .step{margin:2rem 0;border-left:3px solid var(--cyan);padding:0 0 0 1.5rem}
+        .step-num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;background:var(--cyan);color:#fff;font-family:var(--mono);font-size:0.75rem;font-weight:700;border-radius:50%;margin-bottom:0.5rem}
+        .step h3{font-family:var(--mono);font-size:0.95rem;font-weight:700;margin-bottom:0.5rem}
+        .time{font-family:var(--mono);font-size:0.7rem;color:var(--dim);text-transform:uppercase;margin-left:0.5rem}
+        .next-box{background:var(--surface);border:1px solid var(--border);padding:1.5rem;margin:2rem 0}
+        .next-box h3{font-family:var(--mono);font-size:0.9rem;font-weight:700;margin-bottom:0.8rem}
+        .next-box ul{list-style:none;padding:0}
+        .next-box li{padding:0.3rem 0;color:var(--muted);font-size:0.9rem}
+        .next-box li a{color:var(--cyan);text-decoration:none}
+        .next-box li a:hover{text-decoration:underline}
+        .cta-box{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--cyan);padding:2rem;margin:3rem 0;text-align:center}
+        .cta-box h3{font-family:var(--mono);font-size:0.95rem;font-weight:700;margin-bottom:0.5rem}
+        .cta-box a{display:inline-block;background:var(--primary);color:var(--bg);text-decoration:none;padding:0.6rem 1.2rem;font-family:var(--mono);font-size:0.78rem;font-weight:700;border-radius:2px;text-transform:uppercase;margin-top:0.5rem}
+        footer{border-top:1px solid var(--border);padding:2rem 0;text-align:center;font-size:0.68rem;color:var(--dim);margin-top:4rem}
+        @media(max-width:768px){h1{font-size:1.6rem}.nav-links{display:none}}
+    </style>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"Getting Started with ClawForce","description":"Secure your AI agent skills in under 5 minutes with ClawForce.","step":[{"@type":"HowToStep","name":"Install the CLI","text":"npm install -g clawforce"},{"@type":"HowToStep","name":"Scan your first skill","text":"clawforce scan ./my-skill"},{"@type":"HowToStep","name":"Add CI/CD scanning","text":"Add the ClawForce GitHub Action to your workflow"},{"@type":"HowToStep","name":"Get certified","text":"Submit for Verified or Certified tier review"}]}
+    </script>
+    <script defer data-domain="clawforce.ca" src="https://plausible.io/js/script.js"></script>
+</head>
+<body>
+    <nav><div class="wrap-wide">
+        <a href="/" class="nav-logo"><img src="/logo.png" alt="ClawForce" style="height:22px;width:22px;"><span>ClawForce</span></a>
+        <ul class="nav-links">
+            <li><a href="/#how-it-works">How It Works</a></li>
+            <li><a href="/#pricing">Pricing</a></li>
+            <li><a href="/registry.html">Registry</a></li>
+            <li><a href="/blog-index.html">Blog</a></li>
+            <li><a href="/developers.html">Developers</a></li>
+            <li><a href="/#waitlist" class="nav-cta">Free Scan &rarr;</a></li>
+        </ul>
+    </div></nav>
+
+    <main><div class="wrap">
+        <div class="section-label">// getting started</div>
+        <h1>Secure Your Skills in <span class="hl">5 Minutes</span></h1>
+        <p class="subtitle">From zero to scanned. Pick your integration point and you're running.</p>
+
+        <div class="step">
+            <div class="step-num">1</div>
+            <h3>Install the CLI <span class="time">30 seconds</span></h3>
+            <p>The ClawForce CLI runs locally, scans files for 22 vulnerability patterns, and requires zero configuration.</p>
+<pre><span class="comment"># Install globally via npm</span>
+npm install -g clawforce
+
+<span class="comment"># Or run without installing</span>
+npx clawforce scan .</pre>
+        </div>
+
+        <div class="step">
+            <div class="step-num">2</div>
+            <h3>Scan your first skill <span class="time">10 seconds</span></h3>
+            <p>Point the scanner at any directory containing Python, JavaScript, TypeScript, or shell scripts.</p>
+<pre><span class="comment"># Scan the current directory</span>
+clawforce scan .
+
+<span class="ok">✓ ClawForce Scan Complete</span>
+<span class="key">Skill:</span>       <span class="str">my-skill</span>
+<span class="key">Files:</span>       <span class="str">8 scanned</span>
+<span class="key">Risk Score:</span>  <span class="ok">9/100 — PASS</span>
+<span class="key">Findings:</span>    <span class="str">1 (medium)</span>
+
+<span class="comment"># JSON output for programmatic use</span>
+clawforce scan . --json
+
+<span class="comment"># Set a threshold — exit code 1 if exceeded</span>
+clawforce scan . --threshold 20</pre>
+        </div>
+
+        <div class="step">
+            <div class="step-num">3</div>
+            <h3>Add to CI/CD <span class="time">2 minutes</span></h3>
+            <p>Add the GitHub Action to scan on every push and PR. Fails the build if risk exceeds your threshold.</p>
+<pre><span class="comment"># .github/workflows/security.yml</span>
+name: Security Scan
+on: [push, pull_request]
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: PixelFamiliar/clawforce-scan-action@v1
+        with:
+          fail-threshold: <span class="str">'40'</span></pre>
+        </div>
+
+        <div class="step">
+            <div class="step-num">4</div>
+            <h3>Add editor scanning <span class="time">1 minute</span></h3>
+            <p>Install the VSCode/Cursor extension for real-time scanning. Findings appear inline as you type.</p>
+<pre><span class="comment"># Clone and install</span>
+git clone https://github.com/PixelFamiliar/clawforce-vscode
+<span class="comment"># Open in VSCode → Run Extension (F5)</span>
+
+<span class="comment"># Features:</span>
+<span class="comment"># - Scan on save and open</span>
+<span class="comment"># - Findings in Problems panel</span>
+<span class="comment"># - Risk score in status bar</span>
+<span class="comment"># - Configurable severity threshold</span></pre>
+        </div>
+
+        <div class="step">
+            <div class="step-num">5</div>
+            <h3>Get certified <span class="time">optional</span></h3>
+            <p>Once your skill passes the automated scan, upgrade to Verified ($9) or Certified ($29) for manual review, a trust badge, and registry listing.</p>
+<pre><span class="comment"># Generate a badge URL</span>
+clawforce badge my-skill
+
+<span class="comment"># Embed in your README</span>
+<span class="str">[![ClawForce Verified](https://api.clawforce.ca/v1/badge/my-skill)](https://clawforce.ca)</span></pre>
+            <p style="margin-top:0.5rem;"><a href="/certify.html" style="color:var(--cyan);">View certification tiers &rarr;</a></p>
+        </div>
+
+        <h2>Use the SDK</h2>
+        <p>For programmatic access, use the Node.js or Python SDK:</p>
+<pre><span class="comment">// Node.js</span>
+const { ClawForce } = require(<span class="str">'@clawforce/sdk'</span>);
+const client = new ClawForce();
+const result = await client.scan(<span class="str">'user/my-skill'</span>);
+
+if (result.risk_score > 40) {
+  console.warn(<span class="str">`High risk: ${result.risk_score}/100`</span>);
+}
+
+<span class="comment"># Python</span>
+from clawforce import ClawForce
+client = ClawForce()
+result = client.scan(<span class="str">'user/my-skill'</span>)
+
+if not client.verify(<span class="str">'my-skill'</span>).trusted:
+    raise Exception(<span class="str">'Untrusted skill'</span>)</pre>
+
+        <div class="next-box">
+            <h3>What to read next</h3>
+            <ul>
+                <li>→ <a href="/guide-verify-skills.html">How to Verify AI Agent Skills</a> (5-step framework)</li>
+                <li>→ <a href="/guide-prompt-injection.html">Prompt Injection Detection</a> (4 attack vectors)</li>
+                <li>→ <a href="/scopes.html">Permission Scopes Reference</a> (13 scope types)</li>
+                <li>→ <a href="/checklist.html">Security Checklist</a> (25 interactive items)</li>
+                <li>→ <a href="/api-docs.html">API Documentation</a> (REST endpoints)</li>
+                <li>→ <a href="/roadmap.html">Product Roadmap</a> (what's next)</li>
+            </ul>
+        </div>
+
+        <div class="cta-box">
+            <h3>Ready to scan?</h3>
+            <p style="margin-bottom:0.5rem;font-size:0.9rem;">It takes 30 seconds. No account required.</p>
+            <a href="/">Free Scan &rarr;</a>
+        </div>
+    </div></main>
+
+    <footer><div class="wrap">&copy; 2026 ClawForce, a product of <a href="https://pixelfamiliar.ca" style="color:var(--dim);text-decoration:underline;">Pixel Familiar Inc.</a></div></footer>
+</body>
+</html>

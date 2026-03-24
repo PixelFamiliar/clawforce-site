@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Complete Developer Toolchain for AI Agent Security | ClawForce</title>
+    <meta name="description" content="CLI, GitHub Action, VSCode extension, and SDKs: the full developer toolchain for securing AI agent skills at every stage of development.">
+    <link rel="canonical" href="https://clawforce.ca/blog/developer-toolchain-ai-agent-security.html">
+    <link rel="icon" href="/logo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{--bg:#FAFAF8;--surface:#FFF;--border:#E0DDD5;--text:#0A0A0A;--muted:#5C5C5C;--dim:#8A8A80;--primary:#0A0A0A;--cyan:#3D7A5F;--red:#C0392B;--radius:2px;--mono:'Space Mono',monospace;--sans:'DM Sans',-apple-system,sans-serif}
+        body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+        body::before{content:'';position:fixed;inset:0;background:url("data:image/svg+xml,%3Csvg width='400' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
+        .wrap{max-width:760px;margin:0 auto;padding:0 1.5rem;position:relative;z-index:1}
+        nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0.75rem 0;background:rgba(250,250,248,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+        nav .inner{display:flex;justify-content:space-between;align-items:center;max-width:960px;margin:0 auto;padding:0 1.5rem}
+        .nav-logo{display:flex;align-items:center;gap:0.5rem;text-decoration:none;font-family:var(--mono);font-weight:700;font-size:0.95rem;color:var(--text)}
+        .nav-links{display:flex;gap:1.5rem;list-style:none;align-items:center}
+        .nav-links a{color:var(--muted);text-decoration:none;font-size:0.82rem;font-weight:500}
+        .nav-links a:hover{color:var(--text)}
+        .nav-cta{background:var(--primary);color:#FAFAF8!important;padding:0.4rem 1rem;border-radius:2px;font-weight:700!important;font-family:var(--mono);font-size:0.75rem!important;text-transform:uppercase}
+        main{padding:8rem 0 5rem}
+        .meta{font-family:var(--mono);font-size:0.75rem;color:var(--dim);text-transform:uppercase;margin-bottom:1rem;letter-spacing:0.05em}
+        h1{font-family:var(--mono);font-size:2.2rem;font-weight:700;line-height:1.15;margin-bottom:2rem;letter-spacing:-0.04em}
+        h2{font-family:var(--mono);font-size:1.4rem;font-weight:700;margin:2.5rem 0 1rem}
+        h3{font-family:var(--mono);font-size:1.1rem;font-weight:700;margin:1.5rem 0 0.5rem}
+        p{margin-bottom:1.5rem;font-size:1.05rem;line-height:1.7;color:var(--muted)}
+        ul,ol{margin-bottom:1.5rem;padding-left:2rem;color:var(--muted)}
+        li{margin-bottom:0.5rem}
+        strong{color:var(--text)}
+        code{background:rgba(0,0,0,0.05);padding:0.2rem 0.4rem;border-radius:3px;font-family:var(--mono);font-size:0.85em;color:var(--red)}
+        pre{background:#1E1E1E;padding:1.5rem;border-radius:4px;overflow-x:auto;margin-bottom:1.5rem}
+        pre code{color:#D4D4D4;background:none;padding:0}
+        pre .comment{color:#6a9955}
+        pre .str{color:#CE9178}
+        pre .ok{color:#6ECF8A}
+        pre .key{color:#9CDCFE}
+        table{width:100%;border-collapse:collapse;margin-bottom:1.5rem;font-size:0.88rem}
+        th{font-family:var(--mono);font-size:0.75rem;text-transform:uppercase;padding:0.6rem;text-align:left;border-bottom:2px solid var(--border);color:var(--dim)}
+        td{padding:0.5rem 0.6rem;border-bottom:1px solid var(--border);color:var(--muted)}
+        .cta-box{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--cyan);padding:2rem;margin:3rem 0;border-radius:4px;text-align:center}
+        .cta-box h3{margin-top:0}
+        .cta-box a{display:inline-block;background:var(--primary);color:var(--surface);text-decoration:none;padding:0.8rem 1.5rem;font-family:var(--mono);font-weight:700;font-size:0.9rem;border-radius:2px;margin-top:1rem;text-transform:uppercase}
+        footer{border-top:1px solid var(--border);padding:2rem 0;margin-top:4rem;text-align:center}
+        .footer-copy{font-size:0.68rem;color:var(--dim)}
+        @media(max-width:768px){h1{font-size:1.6rem}.nav-links{display:none}}
+    </style>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Article","headline":"The Complete Developer Toolchain for AI Agent Security","author":{"@type":"Organization","name":"ClawForce","url":"https://clawforce.ca"},"publisher":{"@type":"Organization","name":"ClawForce"},"datePublished":"2026-03-23","description":"CLI, GitHub Action, VSCode extension, and SDKs: the full developer toolchain for securing AI agent skills."}
+    </script>
+    <script defer data-domain="clawforce.ca" src="https://plausible.io/js/script.js"></script>
+</head>
+<body>
+    <nav><div class="inner">
+        <a href="/" class="nav-logo"><img src="/logo.png" alt="ClawForce" style="height:22px;width:22px;"><span>ClawForce</span></a>
+        <ul class="nav-links">
+            <li><a href="/">Scan</a></li>
+            <li><a href="/certify.html">Certification</a></li>
+            <li><a href="/blog-index.html" style="color:var(--text);">Blog</a></li>
+            <li><a href="/certify.html" class="nav-cta">Get Certified &rarr;</a></li>
+        </ul>
+    </div></nav>
+
+    <main class="wrap">
+        <div class="meta">March 2026 · Developer Tooling</div>
+        <h1>The Complete Developer Toolchain for AI Agent Security</h1>
+
+        <p>We spent the last month building something specific: a security toolchain that meets developers where they already work. Not a dashboard. Not a platform. Five tools that plug into workflows you already have.</p>
+
+        <p>Here's what's available today, why each piece exists, and how they fit together.</p>
+
+        <h2>The Problem with "Security Platforms"</h2>
+        <p>Most security products want you to adopt their world. New dashboard. New login. New workflow. New mental model. The result? Developers run the tool once during setup, never again.</p>
+        <p>We built the opposite. Five tools, five integration points, zero new workflows:</p>
+
+        <table>
+            <thead><tr><th>Tool</th><th>Integration Point</th><th>When It Runs</th></tr></thead>
+            <tbody>
+                <tr><td>CLI</td><td>Terminal</td><td>On demand</td></tr>
+                <tr><td>GitHub Action</td><td>CI/CD pipeline</td><td>Every push/PR</td></tr>
+                <tr><td>VSCode Extension</td><td>Editor</td><td>On save/open</td></tr>
+                <tr><td>Node.js SDK</td><td>Your application</td><td>Runtime</td></tr>
+                <tr><td>Python SDK</td><td>Your application</td><td>Runtime</td></tr>
+            </tbody>
+        </table>
+
+        <h2>1. The CLI: For Developers Who Think in Terminals</h2>
+        <p>The CLI is the foundation. <code>npm install -g clawforce</code> and you're scanning. 22 vulnerability patterns across 6 categories. Zero external dependencies, zero configuration.</p>
+
+<pre><code><span class="comment"># Scan your current project</span>
+clawforce scan .
+
+<span class="ok">✓ ClawForce Scan Complete</span>
+<span class="key">Risk Score:</span>  <span class="str">9/100 — PASS</span>
+<span class="key">Findings:</span>    <span class="str">1 (medium: os.environ.get for KEY/TOKEN)</span>
+
+<span class="comment"># JSON output for scripts and pipelines</span>
+clawforce scan . --json | jq '.risk_score'
+
+<span class="comment"># Strict mode: fail if risk > 20</span>
+clawforce scan . --threshold 20</code></pre>
+
+        <p>Design decision: zero dependencies. The scanner itself is a single file. No npm ecosystem risk.</p>
+
+        <h2>2. The GitHub Action: For Teams Who Ship</h2>
+        <p>Three lines in a YAML file and every push gets scanned. Every PR gets a security check. The action outputs structured data you can use in downstream steps.</p>
+
+<pre><code><span class="comment"># .github/workflows/security.yml</span>
+- uses: PixelFamiliar/clawforce-scan-action@v1
+  id: scan
+  with:
+    fail-threshold: <span class="str">'40'</span>
+
+<span class="comment"># Use the outputs</span>
+- run: echo "Score: ${{ steps.scan.outputs.risk-score }}"</code></pre>
+
+        <p>The action uploads a full JSON report as a build artifact. 30-day retention. Useful for audits, compliance, or just debugging why a build failed.</p>
+
+        <h2>3. The VSCode Extension: For Catching Issues Early</h2>
+        <p>Security on save. Every time you hit Ctrl+S, the extension scans the file and puts findings directly in the Problems panel. No context switch. No separate tool.</p>
+
+        <p>Features worth noting:</p>
+        <ul>
+            <li><strong>Status bar integration</strong> — current file's risk score at a glance, green/yellow/red</li>
+            <li><strong>Workspace scan</strong> — scan all files with a progress bar</li>
+            <li><strong>Configurable threshold</strong> — only show findings above your severity level</li>
+            <li><strong>Cursor compatible</strong> — works in both VSCode and Cursor</li>
+        </ul>
+
+        <h2>4. The SDKs: For Runtime Trust Decisions</h2>
+        <p>Sometimes you need to verify trust at runtime. Before your agent loads a skill. Before your platform lists a plugin. Before your marketplace approves a submission.</p>
+
+<pre><code><span class="comment">// Node.js — verify before loading</span>
+const { ClawForce } = require(<span class="str">'@clawforce/sdk'</span>);
+const client = new ClawForce();
+
+const trust = await client.verify(<span class="str">'some-skill'</span>);
+if (!trust.trusted) {
+    throw new Error(<span class="str">`Skill rejected: score ${trust.risk_score}`</span>);
+}
+
+<span class="comment"># Python — gate a marketplace</span>
+from clawforce import ClawForce
+client = ClawForce()
+
+result = client.scan(<span class="str">'publisher/new-skill'</span>)
+if result.risk_score > 40:
+    reject_submission(result)</code></pre>
+
+        <p>Both SDKs are zero-dependency. TypeScript types included in the Node.js version. Dataclass models in Python.</p>
+
+        <h2>How They Work Together</h2>
+        <p>The real value is the layered coverage:</p>
+        <ol>
+            <li><strong>Develop</strong> — VSCode extension catches issues as you write code</li>
+            <li><strong>Commit</strong> — CLI gives a local check before you push</li>
+            <li><strong>Push</strong> — GitHub Action enforces standards on the team level</li>
+            <li><strong>Deploy</strong> — SDK verifies trust at runtime before loading skills</li>
+            <li><strong>Certify</strong> — Submit for manual review, get a badge and registry listing</li>
+        </ol>
+
+        <p>Each layer catches what the previous layer missed. A developer might skip the local scan, but CI won't. CI might pass with a near-threshold score, but runtime verification catches the edge case.</p>
+
+        <h2>What We're Not Building</h2>
+        <p>No dashboard. No "security manager" role. No weekly reports that nobody reads. The toolchain produces findings where developers already look: terminal, editor, CI log, runtime exception.</p>
+
+        <p>If you want a dashboard, export the JSON. Pipe it to whatever you use. We're not building another thing to log into.</p>
+
+        <h2>Related Reading</h2>
+        <ul>
+            <li><a href="/getting-started.html" style="color:var(--cyan)">Getting Started</a> — install and scan in 5 minutes</li>
+            <li><a href="/developers.html" style="color:var(--cyan)">Developer Tooling</a> — all tools in one place</li>
+            <li><a href="/blog/why-devs-dont-trust-legacy-security.html" style="color:var(--cyan)">Why Developers Don't Trust Legacy Security</a> — the problem we're solving</li>
+            <li><a href="/roadmap.html" style="color:var(--cyan)">Product Roadmap</a> — what's next</li>
+        </ul>
+
+        <div class="cta-box">
+            <h3>Try the Toolchain</h3>
+            <p style="margin-bottom:0.5rem;font-size:0.9rem;">30 seconds to install. Zero config. Works with what you already use.</p>
+            <a href="/getting-started.html">Get Started &rarr;</a>
+        </div>
+    </main>
+
+    <footer><div class="footer-copy">&copy; 2026 Pixel Familiar Inc. · ClawForce Verified Skills™ · Manitoba, Canada</div></footer>
+</body>
+</html>
