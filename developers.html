@@ -138,8 +138,8 @@ jobs:
             <div class="step">
                 <div class="step-num">VSCODE / CURSOR</div>
                 <div class="step-title">Inline security warnings in your editor</div>
-                <p>Scan on save, scan on open. Findings appear in the Problems panel. Risk score in the status bar.</p>
-<pre><span class="comment"># Install from source (or via Marketplace when published)</span>
+                <p>Scan on save, scan on open. Findings appear in the Problems panel. Risk score in the status bar. <strong style="color:var(--dim);">(Marketplace publication coming soon)</strong></p>
+<pre><span class="comment"># Install from source</span>
 git clone https://github.com/PixelFamiliar/clawforce-vscode
 cd clawforce-vscode
 <span class="comment"># Open in VSCode → Run Extension</span></pre>
@@ -149,12 +149,14 @@ cd clawforce-vscode
             <div class="step">
                 <div class="step-num">SDKs</div>
                 <div class="step-title">Programmatic API access from any language</div>
-                <p>Zero-dependency client libraries for Node.js and Python. TypeScript types included.</p>
-<pre><span class="comment"># Node.js</span>
-npm install @clawforce/sdk
+                <p>Zero-dependency client libraries for Node.js and Python. TypeScript types included. <strong style="color:var(--dim);">(Package registry publication coming soon)</strong></p>
+<pre><span class="comment"># Node.js — install from source</span>
+git clone https://github.com/PixelFamiliar/clawforce-sdk-node
+cd clawforce-sdk-node && npm install
 
-<span class="comment"># Python</span>
-pip install clawforce</pre>
+<span class="comment"># Python — install from source</span>
+git clone https://github.com/PixelFamiliar/clawforce-sdk-python
+cd clawforce-sdk-python && pip install -e .</pre>
 <pre><span class="comment">// Node.js usage</span>
 const { ClawForce } = require('@clawforce/sdk');
 const client = new ClawForce();
@@ -181,7 +183,7 @@ print(result.risk_score)  <span class="comment"># 12</span></pre>
             <p><a href="/security-standard-v1.html" style="color:var(--cyan);">Security Standard v1</a> — The specification behind ClawForce audits.</p>
 
             <div style="margin-top:2rem;text-align:center;">
-                <a href="/" style="display:inline-block;padding:0.75rem 1.5rem;background:var(--primary);color:var(--bg);font-family:var(--mono);font-size:0.85rem;font-weight:700;text-decoration:none;border-radius:var(--radius);">Free Scan &rarr;</a>
+                <a href="/#waitlist" style="display:inline-block;padding:0.75rem 1.5rem;background:var(--primary);color:var(--bg);font-family:var(--mono);font-size:0.85rem;font-weight:700;text-decoration:none;border-radius:var(--radius);">Join Waitlist &rarr;</a>
             </div>
         </div>
     </main>
