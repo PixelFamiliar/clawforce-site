@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changelog — Version History | ClawForce</title>
+    <meta name="description" content="ClawForce version history. Every release, every feature, every improvement tracked transparently.">
+    <link rel="canonical" href="https://clawforce.ca/changelog.html">
+    <link rel="icon" href="/logo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{--bg:#FAFAF8;--surface:#FFF;--border:#E0DDD5;--text:#0A0A0A;--muted:#5C5C5C;--dim:#8A8A80;--primary:#0A0A0A;--cyan:#3D7A5F;--radius:2px;--mono:'Space Mono',monospace;--sans:'DM Sans',-apple-system,sans-serif}
+        body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+        body::before{content:'';position:fixed;inset:0;background:url("data:image/svg+xml,%3Csvg width='400' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
+        .wrap{max-width:760px;margin:0 auto;padding:0 2rem;position:relative;z-index:1}
+        .wrap-wide{max-width:1100px;margin:0 auto;padding:0 2rem;position:relative;z-index:1}
+        nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(250,250,248,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0.75rem 0}
+        nav .wrap-wide{display:flex;align-items:center;justify-content:space-between}
+        .nav-logo{display:flex;align-items:center;gap:0.5rem;text-decoration:none;font-family:var(--mono);font-weight:700;font-size:0.95rem;color:var(--text)}
+        .nav-links{list-style:none;display:flex;gap:1.5rem;align-items:center}
+        .nav-links a{color:var(--muted);text-decoration:none;font-size:0.82rem;font-weight:500;transition:color 0.2s}
+        .nav-links a:hover{color:var(--text)}
+        .nav-cta{background:var(--primary);color:#FAFAF8!important;padding:0.4rem 1rem;border-radius:2px;font-family:var(--mono);font-size:0.75rem!important;font-weight:700!important;text-transform:uppercase}
+        main{padding:7rem 0 4rem}
+        .section-label{font-family:var(--mono);font-size:0.68rem;font-weight:700;color:var(--dim);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.5rem}
+        h1{font-family:var(--mono);font-size:2.2rem;font-weight:700;line-height:1.15;letter-spacing:-0.04em;margin-bottom:1rem}
+        h1 .hl{color:var(--cyan)}
+        .subtitle{font-size:1.05rem;color:var(--muted);line-height:1.7;margin-bottom:2.5rem}
+        .release{margin:2rem 0;border:1px solid var(--border);background:var(--surface);overflow:hidden}
+        .release-header{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.5rem;border-bottom:1px solid var(--border)}
+        .release-version{font-family:var(--mono);font-size:1rem;font-weight:700;display:flex;align-items:center;gap:0.6rem}
+        .release-date{font-family:var(--mono);font-size:0.72rem;color:var(--dim)}
+        .release-tag{font-family:var(--mono);font-size:0.6rem;font-weight:700;padding:0.15rem 0.5rem;border-radius:2px;text-transform:uppercase;letter-spacing:0.05em}
+        .tag-major{background:rgba(61,122,95,0.12);color:var(--cyan)}
+        .tag-feature{background:rgba(74,111,165,0.12);color:#4A6FA5}
+        .tag-content{background:rgba(184,134,11,0.1);color:#B8860B}
+        .release-body{padding:1.2rem 1.5rem}
+        .release-body h3{font-family:var(--mono);font-size:0.78rem;font-weight:700;color:var(--cyan);text-transform:uppercase;letter-spacing:0.05em;margin:1rem 0 0.5rem}
+        .release-body h3:first-child{margin-top:0}
+        .release-body ul{list-style:none;padding:0}
+        .release-body li{padding:0.3rem 0;font-size:0.88rem;color:var(--muted);display:flex;align-items:flex-start;gap:0.5rem;line-height:1.5}
+        .release-body li::before{content:'•';color:var(--cyan);font-weight:700;flex-shrink:0}
+        .release-body a{color:var(--cyan);text-decoration:none}
+        .release-body a:hover{text-decoration:underline}
+        .release-body code{font-family:var(--mono);font-size:0.82em;background:rgba(0,0,0,0.04);padding:0.1rem 0.3rem;border-radius:2px}
+        footer{border-top:1px solid var(--border);padding:2rem 0;text-align:center;font-size:0.68rem;color:var(--dim);margin-top:4rem}
+        @media(max-width:768px){h1{font-size:1.6rem}.nav-links{display:none}.release-header{flex-direction:column;align-items:flex-start;gap:0.3rem}}
+    </style>
+    <script defer data-domain="clawforce.ca" src="https://plausible.io/js/script.js"></script>
+</head>
+<body>
+    <nav><div class="wrap-wide">
+        <a href="/" class="nav-logo"><img src="/logo.png" alt="ClawForce" style="height:22px;width:22px;"><span>ClawForce</span></a>
+        <ul class="nav-links">
+            <li><a href="/#how-it-works">How It Works</a></li>
+            <li><a href="/#pricing">Pricing</a></li>
+            <li><a href="/registry.html">Registry</a></li>
+            <li><a href="/developers.html">Developers</a></li>
+            <li><a href="/blog-index.html">Blog</a></li>
+            <li><a href="/#waitlist" class="nav-cta">Free Scan &rarr;</a></li>
+        </ul>
+    </div></nav>
+
+    <main><div class="wrap">
+        <div class="section-label">// changelog</div>
+        <h1>Version <span class="hl">History</span></h1>
+        <p class="subtitle">Every release, every feature, every improvement. Transparent development.</p>
+
+        <div class="release">
+            <div class="release-header">
+                <div class="release-version">v1.4.0 <span class="release-tag tag-feature">Feature</span></div>
+                <div class="release-date">March 23, 2026</div>
+            </div>
+            <div class="release-body">
+                <h3>Developer Ecosystem</h3>
+                <ul>
+                    <li><a href="https://github.com/PixelFamiliar/clawforce-vscode">VSCode/Cursor extension</a> with inline scanning, Problems panel, status bar</li>
+                    <li><a href="https://github.com/PixelFamiliar/clawforce-sdk-node">Node.js SDK</a> (<code>@clawforce/sdk</code>) with TypeScript types</li>
+                    <li><a href="https://github.com/PixelFamiliar/clawforce-sdk-python">Python SDK</a> (<code>clawforce</code>) with dataclass models</li>
+                </ul>
+                <h3>Site</h3>
+                <ul>
+                    <li>Public <a href="/roadmap.html">product roadmap</a> with 4 phases, progress bars</li>
+                    <li><a href="/getting-started.html">Getting Started</a> page with 5-step onboarding</li>
+                    <li>Blog post: <a href="/blog/developer-toolchain-ai-agent-security.html">Complete Developer Toolchain</a></li>
+                    <li>JSON-LD structured data on blog posts</li>
+                    <li>Internal cross-linking across all blog posts</li>
+                    <li>RSS feed at <a href="/feed.xml">/feed.xml</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="release">
+            <div class="release-header">
+                <div class="release-version">v1.3.0 <span class="release-tag tag-major">Major</span></div>
+                <div class="release-date">March 23, 2026</div>
+            </div>
+            <div class="release-body">
+                <h3>Developer Tooling</h3>
+                <ul>
+                    <li><a href="https://github.com/PixelFamiliar/clawforce-cli">ClawForce CLI</a> published: 22 vulnerability patterns, zero dependencies</li>
+                    <li><a href="https://github.com/PixelFamiliar/clawforce-scan-action">GitHub Action</a> v1 with configurable threshold, structured outputs, artifact upload</li>
+                    <li><a href="/developers.html">Developers page</a> updated with CLI, Action, and resources</li>
+                </ul>
+                <h3>Content</h3>
+                <ul>
+                    <li>2 developer guides: <a href="/guide-verify-skills.html">Skill Verification</a>, <a href="/guide-prompt-injection.html">Prompt Injection Detection</a></li>
+                    <li>Blog post: <a href="/blog/real-cost-ai-coding-assistants.html">Real Cost of AI Coding Assistants</a></li>
+                    <li>4 ROADMAP phases defined (Foundation through Ecosystem)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="release">
+            <div class="release-header">
+                <div class="release-version">v1.2.0 <span class="release-tag tag-content">Content</span></div>
+                <div class="release-date">March 23, 2026</div>
+            </div>
+            <div class="release-body">
+                <h3>SEO &amp; Pipeline</h3>
+                <ul>
+                    <li>4 SEO keyword landing pages (ai-agent-code-audit, mcp-tool-security-scanner, etc.)</li>
+                    <li>Fixed Python 3.9+ compatibility in blog/SEO generation pipelines</li>
+                    <li>Sitemap expanded from 18 to 33 URLs</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="release">
+            <div class="release-header">
+                <div class="release-version">v1.1.0 <span class="release-tag tag-feature">Feature</span></div>
+                <div class="release-date">March 23, 2026</div>
+            </div>
+            <div class="release-body">
+                <h3>Interactive Pages</h3>
+                <ul>
+                    <li><a href="/checklist.html">Security Checklist</a>: 25-item interactive checklist with localStorage</li>
+                    <li><a href="/scopes.html">Permission Scopes</a>: 13 scope types with risk levels</li>
+                    <li><a href="/clawhub.html">ClawHub</a> marketplace preview</li>
+                    <li><a href="/skills.html">Skills browser</a> with dynamic pages</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="release">
+            <div class="release-header">
+                <div class="release-version">v1.0.0 <span class="release-tag tag-major">Major</span></div>
+                <div class="release-date">March 22, 2026</div>
+            </div>
+            <div class="release-body">
+                <h3>Initial Launch</h3>
+                <ul>
+                    <li>Homepage with live scan widget, pricing tiers, waitlist</li>
+                    <li><a href="/certify.html">Certification tiers</a>: Scan ($0), Verified ($9), Certified ($29)</li>
+                    <li><a href="/registry.html">Skills Registry</a> with 194+ skills, badges, SBOMs</li>
+                    <li><a href="/security-standard-v1.html">Security Standard v1</a> specification</li>
+                    <li><a href="/api-docs.html">REST API</a> documentation</li>
+                    <li><a href="/compare.html">Competitive comparison</a> page</li>
+                    <li>Agent discovery: agents.txt, ai.txt, llms.txt, .well-known/</li>
+                    <li>Stripe payment integration</li>
+                    <li>Supabase email capture (waitlist)</li>
+                    <li>3 blog posts + blog index</li>
+                </ul>
+            </div>
+        </div>
+    </div></main>
+
+    <footer><div class="wrap">&copy; 2026 ClawForce, a product of <a href="https://pixelfamiliar.ca" style="color:var(--dim);text-decoration:underline;">Pixel Familiar Inc.</a></div></footer>
+</body>
+</html>

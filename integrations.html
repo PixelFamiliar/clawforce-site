@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integrations — Works With Your Stack | ClawForce</title>
+    <meta name="description" content="ClawForce integrates with LangChain, CrewAI, AutoGen, OpenAI, and every major AI agent framework. CLI, CI/CD, editor, and runtime SDK support.">
+    <link rel="canonical" href="https://clawforce.ca/integrations.html">
+    <link rel="icon" href="/logo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{--bg:#FAFAF8;--surface:#FFF;--border:#E0DDD5;--text:#0A0A0A;--muted:#5C5C5C;--dim:#8A8A80;--primary:#0A0A0A;--cyan:#3D7A5F;--radius:2px;--mono:'Space Mono',monospace;--sans:'DM Sans',-apple-system,sans-serif}
+        body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+        body::before{content:'';position:fixed;inset:0;background:url("data:image/svg+xml,%3Csvg width='400' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
+        .wrap{max-width:900px;margin:0 auto;padding:0 2rem;position:relative;z-index:1}
+        .wrap-wide{max-width:1100px;margin:0 auto;padding:0 2rem;position:relative;z-index:1}
+        nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(250,250,248,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0.75rem 0}
+        nav .wrap-wide{display:flex;align-items:center;justify-content:space-between}
+        .nav-logo{display:flex;align-items:center;gap:0.5rem;text-decoration:none;font-family:var(--mono);font-weight:700;font-size:0.95rem;color:var(--text)}
+        .nav-links{list-style:none;display:flex;gap:1.5rem;align-items:center}
+        .nav-links a{color:var(--muted);text-decoration:none;font-size:0.82rem;font-weight:500;transition:color 0.2s}
+        .nav-links a:hover{color:var(--text)}
+        .nav-cta{background:var(--primary);color:#FAFAF8!important;padding:0.4rem 1rem;border-radius:2px;font-family:var(--mono);font-size:0.75rem!important;font-weight:700!important;text-transform:uppercase}
+        main{padding:7rem 0 4rem}
+        .section-label{font-family:var(--mono);font-size:0.68rem;font-weight:700;color:var(--dim);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.5rem}
+        h1{font-family:var(--mono);font-size:2.2rem;font-weight:700;line-height:1.15;letter-spacing:-0.04em;margin-bottom:1rem}
+        h1 .hl{color:var(--cyan)}
+        .subtitle{font-size:1.05rem;color:var(--muted);line-height:1.7;margin-bottom:2.5rem;max-width:650px}
+        h2{font-family:var(--mono);font-size:1.1rem;font-weight:700;margin:3rem 0 1.2rem;color:var(--cyan)}
+        .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-bottom:2rem}
+        .card{background:var(--surface);border:1px solid var(--border);padding:1.5rem;transition:border-color 0.2s}
+        .card:hover{border-color:#C8C4BA}
+        .card-icon{font-size:1.6rem;margin-bottom:0.6rem}
+        .card-name{font-family:var(--mono);font-size:0.85rem;font-weight:700;margin-bottom:0.3rem}
+        .card-desc{font-size:0.82rem;color:var(--muted);line-height:1.5;margin-bottom:0.6rem}
+        .card-status{font-family:var(--mono);font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em}
+        .status-live{color:var(--cyan)}
+        .status-sdk{color:#4A6FA5}
+        .status-planned{color:var(--dim)}
+        .tool-row{display:grid;grid-template-columns:1fr 2fr;gap:1.5rem;margin:1.5rem 0;padding:1.5rem;background:var(--surface);border:1px solid var(--border)}
+        .tool-name{font-family:var(--mono);font-size:0.9rem;font-weight:700}
+        .tool-links{font-size:0.82rem;display:flex;gap:1rem;margin-top:0.3rem}
+        .tool-links a{color:var(--cyan);text-decoration:none}
+        .tool-links a:hover{text-decoration:underline}
+        .tool-desc{font-size:0.88rem;color:var(--muted);line-height:1.5}
+        pre{background:#1a1a1a;color:#e0e0e0;padding:1.2rem 1.5rem;border-radius:var(--radius);overflow-x:auto;margin:1rem 0;font-family:var(--mono);font-size:0.78rem;line-height:1.6}
+        pre .comment{color:#6a9955}
+        pre .str{color:#CE9178}
+        .cta-box{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--cyan);padding:2rem;margin:3rem 0;text-align:center}
+        .cta-box h3{font-family:var(--mono);font-size:0.95rem;font-weight:700;margin-bottom:0.5rem}
+        .cta-box p{color:var(--muted);font-size:0.9rem;margin-bottom:0.5rem}
+        .cta-box a{display:inline-block;background:var(--primary);color:var(--bg);text-decoration:none;padding:0.6rem 1.2rem;font-family:var(--mono);font-size:0.78rem;font-weight:700;border-radius:2px;text-transform:uppercase;margin-top:0.5rem}
+        footer{border-top:1px solid var(--border);padding:2rem 0;text-align:center;font-size:0.68rem;color:var(--dim);margin-top:4rem}
+        @media(max-width:768px){h1{font-size:1.6rem}.nav-links{display:none}.grid{grid-template-columns:1fr}.tool-row{grid-template-columns:1fr}}
+    </style>
+    <script defer data-domain="clawforce.ca" src="https://plausible.io/js/script.js"></script>
+</head>
+<body>
+    <nav><div class="wrap-wide">
+        <a href="/" class="nav-logo"><img src="/logo.png" alt="ClawForce" style="height:22px;width:22px;"><span>ClawForce</span></a>
+        <ul class="nav-links">
+            <li><a href="/#how-it-works">How It Works</a></li>
+            <li><a href="/#pricing">Pricing</a></li>
+            <li><a href="/registry.html">Registry</a></li>
+            <li><a href="/developers.html">Developers</a></li>
+            <li><a href="/blog-index.html">Blog</a></li>
+            <li><a href="/#waitlist" class="nav-cta">Free Scan &rarr;</a></li>
+        </ul>
+    </div></nav>
+
+    <main><div class="wrap">
+        <div class="section-label">// integrations</div>
+        <h1>Works With <span class="hl">Everything</span></h1>
+        <p class="subtitle">ClawForce scans skill files regardless of framework. If it runs code, we scan it. Here's how we integrate with the tools you already use.</p>
+
+        <h2>Agent Frameworks</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-icon">🦜</div>
+                <div class="card-name">LangChain</div>
+                <div class="card-desc">Scan LangChain tools, agents, and custom chains for security vulnerabilities before deployment.</div>
+                <div class="card-status status-live">✓ Supported</div>
+            </div>
+            <div class="card">
+                <div class="card-icon">👥</div>
+                <div class="card-name">CrewAI</div>
+                <div class="card-desc">Audit crew tools and agent configurations. Detect privilege escalation in multi-agent setups.</div>
+                <div class="card-status status-live">✓ Supported</div>
+            </div>
+            <div class="card">
+                <div class="card-icon">🤖</div>
+                <div class="card-name">AutoGen</div>
+                <div class="card-desc">Scan AutoGen skill definitions and code execution environments for risky patterns.</div>
+                <div class="card-status status-live">✓ Supported</div>
+            </div>
+            <div class="card">
+                <div class="card-icon">🧠</div>
+                <div class="card-name">OpenAI / GPTs</div>
+                <div class="card-desc">Verify GPT Actions and function calling definitions. Check for data exfiltration vectors.</div>
+                <div class="card-status status-live">✓ Supported</div>
+            </div>
+            <div class="card">
+                <div class="card-icon">🔌</div>
+                <div class="card-name">MCP (Model Context Protocol)</div>
+                <div class="card-desc">Native support for MCP skills. Scan tool definitions, permission scopes, and server implementations.</div>
+                <div class="card-status status-live">✓ Native</div>
+            </div>
+            <div class="card">
+                <div class="card-icon">⚡</div>
+                <div class="card-name">Anthropic / Claude</div>
+                <div class="card-desc">Audit Claude tool use definitions, MCP server configs, and computer use implementations.</div>
+                <div class="card-status status-live">✓ Supported</div>
+            </div>
+        </div>
+
+        <h2>Developer Tools</h2>
+        <div class="tool-row">
+            <div>
+                <div class="tool-name">CLI Scanner</div>
+                <div class="tool-links"><a href="https://github.com/PixelFamiliar/clawforce-cli">GitHub</a> <a href="/getting-started.html">Guide</a></div>
+            </div>
+            <div class="tool-desc"><code style="font-family:var(--mono);font-size:0.82em;background:rgba(0,0,0,0.04);padding:0.1rem 0.3rem;border-radius:2px">npm install -g clawforce</code> — 22 patterns, zero deps, Node 18+</div>
+        </div>
+        <div class="tool-row">
+            <div>
+                <div class="tool-name">GitHub Action</div>
+                <div class="tool-links"><a href="https://github.com/PixelFamiliar/clawforce-scan-action">GitHub</a></div>
+            </div>
+            <div class="tool-desc"><code style="font-family:var(--mono);font-size:0.82em;background:rgba(0,0,0,0.04);padding:0.1rem 0.3rem;border-radius:2px">uses: PixelFamiliar/clawforce-scan-action@v1</code> — scan on push/PR</div>
+        </div>
+        <div class="tool-row">
+            <div>
+                <div class="tool-name">VSCode / Cursor</div>
+                <div class="tool-links"><a href="https://github.com/PixelFamiliar/clawforce-vscode">GitHub</a></div>
+            </div>
+            <div class="tool-desc">Inline scanning, Problems panel, status bar risk score. Scan on save and open.</div>
+        </div>
+        <div class="tool-row">
+            <div>
+                <div class="tool-name">Node.js SDK</div>
+                <div class="tool-links"><a href="https://github.com/PixelFamiliar/clawforce-sdk-node">GitHub</a></div>
+            </div>
+            <div class="tool-desc"><code style="font-family:var(--mono);font-size:0.82em;background:rgba(0,0,0,0.04);padding:0.1rem 0.3rem;border-radius:2px">@clawforce/sdk</code> — TypeScript types, zero deps</div>
+        </div>
+        <div class="tool-row">
+            <div>
+                <div class="tool-name">Python SDK</div>
+                <div class="tool-links"><a href="https://github.com/PixelFamiliar/clawforce-sdk-python">GitHub</a></div>
+            </div>
+            <div class="tool-desc"><code style="font-family:var(--mono);font-size:0.82em;background:rgba(0,0,0,0.04);padding:0.1rem 0.3rem;border-radius:2px">clawforce</code> — dataclass models, zero deps</div>
+        </div>
+
+        <h2>CI/CD Pipelines</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-icon">🐙</div>
+                <div class="card-name">GitHub Actions</div>
+                <div class="card-desc">First-class support. Drop-in composite action with threshold, outputs, artifacts.</div>
+                <div class="card-status status-live">✓ Native</div>
+            </div>
+            <div class="card">
+                <div class="card-icon">🦊</div>
+                <div class="card-name">GitLab CI</div>
+                <div class="card-desc">Use the CLI via npx in any GitLab pipeline stage. JSON output for processing.</div>
+                <div class="card-status status-sdk">Via CLI</div>
+            </div>
+            <div class="card">
+                <div class="card-icon">🔵</div>
+                <div class="card-name">Jenkins / CircleCI</div>
+                <div class="card-desc">Any pipeline that runs Node.js can use the CLI. <code style="font-size:0.78em">npx clawforce scan .</code></div>
+                <div class="card-status status-sdk">Via CLI</div>
+            </div>
+        </div>
+
+        <h2>Example: Runtime Gate</h2>
+        <p style="color:var(--muted);margin-bottom:1rem;">Use the SDK to gate skill loading at runtime. Reject untrusted skills before they execute.</p>
+<pre><span class="comment">// Before loading any skill in your agent framework</span>
+const { ClawForce } = require(<span class="str">'@clawforce/sdk'</span>);
+const client = new ClawForce();
+
+async function loadSkill(skillName) {
+    const trust = await client.verify(skillName);
+
+    if (!trust.trusted) {
+        console.error(<span class="str">`Rejected: ${skillName} (score: ${trust.risk_score})`</span>);
+        return null;
+    }
+
+    <span class="comment">// Safe to load</span>
+    return require(skillName);
+}</pre>
+
+        <div class="cta-box">
+            <h3>Don't see your stack?</h3>
+            <p>ClawForce scans source code, not framework configs. If your agent runs Python, JavaScript, TypeScript, or shell scripts, it works.</p>
+            <a href="/getting-started.html">Get Started &rarr;</a>
+        </div>
+    </div></main>
+
+    <footer><div class="wrap">&copy; 2026 ClawForce, a product of <a href="https://pixelfamiliar.ca" style="color:var(--dim);text-decoration:underline;">Pixel Familiar Inc.</a></div></footer>
+</body>
+</html>

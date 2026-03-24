@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+    <title>ClawForce Blog</title>
+    <description>Security analysis, supply chain risks, and certification standards for AI agent skills.</description>
+    <link>https://clawforce.ca/blog-index.html</link>
+    <atom:link href="https://clawforce.ca/feed.xml" rel="self" type="application/rss+xml"/>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 23 Mar 2026 00:00:00 GMT</lastBuildDate>
+    <managingEditor>pixel@pixelfamiliar.ca (ClawForce)</managingEditor>
+    <webMaster>pixel@pixelfamiliar.ca (Pixel Familiar)</webMaster>
+    <image>
+        <url>https://clawforce.ca/logo.png</url>
+        <title>ClawForce Blog</title>
+        <link>https://clawforce.ca</link>
+    </image>
+
+    <item>
+        <title>The Complete Developer Toolchain for AI Agent Security</title>
+        <link>https://clawforce.ca/blog/developer-toolchain-ai-agent-security.html</link>
+        <guid>https://clawforce.ca/blog/developer-toolchain-ai-agent-security.html</guid>
+        <pubDate>Sun, 23 Mar 2026 00:00:00 GMT</pubDate>
+        <description>CLI, GitHub Action, VSCode extension, and SDKs: five tools that plug into workflows you already have. Here's how they work together.</description>
+        <category>Developer Tooling</category>
+    </item>
+
+    <item>
+        <title>The Real Cost of AI Coding Assistants: A Pricing Exposé</title>
+        <link>https://clawforce.ca/blog/real-cost-ai-coding-assistants.html</link>
+        <guid>https://clawforce.ca/blog/real-cost-ai-coding-assistants.html</guid>
+        <pubDate>Sun, 23 Mar 2026 00:00:00 GMT</pubDate>
+        <description>Hidden compute costs, upgrade spirals, and security blind spots make AI coding assistants far more expensive than advertised.</description>
+        <category>Ecosystem</category>
+    </item>
+
+    <item>
+        <title>ClawForce vs Snyk vs Trail of Bits: A Developer's Perspective</title>
+        <link>https://clawforce.ca/blog/clawforce-vs-snyk-vs-trail-of-bits.html</link>
+        <guid>https://clawforce.ca/blog/clawforce-vs-snyk-vs-trail-of-bits.html</guid>
+        <pubDate>Sun, 23 Mar 2026 00:00:00 GMT</pubDate>
+        <description>How ClawForce compares to Snyk and Trail of Bits for AI agent security. Feature comparison, real pricing, and honest analysis.</description>
+        <category>Competitive Analysis</category>
+    </item>
+
+    <item>
+        <title>Why Developers Don't Trust Legacy Security (And Shouldn't)</title>
+        <link>https://clawforce.ca/blog/why-devs-dont-trust-legacy-security.html</link>
+        <guid>https://clawforce.ca/blog/why-devs-dont-trust-legacy-security.html</guid>
+        <pubDate>Sun, 23 Mar 2026 00:00:00 GMT</pubDate>
+        <description>Legacy security tools optimize for compliance, not developers. False positives, hidden pricing, and enterprise friction.</description>
+        <category>Developer Experience</category>
+    </item>
+
+    <item>
+        <title>The Identity Problem: Why SHA-256 Fails for AI Agent Skills</title>
+        <link>https://clawforce.ca/blog/identity-problem-sha256.html</link>
+        <guid>https://clawforce.ca/blog/identity-problem-sha256.html</guid>
+        <pubDate>Sun, 23 Mar 2026 00:00:00 GMT</pubDate>
+        <description>SHA-256 verifies file integrity but not publisher identity. Here's why that distinction matters for AI agent skills.</description>
+        <category>Security Research</category>
+    </item>
+
+</channel>
+</rss>
