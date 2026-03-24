@@ -16,6 +16,15 @@
     </image>
 
     <item>
+        <title>How to Secure MCP Servers: A Practical Guide</title>
+        <link>https://clawforce.ca/blog/how-to-secure-mcp-servers.html</link>
+        <guid>https://clawforce.ca/blog/how-to-secure-mcp-servers.html</guid>
+        <pubDate>Mon, 24 Mar 2026 00:00:00 GMT</pubDate>
+        <description>Step-by-step guide to securing MCP servers. Permission scoping, input validation, output filtering, transport security, and automated scanning.</description>
+        <category>MCP Security</category>
+    </item>
+
+    <item>
         <title>The Complete Developer Toolchain for AI Agent Security</title>
         <link>https://clawforce.ca/blog/developer-toolchain-ai-agent-security.html</link>
         <guid>https://clawforce.ca/blog/developer-toolchain-ai-agent-security.html</guid>

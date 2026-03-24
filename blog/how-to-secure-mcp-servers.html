@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Secure MCP Servers: A Practical Guide | ClawForce</title>
+    <meta name="description" content="Step-by-step guide to securing Model Context Protocol (MCP) servers. Permission scoping, input validation, output filtering, and automated scanning.">
+    <link rel="canonical" href="https://clawforce.ca/blog/how-to-secure-mcp-servers.html">
+    <link rel="icon" href="/logo.png" type="image/png">
+    <link rel="alternate" type="application/rss+xml" title="ClawForce Blog" href="/feed.xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{--bg:#FAFAF8;--surface:#FFF;--border:#E0DDD5;--text:#0A0A0A;--muted:#5C5C5C;--dim:#8A8A80;--primary:#0A0A0A;--cyan:#3D7A5F;--red:#C0392B;--radius:2px;--mono:'Space Mono',monospace;--sans:'DM Sans',-apple-system,sans-serif}
+        body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+        body::before{content:'';position:fixed;inset:0;background:url("data:image/svg+xml,%3Csvg width='400' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
+        .wrap{max-width:760px;margin:0 auto;padding:0 1.5rem;position:relative;z-index:1}
+        nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0.75rem 0;background:rgba(250,250,248,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+        nav .inner{display:flex;justify-content:space-between;align-items:center;max-width:960px;margin:0 auto;padding:0 1.5rem}
+        .nav-logo{display:flex;align-items:center;gap:0.5rem;text-decoration:none;font-family:var(--mono);font-weight:700;font-size:0.95rem;color:var(--text)}
+        .nav-links{display:flex;gap:1.5rem;list-style:none;align-items:center}
+        .nav-links a{color:var(--muted);text-decoration:none;font-size:0.82rem;font-weight:500}
+        .nav-links a:hover{color:var(--text)}
+        .nav-cta{background:var(--primary);color:#FAFAF8!important;padding:0.4rem 1rem;border-radius:2px;font-weight:700!important;font-family:var(--mono);font-size:0.75rem!important;text-transform:uppercase}
+        main{padding:8rem 0 5rem}
+        .meta{font-family:var(--mono);font-size:0.75rem;color:var(--dim);text-transform:uppercase;margin-bottom:1rem;letter-spacing:0.05em}
+        h1{font-family:var(--mono);font-size:2.2rem;font-weight:700;line-height:1.15;margin-bottom:2rem;letter-spacing:-0.04em}
+        h2{font-family:var(--mono);font-size:1.4rem;font-weight:700;margin:2.5rem 0 1rem}
+        h3{font-family:var(--mono);font-size:1.1rem;font-weight:700;margin:1.5rem 0 0.5rem}
+        p{margin-bottom:1.5rem;font-size:1.05rem;line-height:1.7;color:var(--muted)}
+        ul,ol{margin-bottom:1.5rem;padding-left:2rem;color:var(--muted)}
+        li{margin-bottom:0.5rem;line-height:1.6}
+        strong{color:var(--text)}
+        code{background:rgba(0,0,0,0.05);padding:0.2rem 0.4rem;border-radius:3px;font-family:var(--mono);font-size:0.85em;color:var(--red)}
+        pre{background:#1E1E1E;padding:1.5rem;border-radius:4px;overflow-x:auto;margin-bottom:1.5rem}
+        pre code{color:#D4D4D4;background:none;padding:0}
+        pre .comment{color:#6a9955}
+        pre .str{color:#CE9178}
+        pre .ok{color:#6ECF8A}
+        pre .key{color:#9CDCFE}
+        .callout{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--cyan);padding:1.2rem 1.5rem;margin:1.5rem 0;border-radius:0 4px 4px 0}
+        .callout p{margin-bottom:0;font-size:0.92rem}
+        .callout strong{color:var(--cyan)}
+        a{color:var(--cyan);text-decoration:none}
+        a:hover{text-decoration:underline}
+        .cta-box{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--cyan);padding:2rem;margin:3rem 0;border-radius:4px;text-align:center}
+        .cta-box h3{margin-top:0}
+        .cta-box a.btn{display:inline-block;background:var(--primary);color:var(--surface);text-decoration:none;padding:0.8rem 1.5rem;font-family:var(--mono);font-weight:700;font-size:0.9rem;border-radius:2px;margin-top:1rem;text-transform:uppercase}
+        footer{border-top:1px solid var(--border);padding:2rem 0;margin-top:4rem;text-align:center}
+        .footer-copy{font-size:0.68rem;color:var(--dim)}
+        @media(max-width:768px){h1{font-size:1.6rem}.nav-links{display:none}}
+    </style>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Article","headline":"How to Secure MCP Servers: A Practical Guide","author":{"@type":"Organization","name":"ClawForce","url":"https://clawforce.ca"},"publisher":{"@type":"Organization","name":"ClawForce"},"datePublished":"2026-03-24","description":"Step-by-step guide to securing Model Context Protocol servers with permission scoping, input validation, and automated scanning."}
+    </script>
+    <script defer data-domain="clawforce.ca" src="https://plausible.io/js/script.js"></script>
+</head>
+<body>
+    <nav><div class="inner">
+        <a href="/" class="nav-logo"><img src="/logo.png" alt="ClawForce" style="height:22px;width:22px;"><span>ClawForce</span></a>
+        <ul class="nav-links">
+            <li><a href="/">Scan</a></li>
+            <li><a href="/certify.html">Certification</a></li>
+            <li><a href="/blog-index.html" style="color:var(--text);">Blog</a></li>
+            <li><a href="/certify.html" class="nav-cta">Get Certified &rarr;</a></li>
+        </ul>
+    </div></nav>
+
+    <main class="wrap">
+        <div class="meta">March 2026 · MCP Security</div>
+        <h1>How to Secure MCP Servers: A Practical Guide</h1>
+
+        <p>The Model Context Protocol (MCP) lets AI agents discover and call tools at runtime. That's powerful. It's also a security surface that most developers don't think about until something goes wrong.</p>
+
+        <p>This guide covers the specific things you should do when building or deploying MCP servers. No theory. Just the patterns that matter.</p>
+
+        <h2>1. Permission Scoping</h2>
+
+        <p>Every MCP tool should declare its permission scope. Without explicit scoping, a tool that reads files could also write them, delete them, or traverse directories it shouldn't touch.</p>
+
+<pre><code><span class="comment"># Bad: no scope declaration, implicit full access</span>
+@tool
+def read_file(path: str):
+    return open(path).read()
+
+<span class="comment"># Good: explicit scope, path validation</span>
+@tool(scopes=[<span class="str">"fs:read"</span>])
+def read_file(path: str):
+    allowed = [<span class="str">"/workspace"</span>, <span class="str">"/tmp"</span>]
+    if not any(os.path.abspath(path).startswith(d) for d in allowed):
+        raise PermissionError(<span class="str">"Access denied: path outside scope"</span>)
+    return open(path).read()</code></pre>
+
+        <p>ClawForce checks for 13 scope types. The most commonly missing ones:</p>
+        <ul>
+            <li><strong>fs:read / fs:write</strong> — file system access without path restrictions</li>
+            <li><strong>net:outbound</strong> — HTTP calls without domain allowlisting</li>
+            <li><strong>exec:shell</strong> — subprocess calls without command whitelisting</li>
+            <li><strong>env:read</strong> — environment variable access without key filtering</li>
+        </ul>
+
+        <p>See the <a href="/scopes.html">full scopes reference</a> for all 13 types.</p>
+
+        <h2>2. Input Validation</h2>
+
+        <p>MCP tools receive input from AI models. AI models can be prompt-injected. Treat every input as untrusted.</p>
+
+<pre><code><span class="comment"># Vulnerable: direct path concatenation</span>
+@tool
+def get_config(name: str):
+    return open(f<span class="str">"/configs/{name}.json"</span>).read()
+    <span class="comment"># An injected name like "../../etc/passwd" traverses up</span>
+
+<span class="comment"># Fixed: normalize and validate</span>
+import os
+@tool
+def get_config(name: str):
+    <span class="comment"># Strip path separators, allow only alphanumeric + hyphens</span>
+    safe = re.sub(r<span class="str">'[^a-zA-Z0-9_-]'</span>, <span class="str">''</span>, name)
+    path = os.path.join(<span class="str">"/configs"</span>, f<span class="str">"{safe}.json"</span>)
+    <span class="comment"># Verify resolved path is still under /configs</span>
+    if not os.path.realpath(path).startswith(<span class="str">"/configs/"</span>):
+        raise ValueError(<span class="str">"Invalid config name"</span>)
+    return open(path).read()</code></pre>
+
+        <div class="callout">
+            <p><strong>Rule of thumb:</strong> If a tool parameter ends up in a file path, URL, SQL query, or shell command, it needs sanitization. No exceptions.</p>
+        </div>
+
+        <h2>3. Output Filtering</h2>
+
+        <p>MCP tool outputs go back to the AI model, which may include them in responses shown to users. Sensitive data in tool output = sensitive data in chat.</p>
+
+        <ul>
+            <li><strong>Redact credentials</strong> — scan output for API keys, tokens, passwords before returning</li>
+            <li><strong>Limit file content</strong> — don't return entire files; return relevant excerpts</li>
+            <li><strong>Strip PII</strong> — email addresses, phone numbers, SSNs in database results</li>
+            <li><strong>Cap output size</strong> — large outputs can exhaust model context or cause truncation issues</li>
+        </ul>
+
+<pre><code><span class="comment"># Simple output filter</span>
+import re
+
+def sanitize_output(text: str) -> str:
+    <span class="comment"># Redact API keys</span>
+    text = re.sub(r<span class="str">'(?i)(api[_-]?key|token|secret)\s*[:=]\s*\S+'</span>,
+                  r<span class="str">'\1=***REDACTED***'</span>, text)
+    <span class="comment"># Redact emails</span>
+    text = re.sub(r<span class="str">'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}'</span>,
+                  <span class="str">'***@***.***'</span>, text)
+    <span class="comment"># Cap length</span>
+    if len(text) > 10000:
+        text = text[:10000] + <span class="str">'\n... (output truncated)'</span>
+    return text</code></pre>
+
+        <h2>4. Transport Security</h2>
+
+        <p>MCP supports multiple transports: stdio, SSE, WebSocket. Each has different security implications:</p>
+
+        <ul>
+            <li><strong>stdio</strong> — safest for local use. Process-level isolation. No network exposure.</li>
+            <li><strong>SSE / HTTP</strong> — requires authentication. Without it, anyone on the network can call your tools.</li>
+            <li><strong>WebSocket</strong> — requires origin validation. CORS headers are not enough for WebSockets.</li>
+        </ul>
+
+        <p>If your MCP server listens on a network port, it needs authentication. Bearer tokens at minimum. mTLS for production.</p>
+
+        <h2>5. Automated Scanning</h2>
+
+        <p>Manual review catches structural issues. Automated scanning catches patterns at scale. Use both.</p>
+
+<pre><code><span class="comment"># Scan your MCP server with the ClawForce CLI</span>
+npx clawforce scan ./my-mcp-server
+
+<span class="comment"># Add to CI/CD</span>
+<span class="comment"># .github/workflows/security.yml</span>
+- uses: PixelFamiliar/clawforce-scan-action@v1
+  with:
+    fail-threshold: <span class="str">'30'</span>
+
+<span class="comment"># Gate at runtime</span>
+from clawforce import ClawForce
+client = ClawForce()
+result = client.verify(<span class="str">'my-mcp-server'</span>)
+if not result.trusted:
+    raise Exception(<span class="str">'MCP server failed trust check'</span>)</code></pre>
+
+        <p>The scanner catches 22 patterns across 6 categories: exfiltration, credential harvesting, obfuscation, privilege abuse, crypto mining, and dangerous builtins.</p>
+
+        <h2>6. Least Privilege at the Process Level</h2>
+
+        <p>Don't run MCP servers as root. Don't give them access to credentials they don't need. Basic operational security applies:</p>
+
+        <ul>
+            <li>Run in a container or sandbox with a non-root user</li>
+            <li>Mount only the directories the server needs, read-only when possible</li>
+            <li>Use separate API keys per MCP server, not a shared master key</li>
+            <li>Set resource limits (CPU, memory, file descriptors) to prevent runaway processes</li>
+            <li>Log all tool invocations with timestamps and parameters</li>
+        </ul>
+
+        <h2>The Checklist</h2>
+
+        <p>Quick reference for every MCP server you build or deploy:</p>
+
+        <ol>
+            <li>☐ Every tool has explicit permission scope declarations</li>
+            <li>☐ All path/URL/command parameters are validated and sanitized</li>
+            <li>☐ Tool outputs are filtered for credentials and PII</li>
+            <li>☐ Network-exposed servers require authentication</li>
+            <li>☐ Automated scan runs in CI (risk score under your threshold)</li>
+            <li>☐ Server runs with least privilege (non-root, limited mounts)</li>
+            <li>☐ Tool invocations are logged</li>
+            <li>☐ Output size is capped</li>
+        </ol>
+
+        <h2>Related Reading</h2>
+        <ul>
+            <li><a href="/scopes.html">Permission Scopes Reference</a> — all 13 scope types</li>
+            <li><a href="/guide-prompt-injection.html">Prompt Injection Detection Guide</a> — 4 attack vectors</li>
+            <li><a href="/guide-verify-skills.html">How to Verify AI Agent Skills</a> — 5-step framework</li>
+            <li><a href="/blog/developer-toolchain-ai-agent-security.html">The Complete Developer Toolchain</a> — CLI, Action, VSCode, SDKs</li>
+            <li><a href="/checklist.html">Interactive Security Checklist</a> — 25 items</li>
+        </ul>
+
+        <div class="cta-box">
+            <h3>Scan Your MCP Server</h3>
+            <p style="margin-bottom:0.5rem;font-size:0.9rem;">One command. 22 vulnerability patterns. Zero configuration.</p>
+            <a href="/getting-started.html" class="btn">Get Started &rarr;</a>
+        </div>
+    </main>
+
+    <footer><div class="footer-copy">&copy; 2026 Pixel Familiar Inc. · ClawForce Verified Skills™ · Manitoba, Canada</div></footer>
+</body>
+</html>
