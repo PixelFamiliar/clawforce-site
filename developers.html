@@ -96,12 +96,55 @@ curl -H <span class="str">"X-Claw-Agent-Token: claw_7f3a..."</span> \
             <p><strong>Clean audit trail.</strong> Every request, charge, and balance change is logged in your developer dashboard.</p>
             <p><strong>No rate limits.</strong> Pay-as-you-go means no artificial throttling. Send as many requests as your balance covers.</p>
 
-            <h2>Pricing</h2>
-            <p>Developers pay per request. Rates are set by each merchant, typically between $0.001 and $0.05 per request. You only pay for successful 200 OK responses.</p>
-            <p>Wallet top-ups start at $5. No monthly fees, no minimum commitments.</p>
+            <h2>Security Tooling</h2>
+
+            <div class="step">
+                <div class="step-num">CLI SCANNER</div>
+                <div class="step-title">Scan skills from your terminal</div>
+                <p>22 vulnerability patterns across 6 categories. Zero dependencies. Works on Node 18+.</p>
+<pre><span class="comment"># Install globally</span>
+npm install -g clawforce
+
+<span class="comment"># Scan a local skill directory</span>
+clawforce scan ./my-skill
+
+<span class="comment"># JSON output for CI pipelines</span>
+clawforce scan . --json --threshold 20
+
+<span class="comment"># Get badge embed URLs</span>
+clawforce badge my-skill</pre>
+                <p style="font-size:0.82rem;margin-top:0.5rem;">Source: <a href="https://github.com/PixelFamiliar/clawforce-cli" style="color:var(--cyan);">github.com/PixelFamiliar/clawforce-cli</a></p>
+            </div>
+
+            <div class="step">
+                <div class="step-num">GITHUB ACTION</div>
+                <div class="step-title">Scan on every push and PR</div>
+                <p>Drop-in GitHub Action with configurable threshold, structured outputs, and automatic report artifacts.</p>
+<pre><span class="comment"># .github/workflows/security.yml</span>
+name: Security Scan
+on: [push, pull_request]
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: PixelFamiliar/clawforce-scan-action@v1
+        with:
+          fail-threshold: <span class="str">'40'</span></pre>
+                <p style="font-size:0.82rem;margin-top:0.5rem;">Source: <a href="https://github.com/PixelFamiliar/clawforce-scan-action" style="color:var(--cyan);">github.com/PixelFamiliar/clawforce-scan-action</a></p>
+            </div>
+
+            <h2>Developer Resources</h2>
+            <p><a href="/api-docs.html" style="color:var(--cyan);">API Documentation</a> — REST API for scan, verify, badge, and trust endpoints.</p>
+            <p><a href="/guide-verify-skills.html" style="color:var(--cyan);">Skill Verification Guide</a> — 5-step framework for vetting agent skills.</p>
+            <p><a href="/guide-prompt-injection.html" style="color:var(--cyan);">Prompt Injection Detection</a> — 4 attack vector classifications with detection rules.</p>
+            <p><a href="/scopes.html" style="color:var(--cyan);">Permission Scopes Reference</a> — All 13 scope types with risk levels.</p>
+            <p><a href="/checklist.html" style="color:var(--cyan);">Security Checklist</a> — 25-item interactive checklist for skill security.</p>
+            <p><a href="/security-standard-v1.html" style="color:var(--cyan);">Security Standard v1</a> — The specification behind ClawForce audits.</p>
 
             <div style="margin-top:2rem;text-align:center;">
-                <a href="/#waitlist" style="display:inline-block;padding:0.75rem 1.5rem;background:var(--primary);color:var(--bg);font-family:var(--mono);font-size:0.85rem;font-weight:700;text-decoration:none;border-radius:var(--radius);">Join the developer waitlist &rarr;</a>
+                <a href="/" style="display:inline-block;padding:0.75rem 1.5rem;background:var(--primary);color:var(--bg);font-family:var(--mono);font-size:0.85rem;font-weight:700;text-decoration:none;border-radius:var(--radius);">Free Scan &rarr;</a>
             </div>
         </div>
     </main>
