@@ -80,6 +80,7 @@
         .badge-link { display:inline-flex; align-items:center; gap:0.3rem; font-size:0.7rem; color:var(--dim); margin-left:auto; }
         .badge-link:hover { color:var(--accent); }
         .findings-count { font-size:0.65rem; font-family:var(--mono); color:var(--dim); }
+        .scan-date { font-size:0.62rem; font-family:var(--mono); color:var(--muted); margin-top:0.5rem; }
 
         /* Empty state */
         .empty { text-align:center; padding:4rem 1rem; color:var(--muted); font-family:var(--mono); font-size:0.9rem; }
@@ -113,11 +114,12 @@
             </a>
             <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">☰</button>
             <ul class="nav-links">
+                <li><a href="/#scan">Scan</a></li>
                 <li><a href="/">Home</a></li>
                 <li><a href="/registry.html" style="color:var(--accent)">Registry</a></li>
                 <li><a href="/blog-index.html">Blog</a></li>
                 <li><a href="/developers.html">Developers</a></li>
-                <li><a href="/#waitlist" class="nav-cta">Join Waitlist &rarr;</a></li>
+                <li><a href="/#scan" class="nav-cta">Scan Now &rarr;</a></li>
             </ul>
         </div>
     </nav>
@@ -133,6 +135,7 @@
         <div class="stat-card"><div class="val" id="stat-sources">—</div><div class="label">Sources</div></div>
         <div class="stat-card"><div class="val" id="stat-avg-risk">—</div><div class="label">Avg Risk Score</div></div>
         <div class="stat-card"><div class="val" id="stat-sbom">—</div><div class="label">SBOMs Generated</div></div>
+        <div class="stat-card"><div class="val" id="stat-updated">—</div><div class="label">Last Updated</div></div>
     </div>
 
     <div class="controls">
@@ -201,8 +204,17 @@
                     Badge
                 </a>
             </div>
+            <div class="scan-date">Scanned: ${formatDate(s.scan_timestamp || s.date)}</div>
             <div class="risk-bar risk-bar-${rc}" style="width:${barW}%"></div>
         </div>`;
+    }
+
+    function formatDate(dateStr) {
+        if (!dateStr) return 'Unknown';
+        try {
+            const d = new Date(dateStr);
+            return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+        } catch { return dateStr; }
     }
 
     function render(skills) {
@@ -277,6 +289,7 @@
             const avgRisk = allSkills.reduce((a, s) => a + (s.risk_score || 0), 0) / allSkills.length;
             document.getElementById('stat-avg-risk').textContent = avgRisk.toFixed(1);
             document.getElementById('stat-sbom').textContent = meta.total_skills || allSkills.length;
+            document.getElementById('stat-updated').textContent = formatDate(meta.last_scan);
 
             applyFilters();
         })

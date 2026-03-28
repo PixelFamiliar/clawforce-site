@@ -1505,6 +1505,7 @@
         }
     </style>
     <script defer data-domain="clawforce.ca" src="https://plausible.io/js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" integrity="sha512-XMVd28F1oH/O71fzwBnV7HucLxVwtxf26XV8P4wPk26EDxuGZ91N8bsOttmnomcCD3CS5ZMRL50H0GgOHvegtg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
@@ -1517,68 +1518,96 @@
             </a>
             <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">☰</button>
             <ul class="nav-links">
+                <li><a href="#scan">Scan</a></li>
                 <li><a href="#how-it-works">How It Works</a></li>
                 <li><a href="#pricing">Pricing</a></li>
                 <li><a href="/registry.html">Registry</a></li>
                 <li><a href="/blog-index.html">Blog</a></li>
                 <li><a href="/developers.html">Developers</a></li>
-                <li><a href="#waitlist" class="nav-cta">Join Waitlist &rarr;</a></li>
+                <li><a href="#scan" class="nav-cta">Scan Now &rarr;</a></li>
             </ul>
         </div>
     </nav>
 
     <main>
     <!-- ━━━ HERO ━━━ -->
-    <section class="hero" style="padding:5rem 0 3rem;">
-        <div class="wrap fade-up" style="text-align:center;max-width:720px;margin:0 auto;">
-            <div class="hero-label" style="justify-content:center;">
-                <span class="dot"></span>
-                The Agent Tollbooth
-            </div>
-            <h1 style="margin-top:1.5rem;">The economic layer<br>for <span class="hl">the AI Web</span></h1>
-            <p class="hero-sub" style="max-width:520px;margin:1.5rem auto 0;font-size:1.05rem;line-height:1.7;">
-                AI agents hit your website thousands of times a day. Right now, you get nothing. ClawForce lets you set a price per request and get paid automatically.
-            </p>
-            <div class="hero-cta" style="justify-content:center;margin-top:2rem;">
-                <a href="#how-it-works" class="btn btn-primary">How It Works →</a>
-                <a href="#pricing" class="btn btn-outline">See Pricing</a>
-            </div>
-        </div>
+    <section class="hero" id="scan" style="padding:7rem 0 3rem;">
+        <div class="wrap">
+            <div class="hero-grid fade-up">
+                <!-- LEFT: Messaging -->
+                <div class="hero-text">
+                    <div class="hero-label">
+                        <span class="dot"></span>
+                        The Agent Tollbooth + Security Scanner
+                    </div>
+                    <h1>The economic layer<br>for <span class="hl">the AI Web</span></h1>
+                    <p class="hero-sub">
+                        ClawForce monetizes AI agent traffic for website owners and scans agent skills for security threats. Set a price per request. Verify code before it runs.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#how-it-works" class="btn btn-primary">How It Works →</a>
+                        <a href="/registry.html" class="btn btn-outline">Browse 941 Skills →</a>
+                    </div>
 
-        <!-- Full-width infographic below the text -->
-        <div class="wrap fade-up" style="margin-top:3rem;">
-            <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:2.5rem 2rem;max-width:700px;margin:0 auto;">
-                <div style="display:flex;align-items:center;justify-content:center;gap:2rem;flex-wrap:wrap;">
-                    <!-- AI Agent -->
-                    <div style="text-align:center;min-width:120px;">
-                        <div style="font-size:3rem;margin-bottom:0.6rem;">🤖</div>
-                        <div style="font-family:var(--mono);font-size:0.85rem;font-weight:700;">AI Agent</div>
-                        <div style="font-size:0.75rem;color:var(--muted);margin-top:0.4rem;">Sends request<br>+ API token</div>
-                        <div style="margin-top:0.6rem;display:inline-block;padding:0.3rem 0.7rem;background:rgba(192,57,43,0.08);border:1px solid rgba(192,57,43,0.15);border-radius:6px;font-family:var(--mono);font-size:0.78rem;font-weight:700;color:#C0392B;">-$0.001</div>
-                    </div>
-                    <!-- Arrow 1 -->
-                    <div style="font-size:2rem;color:var(--dim);">→</div>
-                    <!-- Edge Router -->
-                    <div style="text-align:center;min-width:140px;">
-                        <div style="font-size:3rem;margin-bottom:0.6rem;">🛡️</div>
-                        <div style="font-family:var(--mono);font-size:0.85rem;font-weight:700;color:var(--cyan);">ClawForce</div>
-                        <div style="font-size:0.75rem;color:var(--muted);margin-top:0.4rem;">Verify · Charge · Proxy</div>
-                        <div style="margin-top:0.6rem;font-family:var(--mono);font-size:0.72rem;color:var(--cyan);line-height:1.7;">✓ Token<br>✓ Balance<br>✓ 200 OK</div>
-                    </div>
-                    <!-- Arrow 2 -->
-                    <div style="font-size:2rem;color:var(--dim);">→</div>
-                    <!-- Your Website -->
-                    <div style="text-align:center;min-width:120px;">
-                        <div style="font-size:3rem;margin-bottom:0.6rem;">🌐</div>
-                        <div style="font-family:var(--mono);font-size:0.85rem;font-weight:700;">Your Website</div>
-                        <div style="font-size:0.75rem;color:var(--muted);margin-top:0.4rem;">Serves content<br>earns revenue</div>
-                        <div style="margin-top:0.6rem;display:inline-block;padding:0.3rem 0.7rem;background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.15);border-radius:6px;font-family:var(--mono);font-size:0.78rem;font-weight:700;color:var(--cyan);">+$0.001</div>
+                    <!-- Mini stats row -->
+                    <div style="display:flex;gap:1.5rem;margin-top:2rem;flex-wrap:wrap;">
+                        <div>
+                            <div style="font-family:var(--mono);font-size:1.4rem;font-weight:700;color:var(--cyan);">941</div>
+                            <div style="font-family:var(--mono);font-size:0.62rem;color:var(--dim);text-transform:uppercase;letter-spacing:0.06em;">Skills Scanned</div>
+                        </div>
+                        <div>
+                            <div style="font-family:var(--mono);font-size:1.4rem;font-weight:700;color:var(--cyan);">22</div>
+                            <div style="font-family:var(--mono);font-size:0.62rem;color:var(--dim);text-transform:uppercase;letter-spacing:0.06em;">Security Patterns</div>
+                        </div>
+                        <div>
+                            <div style="font-family:var(--mono);font-size:1.4rem;font-weight:700;color:var(--cyan);">~4ms</div>
+                            <div style="font-family:var(--mono);font-size:0.62rem;color:var(--dim);text-transform:uppercase;letter-spacing:0.06em;">Edge Latency</div>
+                        </div>
                     </div>
                 </div>
-                <div style="text-align:center;margin-top:1.2rem;padding-top:1rem;border-top:1px solid var(--border);font-family:var(--mono);font-size:0.7rem;color:var(--dim);letter-spacing:0.02em;">~4ms globally · Cloudflare edge · SHA-256 token verification</div>
+
+                <!-- RIGHT: Scanner Widget -->
+                <div>
+                    <div class="scanner-card">
+                        <div class="scanner-header">
+                            <span class="scanner-dot r"></span>
+                            <span class="scanner-dot y"></span>
+                            <span class="scanner-dot g"></span>
+                            <span class="scanner-title">clawforce-scanner v1.0.0</span>
+                        </div>
+                        <div class="scanner-body">
+                            <div class="upload-zone" id="uploadZone">
+                                <div class="upload-icon">📦</div>
+                                <p>Drag & drop a skill <strong>.zip</strong> or source file</p>
+                                <p class="accent">or click to browse</p>
+                                <input type="file" id="fileInput" accept=".zip,.py,.js,.ts,.jsx,.tsx,.mjs,.cjs,.sh,.md,.json,.yml,.yaml,.toml" style="display: none;">
+                            </div>
+
+                            <div class="or-divider">or enter a GitHub URL</div>
+
+                            <div class="scan-input-group">
+                                <input type="text" class="scan-input" id="githubUrl"
+                                    placeholder="https://github.com/user/skill-repo">
+                                <button class="scan-btn" id="scanBtn" onclick="runDemoScan()"><img src="/logo.png" alt="Scan Icon" style="height:16px;width:16px;vertical-align:middle;filter:invert(1);"> Scan</button>
+                            </div>
+
+                            <div class="scan-progress" id="scanProgress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="progressFill"></div>
+                                </div>
+                                <div class="progress-text" id="progressText">Initializing scanner...</div>
+                            </div>
+
+                            <div class="scan-results" id="scanResults">
+                                <!-- Populated by JS -->
+                            </div>
+                        </div>
+                    </div>
+                    <p style="text-align:center;margin-top:0.8rem;font-size:0.68rem;color:var(--dim);font-family:var(--mono);">Free Tier 1 scan · <a href="/registry.html" style="color:var(--dim);text-decoration:underline;text-underline-offset:3px;">View full registry →</a></p>
+                </div>
             </div>
         </div>
-        <p style="text-align:center;margin-top:1.5rem;font-size:0.72rem;color:var(--dim);font-family:var(--mono);letter-spacing:0.02em;">Operated by <a href="/about.html" style="color:var(--dim);text-decoration:underline;text-underline-offset:3px;">Pixel Familiar Inc.</a> · Manitoba, Canada</p>
+        <p style="text-align:center;margin-top:2rem;font-size:0.72rem;color:var(--dim);font-family:var(--mono);letter-spacing:0.02em;">Operated by <a href="/about.html" style="color:var(--dim);text-decoration:underline;text-underline-offset:3px;">Pixel Familiar Inc.</a> · Manitoba, Canada</p>
     </section>
 
     <!-- ━━━ WHO IT'S FOR ━━━ -->
@@ -1939,11 +1968,118 @@
             }
 
             if (file.name.endsWith('.zip')) {
-                runLocalScan(file.name.replace('.zip', ''), null);
+                runZipScan(file);
             } else {
                 const reader = new FileReader();
                 reader.onload = () => runLocalScan(file.name, reader.result);
                 reader.readAsText(file);
+            }
+        }
+
+        // ━━━ ZIP Scanner ━━━
+        async function runZipScan(file) {
+            const btn = document.getElementById('scanBtn');
+            const progress = document.getElementById('scanProgress');
+            const fill = document.getElementById('progressFill');
+            const text = document.getElementById('progressText');
+            const results = document.getElementById('scanResults');
+
+            btn.disabled = true;
+            results.classList.remove('visible');
+            progress.classList.add('active');
+            fill.style.width = '5%';
+            text.textContent = 'Extracting archive...';
+
+            try {
+                const zip = await JSZip.loadAsync(file);
+                const scanExts = ['.py', '.js', '.ts', '.jsx', '.tsx', '.mjs', '.cjs', '.sh'];
+                const entries = [];
+
+                zip.forEach((path, entry) => {
+                    if (!entry.dir && scanExts.some(ext => path.endsWith(ext)) && !path.includes('node_modules/') && !path.includes('__pycache__/')) {
+                        entries.push({ path, entry });
+                    }
+                });
+
+                if (entries.length === 0) {
+                    fill.style.width = '100%';
+                    text.textContent = 'No scannable source files in archive.';
+                    progress.classList.remove('active');
+                    btn.disabled = false;
+                    const skillName = file.name.replace('.zip', '');
+                    showResults(skillName, {
+                        tier: 'scanned', risk: 0, mismatch: 0,
+                        files: 0, findings: 0,
+                        findingsList: [{ sev: 'low', desc: 'No source code files found in archive', file: 'N/A' }],
+                        hash: 'zip-' + Date.now().toString(16).substring(0, 8),
+                        source: file.name,
+                    });
+                    return;
+                }
+
+                // Limit to 50 files
+                const toScan = entries.slice(0, 50);
+                fill.style.width = '15%';
+                text.textContent = `Found ${entries.length} source files. Scanning${entries.length > 50 ? ' first 50' : ''}...`;
+
+                let allFindings = [];
+                let scannedCount = 0;
+
+                for (const { path, entry } of toScan) {
+                    const pct = 15 + Math.round((scannedCount / toScan.length) * 80);
+                    fill.style.width = pct + '%';
+                    text.textContent = `Scanning ${path}... (${scannedCount + 1}/${toScan.length})`;
+
+                    try {
+                        const content = await entry.async('string');
+                        if (content) {
+                            const findings = analyzeContent(content, path);
+                            allFindings = allFindings.concat(findings);
+                        }
+                    } catch (e) {
+                        // Skip binary or unreadable files
+                    }
+                    scannedCount++;
+                }
+
+                fill.style.width = '95%';
+                text.textContent = 'Computing risk score...';
+                await new Promise(r => setTimeout(r, 300));
+
+                fill.style.width = '100%';
+                text.textContent = 'Scan complete.';
+
+                const risk = computeRisk(allFindings);
+                const tier = determineTier(risk, allFindings);
+                const skillName = file.name.replace('.zip', '');
+
+                const permSet = new Set();
+                for (const f of allFindings) {
+                    if (f.category === 'network' || f.category === 'exfiltration') permSet.add('network');
+                    if (f.category === 'execution') permSet.add('execution');
+                    if (f.category === 'secrets' || f.category === 'env') permSet.add('credentials');
+                    if (f.category === 'privilege') permSet.add('system');
+                    if (f.category === 'obfuscation') permSet.add('execution');
+                }
+
+                progress.classList.remove('active');
+                btn.disabled = false;
+
+                showResults(skillName, {
+                    tier, risk, mismatch: 0,
+                    files: scannedCount, findings: allFindings.length,
+                    findingsList: allFindings.slice(0, 15),
+                    permissions: Array.from(permSet),
+                    hash: 'zip-' + Date.now().toString(16).substring(0, 8),
+                    source: file.name,
+                });
+            } catch (err) {
+                console.error('ZIP scan error:', err);
+                text.textContent = 'Error: Could not read ZIP file.';
+                setTimeout(() => {
+                    progress.classList.remove('active');
+                    btn.disabled = false;
+                }, 2000);
             }
         }
 
@@ -2061,68 +2197,93 @@
             results.classList.remove('visible');
             progress.classList.add('active');
             fill.style.width = '5%';
-            text.textContent = 'Connecting to real-time scanner...';
+            text.textContent = 'Fetching repository structure...';
 
-            let allFindings = [];
-            let currentRisk = 0;
+            try {
+                const { owner, repo, tree } = await fetchGitHubRepo(url);
+                const scanExts = ['.py', '.js', '.ts', '.jsx', '.tsx', '.mjs', '.cjs', '.sh'];
+                const files = (tree.tree || [])
+                    .filter(f => f.type === 'blob' && scanExts.some(ext => f.path.endsWith(ext)))
+                    .filter(f => (f.size || 0) < 500000)
+                    .slice(0, 30);
 
-            const es = new EventSource('http://localhost:8001/api/v1/scan/stream?repo=' + encodeURIComponent(url));
-
-            es.addEventListener('progress', (e) => {
-                const val = parseInt(e.data, 10);
-                if (!isNaN(val)) fill.style.width = val + '%';
-            });
-
-            es.addEventListener('status', (e) => {
-                let msg = e.data;
-                if (msg.startsWith('"') && msg.endsWith('"')) {
-                    try { msg = JSON.parse(msg); } catch(err) {} 
+                if (files.length === 0) {
+                    fill.style.width = '100%';
+                    text.textContent = 'No scannable source files found.';
+                    progress.classList.remove('active');
+                    btn.disabled = false;
+                    showResults(repo, {
+                        tier: 'scanned', risk: 0, mismatch: 0,
+                        files: 0, findings: 0,
+                        findingsList: [{ sev: 'low', desc: 'No source code files found in repository', file: 'N/A' }],
+                        hash: 'gh-' + Date.now().toString(16).substring(0, 8),
+                        source: url, isLive: true,
+                    });
+                    return;
                 }
-                text.textContent = msg;
-            });
 
-            es.addEventListener('finding', (e) => {
-                let f;
-                try { f = JSON.parse(e.data); } catch(err) { return; }
-                allFindings.push({ sev: f.sev, desc: f.text, file: f.file });
-            });
+                fill.style.width = '15%';
+                text.textContent = `Found ${files.length} source files. Scanning...`;
 
-            es.addEventListener('verdict', (e) => {
-                let v;
-                try { v = JSON.parse(e.data); } catch(err) { return; }
-                currentRisk = v.score;
-            });
+                let allFindings = [];
+                let scannedCount = 0;
 
-            es.addEventListener('statusDone', (e) => {
-                es.close();
+                for (const file of files) {
+                    const pct = 15 + Math.round((scannedCount / files.length) * 80);
+                    fill.style.width = pct + '%';
+                    text.textContent = `Scanning ${file.path}... (${scannedCount + 1}/${files.length})`;
+
+                    const content = await fetchFileContent(owner, repo, file.path);
+                    if (content) {
+                        const findings = analyzeContent(content, file.path);
+                        allFindings = allFindings.concat(findings);
+                    }
+                    scannedCount++;
+                    // Small delay to keep UI responsive
+                    await new Promise(r => setTimeout(r, 50));
+                }
+
+                fill.style.width = '95%';
+                text.textContent = 'Computing risk score...';
+                await new Promise(r => setTimeout(r, 300));
+
+                fill.style.width = '100%';
+                text.textContent = 'Scan complete.';
+
+                const risk = computeRisk(allFindings);
+                const tier = determineTier(risk, allFindings);
+                const nameMatch = repo || url.split('/').pop() || 'unknown-repo';
+
+                // Infer permission scopes from findings
+                const permSet = new Set();
+                for (const f of allFindings) {
+                    if (f.category === 'network' || f.category === 'exfiltration') permSet.add('network');
+                    if (f.category === 'execution') permSet.add('execution');
+                    if (f.category === 'secrets' || f.category === 'env') permSet.add('credentials');
+                    if (f.category === 'privilege') permSet.add('system');
+                    if (f.category === 'obfuscation') permSet.add('execution');
+                }
+
                 progress.classList.remove('active');
                 btn.disabled = false;
 
-                const nameMatch = url.split('/').pop() || 'unknown-repo';
-                const risk = currentRisk || computeRisk(allFindings);
-                const tier = determineTier(risk, allFindings);
-                
                 showResults(nameMatch, {
                     tier, risk, mismatch: 0,
-                    files: 'Multiple', findings: allFindings.length,
+                    files: scannedCount, findings: allFindings.length,
                     findingsList: allFindings.slice(0, 15),
-                    hash: 'live-' + Date.now().toString(16).substring(0, 8),
+                    permissions: Array.from(permSet),
+                    hash: 'gh-' + Date.now().toString(16).substring(0, 8),
                     source: url,
                     isLive: true,
                 });
-            });
-
-            es.onerror = (e) => {
-                console.error("SSE Error:", e);
-                es.close();
-                text.textContent = 'Scanner stream disconnected.';
+            } catch (err) {
+                console.error('GitHub scan error:', err);
+                text.textContent = 'Error: ' + (err.message || 'Could not access repository');
                 setTimeout(() => {
                     progress.classList.remove('active');
                     btn.disabled = false;
-                    // fallback to local mocked demo if API is offline
-                    runLocalScan('demo-skill', null);
                 }, 2000);
-            };
+            }
         }
 
         function runLocalScan(skillName, content) {
@@ -2290,9 +2451,42 @@
             `;
 
             results.classList.add('visible');
+
+            // Persist to Supabase
+            persistScan(name, data);
         }
 
-
+        // ━━━ Persist Scan to Supabase ━━━
+        async function persistScan(skillName, data) {
+            try {
+                const payload = {
+                    skill_name: skillName,
+                    repo: data.source || null,
+                    risk_score: data.risk || 0,
+                    total_findings: data.findings || 0,
+                    findings: (data.findingsList || []).map(f => ({
+                        sev: f.sev, desc: f.desc, file: f.file
+                    })),
+                    permissions: data.permissions || [],
+                    content_hash: data.hash || null,
+                    certification_tier: data.tier || 'scanned',
+                    files_scanned: typeof data.files === 'number' ? data.files : 0,
+                    scan_source: 'web',
+                    scanner_version: '1.0.0',
+                };
+                await fetch('https://yplhhptfyryxbzuckqsa.supabase.co/rest/v1/clawforce_scans', {
+                    method: 'POST',
+                    headers: {
+                        'apikey': 'sb_publishable_6lAW2Iyt487QyP2rpqNqUg_glnA4Mwp',
+                        'Content-Type': 'application/json',
+                        'Prefer': 'return=minimal',
+                    },
+                    body: JSON.stringify(payload),
+                });
+            } catch (e) {
+                console.warn('Scan persist failed:', e);
+            }
+        }
 
 
 
